@@ -38,4 +38,24 @@
             transform: scale(1);
   }
 }
+.highlights1 {
+  background: var(#F7F7F7, #F7F7F7);
+}
+.hovered {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.clicked {
+  cursor: pointer;
+}
+
+.visible {
+  opacity: 1;
+}
+
+span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
  

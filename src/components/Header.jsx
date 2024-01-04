@@ -42,7 +42,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center px-[2rem] md:px-[3rem] lg:px-[5rem] mt-6 bg-white">
+    <div className="flex sticky top-0 w-full z-10 justify-between items-center px-[2rem] md:px-[3rem] lg:px-[5rem] h-[70px] font-nunito  bg-white">
       <div>
         <img className="lg:w-[150px] w-[100px] sm:w-[120px]" src={logo} alt="" />
       </div>
@@ -94,14 +94,14 @@ const Header = () => {
       
       {/* responsiveness */}
       <div className="flex md:hidden  justify-end items-center z-10">
-        <span className="text-brown" onClick={() => setToggle(!toggle)}>
+        <div className="text-brown z-10" onClick={() => setToggle(!toggle)}>
           {" "}
           {toggle ? (
-            <GrClose className="cursor-pointer " size={24} />
+            <GrClose className="cursor-pointer" size={24} />
           ) : (
             <BsFillMenuButtonWideFill className="cursor-pointer " size={24} />
           )}{" "}
-        </span>
+        </div>
 
         <div
           className={`${
