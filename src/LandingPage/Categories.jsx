@@ -48,11 +48,11 @@ const Categories = () => {
       <div className="grid grid-cols-6   justify-between items-center">
         {categories.map((category, index) => (
           <div key={index} className="flex justify-center gap-5 items-center flex-col ">
-          <div className="flex items-center justify-centerbg-lynx py-[1.5rem] px-[1.5rem]">
-            <img src={category.image} alt="" />
-          </div>
-          <p className="font-semibold text-bGrey text-[17px]"> {category.name} </p>
-        </div> 
+            <div className="flex items-center justify-centerbg-lynx py-[1.5rem] px-[1.5rem]">
+              <img src={category.image} alt="" />
+            </div>
+            <p className="font-semibold text-bGrey text-[17px]"> {category.name} </p>
+          </div> 
         ))}
       </div>
     </div>

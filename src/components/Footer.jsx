@@ -30,7 +30,7 @@ const Footer = () => {
     },
     {
       content: "FAQ",
-      href: "/home",
+      href: "/",
     },
     {
       content: "Service",
@@ -144,9 +144,7 @@ const Footer = () => {
                 </div>
                 <div className="w-[28px] h-[28px] rounded-full bg-steam flex justify-center items-center  ">
                   <a href="https://wa.link/o81wxs" target="_blank" rel="noopener noreferrer"> <IoLogoWhatsapp size={18} className="text-lead" /> </a>
-                </div>
-
-                
+                </div> 
             </div>
           </div>
         </div>

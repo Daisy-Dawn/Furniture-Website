@@ -1,4 +1,3 @@
-import React from 'react'
 import Carousel from '../LandingPage/Carousel'
 import Highlight from '../LandingPage/Highlight'
 import Categories from '../LandingPage/Categories'
@@ -28,4 +27,4 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage
+export default LandingPage;

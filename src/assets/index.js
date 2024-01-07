@@ -22,6 +22,10 @@ import brand2 from './brand2.svg';
 import brand3 from './brand3.svg';
 import brand4 from './brand4.svg';
 import brand5 from './brand5.svg';
+import arrow from './aboutArrow.svg';
+import comment from './comment.svg';
+import commentPic1 from './commentPic1.png'; 
+import commentPic2 from './commentPic2.png'; 
 
 import logo from './logo.png'
 import image3 from './image3.jpg'
@@ -50,11 +54,21 @@ import highlight2 from './highlight2.png'
 import footerLogo from './footerLogo.png'
 import phoneIcon from './phoneIcon.png'
 import mailIcon from './mailIcon.png'
+import ourShop from './ourShop.jpeg'
+import offerBanner from './offerBanner.jpeg'
+import teamCard1 from './teamCard1.jpeg'
+import teamCard2 from './teamCard2.png'
+import teamCard3 from './teamCard3.png'
+import teamCard4 from './teamCard4.png'
+import teamCard5 from './teamCard5.jpg'
+import teamCard6 from './teamCard6.jpg'
+import teamCard7 from './teamCard7.jpg'
+import teamCard8 from './teamCard8.jpg'
 
 
 
 export {
-    bed, room7, image, image2, image4,
+    arrow, bed, room7, image, image2, image4,
     bedIcon, homeDesk, sofaIcon, tableIcon, lampIcon,
     bedroom, lights, pcDesk, sofa1, table1, table2,
     bedroom2, lamp1, highlight2, sofa2, room2, room1,
@@ -75,4 +89,15 @@ export {
     userIcon,
     logo,
     image3,
+    ourShop,
+    offerBanner,
+    teamCard1,
+    teamCard2,
+    teamCard3,
+    teamCard4,
+    teamCard5,
+    teamCard6,
+    teamCard7,
+    teamCard8,
+    comment, commentPic1, commentPic2
  }

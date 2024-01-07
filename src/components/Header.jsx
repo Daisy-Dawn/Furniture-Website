@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   const navLinks = [
-    { id: "home", text: "Home" },
+    { id: "", text: "Home" },
     { id: "about", text: "About" },
     { id: "shop", text: "Shop" },
     { id: "contact", text: "Contact" },
@@ -42,7 +42,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="flex sticky top-0 w-full z-10 justify-between items-center px-[2rem] md:px-[3rem] lg:px-[5rem] h-[70px] font-nunito  bg-white">
+    <div className="flex sticky top-0 w-full z-20 justify-between items-center px-[2rem] md:px-[3rem] lg:px-[5rem] h-[70px] font-nunito  bg-white">
       <div>
         <img className="lg:w-[150px] w-[100px] sm:w-[120px]" src={logo} alt="" />
       </div>

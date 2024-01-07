@@ -20,7 +20,7 @@ const ProductsCard = ({ image, price, description, id }) => {
   return (
     <div key={id} className="mb-[5rem] relative flex flex-col rounded-[10px]">
       <div 
-      className={`relative w-[300px] h-[300px] rounded-[10px]   flex itemx-center justify-center ${isHovered ? "hovered" : ""}    `}
+      className={`relative w-[300px] h-[300px] rounded-[10px]   flex items-center justify-center ${isHovered ? "hovered" : ""}    `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       >
