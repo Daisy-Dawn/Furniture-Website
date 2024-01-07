@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const HighlightComp = ({ image, heading, paragraph, button }) => {
   return (
-    <div className="flex items-center highlights1  gap-[2rem] py-[3rem] px-[3rem] rounded-[10px]">
+    <div className="flex md:flex-row flex-col   justify-center items-center md:justify-start  highlights1  gap-[2rem] lg:py-[3rem] py-[2rem] md:px-[1rem] px-[0.5rem] rounded-[10px]">
       <div>
-        <img className="w-[550px] h-[230px] object-cover" src={image} alt="" />
+        <img className="md:w-[550px] w-[300px] h-[230px] object-cover" src={image} alt="" />
       </div>
-      <div className="">
-        <h2 className="mb-6 text-lead text-[25px] font-bold"> {heading} </h2>
-        <p className="mb-6 text-bGrey text-[16px]"> {paragraph} </p>
+      <div className="flex flex-col items-center md:items-start">
+        <h2 className="mb-6 text-lead text-[25px] font-bold text-center md:text-left"> {heading} </h2>
+        <p className="mb-6 text-bGrey text-[16px] text-center md:text-left"> {paragraph} </p>
         <button className="group underline text-lead font-semibold text-[20px] flex items-center justify-center gap-2">
           <Link to="/shop">
           {button}

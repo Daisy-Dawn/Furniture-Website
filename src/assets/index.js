@@ -54,16 +54,6 @@ import highlight2 from './highlight2.png'
 import footerLogo from './footerLogo.png'
 import phoneIcon from './phoneIcon.png'
 import mailIcon from './mailIcon.png'
-import ourShop from './ourShop.jpeg'
-import offerBanner from './offerBanner.jpeg'
-import teamCard1 from './teamCard1.jpeg'
-import teamCard2 from './teamCard2.png'
-import teamCard3 from './teamCard3.png'
-import teamCard4 from './teamCard4.png'
-import teamCard5 from './teamCard5.jpg'
-import teamCard6 from './teamCard6.jpg'
-import teamCard7 from './teamCard7.jpg'
-import teamCard8 from './teamCard8.jpg'
 
 
 
@@ -74,7 +64,7 @@ export {
     bedroom2, lamp1, highlight2, sofa2, room2, room1,
     cart,sofa, brand1, brand2, brand3, brand4, brand5,
     chair1, room4, room5, room8, footerLogo, phoneIcon, mailIcon,
-    chair2,
+    chair2, facebook,
     chair3,
     chair4,
     chair5,

@@ -17,12 +17,22 @@ const ProductsCard = ({ image, price, description, id }) => {
     }));
   };
 
+  const handleTouchStart = () => {
+    setIsHovered(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div key={id} className="mb-[5rem] relative flex flex-col rounded-[10px]">
+    <div key={id} className="lg:mb-[5rem] md:mb-[3rem] mb-[2rem] relative flex flex-col items-center lg:items-start rounded-[10px]">
       <div 
-      className={`relative w-[300px] h-[300px] rounded-[10px]   flex items-center justify-center ${isHovered ? "hovered" : ""}    `}
+      className={`relative w-[300px] h-[300px] rounded-[10px]   flex itemx-center justify-center ${isHovered ? "hovered" : ""}    `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      // onTouchStart={handleTouchStart}
+      // onTouchEnd={handleTouchEnd}
       >
         <img className="w-full h-full object-cover rounded-[10px]" src={image} alt="" />
 
@@ -56,11 +66,11 @@ const ProductsCard = ({ image, price, description, id }) => {
 
       </div>
 
-      <div className="">
-        <p className="text-lead text-[18px] font-semibold capitalize">
+      <div className="flex flex-col mt-3 md:mt-0 items-center lg:items-start">
+        <p className="text-lead md:text-[18px] text-[15px] font-semibold capitalize">
           {description}
         </p>
-        <p className="font-bold text-[18px] text-brown">{price}</p>
+        <p className="font-bold md:text-[18px] text-[16px] text-brown">{price}</p>
       </div>
     </div>
   );
