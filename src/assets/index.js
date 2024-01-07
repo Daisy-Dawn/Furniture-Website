@@ -50,6 +50,7 @@ import highlight2 from './highlight2.png'
 import footerLogo from './footerLogo.png'
 import phoneIcon from './phoneIcon.png'
 import mailIcon from './mailIcon.png'
+import facebook from './facebook.png'
 
 
 
@@ -60,7 +61,7 @@ export {
     bedroom2, lamp1, highlight2, sofa2, room2, room1,
     cart,sofa, brand1, brand2, brand3, brand4, brand5,
     chair1, room4, room5, room8, footerLogo, phoneIcon, mailIcon,
-    chair2,
+    chair2, facebook,
     chair3,
     chair4,
     chair5,

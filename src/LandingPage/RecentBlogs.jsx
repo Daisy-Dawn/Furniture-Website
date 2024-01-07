@@ -25,20 +25,20 @@ const RecentBlogs = () => {
   ];
 
   return (
-    <div className="flex flex-col mx-[5rem] py-[4rem] gap-[5rem]  justify-center">
-      <div className="flex justify-center items-center gap-5">
-        <div className="w-[50px] h-[3px] bg-lead"></div>
-        <h2 className="text-[25px] font-bold text-lead"> Recent Blogs</h2>
-        <div className="w-[50px] h-[3px] bg-lead"></div>
+    <div className="flex flex-col xl:mx-[5rem] md:mx-[2rem] mx-[1rem] xl:py-[4rem] md:py-[1rem] py-[2rem] gap-[5rem] md:gap-[3rem] xl:gap-[5rem]  justify-center">
+     <div className="flex justify-center items-center gap-5">
+        <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
+        <h2 className="md:text-[25px] text-[20px] font-bold text-lead">Recent Blogs</h2>
+        <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
       </div>
 
-      <div className="grid grid-cols-3 gap-[0.5rem]">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2  grid-cols-1 gap-[2rem] md:gap-[2rem] xl:gap-[0.5rem]">
         {blog.map((blog, index) => (
           <div key={index} className="cursor-pointer relative group">
             <Link to={blog.href}>
-              <div className="w-[430px] h-[300px] relative overflow-hidden">
+              <div className="lg:w-[430px] xl:w-[410px] w-full md:h-[300px] h-[250px] relative overflow-hidden">
                 <img
-                  className="w-full h-[300px] object-cover"
+                  className="w-full md:h-[300px]  h-full object-cover"
                   src={blog.image}
                   alt=""
                 />
@@ -46,16 +46,18 @@ const RecentBlogs = () => {
                   {/* Add any additional content or styling here */}
                 </div>
               </div>
-              <h2 className="text-lead text-[18px] font-semibold mt-2">
+              <h2 className="text-lead text-center md:text-left text-[18px] font-semibold mt-2">
                 {blog.title}
               </h2>
-              <p className="text-[17px] text-bGrey font-semibold">
+              <p className="text-[17px] text-center md:text-left text-bGrey font-semibold">
                 {blog.content}
               </p>
 
-              <button className="text-brown text-[20px] font-semibold underline mt-[15px]">
-                Read More
-              </button>
+              <div className="flex justify-center md:justify-start mt-[10px] md:mt-[15px]">
+                <button className="text-brown text-[20px] font-semibold underline">
+                  Read More
+                </button>
+              </div>
             </Link>
           </div>
         ))}
