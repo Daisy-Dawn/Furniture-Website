@@ -47,7 +47,7 @@ const Signup = ({}) => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 grid-cols-1  mb-0 mx-0 xl:mx-10 font-nunito bg-white  ">
+    <div className="grid md:grid-cols-2 grid-cols-1  mb-0 mx-0 font-nunito bg-white  ">
       <div className="hidden md:block ">
         <img className="w-full h-full object-cover" src={room4} alt="" />
       </div>
