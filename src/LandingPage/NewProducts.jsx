@@ -14,6 +14,7 @@ const NewProducts = () => {
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  lg:gap-4">
         {ProductList.map((product) => (
           <ProductsCard
+          id={product.id}
             key={product.id}
             image={product.image}
             price={product.price}
