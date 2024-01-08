@@ -39,7 +39,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="flex flex-col font-nunito mt-0 md:mt-[2rem] lg:mt-[0] ">
+    <div className="flex flex-col font-nunito ">
       <div
         className="relative min-h-[300px] bg-cover bg-center text-white items-center  flex flex-col justify-center xl:p-20 md:p-10 p-3"
         style={{ backgroundImage: `url(${backgroundImageUrl})` }}
