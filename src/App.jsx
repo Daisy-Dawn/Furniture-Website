@@ -1,5 +1,11 @@
-import Layout from "./layout/Layout"
+import Routers from "./routers/Routers";
 
 export default function App() {
-  return <Layout />
+
+  return(
+    <>
+      <Routers />;
+    </>
+  ) 
+
 }

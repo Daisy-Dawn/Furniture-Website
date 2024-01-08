@@ -30,7 +30,7 @@ const Footer = () => {
     },
     {
       content: "FAQ",
-      href: "/home",
+      href: "/",
     },
     {
       content: "Service",

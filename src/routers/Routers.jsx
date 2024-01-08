@@ -1,22 +1,61 @@
-import React from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import {LandingPage, About, Shop, Contact, Blog, NoPage, Cart, Wishlist, Login, Signup, ProductDetails} from '../pages/index'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {LandingPage, About, Shop, Contact, Blog,  Cart, Wishlist,  ProductDetails, Signup, Login} from '../pages/index';
+import Layout from '../layout/Layout';
 
 const Routers = () => {
-  return <Routes>
-  <Route path='/' element={<Navigate to='home' />} />
-    <Route path='home' element={<LandingPage />} />
-    <Route path='about' element={<About />} />
-    <Route path='shop' element={<Shop />} />
-    <Route path='contact' element={<Contact />} />
-    <Route path='blog' element={<Blog />} />
-    <Route path='cart' element={<Cart />} />
-    <Route path='wishlist' element={<Wishlist />} />
-    <Route path='login' element={<Login />} />
-    <Route path='signup' element={<Signup />} />
-    <Route path='shop/:id' element={<ProductDetails />} />
-    <Route path='*' element={<NoPage />} />
-  </Routes>
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "",
+          element: <LandingPage />
+        },
+        {
+          path: "about",
+          element: <About />
+        },
+        {
+          path: "shop",
+          element: <Shop />,
+          children: [
+            {
+              path:"shop/:id",
+              element: <ProductDetails />
+            }
+          ]
+        },
+        {
+          path: "contact",
+          element: <Contact />
+        },
+        {
+          path: "blog",
+          element: <Blog />
+        },
+        {
+          path: "cart",
+          element: <Cart />
+        },
+        {
+          path: "wishlist",
+          element: <Wishlist />
+        },
+      ]
+    },
+    {
+      path: "/signup",
+      element: <Signup />
+    },
+    {
+      path: "/login",
+      element: <Login />
+    }
+  ])
+
+  return ( <RouterProvider router={router} />)
 }
 
-export default Routers
+export default Routers;
