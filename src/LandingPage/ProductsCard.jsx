@@ -27,12 +27,11 @@ const ProductsCard = ({ image, price, description, id }) => {
   };
 
   return (
-<<<<<<< HEAD
     <div
       key={id}
       className="lg:mb-[5rem] md:mb-[3rem] mb-[2rem] relative flex flex-col items-center lg:items-start rounded-[10px]"
     >
-    <Link to={`/shop/${id}`}>
+    <Link to={`shop/${id}`}>
       <div
         className={`relative md:w-[300px] w-[250px] md:h-[300px] h-[200px] rounded-[10px]   flex itemx-center justify-center ${
           isHovered ? "hovered" : ""
@@ -41,15 +40,6 @@ const ProductsCard = ({ image, price, description, id }) => {
         onMouseLeave={() => setIsHovered(false)}
         // onTouchStart={handleTouchStart}
         // onTouchEnd={handleTouchEnd}
-=======
-    <div key={id} className="lg:mb-[5rem] md:mb-[3rem] mb-[2rem] relative flex flex-col items-center lg:items-start rounded-[10px]">
-      <div 
-      className={`relative w-[300px] h-[300px] rounded-[10px]   flex itemx-center justify-center ${isHovered ? "hovered" : ""}    `}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      // onTouchStart={handleTouchStart}
-      // onTouchEnd={handleTouchEnd}
->>>>>>> 3995f8768083d00466c0dd96fc05b2c2fd5fd94e
       >
         {/*  */}
           <img

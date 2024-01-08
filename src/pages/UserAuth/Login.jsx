@@ -138,7 +138,7 @@ const Login = () => {
         {/* END OF FORM COMPONENT */}
 
         <div className="absolute cursor-pointer lg:text-lead text-black left-[1rem] top-[1rem] md:top-[0rem]">
-          <Link to="/home">
+          <Link to="/">
             <IoIosArrowBack className="xl:size-[28px] size-[26px]" />
           </Link>
         </div>

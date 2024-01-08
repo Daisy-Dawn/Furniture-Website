@@ -20,12 +20,10 @@ const Routers = () => {
         {
           path: "shop",
           element: <Shop />,
-          children: [
-            {
-              path:"shop/:id",
-              element: <ProductDetails />
-            }
-          ]
+        },
+        {
+          path: "shop/:id",
+          element: <ProductDetails />
         },
         {
           path: "contact",

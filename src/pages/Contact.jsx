@@ -27,7 +27,7 @@ const Contact = () => {
   console.log(errors);
 
   const onSubmit = (data) => {
-    navigate('/home')
+    navigate('/')
     console.log(data)
   }
 

@@ -116,7 +116,7 @@ const Footer = () => {
             <div className="flex flex-col md:gap-[1rem] gap-[0.5rem]">
               <Link
                 className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px] mb-1 md:mb-2"
-                to="/home"
+                to="/"
               >
                 Customer
               </Link>
@@ -135,7 +135,7 @@ const Footer = () => {
             <div className="flex flex-col md:gap-[1rem] gap-[0.5rem] mt-[1.5rem] md:mt-[0]">
               <Link
                 className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px]  mb-1 md:mb-2"
-                to="/home"
+                to="/"
               >
                 Information
               </Link>
@@ -155,13 +155,13 @@ const Footer = () => {
             <div className="flex flex-col md:gap-[1rem] gap-[0.75rem] mt-[1.5rem] md:mt-[0]">
               <Link
                 className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px]  mb-1 md:mb-2"
-                to="/home"
+                to="/"
               >
                 Contact Info
               </Link>
               <Link
                 className="lg:text-[16px] md:text-[15px] text-[13px]"
-                to="/home"
+                to="/h"
               >
                 2118 Thornridge Cir. Syracuse, Connecticut 35624.
               </Link>
@@ -200,7 +200,7 @@ const Footer = () => {
             <div className="mb-[1rem] md:mb-0">
               <a
                 className="lg:text-[16px] md:text-[14px] text-[12px] font-semibold"
-                href="/home"
+                href="/"
               >
                 @ 2023 Daisy Dawn Cooperation. All Rights Reserved
               </a>
