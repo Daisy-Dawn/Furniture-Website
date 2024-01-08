@@ -38,8 +38,35 @@ const Footer = () => {
     },
   ];
 
+  const socialIconList = [
+    {
+      icon: <FaGithub />,
+      href: "#",
+    },
+    {
+      icon: <GrInstagram />,
+      href: "#",
+    },
+    {
+      icon: <FaTwitter />,
+      href: "#",
+    },
+    {
+      icon: <FaLinkedinIn />,
+      href: "#",
+    },
+    {
+      icon: <SiUpwork />,
+      href: "#",
+    },
+    {
+      icon: <IoLogoWhatsapp />,
+      href: "#",
+    },
+  ];
+
   return (
-    <div className="flex flex-col font-nunito mt-0 md:mt-[2rem] lg:mt-[0] ">
+    <div className="flex flex-col font-nunito ">
       <div
         className="relative min-h-[300px] bg-cover bg-center text-white items-center  flex flex-col justify-center xl:p-20 md:p-10 p-3"
         style={{ backgroundImage: `url(${backgroundImageUrl})` }}
@@ -76,11 +103,7 @@ const Footer = () => {
         <div className="grid lg:grid-cols-3 grid-cols-1">
           <div className="flex lg:gap-[2rem] gap-[1rem] mb-0 md:mb-[2rem] lg:mb-0 flex-col">
             <div className="md:w-[180px] w-[150px] h-[50px] flex items-center justify-center">
-              <img
-                className="object-cover"
-                src={footerLogo}
-                alt=""
-              />
+              <img className="object-cover" src={footerLogo} alt="" />
             </div>
             <p className="lg:w-[80%] w-full md:text-[18px] text-[14px] text-justify">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -91,33 +114,82 @@ const Footer = () => {
 
           <div className="grid col-span-2 md:grid-cols-3 grid-cols-1 px-[0rem] mt-[25px] md:mt-[0px] xl:px-[5rem]">
             <div className="flex flex-col md:gap-[1rem] gap-[0.5rem]">
-              <Link className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px] mb-1 md:mb-2" to="/home">Customer</Link>
+              <Link
+                className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px] mb-1 md:mb-2"
+                to="/home"
+              >
+                Customer
+              </Link>
               {footerLink1.map((link, index) => (
                 <div key={index}>
-                  <Link className="lg:text-[16px] md:text-[15px] text-[13px]" to={link.href}> {link.content} </Link>
+                  <Link
+                    className="lg:text-[16px] md:text-[15px] text-[13px]"
+                    to={link.href}
+                  >
+                    {" "}
+                    {link.content}{" "}
+                  </Link>
                 </div>
               ))}
             </div>
             <div className="flex flex-col md:gap-[1rem] gap-[0.5rem] mt-[1.5rem] md:mt-[0]">
-              <Link className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px]  mb-1 md:mb-2" to="/home">Information</Link>
+              <Link
+                className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px]  mb-1 md:mb-2"
+                to="/home"
+              >
+                Information
+              </Link>
               {footerLink2.map((link, index) => (
                 <div key={index}>
-                  <Link className="lg:text-[16px] md:text-[15px] text-[13px]" to={link.href}> {link.content} </Link>
+                  <Link
+                    className="lg:text-[16px] md:text-[15px] text-[13px]"
+                    to={link.href}
+                  >
+                    {" "}
+                    {link.content}{" "}
+                  </Link>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col md:gap-[1rem] gap-[0.75rem] mt-[1.5rem] md:mt-[0]">
-            <Link className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px]  mb-1 md:mb-2" to="/home">Contact Info</Link>
-            <Link className="lg:text-[16px] md:text-[15px] text-[13px]" to="/home">2118 Thornridge Cir. Syracuse, Connecticut 35624.</Link>
-            <div className="flex gap-5 items-center">
-                <img className="w-[35px] h-[35px] object-cover  " src={phoneIcon} alt="" />
-                <a className="lg:text-[16px] md:text-[15px] text-[13px]" href="https://wa.link/o81wxs" target="_blank" rel="noopener noreferrer">+234 705 862 5305</a>
-            </div>
-            <div className="flex gap-3 items-center">
-                <img className="w-[35px] h-[35px] object-cover  " src={mailIcon} alt="" />
-                <p className="lg:text-[16px] md:text-[15px] text-[13px]">agboella20@gmail.com</p>
-            </div>
+              <Link
+                className="text-white font-bold lg:text-[20px] md:text-[18px] text-[16px]  mb-1 md:mb-2"
+                to="/home"
+              >
+                Contact Info
+              </Link>
+              <Link
+                className="lg:text-[16px] md:text-[15px] text-[13px]"
+                to="/home"
+              >
+                2118 Thornridge Cir. Syracuse, Connecticut 35624.
+              </Link>
+              <div className="flex gap-5 items-center">
+                <img
+                  className="w-[35px] h-[35px] object-cover  "
+                  src={phoneIcon}
+                  alt=""
+                />
+                <a
+                  className="lg:text-[16px] md:text-[15px] text-[13px]"
+                  href="https://wa.link/o81wxs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +234 705 862 5305
+                </a>
+              </div>
+              <div className="flex gap-3 items-center">
+                <img
+                  className="w-[35px] h-[35px] object-cover  "
+                  src={mailIcon}
+                  alt=""
+                />
+                <p className="lg:text-[16px] md:text-[15px] text-[13px]">
+                  agboella20@gmail.com
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -126,28 +198,28 @@ const Footer = () => {
           <div className="w-full h-[1px] bg-steam"></div>
           <div className="flex flex-col md:flex-row md:mt-8 mt-4 md:justify-between md:items-center items-start">
             <div className="mb-[1rem] md:mb-0">
-              <a className="lg:text-[16px] md:text-[14px] text-[12px] font-semibold" href="/home">@ 2023 Daisy Dawn Cooperation. All Rights Reserved</a>
+              <a
+                className="lg:text-[16px] md:text-[14px] text-[12px] font-semibold"
+                href="/home"
+              >
+                @ 2023 Daisy Dawn Cooperation. All Rights Reserved
+              </a>
             </div>
 
             <div className="flex items-center justify-between w-full md:w-fit md:justify-center gap-[1rem]">
-                <div className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center  ">
-                  <a href="https://github.com/Daisy-Dawn/" target="_blank" rel="noopener noreferrer"> <FaGithub size={18} className="text-lead" /> </a>
+              {socialIconList.map((icon, index) => (
+                <div
+                  className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center "
+                  key={index}
+                >
+                  <a href={icon.href} target="_blank" rel="noopener noreferrer">
+                    {" "}
+                    <span className="size-[18] text-lead">
+                      {icon.icon}
+                    </span>{" "}
+                  </a>
                 </div>
-                <div className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center  ">
-                  <a href="https://www.instagram.com/daisydawn20?igsh=NGVhN2U2NjQ0Yg==" target="_blank" rel="noopener noreferrer"> <GrInstagram size={18} className="text-lead" /> </a>
-                </div>
-                <div className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center  ">
-                  <a href="https://twitter.com/AgboEmmanuella7" target="_blank" rel="noopener noreferrer"> <FaTwitter size={18} className="text-lead" /> </a>
-                </div>
-                <div className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center  ">
-                  <a href="https://www.linkedin.com/in/agbo-emmanuella7/" target="_blank" rel="noopener noreferrer"> <FaLinkedinIn size={18} className="text-lead" /> </a>
-                </div>
-                <div className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center  ">
-                  <a href="https://www.upwork.com/freelancers/~01a0b25d4aca6eaeae" target="_blank" rel="noopener noreferrer"> <SiUpwork size={18} className="text-lead" /> </a>
-                </div>
-                <div className="w-[28px] h-[28px] rounded-full bg-steam flex justify-center items-center  ">
-                  <a href="https://wa.link/o81wxs" target="_blank" rel="noopener noreferrer"> <IoLogoWhatsapp size={18} className="text-lead" /> </a>
-                </div> 
+              ))}
             </div>
           </div>
         </div>

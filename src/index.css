@@ -53,9 +53,19 @@
   opacity: 1;
 }
 
-/* span {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+@media screen and (max-width: 767px) {
+  .bg-image {
+    background-image: url("./assets/room4.jpeg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(7px); /* Adjust the blur level as per your preference */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }
 
  
