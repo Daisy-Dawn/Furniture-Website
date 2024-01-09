@@ -102,6 +102,6 @@ export const ProductOfWeek = [
         id: 4,
         image: bedroom2,
         price: "$230.00",
-        description: "Modern Bed Frame for Lovers and Homes"
+        description: "Modern Bed Frame for Homes"
     },
 ]
