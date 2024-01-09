@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-  bed,
-  bedroom,
-  image,
-  image2,
-  image3,
-  image4,
-  room7,
-} from "../assets/index";
+import {bed2, flower5, sofa2, kitchen2, furnitureStyles2, bed, flower3} from "../assets/index";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Button from "../components/Button";
 
 const Carousel = () => {
-  const images = [room7,image3, bedroom,  image4, image, image2, bed];
+  const images = [bed2, flower5, sofa2, kitchen2, furnitureStyles2, bed, flower3];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
