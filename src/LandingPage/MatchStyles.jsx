@@ -1,8 +1,9 @@
 import React from 'react'
-import { sofa } from '../assets'
 import Button from '../components/Button'
+import ProductList from '../data/ProductsList'
 
 const MatchStyles = () => {
+  const matchStyles = ProductList.filter(product => product.feature === 'furnitureStyles')
   return (
     <div className='grid md:grid-cols-2 grid-cols-1 items-center justify-center md:justify-start xl:mx-[5rem] md:mx-[2rem] mx-[1rem] md:my-[4rem] lg:my-[2rem] xl:my-[4rem] my-[1rem] bg-lynx md:p-[3rem]  p-[1rem] gap-[3rem]  md:gap-[4rem] '>
       <div className='flex flex-col items-center md:items-start  '>
@@ -11,10 +12,11 @@ const MatchStyles = () => {
         <Button text="Shop Now" />
       </div>
 
-      <div className=''>
-        <img className=' w-full h-full object-cover' src={sofa} alt="" />
-
+      {matchStyles.map(prodcut => (
+        <div key={prodcut.id} className='w-full h-[400px]'>
+        <img className=' w-full h-full object-contain' src={prodcut.image} alt="" />
       </div>
+      ))}
     </div>
   )
 }

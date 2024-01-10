@@ -1,5 +1,5 @@
 import React from "react";
-import { image3, footerLogo, phoneIcon, mailIcon } from "../assets";
+import { flower5, footerLogo, phoneIcon, mailIcon } from "../assets";
 import { Link } from "react-router-dom";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
@@ -8,7 +8,7 @@ import { SiUpwork } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io5";
 
 const Footer = () => {
-  const backgroundImageUrl = image3;
+  const backgroundImageUrl = flower5;
   const footerLink1 = [
     {
       content: "About Us",

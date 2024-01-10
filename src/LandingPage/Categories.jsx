@@ -6,6 +6,8 @@ import {
   lampIcon,
   sofaIcon,
   tableIcon,
+  stoolIcon,
+  kitchenCabinetIcon, cabinetIcon, flowerVaseIcon, furnitureStylesIcon,
 } from "../assets";
 
 const Categories = () => {
@@ -34,6 +36,26 @@ const Categories = () => {
       name: 'Lamp',
       image: lampIcon,
     },
+    {
+      name: 'Stool',
+      image: stoolIcon,
+    },
+    {
+      name: 'Kitchen Cabinet',
+      image: kitchenCabinetIcon,
+    },
+    {
+      name: 'Cabinet',
+      image: cabinetIcon,
+    },
+    {
+      name: 'Flower Vase',
+      image: flowerVaseIcon,
+    },
+    {
+      name: 'Furniture Style',
+      image: furnitureStylesIcon,
+    },
 
   ]
 
@@ -47,11 +69,11 @@ const Categories = () => {
 
       <div className="grid lg:grid-cols-6 grid-cols-3  justify-between items-center">
         {categories.map((category, index) => (
-          <div key={index} className="flex justify-center gap-5 items-center flex-col ">
+          <div key={index} className="flex justify-center lg:gap-5 gap-0 items-center flex-col ">
           <div className="flex items-center justify-centerbg-lynx py-[1.5rem] px-[1.5rem]">
-            <img src={category.image} alt="" />
+            <img className="lg:w-[100px] w-[50px] h-[50px] lg:h-[100px] object-contain" src={category.image} alt="" />
           </div>
-          <p className="font-semibold text-bGrey text-[17px]"> {category.name} </p>
+          <p className="font-semibold text-bGrey text-center lg:text-left text-[17px]"> {category.name} </p>
         </div> 
         ))}
       </div>

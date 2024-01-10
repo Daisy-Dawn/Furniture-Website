@@ -17,6 +17,11 @@ import stool2 from './BarStool/stool2.png'
 import stool1 from './BarStool/stool1.png'
 import stoolIcon from './BarStool/stoolIcon.png'
 
+//BLOGG
+import blog1 from './blogg/blog1.jpg';
+import blog2 from './blogg/blog2.jpg';
+import blog3 from './blogg/blog3.jpg';
+
 //BED FRAME
 import bed from './bedFrame/bed.jpg';
 import bedIcon from './bedFrame/bedIcon.png';
@@ -101,11 +106,15 @@ import sofaHighlight from './Sofa/sofaHighlight.jpg'
 import tableIcon from './Table/tableIcon.png'
 import table1 from './Table/table1.jpeg'
 
+//USER AUTH
+import userAuth from './userAuth.jpg'
 
 export {
     //about
     commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4, 
     teamCard5, teamCard6, teamCard7, teamCard8,
+    //blogg
+    blog1, blog2, blog3,
     //stool
     stool2, stool1, stoolIcon,
     //bed frame
@@ -131,5 +140,7 @@ export {
     sofaIcon, sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight,
     //table
     tableIcon, table1,
+    //user auth
+    userAuth,
     
  }

@@ -1,28 +1,8 @@
 import React from "react";
-import { room4, room5, room8 } from "../assets";
+import BlogList from "../data/BlogList";
 import { Link } from "react-router-dom";
 
 const RecentBlogs = () => {
-  const blog = [
-    {
-      image: room4,
-      title: "First Time Home Owner Ideas",
-      content: " by Nana Ama on Nov 18th, 2022",
-      href: "/blog",
-    },
-    {
-      image: room5,
-      title: "First Time Home Owner Ideas",
-      content: " by Nana Ama on Nov 18th, 2022",
-      href: "/blog",
-    },
-    {
-      image: room8,
-      title: "First Time Home Owner Ideas",
-      content: " by Nana Ama on Nov 18th, 2022",
-      href: "/blog",
-    },
-  ];
 
   return (
     <div className="flex flex-col xl:mx-[5rem] md:mx-[2rem] mb-[2rem] mx-[1rem] xl:py-[4rem] md:py-[1rem] py-[2rem] gap-[5rem] md:gap-[3rem] xl:gap-[5rem]  justify-center">
@@ -33,8 +13,8 @@ const RecentBlogs = () => {
       </div>
 
       <div className="grid xl:grid-cols-3 md:grid-cols-2  grid-cols-1 gap-[2rem] md:gap-[2rem] xl:gap-[0.5rem]">
-        {blog.map((blog, index) => (
-          <div key={index} className="cursor-pointer relative group">
+        {BlogList.map((blog) => (
+          <div key={blog.id} className="cursor-pointer relative group">
             <Link to={blog.href}>
               <div className="lg:w-[430px] xl:w-[410px] w-full md:h-[300px] h-[250px] relative overflow-hidden">
                 <img
