@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from "react";
-import {bed2, flower5, sofa2, kitchen2, furnitureStyles2, bed, flower3} from "../assets/index";
+import {
+  bed2,
+  flower5,
+  sofa2,
+  kitchen2,
+  furnitureStyles2,
+  bed,
+  flower3,
+} from "../assets/index";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 const Carousel = () => {
-  const images = [bed2, flower5, sofa2, kitchen2, furnitureStyles2, bed, flower3];
+  const images = [
+    bed2,
+    flower5,
+    sofa2,
+    kitchen2,
+    furnitureStyles2,
+    bed,
+    flower3,
+  ];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -57,7 +73,9 @@ const Carousel = () => {
           <h2 className="text-lead lg:text-[50px] md:text-[40px] min-[270px]:text-[25px] min-[350px]:text-[30px] font-bold lg:mb-8 md:mb-5 mb-3 leading-[35px] md:leading-[45px] lg:leading-[60px]">
             Creative Home Simplify Your Furniture
           </h2>
-          <Button text="Shop Now" />
+          <button className="py-[8px] px-[20px]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[16px] font-bold text-center flex items-center justify-center ">
+            <Link to={`/shop`}> Shop Now </Link>
+          </button>
         </div>
       </div>
     </div>

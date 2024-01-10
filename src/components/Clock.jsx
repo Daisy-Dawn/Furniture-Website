@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Clock = () => {
+const Clock = ({id}) => {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -111,7 +111,7 @@ const Clock = () => {
       </div>
 
       <button className="py-[8px] px-[20px] mt-[1.5rem] lg:mt-[3rem] w-fit mx-auto lg:mx-0  rounded-[10px] font-nunito bg-white hover:bg-lead hover:border-2 hover:border-white text-lead hover:text-white text-[16px] font-bold text-center flex items-center justify-center">
-        <Link to="/shop">Visit Store</Link>
+        <Link to={`shop/${id}`}>Visit Store</Link>
       </button>
     </div>
   );
