@@ -80,7 +80,7 @@ const Header = () => {
         {navLinks.map((link) => (
           <li
             key={link.id}
-            className={`text-black hover:text-brown font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ${
+            className={`text-black hover:text-brown font-medium ${
               active === link.text ? "text-brown" : "text-black"
             }`}
             onClick={() => setActive(link.text)}
@@ -95,7 +95,7 @@ const Header = () => {
           onClick={handleToggleDropdown}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className={`relative text-black hover:text-brown font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 userIconContainer`}
+          className={`relative text-black hover:text-brown cursor-pointer font-medium userIconContainer`}
         >
             <img src={userIcon} alt="" />
           {isDropdownVisible && (
@@ -125,7 +125,7 @@ const Header = () => {
         {navLinks2.map((link) => (
           <li
             key={link.id}
-            className={`text-black hover:text-brown relative font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ${
+            className={`text-black hover:text-brown relative font-medium ${
               active === link.text ? "text-brown" : "text-black"
             }`}
             onClick={() => setActive(link.text)}
@@ -162,7 +162,7 @@ const Header = () => {
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className={`text-white hover:text-yellow-300 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ${
+                className={`text-white hover:text-yellow-300 ${
                   active === link.text ? "text-yellow-300" : "text-white"
                 }`}
                 onClick={() => setActive(link.text)}

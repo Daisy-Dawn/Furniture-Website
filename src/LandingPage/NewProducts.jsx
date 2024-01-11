@@ -1,5 +1,5 @@
 import React from "react";
-import ProductsCard from "./ProductsCard";
+import ProductsCard from '../components/ProductsCard';
 import ProductList from "../data/ProductsList";
 
 const NewProducts = () => {
@@ -15,6 +15,7 @@ const NewProducts = () => {
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  lg:gap-4">
         {newProducts.map((product) => (
           <ProductsCard
+            link={`/shop/${product.id}`}
             id={product.id}
             key={product.id}
             image={product.image}

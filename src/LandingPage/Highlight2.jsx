@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { highlight2 } from "../assets";
 import Button from "../components/Button";
 import ProductList from "../data/ProductsList";
 
