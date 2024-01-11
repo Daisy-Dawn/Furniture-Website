@@ -5,7 +5,7 @@ import { BiSearchAlt } from "react-icons/bi";
 
 const Shop = () => {
   return (
-    <div className="py-[5rem] px-[4rem] gap-[2rem] grid grid-cols-12 font-nunito bg-white  ">
+    <div className="py-[3rem] px-[4rem] gap-[2rem] grid grid-cols-12 font-nunito bg-white  ">
       <header className="    col-span-12">
         <div className=" w-full justify-center mb-[2.5rem] items-center flex flex-col">
           <h2 className="text-center text-lead text-[45px] font-bold">Shops</h2>

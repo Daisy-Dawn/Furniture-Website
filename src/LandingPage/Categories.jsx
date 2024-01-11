@@ -60,7 +60,7 @@ const Categories = () => {
   ]
 
   return (
-    <div className="flex flex-col xl:mx-[5rem] md:mx-[2rem] mx-[1rem] xl:py-[2.5rem] py-[0rem] xl:gap-[5rem] gap-[2rem] justify-center">
+    <div className="flex flex-col xl:mx-[5rem] md:mx-[2rem] mx-[1rem] py-[0rem] xl:gap-[5rem] gap-[2rem] justify-center">
       <div className="flex justify-center items-center gap-5">
         <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
         <h2 className="md:text-[25px] text-[20px] font-bold text-lead"> Categories</h2>
