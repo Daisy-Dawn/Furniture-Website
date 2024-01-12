@@ -1,4 +1,4 @@
-import Carousel from '../LandingPage/Carousel'
+import Carosel from '../LandingPage/Carosel'
 import Highlight from '../LandingPage/Highlight'
 import Categories from '../LandingPage/Categories'
 import ProductsOfWeek from '../LandingPage/ProductsOfWeek'
@@ -13,7 +13,7 @@ import RecentBlogs from '../LandingPage/RecentBlogs'
 const LandingPage = () => {
   return (
     <div className='font-nunito bg-white'>
-      <Carousel />
+      <Carosel />
       <Highlight />
       <Categories />
       <NewProducts />

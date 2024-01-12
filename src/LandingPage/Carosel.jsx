@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useRef} from "react";
 import {
   bed2,
   flower5,
@@ -10,8 +10,9 @@ import {
 } from "../assets/index";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
+import {Carousel} from 'antd'
 
-const Carousel = () => {
+const Carosel = () => {
   const images = [
     bed2,
     flower5,
@@ -21,48 +22,39 @@ const Carousel = () => {
     bed,
     flower3,
   ];
-  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentSlide((currentSlide + 1) % images.length);
-  };
+  const carouselRef = useRef();
 
-  const prevSlide = () => {
-    setCurrentSlide((currentSlide - 1 + images.length) % images.length);
-  };
+  const prev = () => {
+    carouselRef.current.prev();
+  }
 
-  useEffect(() => {
-    const autoplayInterval = setInterval(() => {
-      nextSlide();
-    }, 3000);
-
-    return () => clearInterval(autoplayInterval);
-  }, [currentSlide]);
+  const next = () => {
+    carouselRef.current.next();
+  }
 
   return (
     <div className="w-full h-auto  overflow-x-hidden relative">
-      <div
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        className="flex w-full h-full transition-transform duration-500 ease-in-out transform "
-      >
-        {images.map((img, index) => (
-          <img
-            key={index}
-            className="flex-shrink-0 w-full md:h-[650px] h-[400px] object-cover"
-            src={img}
-            alt={`Slide ${index + 1}`}
-          />
-        ))}
-      </div>
+          <Carousel  effect="fade" ref={carouselRef} autoplay>
+            {images.map((img, index) => (
+            <img
+              key={index}
+              className="flex-shrink-0 w-full md:h-[650px] h-[400px] object-cover"
+              src={img}
+              alt={`Slide ${index + 1}`}
+            />
+          ))}
+      </Carousel>
+
       <div className="absolute top-1/2 flex w-full justify-between transform -translate-y-1/2 md:px-2 lg:px-8 px-2">
         <button
-          onClick={prevSlide}
+          onClick={prev}
           className="rounded-full bg-steam md:p-2 p-1 hover:bg-slate-300 flex items-center justify-center"
         >
           <IoIosArrowBack size={24} />
         </button>
         <button
-          onClick={nextSlide}
+           onClick={next}
           className="rounded-full bg-steam md:p-2 p-1 hover:bg-slate-300 flex items-center justify-center"
         >
           <IoIosArrowForward size={24} />
@@ -82,4 +74,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default Carosel;

@@ -1,7 +1,8 @@
+
 import React, { useState } from "react";
 import { FaEye, FaHeart } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductsCard = ({ image, price, description, link, id }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -31,7 +32,6 @@ const ProductsCard = ({ image, price, description, link, id }) => {
       key={id}
       className="lg:mb-[3rem] md:mb-[3rem] mb-[2rem] relative flex flex-col items-center lg:items-start rounded-[10px]"
     > 
-    {/* to={`shop/${id}`} */}
     <Link className=" flex flex-col justify-center lg:justify-start lg:items-start items-center" to={link} >
       <div
         className={`relative md:w-[300px] w-[250px] md:h-[300px] h-[200px] rounded-[10px] flex items-center justify-center ${
@@ -39,8 +39,6 @@ const ProductsCard = ({ image, price, description, link, id }) => {
         }    `}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        // onTouchStart={handleTouchStart}
-        // onTouchEnd={handleTouchEnd}
       >
           <img
             className="w-full h-full object-cover rounded-[10px]"

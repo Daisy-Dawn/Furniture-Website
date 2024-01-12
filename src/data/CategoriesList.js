@@ -62,34 +62,3 @@ const CategoriesList = [
 ]
 
 export default CategoriesList;
-
-export const ProductColors = [
-    {
-        name: 'Purple',
-        color: 'text-purple-600',
-    },
-    {
-        name: 'Blue',
-        color: 'text-blue-600',
-    },
-    {
-        name: 'Red',
-        color: 'text-red-600',
-    },
-    {
-        name: 'Green',
-        color: 'text-green-600',
-    },
-    {
-        name: 'Yellow',
-        color: 'text-yellow-600',
-    },
-    {
-        name: 'Grey',
-        color: 'text-grey-600',
-    },
-    {
-        name: 'White',
-        color: 'text-white',
-    },
-]
