@@ -1,5 +1,5 @@
 //blog images
-import { bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,bar10,bar11,cabinet1,cabinet2,cabinet3,cabinet4,cabinet5,cabinet6,cabinet7,coffee1,coffee2,coffee3,coffee4,coffee5,coffee6,coffee7,kitchen1,kitchen2,kitchen3,kitchen4,kitchen5,kitchen6,kitchen7,kitchen8,office1,office2,office3,office4,office5,office6 } from "../assets";
+import { bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,bar10,bar11,cabinet1,cabinet2,cabinet3,cabinet4,cabinet5,cabinet6,cabinet7,coffee1,coffee2,coffee3,coffee4,coffee5,coffee6,coffee7,kitchen_1,kitchen_2,kitchen_3,kitchen_4,kitchen_5,kitchen_6,kitchen_7,kitchen_8,office1,office2,office3,office4,office5,office6 } from "../assets";
 //Blog data
 const blogCardData = [
     {
@@ -255,7 +255,7 @@ const blogCardData = [
     {
         id: 26,
         category: "kitchen furniture",
-        banner: kitchen1,
+        banner: kitchen_1,
         date: "10 Mar,2024",
         bannerDescription: "Kitchen Cabinet, Modern Design",
         author: "John Doe",
@@ -265,7 +265,7 @@ const blogCardData = [
     {
         id: 27,
         category: "kitchen furniture",
-        banner: kitchen2,
+        banner: kitchen_2,
         date: "12 Mar,2024",
         bannerDescription: "Kitchen Island, Rustic Style",
         author: "Jane Smith",
@@ -275,7 +275,7 @@ const blogCardData = [
     {
         id: 28,
         category: "kitchen furniture",
-        banner: kitchen3,
+        banner: kitchen_3,
         date: "14 Mar,2024",
         bannerDescription: "Kitchen Sink, Glass Top",
         author: "Robert Johnson",
@@ -285,7 +285,7 @@ const blogCardData = [
     {
         id: 29,
         category: "kitchen furniture",
-        banner: kitchen4,
+        banner: kitchen_4,
         date: "16 Mar,2024",
         bannerDescription: "Kitchen Table, Wooden",
         author: "Emily Brown",
@@ -295,7 +295,7 @@ const blogCardData = [
     {
         id: 30,
         category: "kitchen furniture",
-        banner: kitchen5,
+        banner: kitchen_5,
         date: "18 Mar,2024",
         bannerDescription: "Kitchen Chairs, Round",
         author: "Michael Wilson",
@@ -305,7 +305,7 @@ const blogCardData = [
     {
         id: 31,
         category: "kitchen furniture",
-        banner: kitchen6,
+        banner: kitchen_6,
         date: "20 Mar,2024",
         bannerDescription: "Kitchen Appliances, Large Size",
         author: "Patricia Taylor",
@@ -315,7 +315,7 @@ const blogCardData = [
     {
         id: 32,
         category: "kitchen furniture",
-        banner: kitchen7,
+        banner: kitchen_7,
         date: "22 Mar,2024",
         bannerDescription: "Kitchen Utensils, Small Size",
         author: "Linda Thompson",
@@ -325,7 +325,7 @@ const blogCardData = [
     {
         id: 33,
         category: "kitchen furniture",
-        banner: kitchen8,
+        banner: kitchen_8,
         date: "24 Mar,2024",
         bannerDescription: "Kitchen Decor, Elegant",
         author: "James Anderson",
