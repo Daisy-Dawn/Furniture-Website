@@ -1,4 +1,4 @@
-import { arrow } from "../assets";
+import { aboutArrow } from "../assets";
 import Button from '../components/Button';
 
 
@@ -16,7 +16,7 @@ const OfferBanner = () => {
             </div>
             <Button text="Shop Now" />
             <div className="w-full max-w-[9.3666875rem] transform -translate-x-16">
-                <img src={arrow} alt="arrow svg" />
+                <img src={aboutArrow} alt="arrow svg" />
             </div>
         </div>
     </section>

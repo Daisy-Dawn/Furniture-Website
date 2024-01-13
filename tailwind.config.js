@@ -1,14 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: [
-//     "./index.html",
-//     "./src/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -19,7 +8,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'aboutBanner': "url('./src/assets/offerBanner.jpeg')",
+        'aboutBanner': "url('./src/assets/about/offerBanner.jpeg')",
         'aboutBanner2': "linear-gradient(94deg, rgba(34, 34, 34, 0.25) 19.46%, rgba(34, 34, 34, 0.10) 84.61%)"
       },
       colors: {

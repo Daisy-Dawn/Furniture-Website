@@ -1,5 +1,5 @@
 import React from "react";
-import { room8, room4, facebook } from "../../assets";
+import { userAuth, facebook } from "../../assets";
 import { IoIosArrowBack } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <div className="grid md:grid-cols-2 grid-cols-1  mb-0 mx-0  font-nunito bg-white  ">
       <div className="hidden md:block ">
-        <img className="w-full h-full object-cover" src={room4} alt="" />
+        <img className="w-full h-full object-cover" src={userAuth} alt="" />
       </div>
 
       <div className="flex relative items-center h-full bg-image">

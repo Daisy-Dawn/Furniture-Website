@@ -1,107 +1,200 @@
-import {bed, chair1, chair2, chair3, chair4, desk2, homeDesk, lights, lamp1, sofa1, table1, table2, sofa2, room1, room2, bedroom2, bedroom} from '../assets'
+import {highlight1, chair6, lights, chair1, bed1, sofa3, sofa4, kitchen1, furnitureStyles3, bed3, desk,  chair7,
+highlight2, sofa1, sofa5, flower1, flower2, sofa2, chair3, bed, chair4,
+} from '../assets'
 
 
 const ProductList = [
     {
         id: 1,
-        image: chair2,
+        image: highlight1,
         price: "$100.00",
-        description: "Bed frame Mattress Bed size Platform"
+        name: "Comfortable Chair",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "chair",
+        feature: "highlights"
     },
     {
         id: 2,
-        image: chair1,
-        price: "$80.00",
-        description: "Chair Comfort Furniture Commode"
+        image: lights,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "lights",
+        feature: "highlights"
     },
     {
         id: 3,
         image: chair3,
-        price: "$87.00",
-        description: "Couch Loveseat Sofa bed Chair"
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "chair",
+        feature: "newProducts"
     },
     {
         id: 4,
-        image: chair4,
-        price: "$95.00",
-        description: "Improvement Section sofa"
+        image: bed1,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "bedFrame",
+        feature: "newProducts"
     },
     {
         id: 5,
-        image: bed,
-        price: "$250.00",
-        description: "Modern Bed frame Mattress "
+        image: sofa3,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "sofa",
+        feature: "newProducts"
     },
     {
         id: 6,
-        image: desk2,
-        price: "$150.00",
-        description: "Modern Home flower Vase"
+        image: chair1,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "chair",
+        feature: "newProducts"
     },
     {
         id: 7,
-        image: homeDesk,
-        price: "$130.00",
-        description: "Modern Home flower Vase"
+        image: sofa4,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "sofa",
+        feature: "newProducts"
     },
     {
         id: 8,
-        image: lights,
-        price: "$65.00",
-        description: "Modern hanging Lights for Homes"
+        image: kitchen1,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "kitchen",
+        feature: "newProducts"
     },
     {
         id: 9,
-        image: lamp1,
-        price: "$60.00",
-        description: "Light fixture Lighting Pendant light"
+        image: furnitureStyles3,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "furnitureStyles",
+        feature: "newProducts"
     },
     {
         id: 10,
-        image: sofa1,
-        price: "$120.00",
-        description: "Modern Comfortable home Sofa"
+        image: desk,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "chair",
+        feature: "newProducts"
     },
     {
         id: 11,
-        image: table1,
-        price: "$80.00",
-        description: "Brown wooden stool Coffee table"
+        image: chair7,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "chair",
+        feature: "newProducts"
     },
     {
         id: 12,
-        image: table2,
-        price: "$125.00",
-        description: "Chair Table Furniture Dining room"
+        image: bed3,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "bedFrame",
+        feature: "newProducts"
     },
+    {
+        id: 13,
+        image: bed,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "chair",
+        feature: "newProducts"
+    },
+    {
+        id: 14,
+        image: chair4,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "bedFrame",
+        feature: "newProducts"
+    },
+    {
+        id: 15,
+        image: chair6,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "furnitureStyles",
+        feature: "furnitureStyles"
+    },
+    {
+        id: 16,
+        image: sofa1,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "sofa",
+        feature: "productOfWeek"
+    },
+    {
+        id: 17,
+        image: sofa5,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "sofa",
+        feature: "productOfWeek"
+    },
+    {
+        id: 18,
+        image: flower1,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "flowervase",
+        feature: "productOfWeek"
+    },
+    {
+        id: 19,
+        image: flower2,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "flowerVase",
+        feature: "productOfWeek"
+    },
+    {
+        id: 20,
+        image: highlight2,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "chair",
+        feature: "highlights2"
+    },
+    {
+        id: 21,
+        image: sofa2,
+        price: "$100.00",
+        name: "Bed frame Mattress Bed size Platform",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+        category: "sofa",
+        feature: "limitedOffer"
+    },
+    
     
 ]
 
 export default ProductList;
-
-export const ProductOfWeek = [
-    {
-        id: 1,
-        image: sofa2,
-        price: "$100.00",
-        description: "Modern Comfortable Sofa Chair"
-    },
-    {
-        id: 2,
-        image: room1,
-        price: "$250.00",
-        description: "Comfortable Home Sofa Sets"
-    },
-    {
-        id: 3,
-        image: room2,
-        price: "$270.00",
-        description: "Modern Sofa Sets for Homes"
-    },
-    {
-        id: 4,
-        image: bedroom2,
-        price: "$230.00",
-        description: "Modern Bed Frame for Lovers and Homes"
-    },
-]

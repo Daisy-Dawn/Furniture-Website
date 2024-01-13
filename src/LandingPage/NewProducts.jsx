@@ -1,8 +1,9 @@
 import React from "react";
-import ProductsCard from "./ProductsCard";
+import ProductsCard from '../components/ProductsCard';
 import ProductList from "../data/ProductsList";
 
 const NewProducts = () => {
+  const newProducts = ProductList.filter(product => product.feature === "newProducts")
   return (
     <div className="flex flex-col xl:mx-[5rem] md:mx-[2rem] mx-[1rem] xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
       <div className="flex justify-center items-center gap-5">
@@ -12,13 +13,14 @@ const NewProducts = () => {
       </div>
 
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  lg:gap-4">
-        {ProductList.map((product) => (
+        {newProducts.map((product) => (
           <ProductsCard
-          id={product.id}
+            link={`/shop/${product.id}`}
+            id={product.id}
             key={product.id}
             image={product.image}
             price={product.price}
-            description={product.description}
+            description={product.name}
           />
         ))}
       </div>
