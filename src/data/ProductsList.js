@@ -2,7 +2,6 @@ import {highlight1, chair6, lights, chair1, bed1, sofa3, sofa4, kitchen1, furnit
 highlight2, sofa1, sofa5, flower1, flower2, sofa2, chair3, bed, chair4,
 } from '../assets'
 
-
 const ProductList = [
     {
         id: 1,
@@ -11,25 +10,43 @@ const ProductList = [
         name: "Comfortable Chair",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "chair",
-        feature: "highlights"
+        feature: "highlights",
+        productName: "Chair",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 2,
         image: lights,
         price: "$100.00",
-        name: "Bed frame Mattress Bed size Platform",
+        name: "Modern Home Lights",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "lights",
-        feature: "highlights"
+        feature: "highlights",
+        productName: "Lights",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Home Lights",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 3,
         image: chair3,
         price: "$100.00",
-        name: "Bed frame Mattress Bed size Platform",
+        name: "Modern Chair For Homes",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "chair",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Chair",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 4,
@@ -38,16 +55,28 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "bedFrame",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Bed Frame",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Bed Frame",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 5,
         image: sofa3,
         price: "$100.00",
-        name: "Bed frame Mattress Bed size Platform",
+        name: "Comfortable Home Sofa for Families",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "sofa",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Sofa",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Home Sofa",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 6,
@@ -56,7 +85,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "chair",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Chair",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 7,
@@ -65,7 +100,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "sofa",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Sofa",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Home Sofa",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 8,
@@ -74,7 +115,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "kitchen",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Kitchen Furniture",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Kitchen Cabinet",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 9,
@@ -83,7 +130,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "furnitureStyles",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Furniture Style",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Furniture Style",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 10,
@@ -92,7 +145,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "chair",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Chair",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 11,
@@ -101,7 +160,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "chair",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Chair",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 12,
@@ -110,7 +175,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "bedFrame",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Bed Frame",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Bed Frame",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 13,
@@ -119,7 +190,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "chair",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Chair",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 14,
@@ -128,7 +205,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "bedFrame",
-        feature: "newProducts"
+        feature: "newProducts",
+        productName: "Bed Frame",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Bed Frame",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 15,
@@ -137,7 +220,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "furnitureStyles",
-        feature: "furnitureStyles"
+        feature: "furnitureStyles",
+        productName: "Furniture Style",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 16,
@@ -146,7 +235,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "sofa",
-        feature: "productOfWeek"
+        feature: "productOfWeek",
+        productName: "Sofa",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Sofa",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 17,
@@ -155,7 +250,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "sofa",
-        feature: "productOfWeek"
+        feature: "productOfWeek",
+        productName: "Sofa",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Sofa",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 18,
@@ -164,7 +265,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "flowervase",
-        feature: "productOfWeek"
+        feature: "productOfWeek",
+        productName: "Flower Vase",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Flower Vase",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 19,
@@ -173,7 +280,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "flowerVase",
-        feature: "productOfWeek"
+        feature: "productOfWeek",
+        productName: "Flower Vase",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Flower Vase",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 20,
@@ -182,7 +295,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "chair",
-        feature: "highlights2"
+        feature: "highlights2",
+        productName: "Chair",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Chair Seat",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     {
         id: 21,
@@ -191,7 +310,13 @@ const ProductList = [
         name: "Bed frame Mattress Bed size Platform",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "sofa",
-        feature: "limitedOffer"
+        feature: "limitedOffer",
+        productName: "Sofa",
+        formerPrice: '$185.00',
+        starRating: 5,
+        peopleRating: 345,
+        tag: "Modern Sofa",
+        productDetails: "A commode chair is a free-standing toilet chair that is designed to help people who find walking to the bathroom difficult. They generally come as two options: a bedside commode chair, or a shower commode chair. Bedside commode chairs can be placed next to a bed for close access."
     },
     
     
