@@ -17,31 +17,33 @@ import blogBig1 from './blog/blogBig1.png';
 import blogBig2 from './blog/blogBig2.png';
 import blogBig3 from './blog/blogBig3.png';
 import blogSmall1 from './blog/blogSmall1.png';
-import bar1 from './blog/barStool/bar1.jpg';
-import bar2 from './blog/barStool/bar2.jpg';
-import bar3 from './blog/barStool/bar3.jpg';
-import bar4 from './blog/barStool/bar4.jpg';
-import bar5 from './blog/barStool/bar5.jpg';
-import bar6 from './blog/barStool/bar6.jpg';
-import bar7 from './blog/barStool/bar7.jpg';
-import bar8 from './blog/barStool/bar8.jpg';
-import bar9 from './blog/barStool/bar9.jpg';
-import bar10 from './blog/barStool/bar10.jpg';
-import bar11 from './blog/barStool/bar11.jpg';
-import cabinet1 from './blog/cabinet/cabinet1.jpg';
-import cabinet2 from './blog/cabinet/cabinet2.jpg';
-import cabinet3 from './blog/cabinet/cabinet3.jpg';
-import cabinet4 from './blog/cabinet/cabinet4.jpg';
-import cabinet5 from './blog/cabinet/cabinet5.jpg';
-import cabinet6 from './blog/cabinet/cabinet6.jpg';
-import cabinet7 from './blog/cabinet/cabinet7.webp';
-import coffee1 from './blog/coffeeTable/coffee1.jpg';
-import coffee2 from './blog/coffeeTable/coffee2.jpg';
-import coffee3 from './blog/coffeeTable/coffee3.jpg';
-import coffee4 from './blog/coffeeTable/coffee4.jpg';
-import coffee5 from './blog/coffeeTable/coffee5.jpg';
-import coffee6 from './blog/coffeeTable/coffee6.jpg';
-import coffee7 from './blog/coffeeTable/coffee7.jpg';
+import bar1 from './blog/blogBarStool/bar1.jpeg';
+import bar2 from './blog/blogBarStool/bar2.jpeg';
+import bar3 from './blog/blogBarStool/bar3.jpeg';
+import bar4 from './blog/blogBarStool/bar4.jpeg';
+import bar5 from './blog/blogBarStool/bar5.jpeg';
+import bar6 from './blog/blogBarStool/bar6.jpeg';
+import bar7 from './blog/blogBarStool/bar7.jpeg';
+import bar8 from './blog/blogBarStool/bar8.jpeg';
+import bar9 from './blog/blogBarStool/bar9.jpeg';
+import cabinet1 from './blog/blogCabinet/cabinet1.jpeg';
+import cabinet2 from './blog/blogCabinet/cabinet2.jpeg';
+import cabinet3 from './blog/blogCabinet/cabinet3.jpeg';
+import cabinet4 from './blog/blogCabinet/cabinet4.jpeg';
+import cabinet5 from './blog/blogCabinet/cabinet5.jpeg';
+import cabinet6 from './blog/blogCabinet/cabinet6.webp';
+import cabinet7 from './blog/blogCabinet/cabinet7.jpeg';
+import cabinet8 from './blog/blogCabinet/cabinet8.jpeg';
+import cabinet9 from './blog/blogCabinet/cabinet9.webp';
+import cabinet10 from './blog/blogCabinet/cabinet10.jpeg';
+import cabinet11 from './blog/blogCabinet/cabinet11.jpeg';
+import coffee1 from './blog/blogCoffee/coffee1.png';
+import coffee2 from './blog/blogCoffee/coffee2.png';
+import coffee3 from './blog/blogCoffee/coffee3.png';
+import coffee4 from './blog/blogCoffee/coffee4.png';
+import coffee5 from './blog/blogCoffee/coffee5.png';
+import coffee6 from './blog/blogCoffee/coffee6.png';
+import coffee7 from './blog/blogCoffee/coffee7.png';
 import kitchen_1 from './blog/kitchenFurniture/kitchen1.jpg';
 import kitchen_2 from './blog/kitchenFurniture/kitchen2.jpg';
 import kitchen_3 from './blog/kitchenFurniture/kitchen3.jpg';
@@ -161,8 +163,8 @@ export {
     teamCard5, teamCard6, teamCard7, teamCard8,
     //blog page
     blogBig1,blogBig2,blogBig3,blogSmall1,
-    bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,bar10,bar11,
-    cabinet1,cabinet2,cabinet3,cabinet4,cabinet5,cabinet6,cabinet7,
+    bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,
+    cabinet1,cabinet2,cabinet3,cabinet4,cabinet5,cabinet6,cabinet7,cabinet8,cabinet9,cabinet10,cabinet11,
     coffee1,coffee2,coffee3,coffee4,coffee5,coffee6,coffee7,
     kitchen_1,kitchen_2,kitchen_3,kitchen_4,kitchen_5,kitchen_6,kitchen_7,kitchen_8,
     office1,office2,office3,office4,office5,office6,

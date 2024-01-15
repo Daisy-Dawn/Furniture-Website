@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { BsSuitHeart } from "react-icons/bs";
-import { LiaCommentDotsSolid } from "react-icons/lia";
+import { FaHeart } from "react-icons/fa6";
 
 const BlogCard = ({banner, date, bannerDescription, author, title, description}) => {
     const [like, setLike] = useState(false); //state to manage like button
     const [noOfLikes, setNoOfLikes] = useState(0); // state to update no. of likes
+
     return (
         <article>
             <div>
-                <img src={banner} className="rounded-[0.625rem] w-full max-w-[74.125rem]" alt="An image showing a furniture" />
+                <img src={banner} className="rounded-[0.625rem] object-cover w-full h-[22.25rem] max-w-[74.125rem]" alt="An image showing a furniture" />
                 <div className="text-sm sm:text-base md:text-lg text-bGrey font-normal flex flex-wrap justify-between sm:justify-start items-center gap-3 md:gap-5 mt-4">
                     <p>{date}</p>
                     <p>{bannerDescription}</p>
                     <p>By {author}</p>
                     <div className="flex items-center gap-2">
-                        <BsSuitHeart 
+                        <FaHeart 
                         color={like ? "red" : ""}
                         className="transition-all duration-100 cursor-pointer text-base md:text-lg lg:text-2xl" 
                         onClick={()=> {
