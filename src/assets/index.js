@@ -47,20 +47,24 @@ import coffee4 from './blog/blogCoffee/coffee4.png';
 import coffee5 from './blog/blogCoffee/coffee5.png';
 import coffee6 from './blog/blogCoffee/coffee6.png';
 import coffee7 from './blog/blogCoffee/coffee7.png';
-import kitchen_1 from './blog/kitchenFurniture/kitchen1.jpg';
-import kitchen_2 from './blog/kitchenFurniture/kitchen2.jpg';
-import kitchen_3 from './blog/kitchenFurniture/kitchen3.jpg';
-import kitchen_4 from './blog/kitchenFurniture/kitchen4.jpg';
-import kitchen_5 from './blog/kitchenFurniture/kitchen5.webp';
-import kitchen_6 from './blog/kitchenFurniture/kitchen6.jpg';
-import kitchen_7 from './blog/kitchenFurniture/kitchen7.jpg';
-import kitchen_8 from './blog/kitchenFurniture/kitchen8.jpg';
-import office1 from './blog/officeChair/office1.jpg';
-import office2 from './blog/officeChair/office2.jpg';
-import office3 from './blog/officeChair/office3.jpg';
-import office4 from './blog/officeChair/office4.jpg';
-import office5 from './blog/officeChair/office5.jpg';
-import office6 from './blog/officeChair/office6.jpg';
+import kitchen_1 from './KitchenFurniture/kitchen1.jpeg';
+import kitchen_2 from './kitchenFurniture/kitchen2.jpg';
+import kitchen_3 from './kitchenFurniture/kitchen3.jpg';
+import kitchen_4 from './kitchenFurniture/kitchen4.jpg';
+import kitchen_5 from './kitchenFurniture/kitchen5.webp';
+import kitchen_6 from './kitchenFurniture/kitchen6.jpg';
+import kitchen_7 from './kitchenFurniture/kitchen7.jpg';
+import kitchen_8 from './kitchenFurniture/kitchen8.jpg';
+import office1 from './blog/blogOffice/office1.jpeg';
+import office2 from './blog/blogOffice/office2.jpeg';
+import office3 from './blog/blogOffice/office3.webp';
+import office4 from './blog/blogOffice/office4.jpeg';
+import office5 from './blog/blogOffice/office5.webp';
+import office6 from './blog/blogOffice/office6.webp';
+import office7 from './blog/blogOffice/office7.jpeg';
+import office8 from './blog/blogOffice/office8.jpeg';
+import office9 from './blog/blogOffice/office9.jpeg';
+import office10 from './blog/blogOffice/office10.jpeg';
 
 //BAR STOOL
 import stool1 from './BarStool/stool1.jpeg'
@@ -78,8 +82,8 @@ import stool12 from './BarStool/stool12.jpeg'
 import stoolIcon from './BarStool/stoolIcon.png'
 
 //BED FRAME
-import bed from './bedFrame/bed.jpg';
 import bedIcon from './bedFrame/bedIcon.png';
+import bed from './bedFrame/bed.jpg';
 import bed1 from './bedFrame/bed1.jpeg';
 import bed2 from './bedFrame/bed2.jpg';
 import bed3 from './bedFrame/bed3.jpeg';
@@ -281,18 +285,18 @@ import sofaHighlight from './Sofa/sofaHighlight.jpg'
 
 //TABLE
 import tableIcon from './Table/tableIcon.png'
-import coffe1 from './Table/coffe1.jpg'
-import coffe2 from './Table/coffe2.jpg'
-import coffe3 from './Table/coffe3.jpg'
-import coffe4 from './Table/coffe4.jpg'
-import coffe5 from './Table/coffe5.jpg'
-import coffe6 from './Table/coffe6.jpg'
-import coffe7 from './Table/coffe7.jpg'
-import coffe8 from './Table/coffe8.jpeg'
-import coffe9 from './Table/coffe9.jpeg'
-import coffe10 from './Table/coffe10.jpeg'
-import coffe11 from './Table/coffe11.jpeg'
-import coffe12 from './Table/coffe12.jpeg'
+import coffe1 from './Table/coffee1.jpg'
+import coffe2 from './Table/coffee2.jpg'
+import coffe3 from './Table/coffee3.jpg'
+import coffe4 from './Table/coffee4.jpg'
+import coffe5 from './Table/coffee5.jpg'
+import coffe6 from './Table/coffee6.jpg'
+import coffe7 from './Table/coffee7.jpg'
+import coffe8 from './Table/coffee8.jpeg'
+import coffe9 from './Table/coffee9.jpeg'
+import coffe10 from './Table/coffee10.jpeg'
+import coffe11 from './Table/coffee11.jpeg'
+import coffe12 from './Table/coffee12.jpeg'
 
 import table1 from './Table/table1.jpeg'
 import table2 from './Table/table2.jpeg'
@@ -316,7 +320,7 @@ export {
     cabinet_1,cabinet_2,cabinet_3,cabinet_4,cabinet_5,cabinet_6,cabinet_7,cabinet_8,cabinet_9,cabinet_10,cabinet_11,
     coffee1,coffee2,coffee3,coffee4,coffee5,coffee6,coffee7,
     kitchen_1,kitchen_2,kitchen_3,kitchen_4,kitchen_5,kitchen_6,kitchen_7,kitchen_8,
-    office1,office2,office3,office4,office5,office6,
+    office1,office2,office3,office4,office5,office6,office7,office8,office9,office10,
     //blogg
     blog1, blog2, blog3,
     //stool
