@@ -6,7 +6,7 @@ import RecentlyViewed from "./RecentlyViewed";
 import { Radio } from "antd";
 import { Slider } from "antd";
 
-const Aside = () => {
+const Aside = ({ onCategoryChange }) => {
   const recentlyViewedList = ProductList.filter(
     (product) => product.feature === "productOfWeek"
   );
@@ -39,6 +39,10 @@ const Aside = () => {
     console.log(`Filtering products with price up to $${sliderValue}`);
   };
 
+  const handleCategoryClick = (category) => {
+    onCategoryChange(category);
+  };
+
 
 
   return (
@@ -47,17 +51,17 @@ const Aside = () => {
       <div>
       <h2 className="text-lead lg:text-[20px] text-[16px] font-bold mb-[1rem]">Categories</h2>
       <div className="flex flex-col">
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Chair ({chairCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Cupboard ({cupboardCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Dining Table ({tableCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Bed Frames ({BedFrameCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Bar Stool ({StoolCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Kitchen Furniture ({KitchenCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Sofa ({sofaCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Cabinet ({cabinetCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Lights ({lightsCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Flower Vase ({flowervaseCategoryList.length}) </h2>
-      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey"> Furniture Styles ({furnitureStylesCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("chair")}> Chair ({chairCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("cupboard")}> Cupboard ({cupboardCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("table")}> Dining Table ({tableCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("bedFrame")}> Bed Frames ({BedFrameCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("stool")}> Bar Stool ({StoolCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("kitchen")}> Kitchen Furniture ({KitchenCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("sofa")}> Sofa ({sofaCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("cabinet")}> Cabinet ({cabinetCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("lights")}> Lights ({lightsCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("flowervase")}> Flower Vase ({flowervaseCategoryList.length}) </h2>
+      <h2 className="text-[13px] lg:text-[18px] mb-2 text-bGrey cursor-pointer" onClick={() => handleCategoryClick("furnitureStyles")}> Furniture Styles ({furnitureStylesCategoryList.length}) </h2>
       </div>
       </div>
 
