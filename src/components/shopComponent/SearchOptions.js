@@ -17,8 +17,8 @@ const SearchOptions = [
         value: "Cabinet",
       },
       {
-        label: "Home Drawers",
-        value: "Drawers",
+        label: "Home Wardrobe",
+        value: "Wardrobe",
       },
       {
         label: "Flower Vase",

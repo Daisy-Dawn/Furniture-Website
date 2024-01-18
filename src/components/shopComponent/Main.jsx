@@ -1,12 +1,21 @@
 import React from "react";
 import ProductsCard from "../ProductsCard";
 
-const Main = ({id, image, price, name}) => {
+const Main = ({currentProducts}) => {
   return (
-    // <div  className="">
-        <ProductsCard key={id} image={image} price={price} id={id} link={`/shop/${id}`} description={name} />
-        
-        // </div>
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"> 
+            {currentProducts.map(({ id, image, price, name }) => (
+            <ProductsCard
+            key={id}
+            image={image}
+            price={price}
+            id={id}
+            link={`/shop/${id}`}
+            description={name}
+             />
+          ))}
+           
+         </div>
   );
 };
 

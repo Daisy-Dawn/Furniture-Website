@@ -1,12 +1,15 @@
 import React, {useRef} from "react";
 import {
   bed2,
-  flower5,
+  cabinet2,
+  // flower5,
   sofa2,
   kitchen2,
-  furnitureStyles2,
+  // furnitureStyles2,
   bed,
-  flower3,
+  // flower3,
+  kitchen7,
+  kitchen8,
 } from "../assets/index";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -14,13 +17,13 @@ import {Carousel} from 'antd'
 
 const Carosel = () => {
   const images = [
-    bed2,
-    flower5,
+    kitchen7,
+    kitchen8,
     sofa2,
     kitchen2,
-    furnitureStyles2,
+    cabinet2,
     bed,
-    flower3,
+    bed2,
   ];
 
   const carouselRef = useRef();

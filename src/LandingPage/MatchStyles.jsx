@@ -27,7 +27,7 @@ const MatchStyles = () => {
 
           <div className="w-full h-[400px]">
             <img
-              className=" w-full h-full object-contain"
+              className=" w-full h-full object-cover"
               src={product.image}
               alt=""
             />

@@ -20,7 +20,7 @@ const RecentBlogs = () => {
               <div className="lg:w-[430px] xl:w-[410px] w-full md:h-[300px] h-[250px] relative overflow-hidden">
                 <img
                   className="w-full md:h-[300px]  h-full object-cover"
-                  src={blog.image}
+                  src={blog.banner}
                   alt=""
                 />
                 <div className="dark-transparency hover:bg-black hover:bg-opacity-40 absolute inset-0  transition-opacity">
@@ -31,7 +31,7 @@ const RecentBlogs = () => {
                 {blog.title}
               </h2>
               <p className="text-[17px] text-center md:text-left text-bGrey font-semibold">
-                {blog.content}
+                {blog.description}
               </p>
 
               <div className="flex justify-center md:justify-start mt-[10px] md:mt-[15px]">

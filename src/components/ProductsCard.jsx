@@ -43,7 +43,7 @@ const ProductsCard = ({ image, price, description, link, id }) => {
           <img
             className="w-full h-full object-cover rounded-[10px]"
             src={image}
-            alt=""
+            alt={description}
           />
 
         {isHovered && (

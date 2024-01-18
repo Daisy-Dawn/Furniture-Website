@@ -13,7 +13,7 @@ const Highlight2 = () => {
           key={product.id}
           className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center md:justify-start xl:mx-[5rem] md:mx-[2rem] mx-[1rem] lg:py-[4rem] py-[0rem] xl:gap-[4rem] md:gap-[2rem] gap-[0.5rem]"
         >
-          <div key={product.id} className="lg:col-span-2  ">
+          <div key={product.id} className="lg:col-span-2  h-[500px]  ">
             <img
               className="rounded-[10px] w-full h-full object-cover"
               src={product.image}

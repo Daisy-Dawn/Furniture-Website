@@ -80,7 +80,6 @@ import chair13 from './Chair/chair13.jpeg';
 import chair14 from './Chair/chair14.jpeg';
 import chair16 from './Chair/chair16.jpeg';
 import chair17 from './Chair/chair17.jpeg';
-import chair18 from './Chair/chair18.jpeg';
 import chair19 from './Chair/chair19.jpeg';
 import chair20 from './Chair/chair20.jpeg';
 import chair21 from './Chair/chair21.jpeg';
@@ -240,18 +239,18 @@ import sofaHighlight from './Sofa/sofaHighlight.jpg'
 
 //TABLE
 import tableIcon from './Table/tableIcon.png'
-import coffe1 from './Table/coffe1.jpg'
-import coffe2 from './Table/coffe2.jpg'
-import coffe3 from './Table/coffe3.jpg'
-import coffe4 from './Table/coffe4.jpg'
-import coffe5 from './Table/coffe5.jpg'
-import coffe6 from './Table/coffe6.jpg'
-import coffe7 from './Table/coffe7.jpg'
-import coffe8 from './Table/coffe8.jpeg'
-import coffe9 from './Table/coffe9.jpeg'
-import coffe10 from './Table/coffe10.jpeg'
-import coffe11 from './Table/coffe11.jpeg'
-import coffe12 from './Table/coffe12.jpeg'
+import coffee1 from './Table/coffee1.jpg'
+import coffee2 from './Table/coffee2.jpg'
+import coffee3 from './Table/coffee3.jpg'
+import coffee4 from './Table/coffee4.jpg'
+import coffee5 from './Table/coffee5.jpg'
+import coffee6 from './Table/coffee6.jpg'
+import coffee7 from './Table/coffee7.jpg'
+import coffee8 from './Table/coffee8.jpeg'
+import coffee9 from './Table/coffee9.jpeg'
+import coffee10 from './Table/coffee10.jpeg'
+import coffee11 from './Table/coffee11.jpeg'
+import coffee12 from './Table/coffee12.jpeg'
 
 import table1 from './Table/table1.jpeg'
 import table2 from './Table/table2.jpeg'
@@ -279,7 +278,7 @@ export {
     cabinetIcon, cabinet1, cabinet2, cabinet3, cabinet4, cabinet5, cabinet6, cabinet7, cabinet8,
     //chair
     chair1, chair2, chair3, chair4, chair6, chair7, chair8, chair9, chair10, chair11, chair12, chair13, chair14, 
-    chair16, chair17, chair18, chair19, chair20, chair21, chair22, chair23, chair24, chair25, chair26, chair27, chair28, chair29, 
+    chair16, chair17, chair19, chair20, chair21, chair22, chair23, chair24, chair25, chair26, chair27, chair28, chair29, 
     chair30, chair31, highlight1, chairIcon,
     //cupboard
     cupboardIcon, cupboard1, cupboard2, cupboard3, cupboard4, cupboard5, cupboard6, cupboard7, cupboard8, cupboard9, cupboard10, 
@@ -304,7 +303,7 @@ export {
     sofaIcon, sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight, sofa7, sofa8, sofa9, sofa10, sofa11, sofa12, sofa13, sofa14, 
     sofa15, sofa16, sofa17, sofa18, sofa19, sofa20, sofa21, sofa22, sofa23,
     //table
-    tableIcon, table1, coffe1, coffe2, coffe3, coffe4, coffe5, coffe6, coffe7, coffe8, coffe9, coffe10, coffe11, coffe12, table1, 
+    tableIcon, coffee1, coffee2, coffee3, coffee4, coffee5, coffee6, coffee7, coffee8, coffee9, coffee10, coffee11, coffee12, table1, 
     table2, table3, table4, table5, table6, table7, table8,
     //user auth
     userAuth,

@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [cartCount, setCartCount] = useState(1);
 
-  const product = ProductList.find((product) => product.id === parseInt(id));
+  const product = ProductList.find((product) => product.id === id);
   if (!product) {
     return <div>Product not found</div>;
   }
