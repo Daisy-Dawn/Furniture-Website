@@ -19,11 +19,7 @@ const RecentBlogs = () => {
             <Link to={`/blog/${blog.id}`}>
               <div className="relative overflow-hidden">
                 <img
-<<<<<<< HEAD
-                  className="w-full md:h-[300px]  h-full object-cover"
-=======
                   className="rounded-[0.625rem] object-cover"
->>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
                   src={blog.banner}
                   alt=""
                 />
@@ -34,11 +30,7 @@ const RecentBlogs = () => {
               <h2 className="text-lead text-center md:text-left text-[18px] font-semibold mt-2">
                 {blog.title}
               </h2>
-<<<<<<< HEAD
-              <p className="text-[17px] text-center md:text-left text-bGrey font-semibold">
-=======
               <p className="text-[17px] text-center md:text-left text-bGrey font-semibold text-ellipsis overflow-hidden text-nowrap">
->>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
                 {blog.description}
               </p>
 

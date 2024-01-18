@@ -26,7 +26,7 @@ const SofaList = [
         name: "ClassicComfort Sofa",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "sofa",
-        feature: "shop",
+        feature: "limitedOffer",
         productName: "Sofa Seat",
         formerPrice: '$420.00',
         color: 'black',

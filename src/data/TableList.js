@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { table1, coffee1, coffee2, coffee3, coffee4, coffee5, coffee6, coffee7, coffee8, coffee9, coffee10, coffee11, coffee12,
-=======
-import { coffe1, coffe2, coffe3, coffe4, coffe5, coffe6, coffe7, coffe8, coffe9, coffe10, coffe11, coffe12, table1, 
->>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
+import {  coffee1, coffee2, coffee3, coffee4, coffee5, coffee6, coffee7, coffee8, coffee9, coffee10, coffee11, coffee12, table1, 
     table2, table3, table4, table5, table6, table7, table8,
 } from '../assets'
 import shortid from 'shortid';

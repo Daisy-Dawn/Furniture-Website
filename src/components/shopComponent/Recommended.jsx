@@ -3,8 +3,10 @@ import RecommendedBtn from './RecommendedBtn'
 
 const Recommended = ({handleClick}) => {
   return (
-    <div>
-        <h2>Recommended</h2>
+    <div className='text-lead flex font-nunito mt-[1rem]  flex-col gap-5'>
+        <h2 className='text-center font-bold text-[30px]'>Recommended</h2>
+        <div className='flex flex-wrap gap-6'>
+        <RecommendedBtn onclickHandler={handleClick} value="" title="All" />
         <RecommendedBtn onclickHandler={handleClick} value="stool" title="Bar Stool" />
         <RecommendedBtn onclickHandler={handleClick} value="chair" title="Chair Seat" />
         <RecommendedBtn onclickHandler={handleClick} value="bedFrame" title="Bed Frame" />
@@ -16,6 +18,7 @@ const Recommended = ({handleClick}) => {
         <RecommendedBtn onclickHandler={handleClick} value="lights" title="Home Lights" />
         <RecommendedBtn onclickHandler={handleClick} value="sofa" title="Home Sofa" />
         <RecommendedBtn onclickHandler={handleClick} value="table" title="Home Table" />
+        </div>
     </div>
   )
 }

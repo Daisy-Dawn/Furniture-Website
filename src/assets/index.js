@@ -40,13 +40,13 @@ import cabinet_8 from './blog/blogCabinet/cabinet8.jpeg';
 import cabinet_9 from './blog/blogCabinet/cabinet9.webp';
 import cabinet_10 from './blog/blogCabinet/cabinet10.jpeg';
 import cabinet_11 from './blog/blogCabinet/cabinet11.jpeg';
-import coffee1 from './blog/blogCoffee/coffee1.png';
-import coffee2 from './blog/blogCoffee/coffee2.png';
-import coffee3 from './blog/blogCoffee/coffee3.png';
-import coffee4 from './blog/blogCoffee/coffee4.png';
-import coffee5 from './blog/blogCoffee/coffee5.png';
-import coffee6 from './blog/blogCoffee/coffee6.png';
-import coffee7 from './blog/blogCoffee/coffee7.png';
+import coffee1_blog from './blog/blogCoffee/coffee1.png';
+import coffee2_blog from './blog/blogCoffee/coffee2.png';
+import coffee3_blog from './blog/blogCoffee/coffee3.png';
+import coffee4_blog from './blog/blogCoffee/coffee4.png';
+import coffee5_blog from './blog/blogCoffee/coffee5.png';
+import coffee6_blog from './blog/blogCoffee/coffee6.png';
+import coffee7_blog from './blog/blogCoffee/coffee7.png';
 import kitchen_1 from './KitchenFurniture/kitchen1.jpeg';
 import kitchen_2 from './kitchenFurniture/kitchen2.jpg';
 import kitchen_3 from './kitchenFurniture/kitchen3.jpg';
@@ -284,7 +284,6 @@ import sofaHighlight from './Sofa/sofaHighlight.jpg'
 
 //TABLE
 import tableIcon from './Table/tableIcon.png'
-<<<<<<< HEAD
 import coffee1 from './Table/coffee1.jpg'
 import coffee2 from './Table/coffee2.jpg'
 import coffee3 from './Table/coffee3.jpg'
@@ -297,20 +296,6 @@ import coffee9 from './Table/coffee9.jpeg'
 import coffee10 from './Table/coffee10.jpeg'
 import coffee11 from './Table/coffee11.jpeg'
 import coffee12 from './Table/coffee12.jpeg'
-=======
-import coffe1 from './Table/coffee1.jpg'
-import coffe2 from './Table/coffee2.jpg'
-import coffe3 from './Table/coffee3.jpg'
-import coffe4 from './Table/coffee4.jpg'
-import coffe5 from './Table/coffee5.jpg'
-import coffe6 from './Table/coffee6.jpg'
-import coffe7 from './Table/coffee7.jpg'
-import coffe8 from './Table/coffee8.jpeg'
-import coffe9 from './Table/coffee9.jpeg'
-import coffe10 from './Table/coffee10.jpeg'
-import coffe11 from './Table/coffee11.jpeg'
-import coffe12 from './Table/coffee12.jpeg'
->>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
 
 import table1 from './Table/table1.jpeg'
 import table2 from './Table/table2.jpeg'
@@ -332,7 +317,7 @@ export {
     blogBig1,blogBig2,blogBig3,blogSmall1,
     bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,
     cabinet_1,cabinet_2,cabinet_3,cabinet_4,cabinet_5,cabinet_6,cabinet_7,cabinet_8,cabinet_9,cabinet_10,cabinet_11,
-    coffee1,coffee2,coffee3,coffee4,coffee5,coffee6,coffee7,
+    coffee1_blog, coffee2_blog, coffee3_blog, coffee4_blog, coffee5_blog, coffee6_blog, coffee7_blog,
     kitchen_1,kitchen_2,kitchen_3,kitchen_4,kitchen_5,kitchen_6,kitchen_7,kitchen_8,
     office1,office2,office3,office4,office5,office6,office7,office8,office9,office10,
     //blogg
@@ -370,11 +355,7 @@ export {
     sofaIcon, sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight, sofa7, sofa8, sofa9, sofa10, sofa11, sofa12, sofa13, sofa14, 
     sofa15, sofa16, sofa17, sofa18, sofa19, sofa20, sofa21, sofa22, sofa23,
     //table
-<<<<<<< HEAD
     tableIcon, coffee1, coffee2, coffee3, coffee4, coffee5, coffee6, coffee7, coffee8, coffee9, coffee10, coffee11, coffee12, table1, 
-=======
-    tableIcon, coffe1, coffe2, coffe3, coffe4, coffe5, coffe6, coffe7, coffe8, coffe9, coffe10, coffe11, coffe12, table1, 
->>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
     table2, table3, table4, table5, table6, table7, table8,
     //user auth
     userAuth,

@@ -1,23 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductList from "../data/ProductsList";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 import Button from "../components/Button";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import ProductsCard from "../components/ProductsCard";
+import { useDispatch, useSelector } from "react-redux";
+import { addViewedProducts } from "../features/recentlyViewedSlice";
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [cartCount, setCartCount] = useState(1);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const product = ProductList.find((product) => product.id === id);
+    if (!product) {
+      return navigate("/productNotFound");
+    } else {
+      dispatch(addViewedProducts(product));
+    }
+  }, [dispatch, id]);
 
   const product = ProductList.find((product) => product.id === id);
   if (!product) {
     return <div>Product not found</div>;
   }
 
-  const relatedProducts = ProductList.filter(
+    //shuffle product list
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const shuffledProducts = shuffleArray(ProductList)
+
+  const relatedProducts = shuffledProducts.filter(
     (p) => p.category === product.category && p.id !== product.id
   ).slice(0, 4);
 

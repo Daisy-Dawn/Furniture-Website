@@ -5,8 +5,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { Pagination } from "antd";
 import ProductsList from "../data/ProductsList";
 import Recommended from "../components/shopComponent/Recommended";
-import { useNavigate, Link, redirect } from "react-router-dom";
-import ProductNotFound from "../components/ProductNotFound";
+import { useNavigate, } from "react-router-dom";
 
 const Shop = () => {
   const navigate = useNavigate()
@@ -15,10 +14,21 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = 15;
 
+  //shuffle product list
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const shuffledProducts = shuffleArray(ProductsList)
+
   //input filter
   const [query, setQuery] = useState("");
 
-  const filteredItems = ProductsList.filter(
+  const filteredItems = shuffledProducts.filter(
     (product) =>
       product.productName
         .toLocaleLowerCase()
@@ -94,7 +104,7 @@ const Shop = () => {
   };
 
   const result = filteredData(
-    ProductsList,
+    shuffledProducts,
     selectedCategory,
     query,
     selectedPrice

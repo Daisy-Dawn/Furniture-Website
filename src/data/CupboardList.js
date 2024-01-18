@@ -55,7 +55,7 @@ const CupboardList = [
         id: shortid.generate(),
         image: cupboard4,
         price: "540.00",
-        name: "SMetroThread: Stylish Wardrobe Hub",
+        name: "SMetroThread: Stylish Wardrobe",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "cupboard",
         feature: "shop",

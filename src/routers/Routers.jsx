@@ -1,11 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import {LandingPage, About, Shop, Contact, Blog,  Cart, Wishlist,  ProductDetails, Signup, Login, NoPage} from '../pages/index';
 import Layout from '../layout/Layout';
-<<<<<<< HEAD
 import ProductNotFound from '../components/ProductNotFound';
-=======
 import BlogDetails from '../BlogPage/BlogDetails';
->>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
 
 const Routers = () => {
 
