@@ -3,7 +3,7 @@ import BlogList from "../data/BlogList";
 import { Link } from "react-router-dom";
 
 const RecentBlogs = () => {
-  const recentBlogs = BlogList.slice(0, 3)
+  const recentBlogs = BlogList.slice(0, 3);
 
   return (
     <div className="flex flex-col xl:mx-[5rem] md:mx-[2rem] mb-[2rem] mx-[1rem] xl:py-[4rem] md:py-[1rem] py-[2rem] gap-[5rem] md:gap-[3rem] xl:gap-[5rem]  justify-center">
@@ -13,24 +13,32 @@ const RecentBlogs = () => {
         <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
       </div>
 
-      <div className="grid xl:grid-cols-3 md:grid-cols-2  grid-cols-1 gap-[2rem] md:gap-[2rem] xl:gap-[0.5rem]">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2rem]">
         {recentBlogs.map((blog) => (
           <div key={blog.id} className="cursor-pointer relative group">
-            <Link to={blog.href}>
-              <div className="lg:w-[430px] xl:w-[410px] w-full md:h-[300px] h-[250px] relative overflow-hidden">
+            <Link to={`/blog/${blog.id}`}>
+              <div className="relative overflow-hidden">
                 <img
+<<<<<<< HEAD
                   className="w-full md:h-[300px]  h-full object-cover"
+=======
+                  className="rounded-[0.625rem] object-cover"
+>>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
                   src={blog.banner}
                   alt=""
                 />
-                <div className="dark-transparency hover:bg-black hover:bg-opacity-40 absolute inset-0  transition-opacity">
+                <div className="dark-transparency rounded-[0.625rem] hover:bg-black hover:bg-opacity-40 absolute inset-0  transition-all duration-300">
                   {/* Add any additional content or styling here */}
                 </div>
               </div>
               <h2 className="text-lead text-center md:text-left text-[18px] font-semibold mt-2">
                 {blog.title}
               </h2>
+<<<<<<< HEAD
               <p className="text-[17px] text-center md:text-left text-bGrey font-semibold">
+=======
+              <p className="text-[17px] text-center md:text-left text-bGrey font-semibold text-ellipsis overflow-hidden text-nowrap">
+>>>>>>> 305a9634e926b963ef0446656307f2d8981a1b7a
                 {blog.description}
               </p>
 
