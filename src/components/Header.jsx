@@ -12,8 +12,8 @@ const Header = () => {
   // Check if the user is authenticated
   useEffect(() => {
     const storeUser = JSON.parse(localStorage.getItem('user'));
-    const decodeData = atob(storeUser);
-    setUser(decodeData);
+
+    setUser(storeUser);
 
   }, []);
 

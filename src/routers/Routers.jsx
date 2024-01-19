@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, ProductUpload } from '../pages/index';
+import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, } from '../pages/index';
 import Layout from '../layout/Layout';
 
 const Routers = () => {
@@ -25,10 +25,6 @@ const Routers = () => {
         {
           path: "shop/:id",
           element: <ProductDetails />
-        },
-        {
-          path: "productUpload",
-          element: <ProductUpload />
         },
         {
           path: "contact",
