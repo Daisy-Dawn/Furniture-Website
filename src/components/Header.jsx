@@ -12,7 +12,6 @@ const Header = () => {
   // Check if the user is authenticated
   useEffect(() => {
     const storeUser = JSON.parse(localStorage.getItem('user'));
-
     setUser(storeUser);
 
   }, []);
@@ -96,7 +95,6 @@ const Header = () => {
           {isDropdownVisible && (
             <div className="absolute left-[-3rem] flex-col w-[8rem] text-center hidden bg-slate-100 divide-y divide-black userIconDisplay">
               {user ? (
-                // If user is authenticated, display logout
                 <>
                   <button
                     onClick={handleLogout}
@@ -105,6 +103,7 @@ const Header = () => {
                     Logout
                   </button>
                 </>
+
               ) : (
                 // If user is not authenticated, display signup and login links
                 <>

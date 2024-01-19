@@ -65,8 +65,8 @@ const ProductTable = () => {
                                             DELETE
                                         </button> </td>
                                     </tr>
-                                    <tr className="border-b dark:border-neutral-500">
-                                        {/* {products.map((items, index) => (
+                                    {/* <tr className="border-b dark:border-neutral-500">
+                                        {products.map((items, index) => (
                                             <div key={index}>
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium">{index + 1}</td>
                                                 <td className="whitespace-nowrap px-6 py-4">{items.title}</td>
@@ -91,10 +91,10 @@ const ProductTable = () => {
                                                 </button> </td>
 
                                             </div>
-                                        ))} */}
+                                        ))}
 
 
-                                    </tr>
+                                    </tr> */}
 
                                 </tbody>
                             </table>

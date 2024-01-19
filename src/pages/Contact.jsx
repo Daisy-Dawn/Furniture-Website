@@ -7,11 +7,12 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { SiUpwork } from "react-icons/si";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 // import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const [name, SetName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
@@ -103,6 +104,7 @@ const Contact = () => {
 
       if (response.data.success) {
         setMsg('Your form has been successfully submitted, you will recieve a response shortly.')
+        navigate("/");
       } else if (response.data.error) {
         setError('Email already exist, use another email to contact us')
       } else {

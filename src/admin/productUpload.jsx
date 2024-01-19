@@ -1,6 +1,5 @@
 // import React from "react";
 import { useState } from "react";
-// import axios from "axios";
 // import React from "react";
 import { LuMail } from "react-icons/lu";
 import { GiWorld } from "react-icons/gi";
@@ -8,13 +7,14 @@ import { FaGithub, FaTwitter, FaPhoneAlt } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { SiUpwork } from "react-icons/si";
+import axios from "axios";
 
 // import { useForm } from "react-hook-form";
 // import { useNavigate } from "react-router-dom";
 
 const ProductUpload = () => {
     // const navigate = useNavigate()
-    const [name, SetName] = useState('');
+
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
@@ -27,16 +27,6 @@ const ProductUpload = () => {
     const handleChanges = (e, type) => {
         switch (type) {
 
-            case "name":
-                setError("");
-                setMsg("");
-                setImage('')
-                SetName(e.target.value);
-                if (e.target.value === "") {
-                    setError("This field is empty")
-
-                }
-                break;
 
             case "title":
                 setError("");
@@ -93,13 +83,34 @@ const ProductUpload = () => {
         }
     }
 
+    const uploadProduct = async () => {
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('price', price);
+        formData.append('ratings', ratings);
+        formData.append('category', category);
+        formData.append('image', image);
+        formData.append('description', description);
+
+        const url = "http://localhost/reactApiPhp/api/productsList.php";
+        const responses = await axios.post(url, formData, {
+            headers: { 'Content-Type': "multipart/form-data" },
+        });
+
+        if (responses.data.success) {
+            setMsg("Product uploaded successfully");
+            console.log(responses)
+            window.location.reload();
+        } else {
+            setError("product could not be uploaded")
+        }
+
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (!name) {
-                setError('Please enter the field.');
-                return false;
-            } else if (!title) {
+            if (!title) {
                 setError('Please enter the field.');
                 return false;
             } else if (!price) {
@@ -111,24 +122,13 @@ const ProductUpload = () => {
             } else if (!description) {
                 setError('Please enter the field.');
                 return false;
-            } else if (!image) {
-                setError('Please enter the field.');
-                return false;
             } else if (!category) {
                 setError('Please enter the field.');
                 return false;
             }
 
-            // const data = { name: name, title: title, price: price, ratings: ratings, description: description };
-            // // const response = await axios.post('http://localhost/reactApiPhp/api/contactServer.php', data);
-
-            // if (response.data.success) {
-            //     setMsg('Your form has been successfully submitted, you will recieve a response shortly.')
-            // } else if (response.data.error) {
-            //     setError('Email already exist, use another email to contact us')
-            // } else {
-            //     setError('Error contacting us')
-            // }
+            const res = await uploadProduct();
+            console.log(res);
         } catch (error) {
             console.error(error)
         }
@@ -204,14 +204,7 @@ const ProductUpload = () => {
                 <div className="grid w-full gap-[1.3rem] grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                     {/* First Column */}
                     <div className="">
-                        {/* NAME SECTION */}
-                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Name</p>
-                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
-                            type="text"
-                            value={name}
-                            name="name"
-                            onChange={(e) => handleChanges(e, "name")}
-                        />
+
 
 
                         {/* SUBJECT SECTION */}
@@ -221,6 +214,13 @@ const ProductUpload = () => {
                             value={title}
                             name="title"
                             onChange={(e) => handleChanges(e, "title")}
+                        />
+
+                        {/* IMAGE */}
+                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Image</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="file"
+                            onChange={(e) => setImage(e.target.files[0])}
                         />
 
 
@@ -241,7 +241,7 @@ const ProductUpload = () => {
                         {/* EMAIL SECTION */}
                         <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Price</p>
                         <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-                            type="number"
+                            type="text"
                             value={price}
                             name="price"
                             onChange={(e) => handleChanges(e, "price")}
@@ -251,22 +251,16 @@ const ProductUpload = () => {
                         {/* Phone SECTION */}
                         <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Ratings</p>
                         <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-                            type="number"
+                            type="text"
                             value={ratings}
                             name="ratings"
                             onChange={(e) => handleChanges(e, "ratings")}
                         />
 
-                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Image</p>
-                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-                            type="file"
-                            value={image}
-                            name="image"
-                            onChange={(e) => handleChanges(e, "image")}
-                        />
+
                         <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Category</p>
                         <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-                            type="file"
+                            type="text"
                             value={category}
                             name="category"
                             onChange={(e) => handleChanges(e, "category")}
