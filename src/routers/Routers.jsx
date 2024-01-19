@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, ProductUpload } from '../pages/index';
+import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, ProductUpload, ProductTable } from '../pages/index';
 import Layout from '../layout/Layout';
 
 const Routers = () => {
@@ -27,8 +27,12 @@ const Routers = () => {
           element: <ProductDetails />
         },
         {
-          path: "productUpload",
+          path: "productupload",
           element: <ProductUpload />
+        },
+        {
+          path: "producttable",
+          element: <ProductTable />
         },
         {
           path: "contact",
