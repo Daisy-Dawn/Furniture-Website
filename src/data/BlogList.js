@@ -415,7 +415,7 @@ const blogCardData = [
     {
         id: 42,
         category: "office chair",
-        banner: office6,
+        banner: office7,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
@@ -425,7 +425,7 @@ const blogCardData = [
     {
         id: 43,
         category: "office chair",
-        banner: office6,
+        banner: office8,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
@@ -435,7 +435,7 @@ const blogCardData = [
     {
         id: 44,
         category: "office chair",
-        banner: office6,
+        banner: office9,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
@@ -445,7 +445,7 @@ const blogCardData = [
     {
         id: 45,
         category: "office chair",
-        banner: office6,
+        banner: office10,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
