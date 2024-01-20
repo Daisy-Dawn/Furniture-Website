@@ -124,7 +124,7 @@ const Shop = () => {
   return (
     <div className="lg:py-[3rem] py-[1rem] xl:px-[4rem] lg:px-[3rem] px-[1rem] items-start gap-[2rem] grid grid-cols-6 lg:grid-cols-12 font-nunito bg-white  ">
       <header className="col-span-6 lg:col-span-12">
-        <div className=" w-full justify-center mb-[2.5rem] items-center  flex flex-col">
+        <div className=" w-full justify-center mb-[2rem] lg:mb-[2.5rem] items-center  flex flex-col">
           <h2 className="text-center text-lead lg:text-[45px] sm:text-[30px] text-[25px] font-bold">
             Shops
           </h2>
@@ -136,14 +136,14 @@ const Shop = () => {
 
         {/* RESULTS */}
 
-        <div className="grid grid-cols-6 lg:grid-cols-12 items-center">
-          <p className="lg:text-[18px] sm:text-[15px] text-[10px] text-bGrey font-semibold col-span-3 lg:col-span-9">
+        <div className="grid grid-cols-6 gap-[1rem] lg:gap-0 lg:grid-cols-12 items-center">
+          <p className="lg:text-[18px] sm:text-[15px] order-3 lg:order-1 text-[10px] text-bGrey font-semibold col-span-6 lg:col-span-9">
           Showing {indexOfFirstProduct + 1} - {lastIndexOfProduct > result.length ? result.length : lastIndexOfProduct} of {result.length} results
           </p>
 
           {/* SEARCH */}
 
-          <div className="relative col-span-3  lg:col-span-3">
+          <div className="relative col-span-6 lg:order-3  lg:col-span-3">
             <input
               className="rounded-[8px] text-[12px] sm:text-[14px] lg:text-[16px] sm:p-3 p-1 w-full bg-lynx border-0 outline-none placeholder:font-semibold lg:placeholder:text-[15px] sm:placeholder:text-[15px] placeholder:text-[10px] placeholder:text-bGrey  "
               placeholder="Search by product name...."
@@ -185,6 +185,7 @@ const Shop = () => {
           pageSize={productPerPage}
           onChange={handlePageChange}
           total={result.length}
+          responsive
         />
       </div>
     </div>

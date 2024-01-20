@@ -22,7 +22,7 @@ const Aside = ({handleChange, handleChangePrice}) => {
       <Color handleChange={handleChange} />
 
       {/* PRICE SELECT COMPONENT */}
-      <div className="mb-[3rem] mt-[2rem]">
+      <div className="mb-[3rem] mt-0 lg:mt-[2rem]">
         <Price handleChange={handleChange} handleChangePrice={handleChangePrice} />
       </div>
 

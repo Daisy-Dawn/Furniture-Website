@@ -50,89 +50,75 @@ const ProductDetails = () => {
   ));
 
   return (
-    <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem] my-[3rem] xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
-      <div className="grid grid-cols-2 items-center gap-[1rem]">
+    <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem] my-[1rem] lg:my-[3rem] xl:py-[2.5rem] py-[1rem] lg:py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-[1rem]">
         {/* PRODUCT DETAIL COMPONENT */}
-        <section className="flex gap-[2.5rem] flex-col">
+        <section className="flex gap-[1.5rem] lg:gap-[2.5rem] flex-col">
           {/* PRODUCT NAME/HEADER */}
-          <h2 className="text-[18px] capitalize font-semibold text-bGrey">
-            {" "}
-            {product.productName}{" "}
-            <span className="text-lead">/ {product.name}</span>{" "}
+          <h2 className="lg:text-[18px] text-[12px] capitalize font-semibold text-bGrey">
+            {product.productName}
+            <span className="text-lead"> / {product.name}</span>
           </h2>
-          <h2 className="text-lead capitalize font-extrabold text-[35px]">
-            {" "}
-            {product.name}{" "}
+          <h2 className="text-lead capitalize font-extrabold text-[20px] lg:text-[35px]">{product.name}
           </h2>
 
           {/* PRODUCT PRICE AND RATING */}
-          <div className="flex justify-between items-center ">
+          <div className="flex  justify-between items-center ">
             <div className="flex gap-4 items-center text-brown font-bold text-[20px]">
-              <h2 className=""> {product.price} </h2>
-              <h2 className="text-bGrey line-through">
-                {" "}
-                {product.formerPrice}{" "}
+              <h2 className="lg:text-[23px] text-[17px]"> {product.price} </h2>
+              <h2 className="text-bGrey lg:text-[23px] text-[17px] line-through">
+                {product.formerPrice}
               </h2>
             </div>
-            <div className="flex gap-3 items-center">
-              <div className="flex gap-1"> {stars} </div>
-              <h2 className="text-[18px] text-lead"> {product.starRating} </h2>
-              <p className="text-[18px] text-bGrey">
-                {" "}
-                ({product.peopleRating}){" "}
+            <div className="flex lg:gap-3 gap-2 items-center">
+              <div className="flex lg:text-[23px] size-[13] gap-1"> {stars} </div>
+              <h2 className=" lg:text-[23px] text-[15px] text-lead"> {product.starRating} </h2>
+              <p className=" lg:text-[23px] text-[15px] text-bGrey">({product.peopleRating})
               </p>
             </div>
           </div>
 
           {/* PRODUCT DETAILS */}
-          <p className="text-[20px] text-lead font-semibold">
-            {" "}
-            {product.productDetails}{" "}
+          <p className="lg:text-[20px] text-[14px] text-lead font-semibold">{product.productDetails}
           </p>
 
           {/* CART SECTION */}
           <section className="flex gap-[3rem]">
-            <div className="flex border-2 rounded-[10px] border-brown p-2 gap-6 items-center">
+            <div className="flex border-2 rounded-[10px] border-brown p-2 gap-2 lg:gap-6 items-center">
               <span
                 onClick={() => setCartCount(cartCount - 1)}
                 className="cursor-pointer"
               >
-                {" "}
-                <FaMinus className="text-bGrey font-bold" size={20} />{" "}
+                
+                <FaMinus className="text-bGrey size-[15] lg:size-[20] font-bold"  />
               </span>
-              <p className="text-lead font-bold text-[20px]"> {cartCount} </p>
+              <p className="text-lead font-bold text-[14px] lg:text-[20px]"> {cartCount} </p>
               <span
                 onClick={() => setCartCount(cartCount + 1)}
                 className="cursor-pointer"
               >
-                {" "}
-                <FaPlus className="text-brown font-bold" size={20} />{" "}
+                
+                <FaPlus className="text-brown size-[15] lg:size-[20] font-bold" />
               </span>
             </div>
             <Button text="Add To Cart" />
           </section>
 
-          <p className="text-[20px] text-bGrey capitalize font-semibold">
-            {" "}
-            Category: {product.productName}{" "}
+          <p className="text-[16px] lg:text-[20px] text-bGrey capitalize font-semibold">Category: {product.productName}
           </p>
-          <p className="text-[20px] text-bGrey capitalize font-semibold">
-            {" "}
-            Tag: {product.tag}{" "}
+          <p className="text-[16px] lg:text-[20px] text-bGrey capitalize font-semibold">Tag: {product.tag}
           </p>
 
-          <p className="text-lead text-[20px] capitalize font-semibold">
-            free 3-5 day shipping | tool-free assembly | 30-day trial{" "}
+          <p className="text-lead text-[16px] lg:text-[20px] capitalize font-semibold">
+            free 3-5 day shipping | tool-free assembly | 30-day trial
           </p>
 
-          <section className="flex gap-[2rem] items-center">
+          <section className="flex gap-[1rem] lg:gap-[2rem] items-center">
             <span className="text-brown font-semibold">
-              {" "}
-              <FaRegHeart size={20} />{" "}
+              
+              <FaRegHeart className=" size-[15] lg:size-[20]" size={20} />
             </span>
-            <p className="text-brown text-[20px] font-semibold">
-              {" "}
-              Add to wishlist{" "}
+            <p className="text-brown text-[18px] lg:text-[20px] font-semibold">Add to wishlist
             </p>
           </section>
         </section>
@@ -140,7 +126,7 @@ const ProductDetails = () => {
         {/* PRODUCT IMAGE SECTION */}
         <section className="flex flex-col items-center gap-[3rem]">
           {/* LARGER IMAGE SECTION */}
-          <div className="w-[550px] flex justify-center h-[650px]">
+          <div className="lg:w-[550px] w-full flex justify-center h-full lg:h-[650px]">
             <img
               className="w-full h-full object-cover"
               src={product.image}
@@ -148,36 +134,36 @@ const ProductDetails = () => {
             />
           </div>
           {/* SMALLER IMAGE SECTION */}
-          <div className="grid gap-[1rem] grid-cols-5">
-            <div className="w-[115px] h-[115px]">
+          <div className="grid gap-[1rem] grid-cols-3 lg:grid-cols-5">
+            <div className="w-[115px] hidden lg:block h-[115px]">
               <img
                 className="w-full h-full object-cover"
                 src={product.image}
                 alt=""
               />
             </div>
-            <div className="w-[115px] h-[115px]">
+            <div className="w-[115px] hidden lg:block h-[115px]">
+              <img
+                className="w-full  h-full object-cover"
+                src={product.image}
+                alt=""
+              />
+            </div>
+            <div className="lg:w-[115px] w-[95px] h-[100px] lg:h-[115px]">
               <img
                 className="w-full h-full object-cover"
                 src={product.image}
                 alt=""
               />
             </div>
-            <div className="w-[115px] h-[115px]">
+            <div className="lg:w-[115px] w-[95px] h-[100px] lg:h-[115px]">
               <img
                 className="w-full h-full object-cover"
                 src={product.image}
                 alt=""
               />
             </div>
-            <div className="w-[115px] h-[115px]">
-              <img
-                className="w-full h-full object-cover"
-                src={product.image}
-                alt=""
-              />
-            </div>
-            <div className="w-[115px] h-[115px]">
+            <div className="lg:w-[115px] w-[95px] h-[100px] lg:h-[115px]">
               <img
                 className="w-full h-full object-cover"
                 src={product.image}
@@ -192,7 +178,7 @@ const ProductDetails = () => {
         <div className="flex justify-center items-center gap-5">
           <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
           <h2 className="md:text-[25px] text-[20px] font-bold text-lead capitalize">
-            Related products{" "}
+            Related products
           </h2>
           <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
         </div>

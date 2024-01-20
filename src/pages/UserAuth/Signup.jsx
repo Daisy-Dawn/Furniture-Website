@@ -1,49 +1,54 @@
-import React from "react";
-import { userAuth, facebook } from "../../assets";
+import React, { useState } from "react";
+import { userAuth, facebook, sofa3 } from "../../assets";
 import { IoIosArrowBack } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { auth } from "../../config/Firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { notification } from "antd";
 
 const Signup = ({}) => {
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-      acceptTerms: false,
-      userName: "",
-    },
+  const [values, setValues] = useState({
+    username: "",
+    email: "",
+    password: "",
+    checkbox: false,
   });
-  console.log(errors);
+
+  const [passwordPattern, setPasswordPattern] = useState("");
 
   const signUp = async (data) => {
     try {
+      const passwordPattern =
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+      setPasswordPattern("");
+      if (!passwordPattern.test(values.password)) {
+        setPasswordPattern(
+          "Password must be at least 8 characters long and at least one letter, one number and one special character"
+        );
+        return;
+      }
       console.log("Creating User .....");
       await createUserWithEmailAndPassword(auth, data.email, data.password);
-      // Set the display name for the user
-      // await updateProfile(userCredential.user, {
-      //   displayName: data.userName,
-      // });
-
       console.log("User created successfully");
       console.log(data);
       console.log(data.userName);
+      notification.success({
+        message: "Account created successfully",
+        description:
+          "Your personal Account has been created successfully. You are now free to purchase as much as you like. Enjoy!",
+      });
       navigate("/shop");
     } catch (err) {
       console.error(err);
     }
   };
 
-  const onSubmit = (data) => {
-    signUp(data);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    signUp(e);
   };
 
   return (
@@ -55,84 +60,87 @@ const Signup = ({}) => {
       <div className="flex relative items-center h-full bg-image">
         {/* FORM COMPONENT */}
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={onSubmit}
           className="xl:px-[6rem] lg:px-[2rem] px-[1rem] flex flex-col lg:gap-[1rem] gap-[0.5rem]    "
-          action=""
         >
-          <h2 className="md:text-lead text-black lg:text-[35px] text-[25px] mt-[2rem] xl:mt-0 text-center lg:text-left font-bold mb-2 lg:mb-4">Sign Up</h2>
-          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">User Name</p>
+          <h2 className="md:text-lead text-black lg:text-[35px] text-[25px] mt-[2rem] xl:mt-0 text-center lg:text-left font-bold mb-2 lg:mb-4">
+            Sign Up
+          </h2>
+          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
+            User Name
+          </p>
           <input
+            required
             className="md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
             type="text"
-            {...register("userName", {
-              required: "This Field is required",
-              minLength: {
-                value: 7,
-                message: "Name is too short",
-              },
-            })}
+            value={values.username}
+            onChange={(e) =>
+              setValues((prevValue) => ({
+                ...prevValue,
+                username: e.target.value,
+              }))
+            }
           />
-          <p className="text-red-600 text-[15px] block">
-            {" "}
-            {errors.userName?.message}{" "}
-          </p>
 
-          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">Email</p>
+          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
+            Email
+          </p>
           <input
-            className="md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
+            className="md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
             type="email"
-            {...register("email", {
-              required: "This Field is required",
-              pattern: {
-                value: /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/,
-                message: "Not a Valid Email Address",
-              },
-            })}
+            required
+            value={values.email}
+            onChange={(e) =>
+              setValues((prevValue) => ({
+                ...prevValue,
+                email: e.target.value,
+              }))
+            }
           />
-          <p className="text-red-600 text-[15px] block">
-            {" "}
-            {errors.email?.message}{" "}
-          </p>
 
-          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">Password</p>
+          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
+            Password
+          </p>
           <input
             className="md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
             type="password"
-            {...register("password", {
-              required: "This field is required",
-              minLength: {
-                value: 6,
-                message: "Length should be up to 6 characters",
-              },
-            })}
+            required
+            value={values.password}
+            onChange={(e) =>
+              setValues((prevValue) => ({
+                ...prevValue,
+                password: e.target.value,
+              }))
+            }
           />
-          <p className="text-red-600 text-[15px] block">
-            {" "}
-            {errors.password?.message}{" "}
-          </p>
+          <p className="text-red-600 text-[15px] block">{passwordPattern}</p>
 
           <div className="flex gap-[1rem]">
             <input
               className="w-10"
               type="checkbox"
-              {...register("acceptTerms", {
-                required: "Please accept the terms",
-              })}
+              required
+              value={values.checkbox}
+              onChange={(e) =>
+                setValues((prevValue) => ({
+                  ...prevValue,
+                  chekcked: e.target.checked,
+                }))
+              }
             />
             <p className="lg:text-[16px] text-[14px] md:text-bGrey text-white">
-              {" "}
-              Creating an account means you're okay with our{" "}
+              Creating an account means you're okay with our
               <span className="md:text-brown text-black  cursor-pointer">
-                Terms of Service, Privacy Policy,
+                {" "}
+                Terms of Service, Privacy Policy,{" "}
               </span>{" "}
-              and our default{" "}
-              <span className="md:text-brown text-black  cursor-pointer">Notification Settings.</span>{" "}
+              and our default
+              <span className="md:text-brown text-black  cursor-pointer">
+                {" "}
+                Notification Settings.
+              </span>
             </p>
           </div>
-
-          {errors.acceptTerms && (
-            <p className="text-red-500 text-sm">{errors.acceptTerms.message}</p>
-          )}
 
           <div className="flex items-center mt-2 ">
             <button
@@ -169,7 +177,7 @@ const Signup = ({}) => {
 
         <div className="absolute cursor-pointer lg:text-lead text-black left-[1rem] top-[1rem] lg:top-[0rem]">
           <Link to="/">
-            <IoIosArrowBack className="xl:size-[28px] size-[26px]"  />
+            <IoIosArrowBack className="xl:size-[28px] size-[26px]" />
           </Link>
         </div>
       </div>

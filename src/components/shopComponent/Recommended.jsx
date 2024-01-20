@@ -4,8 +4,8 @@ import RecommendedBtn from './RecommendedBtn'
 const Recommended = ({handleClick}) => {
   return (
     <div className='text-lead flex font-nunito mt-[1rem]  flex-col gap-5'>
-        <h2 className='text-center font-bold text-[30px]'>Recommended</h2>
-        <div className='flex flex-wrap gap-6'>
+        <h2 className='text-center lg:font-bold font-extrabold text-[20px] lg:text-[30px]'>Recommended</h2>
+        <div className='flex flex-wrap  gap-3 lg:gap-6'>
         <RecommendedBtn onclickHandler={handleClick} value="" title="All" />
         <RecommendedBtn onclickHandler={handleClick} value="stool" title="Bar Stool" />
         <RecommendedBtn onclickHandler={handleClick} value="chair" title="Chair Seat" />

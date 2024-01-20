@@ -309,6 +309,12 @@ import table8 from './Table/table8.jpeg'
 //USER AUTH
 import userAuth from './userAuth.jpg'
 
+//product Not Found
+import NoShopping from './NoShopping.jpg'
+import NoShopping2 from './NoShopping2.jpg'
+import NoShoppin3 from './NoShoppin3.jpg'
+import NoShoppin4 from './NoShoppin4.jpg'
+
 export {
     //about
     commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4, 
@@ -359,5 +365,7 @@ export {
     table2, table3, table4, table5, table6, table7, table8,
     //user auth
     userAuth,
+    //product Not found
+    NoShopping, NoShopping2, NoShoppin3, NoShoppin4,
     
  }
