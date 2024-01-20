@@ -9,12 +9,9 @@ import Wishlist from "./Wishlist";
 import About from "./About";
 import Login from './UserAuth/Login';
 import Signup from './UserAuth/Signup';
-<<<<<<< HEAD
-=======
 import ProductUpload from '../admin/productUpload'
 import ProductTable from "../admin/productTable";
 
->>>>>>> backendUpdate
 
 export {
     LandingPage,
@@ -28,10 +25,6 @@ export {
     About,
     Login,
     Signup,
-<<<<<<< HEAD
-
-=======
     ProductUpload,
     ProductTable,
->>>>>>> backendUpdate
 }
