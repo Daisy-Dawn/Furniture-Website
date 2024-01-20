@@ -1,14 +1,8 @@
-import BlogDetails from '../BlogPage/BlogDetails'
-import BlogHero from '../BlogPage/BlogHero'
+// import React from 'react'
 
 const Blog = () => {
   return (
-    <div>
-      <BlogHero />
-      <div>
-        <BlogDetails />
-      </div>
-    </div>
+    <div>Blog</div>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import Button from "../components/Button";
 import ProductList from "../data/ProductsList";
 
@@ -19,7 +19,7 @@ const MatchStyles = () => {
             </h2>
             <p className="my-[2rem] text-bGrey text-[18px]">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
+              industry. Lorem Ipsum has been the industry standard dummy text
               ever since.
             </p>
             <Button id={product.id} text="Shop Now" />
@@ -27,7 +27,7 @@ const MatchStyles = () => {
 
           <div className="w-full h-[400px]">
             <img
-              className=" w-full h-full object-contain"
+              className=" w-full h-full object-cover"
               src={product.image}
               alt=""
             />

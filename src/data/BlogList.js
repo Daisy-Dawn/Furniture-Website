@@ -1,7 +1,11 @@
 //blog images
-import { bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,cabinet_1,cabinet_2,cabinet_3,cabinet_4,cabinet_5,cabinet_6,cabinet_7,cabinet_8,cabinet_9,cabinet_10,cabinet_11,coffee1,coffee2,coffee3,coffee4,coffee5,coffee6,coffee7,kitchen_1,kitchen_2,kitchen_3,kitchen_4,kitchen_5,kitchen_6,kitchen_7,kitchen_8,office1,office2,office3,office4,office5,office6,office7,office8,office9,office10 } from "../assets";
+import {
+    bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, cabinet_1, cabinet_2, cabinet_3, cabinet_4,
+    cabinet_5, cabinet_6, cabinet_7, cabinet_8, cabinet_9, cabinet_10, cabinet_11, coffee1_blog, coffee2_blog, coffee3_blog,
+    coffee4_blog, coffee5_blog, coffee6_blog, coffee7_blog, kitchen_1, kitchen_2, kitchen_3, kitchen_4, kitchen_5, kitchen_6, kitchen_7, kitchen_8, office1, office2, office3, office4, office5, office6, office7, office8, office9, office10
+} from "../assets";
 //Blog data
-const blogCardData = [
+const BlogList = [
     {
         id: 1,
         category: "bar stool",
@@ -205,7 +209,7 @@ const blogCardData = [
     {
         id: 21,
         category: "coffee table",
-        banner: coffee1,
+        banner: coffee1_blog,
         date: "25 Feb,2024",
         bannerDescription: "Coffee Table, Modern Design",
         author: "John Doe",
@@ -215,7 +219,7 @@ const blogCardData = [
     {
         id: 22,
         category: "coffee table",
-        banner: coffee2,
+        banner: coffee2_blog,
         date: "27 Feb,2024",
         bannerDescription: "Coffee Table, Rustic Style",
         author: "Jane Smith",
@@ -225,7 +229,7 @@ const blogCardData = [
     {
         id: 23,
         category: "coffee table",
-        banner: coffee3,
+        banner: coffee3_blog,
         date: "29 Feb,2024",
         bannerDescription: "Coffee Table, Glass Top",
         author: "Robert Johnson",
@@ -235,7 +239,7 @@ const blogCardData = [
     {
         id: 24,
         category: "coffee table",
-        banner: coffee4,
+        banner: coffee4_blog,
         date: "02 Mar,2024",
         bannerDescription: "Coffee Table, Wooden",
         author: "Emily Brown",
@@ -245,7 +249,7 @@ const blogCardData = [
     {
         id: 25,
         category: "coffee table",
-        banner: coffee5,
+        banner: coffee5_blog,
         date: "04 Mar,2024",
         bannerDescription: "Coffee Table, Round",
         author: "Michael Wilson",
@@ -255,7 +259,7 @@ const blogCardData = [
     {
         id: 26,
         category: "coffee table",
-        banner: coffee6,
+        banner: coffee6_blog,
         date: "06 Mar,2024",
         bannerDescription: "Coffee Table, Large Size",
         author: "Patricia Taylor",
@@ -265,7 +269,7 @@ const blogCardData = [
     {
         id: 27,
         category: "coffee table",
-        banner: coffee7,
+        banner: coffee7_blog,
         date: "08 Mar,2024",
         bannerDescription: "Coffee Table, Small Size",
         author: "Linda Thompson",
@@ -454,4 +458,4 @@ const blogCardData = [
     }
 ]
 
-export default blogCardData;
+export default BlogList;

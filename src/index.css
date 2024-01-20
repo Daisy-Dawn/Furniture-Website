@@ -53,9 +53,10 @@
   opacity: 1;
 }
 
+
 @media screen and (max-width: 767px) {
   .bg-image {
-    background-image: url("./assets/room4.jpeg");
+    background-image: url("./assets/Sofa/sofa4.jpeg");
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(7px); /* Adjust the blur level as per your preference */

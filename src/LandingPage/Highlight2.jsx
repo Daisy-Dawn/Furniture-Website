@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import Button from "../components/Button";
 import ProductList from "../data/ProductsList";
 
@@ -13,7 +13,7 @@ const Highlight2 = () => {
           key={product.id}
           className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center md:justify-start xl:mx-[5rem] md:mx-[2rem] mx-[1rem] lg:py-[4rem] py-[0rem] xl:gap-[4rem] md:gap-[2rem] gap-[0.5rem]"
         >
-          <div key={product.id} className="lg:col-span-2  ">
+          <div key={product.id} className="lg:col-span-2  h-[500px]  ">
             <img
               className="rounded-[10px] w-full h-full object-cover"
               src={product.image}
@@ -27,7 +27,7 @@ const Highlight2 = () => {
             </h2>
             <p className="lg:my-[2rem] my-[1rem] text-bGrey text-[18px] text-center md:text-left">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
+              industry. Lorem Ipsum has been the industry standard dummy text
               ever since.
             </p>
             <div className="w-1/2 md:w-full mt-2 md:mt-0">

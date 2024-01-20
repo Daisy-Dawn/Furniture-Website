@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import BlogList from "../data/BlogList";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ const RecentBlogs = () => {
 
   return (
     <div className="flex flex-col xl:mx-[5rem] md:mx-[2rem] mb-[2rem] mx-[1rem] xl:py-[4rem] md:py-[1rem] py-[2rem] gap-[5rem] md:gap-[3rem] xl:gap-[5rem]  justify-center">
-     <div className="flex justify-center items-center gap-5">
+      <div className="flex justify-center items-center gap-5">
         <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
         <h2 className="md:text-[25px] text-[20px] font-bold text-lead">Recent Blogs</h2>
         <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>

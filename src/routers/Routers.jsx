@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import {LandingPage, About, Shop, Contact, Blog,  Cart, Wishlist,  ProductDetails, Signup, Login} from '../pages/index';
+import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage } from '../pages/index';
 import Layout from '../layout/Layout';
+import ProductNotFound from '../components/ProductNotFound';
 import BlogDetails from '../BlogPage/BlogDetails';
 
 const Routers = () => {
@@ -46,6 +47,14 @@ const Routers = () => {
           path: "wishlist",
           element: <Wishlist />
         },
+        {
+          path: "productNotFound",
+          element: <ProductNotFound />
+        },
+        {
+          path: "*",
+          element: <NoPage />
+        },
       ]
     },
     {
@@ -58,7 +67,7 @@ const Routers = () => {
     }
   ])
 
-  return ( <RouterProvider router={router} />)
+  return (<RouterProvider router={router} />)
 }
 
 export default Routers;

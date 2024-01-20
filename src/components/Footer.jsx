@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { flower5, footerLogo, phoneIcon, mailIcon } from "../assets";
 import { Link } from "react-router-dom";
 import { FaGithub, FaTwitter } from "react-icons/fa";
@@ -6,6 +6,8 @@ import { GrInstagram } from "react-icons/gr";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { SiUpwork } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io5";
+import { useState } from "react";
+import axios from "axios";
 
 const Footer = () => {
   const backgroundImageUrl = flower5;
@@ -65,6 +67,61 @@ const Footer = () => {
     },
   ];
 
+
+
+
+  const [email, setEmail] = useState('');
+  const [msg, setMsg] = useState('');
+  const [error, setError] = useState('');
+
+
+  const handleChanges = (e, type) => {
+    switch (type) {
+      case "email":
+        setError("");
+        setMsg("");
+        setEmail(e.target.value);
+        if (e.target.value === "") {
+          setError("This field is left blank");
+          return;
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+
+      if (!email) {
+        setError("Insert a valid email address to recieve our best offers");
+        return;
+
+      }
+      const formData = { email: email };
+      const response = await axios.post('http://localhost/reactApiPhp/api/subcribe.php', formData);
+
+
+      if (response.data.success) {
+        setMsg("You've successfully subscribed to our newsletter!")
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      } else if (response.data.error) {
+        setError('Email address already exists');
+
+      } else {
+        setError('Error subscribing to newsletter');
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="flex flex-col font-nunito ">
       <div
@@ -83,19 +140,37 @@ const Footer = () => {
             We recommended you to subscribe to our newspaper, enter your email
             below to get our daily update about us.
           </p>
-
+          <h6 style={{ textAlign: "center" }}>
+            {
+              error !== "" ? (
+                <div style={{ color: "red" }}> {error} </div>
+              ) : (
+                <div style={{ color: "green" }}> {msg} </div>
+              )
+            }
+          </h6>
           <div className="md:relative xl:w-[50%] w-[90%] ">
-            <input
-              className="w-full md:py-[1.3rem] py-[1rem] md:px-[1.3rem] px-[1rem] rounded-[10px] md:text-[18px] text-[16px] text-lead border-none outline-none placeholder:text-lead placeholder:font-semibold md:placeholder:text-[18px] placeholder:text-[15px] "
-              placeholder="Enter your email address"
-              type="email"
-            />
-            <div className="flex justify-center md:justify-start">
-              <button className="mt-[10px] md:mt-[0px] md:absolute md:top-[10px] md:right-[1rem] text-center font-bold text-[18px] py-[10px] px-[20px] text-white flex justify-center items-center bg-lead rounded-[10px]">
-                Subscribe
-              </button>
-            </div>
+            <form onSubmit={handleSubmit}>
+              <input
+                className="w-full md:py-[1.3rem] py-[1rem] md:px-[1.3rem] px-[1rem] rounded-[10px] md:text-[18px] text-[16px] text-lead border-none outline-none placeholder:text-lead placeholder:font-semibold md:placeholder:text-[18px] placeholder:text-[15px] "
+                placeholder="Enter your email address"
+                type="email"
+                value={email}
+                name="email"
+                onChange={(e) => handleChanges(e, "email")}
+              />
+              <div className="flex justify-center md:justify-start">
+                <button className="mt-[10px] md:mt-[0px] md:absolute md:top-[10px] md:right-[1rem] text-center font-bold text-[18px] py-[10px] px-[20px] text-white flex justify-center items-center bg-lead rounded-[10px]"
+                  type="submit"
+
+                >
+                  Subscribe
+                </button>
+
+              </div>
+            </form>
           </div>
+
         </div>
       </div>
 
@@ -107,7 +182,7 @@ const Footer = () => {
             </div>
             <p className="lg:w-[80%] w-full md:text-[18px] text-[14px] text-justify">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
+              industry. Lorem Ipsum has been the industry&#39;s standard dummy text
               ever since.
             </p>
           </div>
@@ -202,7 +277,7 @@ const Footer = () => {
                 className="lg:text-[16px] md:text-[14px] text-[12px] font-semibold"
                 href="/"
               >
-                @ 2023 Daisy Dawn Cooperation. All Rights Reserved
+                @ 2024 Daisy Dawn Cooperation. All Rights Reserved
               </a>
             </div>
 
