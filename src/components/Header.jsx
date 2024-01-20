@@ -5,9 +5,12 @@ import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../config/Firebase";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const navigate = useNavigate();
+  const numberOfCartItems = useSelector(state => state.addToCart.numberOfCartItems)
+  const numberOfWishlistItems = useSelector(state => state.addToWishlist.numberOfWishlistItems)
 
   // Check if the user is authenticated
   useEffect(() => {
@@ -56,9 +59,8 @@ const Header = () => {
   ];
 
   const navLinks2 = [
-    // { id: "wishlist", text: userIcon },
-    { id: "wishlist", text: heart, number: 1 },
-    { id: "cart", text: cart, number: 1 },
+    { id: "wishlist", text: heart, number: numberOfWishlistItems },
+    { id: "cart", text: cart, number: numberOfCartItems },
   ];
 
   const navLinks3 = [
@@ -123,23 +125,23 @@ const Header = () => {
           )}
         </li>
         {navLinks2.map((link) => (
-          <li
-            key={link.id}
-            className={`text-black hover:text-brown relative font-medium ${
-              active === link.text ? "text-brown" : "text-black"
-            }`}
-            onClick={() => setActive(link.text)}
-          >
-            {/* {link.text === ""} */}
-            <Link to={`/${link.id}`}>
-              <img src={link.text} alt="" />
-            </Link>
-            <p className="absolute top-[-5px] left-2 text-white rounded-full bg-red-600 px-1  text-[11px] ">
-              {" "}
-              {link.number}{" "}
+        <li
+          key={link.id}
+          className={`text-black hover:text-brown relative font-medium ${
+            active === link.text ? "text-brown" : "text-black"
+          }`}
+          onClick={() => setActive(link.text)}
+        >
+          <Link to={`/${link.id}`}>
+            <img src={link.text} alt="" />
+          </Link>
+          {link.number > 0 && (
+            <p className="absolute top-[-5px] left-2 text-white rounded-full bg-red-600 px-1 text-[11px]">
+              {link.number}
             </p>
-          </li>
-        ))}
+          )}
+        </li>
+      ))}
       </ul>
 
       {/* responsiveness */}

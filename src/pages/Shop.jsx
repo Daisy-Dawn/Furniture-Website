@@ -165,7 +165,6 @@ const Shop = () => {
       {/* MAIN COMPONENT */}
 
       <main className="lg:col-span-9 col-span-6 items-start  lg:gap-[1rem]">
-      {/* {result ? <Main currentProducts={currentProducts} /> : <div>Sorry no products to display</div>} */}
         <Main currentProducts={currentProducts} />
       </main>
 

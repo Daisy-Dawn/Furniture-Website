@@ -9,12 +9,17 @@ import { FaRegHeart } from "react-icons/fa6";
 import ProductsCard from "../components/ProductsCard";
 import { useDispatch, useSelector } from "react-redux";
 import { addViewedProducts } from "../features/recentlyViewedSlice";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [cartCount, setCartCount] = useState(1);
   const dispatch = useDispatch();
+
+  const handleAddToCartClick = () => {
+    toast.success("Item added to Cart!");
+  };
 
   useEffect(() => {
     const product = ProductList.find((product) => product.id === id);
@@ -30,7 +35,7 @@ const ProductDetails = () => {
     return <div>Product not found</div>;
   }
 
-    //shuffle product list
+  //shuffle product list
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -39,11 +44,11 @@ const ProductDetails = () => {
     return array;
   };
 
-  const shuffledProducts = shuffleArray(ProductList)
+  const shuffledProducts = shuffleArray(ProductList);
 
-  const relatedProducts = shuffledProducts.filter(
-    (p) => p.category === product.category && p.id !== product.id
-  ).slice(0, 4);
+  const relatedProducts = shuffledProducts
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, 4);
 
   const stars = Array.from({ length: product.starRating }, (_, index) => (
     <IoStar className="text-brown" size={18} key={index} />
@@ -59,7 +64,8 @@ const ProductDetails = () => {
             {product.productName}
             <span className="text-lead"> / {product.name}</span>
           </h2>
-          <h2 className="text-lead capitalize font-extrabold text-[20px] lg:text-[35px]">{product.name}
+          <h2 className="text-lead capitalize font-extrabold text-[20px] lg:text-[35px]">
+            {product.name}
           </h2>
 
           {/* PRODUCT PRICE AND RATING */}
@@ -71,15 +77,23 @@ const ProductDetails = () => {
               </h2>
             </div>
             <div className="flex lg:gap-3 gap-2 items-center">
-              <div className="flex lg:text-[23px] size-[13] gap-1"> {stars} </div>
-              <h2 className=" lg:text-[23px] text-[15px] text-lead"> {product.starRating} </h2>
-              <p className=" lg:text-[23px] text-[15px] text-bGrey">({product.peopleRating})
+              <div className="flex lg:text-[23px] size-[13] gap-1">
+                {" "}
+                {stars}{" "}
+              </div>
+              <h2 className=" lg:text-[23px] text-[15px] text-lead">
+                {" "}
+                {product.starRating}{" "}
+              </h2>
+              <p className=" lg:text-[23px] text-[15px] text-bGrey">
+                ({product.peopleRating})
               </p>
             </div>
           </div>
 
           {/* PRODUCT DETAILS */}
-          <p className="lg:text-[20px] text-[14px] text-lead font-semibold">{product.productDetails}
+          <p className="lg:text-[20px] text-[14px] text-lead font-semibold">
+            {product.productDetails}
           </p>
 
           {/* CART SECTION */}
@@ -89,24 +103,32 @@ const ProductDetails = () => {
                 onClick={() => setCartCount(cartCount - 1)}
                 className="cursor-pointer"
               >
-                
-                <FaMinus className="text-bGrey size-[15] lg:size-[20] font-bold"  />
+                <FaMinus className="text-bGrey size-[15] lg:size-[20] font-bold" />
               </span>
-              <p className="text-lead font-bold text-[14px] lg:text-[20px]"> {cartCount} </p>
+              <p className="text-lead font-bold text-[14px] lg:text-[20px]">
+                {" "}
+                {cartCount}{" "}
+              </p>
               <span
                 onClick={() => setCartCount(cartCount + 1)}
                 className="cursor-pointer"
               >
-                
                 <FaPlus className="text-brown size-[15] lg:size-[20] font-bold" />
               </span>
             </div>
-            <Button text="Add To Cart" />
+            <button
+              onClick={handleAddToCartClick}
+              className="py-[8px] px-[20px]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[16px] font-bold text-center flex items-center justify-center "
+            >
+              Add to Cart
+            </button>
           </section>
 
-          <p className="text-[16px] lg:text-[20px] text-bGrey capitalize font-semibold">Category: {product.productName}
+          <p className="text-[16px] lg:text-[20px] text-bGrey capitalize font-semibold">
+            Category: {product.productName}
           </p>
-          <p className="text-[16px] lg:text-[20px] text-bGrey capitalize font-semibold">Tag: {product.tag}
+          <p className="text-[16px] lg:text-[20px] text-bGrey capitalize font-semibold">
+            Tag: {product.tag}
           </p>
 
           <p className="text-lead text-[16px] lg:text-[20px] capitalize font-semibold">
@@ -115,10 +137,10 @@ const ProductDetails = () => {
 
           <section className="flex gap-[1rem] lg:gap-[2rem] items-center">
             <span className="text-brown font-semibold">
-              
               <FaRegHeart className=" size-[15] lg:size-[20]" size={20} />
             </span>
-            <p className="text-brown text-[18px] lg:text-[20px] font-semibold">Add to wishlist
+            <p className="text-brown text-[18px] lg:text-[20px] font-semibold">
+              Add to wishlist
             </p>
           </section>
         </section>

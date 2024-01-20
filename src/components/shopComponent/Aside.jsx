@@ -1,12 +1,6 @@
 
-import React, { useState } from "react";
-import Button from "../Button";
-import {ProductsList, BedFrameList, ChairList, CupboardList, TableList, StoolList, KitchenList, SofaList, CabinetList, LightsList, FlowerVaseList, FurnitureStyles} from "../../data/index";
+import React from "react";
 import RecentlyViewed from "./RecentlyViewed";
-import { Radio } from "antd";
-import { Slider } from "antd";
-import {useDispatch} from 'react-redux'
-import { setCategory } from "../../features/CategorySlice";
 import CategoriesAside from "./CategoriesAside";
 import Color from "./Color";
 import Price from "./Price";
