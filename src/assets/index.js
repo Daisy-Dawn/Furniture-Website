@@ -1,50 +1,6 @@
 // ABOUT
 import commentPic1 from './about/commentPic1.png'; 
 import commentPic2 from './about/commentPic2.png'; 
-<<<<<<< HEAD
-import ourShop from './about/ourShop.jpeg'
-import offerBanner from './about/offerBanner.jpeg'
-import teamCard1 from './about/teamCard1.jpeg'
-import teamCard2 from './about/teamCard2.png'
-import teamCard3 from './about/teamCard3.png'
-import teamCard4 from './about/teamCard4.png'
-import teamCard5 from './about/teamCard5.jpg'
-import teamCard6 from './about/teamCard6.jpg'
-import teamCard7 from './about/teamCard7.jpg'
-import teamCard8 from './about/teamCard8.jpg'
-
-//BAR STOOL
-import stool2 from './BarStool/stool2.png'
-import stool1 from './BarStool/stool1.png'
-import stoolIcon from './BarStool/stoolIcon.png'
-
-//BLOGG
-import blog1 from './blogg/blog1.jpg';
-import blog2 from './blogg/blog2.jpg';
-import blog3 from './blogg/blog3.jpg';
-
-//BED FRAME
-import bed from './bedFrame/bed.jpg';
-import bedIcon from './bedFrame/bedIcon.png';
-import bed1 from './bedFrame/bed1.png';
-import bed2 from './bedFrame/bed2.jpg';
-import bed3 from './bedFrame/bed3.jpeg';
-
-//CABINET
-import cabinetIcon from './Cabinet/cabinetIcon.png';
-
-//CHAIR
-import chair1 from './Chair/chair1.png';
-import chair3 from './Chair/chair3.png';
-import chair4 from './Chair/chair4.png';
-import chair5 from './Chair/chair5.png';
-import chair6 from './Chair/chair6.jpeg';
-import chair7 from './Chair/chair7.jpg';
-import highlight1 from './Chair/highlight1.png';
-import chair8 from './Chair/chair8.jpeg';
-import desk1 from './Chair/desk1.jpeg';
-import desk from './Chair/desk.jpeg';
-=======
 import ourShop from './about/ourShop.jpeg';
 import offerBanner from './about/offerBanner.jpeg';
 import teamCard1 from './about/teamCard1.jpeg';
@@ -183,22 +139,10 @@ import chair29 from './Chair/chair29.jpeg';
 import chair30 from './Chair/chair30.jpeg';
 import chair31 from './Chair/chair31.jpeg';
 import highlight1 from './Chair/highlight1.png';
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
 import chairIcon from './Chair/chairIcon.png';
 
 //CUPBOARD
 import cupboardIcon from './cupboard/cupboardIcon.png';
-<<<<<<< HEAD
-
-//FLOWER VASE
-import flower from './FlowerVase/flower.png';
-import flower1 from './FlowerVase/flower1.jpeg';
-import flower5 from './FlowerVase/flower5.jpg';
-import flowerVaseIcon from './FlowerVase/flowerVaseIcon.jpg';
-import flower4 from './FlowerVase/flower4.jpeg';
-import flower2 from './FlowerVase/flower2.jpeg';
-import flower3 from './FlowerVase/flower3.png';
-=======
 import cupboard1 from './cupboard/cupboard1.jpeg';
 import cupboard2 from './cupboard/cupboard2.jpeg';
 import cupboard3 from './cupboard/cupboard3.jpeg';
@@ -235,14 +179,11 @@ import flower17 from './FlowerVase/flower17.jpeg';
 import flower18 from './FlowerVase/flower18.jpeg';
 import flower19 from './FlowerVase/flower19.jpeg';
 import flowerVaseIcon from './FlowerVase/flowerVaseIcon.jpg';
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
 
 //FURNITURE STYLES
 import furnitureStylesIcon from './FurnitureStyles/furnitureStylesIcon.png';
 import furnitureStyles2 from './FurnitureStyles/furnitureStyles2.jpg'
 import furnitureStyles3 from './FurnitureStyles/furnitureStyles3.jpeg'
-<<<<<<< HEAD
-=======
 import furnitureStyles4 from './FurnitureStyles/furnitureStyles4.jpeg'
 import furnitureStyles5 from './FurnitureStyles/furnitureStyles5.jpeg'
 import furnitureStyles6 from './FurnitureStyles/furnitureStyles6.jpeg'
@@ -258,7 +199,6 @@ import furnitureStyles15 from './FurnitureStyles/furnitureStyles15.jpeg'
 import furnitureStyles16 from './FurnitureStyles/furnitureStyles16.jpeg'
 import furnitureStyles17 from './FurnitureStyles/furnitureStyles17.jpeg'
 import furnitureStyles18 from './FurnitureStyles/furnitureStyles18.jpeg'
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
 import highlight2 from './FurnitureStyles/highlight2.png'
 
 //ICONS
@@ -284,13 +224,6 @@ import logo1 from './icons/logo1.png'
 import kitchenCabinetIcon from './KitchenFurniture/kitchenCabinetIcon.png'
 import kitchen1 from './KitchenFurniture/kitchen1.jpeg'
 import kitchen2 from './KitchenFurniture/kitchen2.jpg'
-<<<<<<< HEAD
-
-//LIGHTS
-import lampIcon from './Lights/lampIcon.png'
-import lights from './Lights/lights.png'
-import lights1 from './Lights/lights1.png'
-=======
 import kitchen3 from './KitchenFurniture/kitchen3.jpg'
 import kitchen4 from './KitchenFurniture/kitchen4.jpg'
 import kitchen5 from './KitchenFurniture/kitchen5.webp'
@@ -321,7 +254,6 @@ import lights14 from './Lights/lights14.jpeg'
 import lights15 from './Lights/lights15.jpeg'
 import lights16 from './Lights/lights16.jpeg'
 import lights17 from './Lights/lights17.jpeg'
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
 
 //SOFA
 import sofaIcon from './Sofa/sofaIcon.png'
@@ -331,8 +263,6 @@ import sofa3 from './Sofa/sofa3.jpeg'
 import sofa4 from './Sofa/sofa4.jpeg'
 import sofa5 from './Sofa/sofa5.jpeg'
 import sofa6 from './Sofa/sofa6.jpeg'
-<<<<<<< HEAD
-=======
 import sofa7 from './Sofa/sofa7.jpeg'
 import sofa8 from './Sofa/sofa8.jpeg'
 import sofa9 from './Sofa/sofa9.jpeg'
@@ -350,14 +280,10 @@ import sofa20 from './Sofa/sofa20.jpeg'
 import sofa21 from './Sofa/sofa21.jpeg'
 import sofa22 from './Sofa/sofa22.jpeg'
 import sofa23 from './Sofa/sofa23.jpeg'
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
 import sofaHighlight from './Sofa/sofaHighlight.jpg'
 
 //TABLE
 import tableIcon from './Table/tableIcon.png'
-<<<<<<< HEAD
-import table1 from './Table/table1.jpeg'
-=======
 import coffee1 from './Table/coffee1.jpg'
 import coffee2 from './Table/coffee2.jpg'
 import coffee3 from './Table/coffee3.jpg'
@@ -379,42 +305,20 @@ import table5 from './Table/table5.jpeg'
 import table6 from './Table/table6.jpeg'
 import table7 from './Table/table7.jpeg'
 import table8 from './Table/table8.jpeg'
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
 
 //USER AUTH
 import userAuth from './userAuth.jpg'
 
-<<<<<<< HEAD
-=======
 //product Not Found
 import NoShopping from './NoShopping.jpg'
 import NoShopping2 from './NoShopping2.jpg'
 import NoShoppin3 from './NoShoppin3.jpg'
 import NoShoppin4 from './NoShoppin4.jpg'
 
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
 export {
     //about
     commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4, 
     teamCard5, teamCard6, teamCard7, teamCard8,
-<<<<<<< HEAD
-    //blogg
-    blog1, blog2, blog3,
-    //stool
-    stool2, stool1, stoolIcon,
-    //bed frame
-    bed, bedIcon, bed1, bed2, bed3,
-    //cabinet
-    cabinetIcon,
-    //chair
-    chair1, chair3, chair4, chair5, chair6, chair7, highlight1, chair8, desk1, desk, chairIcon,
-    //cupboard
-    cupboardIcon,
-    //flower vase
-    flower, flower1, flower5, flowerVaseIcon, flower4, flower2, flower3,
-    //furniture styles
-    furnitureStylesIcon, furnitureStyles2, furnitureStyles3, highlight2,
-=======
     //blog page
     blogBig1,blogBig2,blogBig3,blogSmall1,
     bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,
@@ -444,22 +348,10 @@ export {
     furnitureStylesIcon, furnitureStyles2, furnitureStyles3, highlight2, furnitureStyles4, furnitureStyles5, furnitureStyles6, 
     furnitureStyles7, furnitureStyles8, furnitureStyles9, furnitureStyles10, furnitureStyles11, furnitureStyles12, furnitureStyles13, 
     furnitureStyles14, furnitureStyles15, furnitureStyles16, furnitureStyles17, furnitureStyles18,
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
     //icons
     aboutArrow, brand1, brand2, brand3, brand4, brand5, cart, comment, eye, 
     heart, userIcon, facebook, footerLogo, phoneIcon, mailIcon, logo, logo1,
     //kitchen furniture
-<<<<<<< HEAD
-    kitchenCabinetIcon, kitchen1, kitchen2,
-    //lights
-    lampIcon, lights, lights1,
-    //sofa
-    sofaIcon, sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight,
-    //table
-    tableIcon, table1,
-    //user auth
-    userAuth,
-=======
     kitchenCabinetIcon, kitchen1, kitchen2, kitchen3, kitchen4, kitchen5, kitchen6, kitchen7, kitchen8, kitchen9, kitchen10, kitchen11, 
     kitchen12,
     //lights
@@ -475,6 +367,5 @@ export {
     userAuth,
     //product Not found
     NoShopping, NoShopping2, NoShoppin3, NoShoppin4,
->>>>>>> 5fd0534cfade09f218e428fc5caa0623420d0028
     
  }
