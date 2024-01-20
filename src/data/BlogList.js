@@ -1,6 +1,6 @@
 //blog images
 import {
-    blog1, blog2, blog3, bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, cabinet_1, cabinet_2, cabinet_3, cabinet_4,
+    bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, cabinet_1, cabinet_2, cabinet_3, cabinet_4,
     cabinet_5, cabinet_6, cabinet_7, cabinet_8, cabinet_9, cabinet_10, cabinet_11, coffee1_blog, coffee2_blog, coffee3_blog,
     coffee4_blog, coffee5_blog, coffee6_blog, coffee7_blog, kitchen_1, kitchen_2, kitchen_3, kitchen_4, kitchen_5, kitchen_6, kitchen_7, kitchen_8, office1, office2, office3, office4, office5, office6, office7, office8, office9, office10
 } from "../assets";
@@ -419,7 +419,7 @@ const BlogList = [
     {
         id: 42,
         category: "office chair",
-        banner: office6,
+        banner: office7,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
@@ -429,7 +429,7 @@ const BlogList = [
     {
         id: 43,
         category: "office chair",
-        banner: office6,
+        banner: office8,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
@@ -439,7 +439,7 @@ const BlogList = [
     {
         id: 44,
         category: "office chair",
-        banner: office6,
+        banner: office9,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
@@ -449,7 +449,7 @@ const BlogList = [
     {
         id: 45,
         category: "office chair",
-        banner: office6,
+        banner: office10,
         date: "06 Apr,2024",
         bannerDescription: "Office Chair, Modern Design",
         author: "Patricia Taylor",
