@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductList from "../data/ProductsList";
 import { useParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
@@ -7,14 +7,29 @@ import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import ProductsCard from "../components/ProductsCard";
+import { useDispatch, useSelector } from "react-redux";
+import { addViewedProducts, selectViewedProducts } from "../features/recentlyViewedSlice";
+import ProductNotFound from '../components/ProductNotFound';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [cartCount, setCartCount] = useState(1);
+  const dispatch = useDispatch();
+  const viewedProducts = useSelector(selectViewedProducts);
+
+  useEffect(() => {
+    const product = ProductList.find((product) => product.id === id);
+    if (product) {
+      dispatch(addViewedProducts(product));
+    }
+    if (!product) {
+      return <ProductNotFound />
+    }
+  }, [dispatch, id])
 
   const product = ProductList.find((product) => product.id === id);
   if (!product) {
-    return <div>Product not found</div>;
+    return <ProductNotFound />;
   }
 
   const relatedProducts = ProductList.filter(
