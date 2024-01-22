@@ -20,7 +20,7 @@ http://furnitura.infinityfreeapp.com/reactApiPhp/api/stoolList.php
 http://furnitura.infinityfreeapp.com/reactApiPhp/api/tableList.php
 http://furnitura.infinityfreeapp.com/reactApiPhp/api/subcribe.php
 
-# you can use this to call the image (Alternative)
+# you can use this to call the images if you are having issues in getting it (Alternative)
 <!-- <img src={`http://furnitura.infinityfreeapp.com/reactApiPhp/images/${items.image}`} height={30} width={40} /> -->
 
 <!-- ------------------------------------------------------------------------------------------------------ -->
