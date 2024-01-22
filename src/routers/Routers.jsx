@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage, ProductTable, BlogProductList, Products } from '../pages/index';
+import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage, ProductNotFound, BlogDetails, CheckoutForm, ProductTable, BlogProductList, Products } from '../pages/index';
+
+
 import Layout from '../layout/Layout';
-import ProductNotFound from '../components/ProductNotFound';
-import BlogDetails from '../BlogPage/BlogDetails';
 
 const Routers = () => {
 
@@ -54,6 +54,10 @@ const Routers = () => {
         {
           path: "cart",
           element: <Cart />
+        },
+        {
+          path: "cart/checkout",
+          element: <CheckoutForm />
         },
         {
           path: "wishlist",

@@ -19,7 +19,7 @@ const RecentBlogs = () => {
             <Link to={`/blog/${blog.id}`}>
               <div className="relative overflow-hidden">
                 <img
-                  className="rounded-[0.625rem] object-cover"
+                  className="rounded-[0.625rem] w-full h-[18.875rem] object-cover"
                   src={blog.banner}
                   alt=""
                 />
