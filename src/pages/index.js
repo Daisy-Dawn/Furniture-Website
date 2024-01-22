@@ -9,7 +9,9 @@ import Wishlist from "./Wishlist";
 import About from "./About";
 import Login from './UserAuth/Login';
 import Signup from './UserAuth/Signup';
-
+import ProductTable from "../admin/productTable";
+import BlogProductList from "../admin/blogProductList";
+import Products from "../admin/bedProductList";
 export {
     LandingPage,
     Blog,
@@ -22,4 +24,7 @@ export {
     About,
     Login,
     Signup,
+    ProductTable,
+    BlogProductList,
+    Products,
 }

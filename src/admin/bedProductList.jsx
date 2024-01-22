@@ -12,51 +12,36 @@ import axios from "axios";
 // import { useForm } from "react-hook-form";
 // import { useNavigate } from "react-router-dom";
 
-const ProductUpload = () => {
+const Products = () => {
     // const navigate = useNavigate()
 
-    const [title, setTitle] = useState('');
-    const [price, setPrice] = useState('');
-    const [category, setCategory] = useState('');
-    const [ratings, setRatings] = useState('');
+    const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [ratings, setRatings] = useState('');
+    const [category, setCategory] = useState('');
     const [msg, setMsg] = useState('');
     const [error, setError] = useState('');
     const [image, setImage] = useState();
+    const [productDetails, setProductDetails] = useState('');
+    const [peopleRating, setPeopleRating] = useState('');
+    const [feature, setFeature] = useState('');
+    const [color, setColor] = useState('');
+    const [tag, setTag] = useState('');
+    const [formerPrice, setFormerPrice] = useState('');
+    const [productName, setProductName] = useState('');
 
     const handleChanges = (e, type) => {
         switch (type) {
-
-
-            case "title":
+            case "name":
                 setError("");
                 setMsg("");
-                setTitle(e.target.value);
+                setName(e.target.value);
                 if (e.target.value === "") {
                     setError("This field is empty");
 
                 }
                 break;
-
-            case "price":
-                setError("");
-                setMsg("");
-                setPrice(e.target.value);
-                if (e.target.value === "") {
-                    setError("This field is empty")
-                }
-                break;
-
-            case "ratings":
-                setError("");
-                setMsg("");
-                setRatings(e.target.value);
-                if (e.target.value === "") {
-                    setError("This field is empty")
-
-                }
-                break;
-
             case "description":
                 setError("");
                 setMsg("");
@@ -66,18 +51,6 @@ const ProductUpload = () => {
 
                 }
                 break;
-            case "category":
-                setError("");
-                setMsg("");
-                setCategory(e.target.value);
-                if (e.target.value === "") {
-                    setError("This field is empty")
-
-                }
-                break;
-
-
-
             default:
                 break;
         }
@@ -85,14 +58,24 @@ const ProductUpload = () => {
 
     const uploadProduct = async () => {
         const formData = new FormData();
-        formData.append('title', title);
+        formData.append('name', name);
         formData.append('price', price);
         formData.append('ratings', ratings);
         formData.append('category', category);
-        formData.append('image', image);
         formData.append('description', description);
+        formData.append('image', image);
+        formData.append('tag', tag);
+        formData.append('color', color);
+        formData.append('formerprice', formerPrice);
+        formData.append('feature', feature);
+        formData.append('peopleratings', peopleRating);
+        formData.append('productname', productName);
+        formData.append('productdetails', productDetails);
 
-        const url = "http://localhost/reactApiPhp/api/productsList.php";
+
+
+
+        const url = "http://localhost/reactApiPhp/api/sofaList.php";
         const responses = await axios.post(url, formData, {
             headers: { 'Content-Type': "multipart/form-data" },
         });
@@ -100,9 +83,10 @@ const ProductUpload = () => {
         if (responses.data.success) {
             setMsg("Product uploaded successfully");
             console.log(responses)
-            window.location.reload();
+            // window.location.reload();
         } else {
             setError("product could not be uploaded")
+            console.error(responses)
         }
 
     }
@@ -110,19 +94,10 @@ const ProductUpload = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (!title) {
-                setError('Please enter the field.');
-                return false;
-            } else if (!price) {
-                setError('Please enter the field.');
-                return false;
-            } else if (!ratings) {
+            if (!name) {
                 setError('Please enter the field.');
                 return false;
             } else if (!description) {
-                setError('Please enter the field.');
-                return false;
-            } else if (!category) {
                 setError('Please enter the field.');
                 return false;
             }
@@ -181,9 +156,9 @@ const ProductUpload = () => {
     return (
         <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] mb-[5rem]  font-nunito">
             <div className="flex flex-col items-center">
-                <h2 className="text-lead text-center font-bold text-[30px] lg:text-[45px]">ProductUpload</h2>
+                <h2 className="text-lead text-center font-bold text-[30px] lg:text-[45px]">Bed Frame Form</h2>
                 <p className="text-center mt-[1rem] lg:mb-[3rem] mb-[1rem] text-bGrey lg:w-[50%] w-[90%] font-semibold text-[16px] lg:text-[20px]">
-                    Here is to upload product database for diplay on the productlist
+                    Here is to upload bed form data to the database.
                 </p>
             </div>
 
@@ -208,12 +183,12 @@ const ProductUpload = () => {
 
 
                         {/* SUBJECT SECTION */}
-                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Title</p>
+                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Name</p>
                         <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
                             type="text"
-                            value={title}
+                            value={name}
                             name="title"
-                            onChange={(e) => handleChanges(e, "title")}
+                            onChange={(e) => handleChanges(e, "name")}
                         />
 
                         {/* IMAGE */}
@@ -234,27 +209,12 @@ const ProductUpload = () => {
                             onChange={(e) => handleChanges(e, "description")}
                         ></textarea>
 
-                    </div>
-
-                    <div>
-                        {/* SECOND SECTION */}
-                        {/* EMAIL SECTION */}
-                        <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Price</p>
-                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-                            type="text"
-                            value={price}
-                            name="price"
-                            onChange={(e) => handleChanges(e, "price")}
-                        />
-
-
-                        {/* Phone SECTION */}
-                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Ratings</p>
+                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">StarRating</p>
                         <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
                             type="text"
                             value={ratings}
                             name="ratings"
-                            onChange={(e) => handleChanges(e, "ratings")}
+                            onChange={(e) => setRatings(e.target.value)}
                         />
 
 
@@ -263,10 +223,80 @@ const ProductUpload = () => {
                             type="text"
                             value={category}
                             name="category"
-                            onChange={(e) => handleChanges(e, "category")}
+                            onChange={(e) => setCategory(e.target.value)}
+                        />
+                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Price</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="text"
+                            value={price}
+                            name="price"
+                            onChange={(e) => setPrice(e.target.value)}
                         />
 
                     </div>
+
+                    <div>
+
+
+                        <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Feature</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="text"
+                            value={feature}
+                            name="feature"
+                            onChange={(e) => setFeature(e.target.value)}
+                        />
+                        <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Product Name</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="text"
+                            value={productName}
+                            name="productName"
+                            onChange={(e) => setProductName(e.target.value)}
+                        />
+                        <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Former Price</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="text"
+                            value={formerPrice}
+                            name="formerPrice"
+                            onChange={(e) => setFormerPrice(e.target.value)}
+                        />
+                        <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Color</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="text"
+                            value={color}
+                            name="color"
+                            onChange={(e) => setColor(e.target.value)}
+                        />
+                        <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">People Rating</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="text"
+                            value={peopleRating}
+                            name="peoplerating"
+                            onChange={(e) => setPeopleRating(e.target.value)}
+                        />
+                        <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Tag</p>
+                        <input className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            type="text"
+                            value={tag}
+                            name="tag"
+                            onChange={(e) => setTag(e.target.value)}
+                        />
+
+
+                        {/* MESSAGE SECTION */}
+                        <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Product Details</p>
+                        <textarea className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+                            cols="30"
+                            rows="7"
+                            value={productDetails}
+                            name="productDetails"
+                            onChange={(e) => setProductDetails(e.target.value)}
+                        ></textarea>
+
+
+                        {/* Phone SECTION */}
+
+                    </div>
+
 
                     {/* THIRD SECTION */}
                     <div className="bg-lynx flex flex-col xl:py-[6rem] py-[2rem] xl:px-[4rem] px-[1rem] gap-[3rem] rounded-[10px]">
@@ -301,4 +331,4 @@ const ProductUpload = () => {
         </div>
     );
 };
-export default ProductUpload;
+export default Products;
