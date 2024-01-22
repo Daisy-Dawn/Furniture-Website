@@ -4,7 +4,7 @@ A Furniture Company full fledged ecommerce website consisting of routings, where
 
 # React + Vite
 
-# This are the API's that handles the request
+# This are the API's that handles the all the product request
 http://furnitura.infinityfreeapp.com/reactApiPhp/api/bedFrameList.php
 http://furnitura.infinityfreeapp.com/reactApiPhp/api/blogList.php
 http://furnitura.infinityfreeapp.com/reactApiPhp/api/carbinetList.php
