@@ -1,6 +1,6 @@
 // ABOUT
-import commentPic1 from './about/commentPic1.png'; 
-import commentPic2 from './about/commentPic2.png'; 
+import commentPic1 from './about/commentPic1.png';
+import commentPic2 from './about/commentPic2.png';
 import ourShop from './about/ourShop.jpeg';
 import offerBanner from './about/offerBanner.jpeg';
 import teamCard1 from './about/teamCard1.jpeg';
@@ -317,15 +317,15 @@ import NoShoppin4 from './NoShoppin4.jpg'
 
 export {
     //about
-    commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4, 
+    commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4,
     teamCard5, teamCard6, teamCard7, teamCard8,
     //blog page
-    blogBig1,blogBig2,blogBig3,blogSmall1,
-    bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8,bar9,
-    cabinet_1,cabinet_2,cabinet_3,cabinet_4,cabinet_5,cabinet_6,cabinet_7,cabinet_8,cabinet_9,cabinet_10,cabinet_11,
+    blogBig1, blogBig2, blogBig3, blogSmall1,
+    bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9,
+    cabinet_1, cabinet_2, cabinet_3, cabinet_4, cabinet_5, cabinet_6, cabinet_7, cabinet_8, cabinet_9, cabinet_10, cabinet_11,
     coffee1_blog, coffee2_blog, coffee3_blog, coffee4_blog, coffee5_blog, coffee6_blog, coffee7_blog,
-    kitchen_1,kitchen_2,kitchen_3,kitchen_4,kitchen_5,kitchen_6,kitchen_7,kitchen_8,
-    office1,office2,office3,office4,office5,office6,office7,office8,office9,office10,
+    kitchen_1, kitchen_2, kitchen_3, kitchen_4, kitchen_5, kitchen_6, kitchen_7, kitchen_8,
+    office1, office2, office3, office4, office5, office6, office7, office8, office9, office10,
     //blogg
     blog1, blog2, blog3,
     //stool
@@ -335,37 +335,37 @@ export {
     //cabinet
     cabinetIcon, cabinet1, cabinet2, cabinet3, cabinet4, cabinet5, cabinet6, cabinet7, cabinet8,
     //chair
-    chair1, chair2, chair3, chair4, chair6, chair7, chair8, chair9, chair10, chair11, chair12, chair13, chair14, 
-    chair16, chair17, chair19, chair20, chair21, chair22, chair23, chair24, chair25, chair26, chair27, chair28, chair29, 
+    chair1, chair2, chair3, chair4, chair6, chair7, chair8, chair9, chair10, chair11, chair12, chair13, chair14,
+    chair16, chair17, chair19, chair20, chair21, chair22, chair23, chair24, chair25, chair26, chair27, chair28, chair29,
     chair30, chair31, highlight1, chairIcon,
     //cupboard
-    cupboardIcon, cupboard1, cupboard2, cupboard3, cupboard4, cupboard5, cupboard6, cupboard7, cupboard8, cupboard9, cupboard10, 
+    cupboardIcon, cupboard1, cupboard2, cupboard3, cupboard4, cupboard5, cupboard6, cupboard7, cupboard8, cupboard9, cupboard10,
     cupboard11, cupboard12, cupboard13, cupboard14,
     //flower vase
-    flower1, flower5, flowerVaseIcon, flower4, flower2, flower3, flower6, flower7, flower8, flower9, flower10, flower11, flower12, 
+    flower1, flower5, flowerVaseIcon, flower4, flower2, flower3, flower6, flower7, flower8, flower9, flower10, flower11, flower12,
     flower13, flower14, flower15, flower16, flower17, flower18, flower19,
     //furniture styles
-    furnitureStylesIcon, furnitureStyles2, furnitureStyles3, highlight2, furnitureStyles4, furnitureStyles5, furnitureStyles6, 
-    furnitureStyles7, furnitureStyles8, furnitureStyles9, furnitureStyles10, furnitureStyles11, furnitureStyles12, furnitureStyles13, 
+    furnitureStylesIcon, furnitureStyles2, furnitureStyles3, highlight2, furnitureStyles4, furnitureStyles5, furnitureStyles6,
+    furnitureStyles7, furnitureStyles8, furnitureStyles9, furnitureStyles10, furnitureStyles11, furnitureStyles12, furnitureStyles13,
     furnitureStyles14, furnitureStyles15, furnitureStyles16, furnitureStyles17, furnitureStyles18,
     //icons
-    aboutArrow, brand1, brand2, brand3, brand4, brand5, cart, comment, eye, 
+    aboutArrow, brand1, brand2, brand3, brand4, brand5, cart, comment, eye,
     heart, userIcon, facebook, footerLogo, phoneIcon, mailIcon, logo, logo1,
     //kitchen furniture
-    kitchenCabinetIcon, kitchen1, kitchen2, kitchen3, kitchen4, kitchen5, kitchen6, kitchen7, kitchen8, kitchen9, kitchen10, kitchen11, 
+    kitchenCabinetIcon, kitchen1, kitchen2, kitchen3, kitchen4, kitchen5, kitchen6, kitchen7, kitchen8, kitchen9, kitchen10, kitchen11,
     kitchen12,
     //lights
-    lampIcon, lights1, lights2, lights3, lights4, lights5, lights6, lights7, lights8, lights9, lights10, lights11, lights12, lights13, 
+    lampIcon, lights1, lights2, lights3, lights4, lights5, lights6, lights7, lights8, lights9, lights10, lights11, lights12, lights13,
     lights14, lights15, lights16, lights17,
     //sofa
-    sofaIcon, sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight, sofa7, sofa8, sofa9, sofa10, sofa11, sofa12, sofa13, sofa14, 
+    sofaIcon, sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight, sofa7, sofa8, sofa9, sofa10, sofa11, sofa12, sofa13, sofa14,
     sofa15, sofa16, sofa17, sofa18, sofa19, sofa20, sofa21, sofa22, sofa23,
     //table
-    tableIcon, coffee1, coffee2, coffee3, coffee4, coffee5, coffee6, coffee7, coffee8, coffee9, coffee10, coffee11, coffee12, table1, 
+    tableIcon, coffee1, coffee2, coffee3, coffee4, coffee5, coffee6, coffee7, coffee8, coffee9, coffee10, coffee11, coffee12, table1,
     table2, table3, table4, table5, table6, table7, table8,
     //user auth
     userAuth,
     //product Not found
     NoShopping, NoShopping2, NoShoppin3, NoShoppin4,
-    
- }
+
+}

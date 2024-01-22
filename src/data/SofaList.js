@@ -1,6 +1,8 @@
 import shortid from 'shortid';
-import {sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight, sofa7, sofa8, sofa9, sofa10, sofa11, sofa12, sofa13, sofa14, 
-    sofa15, sofa16, sofa17, sofa18, sofa19, sofa20, sofa21, sofa22, sofa23,} from '../assets'
+import {
+    sofa1, sofa2, sofa3, sofa4, sofa5, sofa6, sofaHighlight, sofa7, sofa8, sofa9, sofa10, sofa11, sofa12, sofa13, sofa14,
+    sofa15, sofa16, sofa17, sofa18, sofa19, sofa20, sofa21, sofa22, sofa23,
+} from '../assets'
 
 const SofaList = [
     {
@@ -247,7 +249,7 @@ const SofaList = [
         id: shortid.generate(),
         image: sofa16,
         price: "400.00",
-        name: "VintageVista Sofa",
+        name: "AsianAscent Sofa",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
         category: "sofa",
         feature: "shop",

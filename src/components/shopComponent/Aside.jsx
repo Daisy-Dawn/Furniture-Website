@@ -1,11 +1,11 @@
 
-import React from "react";
+// import React from "react";
 import RecentlyViewed from "./RecentlyViewed";
 import CategoriesAside from "./CategoriesAside";
 import Color from "./Color";
 import Price from "./Price";
 
-const Aside = ({handleChange, handleChangePrice}) => {
+const Aside = ({ handleChange, handleChangePrice }) => {
 
   return (
     <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-col font-nunito border-steam px-[1rem] border-l-2">
@@ -20,7 +20,7 @@ const Aside = ({handleChange, handleChangePrice}) => {
         <Price handleChange={handleChange} handleChangePrice={handleChangePrice} />
       </div>
 
-      
+
       {/* RECENTLY VIEWED COMPONENT */}
       <div className="md:col-span-3 lg:block md:grid md:grid-cols-2">
         <RecentlyViewed />
