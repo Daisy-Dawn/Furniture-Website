@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { IoHeart } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../features/addToCartSlice";
+import { addToCart, removeFromCart } from "../features/addToCartSlice";
 import { addToWishlist, removeFromWishlist } from "../features/addToWishlistSlice";
+import { FaCartShopping } from "react-icons/fa6";
 
 const ProductsCard = ({ image, price, description, link, id }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [fillHeart, setFillHeart] = useState(false);
+  const [fillCart, setFillCart] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -24,12 +26,16 @@ const ProductsCard = ({ image, price, description, link, id }) => {
     }
   }
 
-  const handleAddToCartClick = () => {
-    toast.success('Item added to Cart!');
-    dispatch(addToCart());
-  };
-
-
+  const toggleCartFill = () => {
+    setFillCart(!fillCart)
+    if(!fillCart) {
+      toast.success('Item added to Cart!');
+      dispatch(addToCart());
+    } else {
+      toast.error("Item removed from Cart!");
+      dispatch(removeFromCart());
+    }
+  }
 
   return (
     <div
@@ -65,16 +71,17 @@ const ProductsCard = ({ image, price, description, link, id }) => {
           <p className="font-bold md:text-[18px] text-center lg:text-left text-[16px] text-brown">
             ${price}
           </p>
-          <div className="flex items-center gap-7">
+          <div className="flex items-center gap-12">
             <IoHeart
               onClick={toggleIconFill}
               size={22}
               className={`text-white stroke-[40] stroke-red-600 ${fillHeart ? "fill-red-600" : ""} cursor-pointer`}
             />
-            <div className="flex gap-3 items-center" onClick={handleAddToCartClick}>
-              <FaArrowLeftLong size={22} className=" font-bold" />
-              <p className="text-lead cursor-pointer font-semibold text-[18px]">Add to Cart</p>
-            </div>
+            <FaCartShopping
+              onClick={toggleCartFill}
+              size={22}
+              className={`text-white stroke-[40] ${fillCart ? "stroke-red-600" : "stroke-black"} ${fillCart ? "fill-red-600" : ""} cursor-pointer`}
+             />
           </div>
         </div>
       </div>

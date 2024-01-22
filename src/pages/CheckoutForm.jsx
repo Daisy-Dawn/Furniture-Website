@@ -118,18 +118,39 @@ const CheckoutForm = () => {
                     {errors.companyName && <p className='text-red-600 text-[16px]'> {errors.companyName} </p> }
                 </div>
 
-                {/* COMPANY NAME */}
+                {/* ADDRESS */}
                 <div className='flex flex-col gap-2'>
                     <p className='text-lead text-[18px] font-semibold'> <span className='text-red-600'>*</span> Address</p>
                     <input className='md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none' type="text" value={formData.address} onChange={handleChange} name="address" id="address" />
                     {errors.address && <p className='text-red-600 text-[16px]'> {errors.address} </p> }
                 </div>
 
-                {/* ADDRESS */}
+                {/* CITY */}
                 <div className='flex flex-col gap-2'>
-                    <p className='text-lead text-[18px] font-semibold'> <span className='text-red-600'>*</span> Address</p>
-                    <input className='md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none' type="text" value={formData.address} onChange={handleChange} name="address" id="address" />
-                    {errors.address && <p className='text-red-600 text-[16px]'> {errors.address} </p> }
+                    <p className='text-lead text-[18px] font-semibold'> <span className='text-red-600'>*</span> City</p>
+                    <input className='md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none' type="text" value={formData.city} onChange={handleChange} name="city" id="city" />
+                    {errors.city && <p className='text-red-600 text-[16px]'> {errors.city} </p> }
+                </div>
+
+                {/* STATE */}
+                <div className='flex flex-col gap-2'>
+                    <p className='text-lead text-[18px] font-semibold'> <span className='text-red-600'>*</span> State</p>
+                    <input className='md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none' type="text" value={formData.state} onChange={handleChange} name="state" id="state" />
+                    {errors.state && <p className='text-red-600 text-[16px]'> {errors.state} </p> }
+                </div>
+
+                {/* STATE */}
+                <div className='flex flex-col gap-2'>
+                    <p className='text-lead text-[18px] font-semibold'> <span className='text-red-600'>*</span> Country</p>                   
+                    <input className='md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none' type="text" value={formData.state} onChange={handleChange} name="country" id="country" />
+                    {errors.country && <p className='text-red-600 text-[16px]'> {errors.country} </p> }
+                </div>
+
+                {/* STATE */}
+                <div className='flex flex-col gap-2'>
+                    <p className='text-lead text-[18px] font-semibold'> <span className='text-red-600'>*</span> Country</p>                   
+                    <input className='md:bg-slate-200 bg-white lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none' type="text" value={formData.state} onChange={handleChange} name="country" id="country" />
+                    {errors.country && <p className='text-red-600 text-[16px]'> {errors.country} </p> }
                 </div>
 
                 <button type="submit">Submit</button>
