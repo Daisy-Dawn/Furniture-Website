@@ -315,6 +315,13 @@ import NoShopping2 from './NoShopping2.jpg'
 import NoShoppin3 from './NoShoppin3.jpg'
 import NoShoppin4 from './NoShoppin4.jpg'
 
+//payment
+import mastercard from './payment/mastercard.jpeg'
+import paypal_icon from './payment/paypal_icon.jpeg'
+import visa_icon from './payment/visa_icon.jpeg'
+import paystack_icon from './payment/paystack_icon.png'
+import paystack1 from './payment/paystack1.png'
+
 export {
     //about
     commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4,
@@ -367,5 +374,7 @@ export {
     userAuth,
     //product Not found
     NoShopping, NoShopping2, NoShoppin3, NoShoppin4,
+    //payment
+    mastercard, paypal_icon, visa_icon, paystack_icon, paystack1,
 
 }

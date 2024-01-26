@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage, ProductNotFound, BlogDetails, CheckoutForm, ProductTable, BlogProductList, Products } from '../pages/index';
+import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage, ProductNotFound, BlogDetails, CheckoutForm, ProductTable, BlogProductList, Products, PaymentModal } from '../pages/index';
 
 
 import Layout from '../layout/Layout';
@@ -63,6 +63,10 @@ const Routers = () => {
           path: "wishlist",
           element: <Wishlist />
         },
+        // {
+        //   path: "cart/checkout/paymentmodal",
+        //   element: <PaymentModal />
+        // },
         {
           path: "productNotFound",
           element: <ProductNotFound />
