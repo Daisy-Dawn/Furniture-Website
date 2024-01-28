@@ -61,26 +61,6 @@ const Signup = () => {
 
   // }
 
-
-  const handleChanges = (e, type) => {
-    switch (type) {
-      case "username":
-        setError("");
-        setMsg("");
-        setUsername(e.target.value);
-        if (e.target.value === "") {
-          setError("This field is left blank!");
-          return;
-        }
-        break;
-
-  const [errors, setErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
-    isChecked: false,
-  });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
