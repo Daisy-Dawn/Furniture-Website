@@ -15,7 +15,7 @@ const PaymentModal = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
     // Reload the page
-    window.location.reload();
+    // window.location.reload();
   };
 
   const handlePaymentOptionClick = (index) => {

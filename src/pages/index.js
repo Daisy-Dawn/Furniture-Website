@@ -16,6 +16,8 @@ import ProductNotFound from "../components/ProductNotFound";
 import BlogDetails from "../BlogPage/BlogDetails";
 import CheckoutForm from "./CheckoutForm";
 import PaymentModal from "../payment/PaymentModal";
+import ForgotPassword1 from "./UserAuth/ForgotPassword1";
+import ForgotPassword2 from "./UserAuth/ForgotPassword2";
 
 export {
     LandingPage,
@@ -36,4 +38,6 @@ export {
     BlogDetails,
     CheckoutForm,
     PaymentModal,
+    ForgotPassword1,
+    ForgotPassword2,
 }

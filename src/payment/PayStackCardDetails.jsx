@@ -6,7 +6,6 @@ const PayStackCardDetails = () => {
 
   const handleCancel = () => {
     setIsPayStackModalOpen(false);
-    window.location.reload();
   };
   return (
     <div>
