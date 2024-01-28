@@ -14,7 +14,7 @@ const ProductsOfWeek = () => {
 
       <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-4'>
         {ProductsOfWeek.map((product) => (
-        <ProductsCard link={`/shop/${product.id}`} id={product.id} key={product.id} image={product.image} price={product.price} description={product.name} />
+        <ProductsCard link={`/shop/${product.id}`} product={product} id={product.id} key={product.id} image={product.image} price={product.price} description={product.name} />
       ))}
       </div>
 
