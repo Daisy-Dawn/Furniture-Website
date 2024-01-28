@@ -7,7 +7,7 @@ const Cart = () => {
   return (
     <div>
       <div className={`${cartListGroup.length !== 0 ? "block" : "hidden"}`}>
-        <CartHero />
+        <CartHero title="Cart" />
       </div>
       <div>
         <CartDetails />

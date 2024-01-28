@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { wishlistGroupSelector } from "../features/addToWishlistSlice";
-// import ProductList from "../data/ProductsList";
 import WishlistCard from "../components/WishlistCard";
 import EmptyWishlist from "../components/EmptyWishlist";
+import CartHero from "../CartPage/CartHero";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
@@ -11,8 +11,7 @@ const Wishlist = () => {
   const wishListGroup = useSelector(wishlistGroupSelector);
   const [currentPage, setCurrentPage] = useState(1);
 
-  //fetch product data equal to the wishlist product id
-  // const wishListProducts = wishListGroup ? wishListGroup.map((itemId)=> ProductList.find(product => product.id === itemId)) : []; 
+  
 
   // Pagination
   const containsWishList = wishListGroup.length > 0;
@@ -22,6 +21,9 @@ const Wishlist = () => {
 
   return (
     <section className="grid py-4">
+      <div className={`${wishListGroup.length !== 0 ? "block" : "hidden"}`}>
+        <CartHero title="WishList" />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:px-[5rem] md:px-[2rem] px-[1rem]  md:py-[3rem] py-[2rem]">
         {containsWishList ? 
           (productsForCurrentWishList.map(product =>(
