@@ -15,6 +15,7 @@ import Products from "../admin/bedProductList";
 import ProductNotFound from "../components/ProductNotFound";
 import BlogDetails from "../BlogPage/BlogDetails";
 import CheckoutForm from "./CheckoutForm";
+import PaymentModal from "../payment/PaymentModal";
 
 export {
     LandingPage,
@@ -34,4 +35,5 @@ export {
     ProductNotFound,
     BlogDetails,
     CheckoutForm,
+    PaymentModal,
 }

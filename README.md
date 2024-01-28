@@ -4,7 +4,7 @@ A Furniture Company full fledged ecommerce website consisting of routings, where
 
 # React + Vite
 
-# This are the API's that handles the request
+# This are the API's that handles the all the product request
 
 http://furnitura.infinityfreeapp.com/reactApiPhp/api/bedFrameList.php
 -this the api for bedframe list
@@ -36,7 +36,7 @@ http://furnitura.infinityfreeapp.com/reactApiPhp/api/server.php
   http://furnitura.infinityfreeapp.com/reactApiPhp/api/subcribe.php
   api for email subscription letter
 
-# you can use this to call the image (Alternative)
+# you can use this to call the images if you are having issues in getting it (Alternative)
 
 <!-- <img src={`http://furnitura.infinityfreeapp.com/reactApiPhp/images/${items.image}`} height={30} width={40} /> -->
 

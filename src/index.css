@@ -53,6 +53,10 @@
   opacity: 1;
 }
 
+.ant-modal.payment-modal {
+  width: 43rem !important;
+}
+
 
 @media screen and (max-width: 767px) {
   .bg-image {

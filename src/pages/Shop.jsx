@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Main from "../components/shopComponent/Main";
 import Aside from "../components/shopComponent/Aside";
 import { BiSearchAlt } from "react-icons/bi";
@@ -12,6 +12,7 @@ const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [productNotFound, setProductNotFound] = useState(false);
   const productPerPage = 15;
 
   //shuffle product list
@@ -81,7 +82,10 @@ const Shop = () => {
           productName === selected ||
           price === selected
       );
+      // setQuery("")
     }
+
+    
 
     // Price filter
     if (price !== null) {
@@ -109,10 +113,6 @@ const Shop = () => {
     query,
     selectedPrice
   );
-
-  if (result === null || result.length === 0) {
-    return navigate('/productNotFound')
-  }
 
   const lastIndexOfProduct = currentPage * productPerPage;
   const indexOfFirstProduct = lastIndexOfProduct - productPerPage;
@@ -165,7 +165,7 @@ const Shop = () => {
       {/* MAIN COMPONENT */}
 
       <main className="lg:col-span-9 col-span-6 items-start  lg:gap-[1rem]">
-        <Main currentProducts={currentProducts} />
+        <Main productNotFound={productNotFound} currentProducts={currentProducts} />
       </main>
 
       {/* ASIDE COMPONENT */}
