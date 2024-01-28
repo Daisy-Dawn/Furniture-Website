@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState} from "react";
 import ProductList from "../data/ProductsList";
 import { useParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
-import Button from "../components/Button";
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa6";
-import { FaRegHeart } from "react-icons/fa6";
+import { IoHeart } from "react-icons/io5";
+import { LuPlus } from "react-icons/lu";
+import { LuMinus } from "react-icons/lu";
+import { toast } from 'react-toastify';
 import ProductsCard from "../components/ProductsCard";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../features/addToCartSlice";
+import { addToWishlist, removeFromWishlist } from "../features/addToWishlistSlice";
 import { addViewedProducts, selectViewedProducts } from "../features/recentlyViewedSlice";
 import ProductNotFound from '../components/ProductNotFound';
 
 const ProductDetails = () => {
+  const [quantityCount, setQuantityCount] = useState(0);
+  const [fillHeart, setFillHeart] = useState(false);
   const { id } = useParams();
-  const [cartCount, setCartCount] = useState(1);
   const dispatch = useDispatch();
   const viewedProducts = useSelector(selectViewedProducts);
+
 
   useEffect(() => {
     const product = ProductList.find((product) => product.id === id);
@@ -40,6 +44,34 @@ const ProductDetails = () => {
     <IoStar className="text-brown" size={18} key={index} />
   ));
 
+  const handleAddToCart = ( product ) => {
+    let updatedProduct = {...product}
+    updatedProduct.quantity = quantityCount;
+    dispatch(addToCart(updatedProduct))
+    toast.success("Item Added to Cart!");
+  }
+
+  const handleQuantityIncrement = () =>{
+    setQuantityCount(quantityCount + 1);
+  }
+
+  const handleQuantityDecrement = () =>{
+    setQuantityCount(quantityCount - 1);
+    
+  }
+
+  const toggleHeartIconFill = (product) => {
+    setFillHeart(!fillHeart)
+    if (!fillHeart) {
+      toast.success('Item added to Wishlist!');
+      dispatch(addToWishlist(product));
+    } else {
+      toast.error("Item removed from Wishlist!");
+      dispatch(removeFromWishlist(product));
+    }
+  }
+
+  console.log('productQuantityAfterIncrement:', product.quantity);
   return (
     <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem] my-[3rem] xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
       <div className="grid grid-cols-2 items-center gap-[1rem]">
@@ -82,25 +114,33 @@ const ProductDetails = () => {
           </p>
 
           {/* CART SECTION */}
-          <section className="flex gap-[3rem]">
+          <section className="flex gap-4">
             <div className="flex border-2 rounded-[10px] border-brown p-2 gap-6 items-center">
-              <span
-                onClick={() => setCartCount(cartCount - 1)}
+              <button
+                onClick={handleQuantityDecrement}
+                disabled={quantityCount === 0 ? true : false}
+                className={`${quantityCount === 0 ? "text-bGrey cursor-not-allowed" : "text-brown cursor-pointer"} transition-all duration-300`}
+              >
+                {" "}
+                <LuMinus className=" font-bold" size={20} />{" "}
+              </button>
+              <p className="text-lead font-bold text-[20px]">{quantityCount}</p>
+              <button
+                onClick={handleQuantityIncrement}
                 className="cursor-pointer"
               >
                 {" "}
-                <FaMinus className="text-bGrey font-bold" size={20} />{" "}
-              </span>
-              <p className="text-lead font-bold text-[20px]"> {cartCount} </p>
-              <span
-                onClick={() => setCartCount(cartCount + 1)}
-                className="cursor-pointer"
-              >
-                {" "}
-                <FaPlus className="text-brown font-bold" size={20} />{" "}
-              </span>
+                <LuPlus className="text-brown font-bold" size={20} />{" "}
+              </button>
             </div>
-            <Button text="Add To Cart" />
+            <button 
+              onClick={()=> handleAddToCart(product)} 
+              className={`${quantityCount === 0 ? "disabled:bg-steam cursor-not-allowed" : "bg-lead"} py-[8px] px-[20px]  rounded-[10px] font-nunito  hover:bg-stone-600 text-white text-[14px] lg:text-[16px] font-bold text-center flex items-center justify-center transition-all duration-300 `}
+              disabled={quantityCount === 0 ? true : false}
+            >
+              Add To Cart
+            </button>
+            
           </section>
 
           <p className="text-[20px] text-bGrey capitalize font-semibold">
@@ -116,11 +156,11 @@ const ProductDetails = () => {
             free 3-5 day shipping | tool-free assembly | 30-day trial{" "}
           </p>
 
-          <section className="flex gap-[2rem] items-center">
-            <span className="text-brown font-semibold">
+          <section className="flex gap-4 items-center">
+            <button onClick={()=> toggleHeartIconFill(product)} className="text-brown font-semibold">
               {" "}
-              <FaRegHeart size={20} />{" "}
-            </span>
+              <IoHeart size={22} className={`${fillHeart ? "fill-red-700 heartBeatAnimation" : "text-brown"} hover:fill-red-700 transition-all duration-300`} />{" "}
+            </button>
             <p className="text-brown text-[20px] font-semibold">
               {" "}
               Add to wishlist{" "}
@@ -192,6 +232,7 @@ const ProductDetails = () => {
           {relatedProducts.map((product) => (
             <ProductsCard
               link={`/shop/${product.id}`}
+              product={product}
               id={product.id}
               key={product.id}
               image={product.image}
@@ -204,5 +245,6 @@ const ProductDetails = () => {
     </div>
   );
 };
+
 
 export default ProductDetails;

@@ -16,6 +16,7 @@ const NewProducts = () => {
         {newProducts.map((product) => (
           <ProductsCard
             link={`/shop/${product.id}`}
+            product={product}
             id={product.id}
             key={product.id}
             image={product.image}
