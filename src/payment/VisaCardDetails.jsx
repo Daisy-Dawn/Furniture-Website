@@ -28,7 +28,6 @@ const VisaCardDetails = () => {
 
   const handleCancel = () => {
     setIsVisaModalOpen(false);
-    window.location.reload();
   };
 
   const cleanFormattedValue = (name, value) => {
@@ -97,8 +96,8 @@ const VisaCardDetails = () => {
       // Ensure only numbers are entered
       const numericValue = value.replace(/\D/g, "");
   
-      // Ensure the length does not exceed 4 characters
-      const formattedValue = numericValue.slice(0, 4);
+      // Ensure the length does not exceed 3 characters
+      const formattedValue = numericValue.slice(0, 3);
   
       setFormData({
         ...formData,

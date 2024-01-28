@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { flower9 } from "../assets";
+import { useDispatch } from "react-redux";
+import { setCheckoutFormData } from "../features/checkoutFormSlice";
 import PaymentModal from "../payment/PaymentModal";
 
 const CheckoutForm = () => {
+  const dispatch = useDispatch();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -20,15 +23,12 @@ const CheckoutForm = () => {
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
-    // companyName: "",
     address: "",
     city: "",
     state: "",
     country: "",
-    // postalCode: "",
     contactNumber: "",
     email: "",
-    // otherNotes: "",
   });
 
   const handleChange = (e) => {
@@ -45,7 +45,7 @@ const CheckoutForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleCheckout = (e) => {
     e.preventDefault();
 
     //validate inputs
@@ -56,9 +56,6 @@ const CheckoutForm = () => {
     if (formData.lastName.trim() === "") {
       newErrors.lastName = "Last Name is required!";
     }
-    // if (formData.companyName.trim() === "") {
-    //     newErrors.companyName = "Company Name is required!"
-    // }
     if (formData.address.trim() === "") {
       newErrors.address = "Address is required!";
     }
@@ -71,26 +68,21 @@ const CheckoutForm = () => {
     if (formData.country.trim() === "") {
       newErrors.country = "Country is required!";
     }
-    // if (formData.postalCode.trim() === "") {
-    //     newErrors.postalCode = "Pin Code is required!"
-    // }
     if (formData.contactNumber.trim() === "") {
       newErrors.contactNumber = "Contact Number is required!";
     }
     if (formData.email.trim() === "") {
       newErrors.email = "Email is required!";
     }
-    // if (formData.otherNotes.trim() === "") {
-    //     newErrors.otherNotes = "Other Notes is required!"
-    // }
 
     //check for errors
     if (Object.values(newErrors).some((error) => error !== "")) {
       setErrors(newErrors);
     } else {
       //form submission successful
-      console.log("Form submitted", formData);
-      setShowPaymentModal(true);
+      // console.log("Form submitted", formData);
+      setShowPaymentModal(!showPaymentModal);
+      dispatch(setCheckoutFormData(formData));
     }
   };
 
@@ -100,7 +92,7 @@ const CheckoutForm = () => {
         {" "}
         Cart <span className="text-brown">Checkout</span>{" "}
       </h2>
-      <form onSubmit={handleSubmit} className="" action="">
+      <form  className="" action="">
         <div className="grid grid-cols-1 gap-[3rem] lg:grid-cols-2">
           <div className="flex w-full flex-col gap-[1rem]">
             <h2 className="text-lead font-extrabold text-[1rem] lg:text-[1.6rem] mb-[0.5rem] lg:mb-[1rem] ">
@@ -161,7 +153,6 @@ const CheckoutForm = () => {
                 name="companyName"
                 id="companyName"
               />
-              {/* {errors.companyName && <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'> {errors.companyName} </p>} */}
             </div>
 
             {/* ADDRESS */}
@@ -257,7 +248,6 @@ const CheckoutForm = () => {
                 name="postalCode"
                 id="postalCode"
               />
-              {/* {errors.postalCode && <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'> {errors.postalCode} </p>} */}
             </div>
 
             {/* Contact Number */}
@@ -319,7 +309,6 @@ const CheckoutForm = () => {
                 name="otherNotes"
                 id="otherNotes"
               />
-              {/* {errors.otherNotes && <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'> {errors.otherNotes} </p>} */}
             </div>
           </div>
 
@@ -364,20 +353,20 @@ const CheckoutForm = () => {
               </div>
 
               <div className="flex mt-[1.5rem] justify-center">
-                {/* <Link to='cart/checkout/paymentmodal'> */}
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={handleCheckout}
                   className="py-[12px] px-[20px]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
                 >
                   {" "}
                   Place Order{" "}
                 </button>
-                {/* </Link> */}
               </div>
             </div>
           </div>
         </div>
       </form>
+
        {/* Render PaymentModal conditionally */}
        {showPaymentModal && <PaymentModal />}
     </div>

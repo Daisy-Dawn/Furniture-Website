@@ -322,6 +322,9 @@ import visa_icon from './payment/visa_icon.jpeg'
 import paystack_icon from './payment/paystack_icon.png'
 import paystack1 from './payment/paystack1.png'
 
+import forgotPassword from './forgotPassword.jpg' 
+import resetPassword from './resetPassword.jpg' 
+
 export {
     //about
     commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4,
@@ -376,5 +379,7 @@ export {
     NoShopping, NoShopping2, NoShoppin3, NoShoppin4,
     //payment
     mastercard, paypal_icon, visa_icon, paystack_icon, paystack1,
+
+    forgotPassword, resetPassword,
 
 }
