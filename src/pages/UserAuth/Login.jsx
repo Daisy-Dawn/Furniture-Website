@@ -235,7 +235,7 @@ const Login = () => {
           <p className="lg:mt-7 mt-2 text-center lg:text-[18px] text-[16px] font-semibold">
             Don&#39;t Have an account?{" "}
             <span className="md:text-lightBrown text-white font-bold relative">
-              <Link href="/signup">Sign Up</Link>
+              <a href="/signup">Sign Up</a>
             </span>{" "}
           </p>
         </form>
