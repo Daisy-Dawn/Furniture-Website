@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage,
-  ProductNotFound, BlogDetails, CheckoutForm,
-} from '../pages/index';
+import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage, ProductNotFound, BlogDetails, CheckoutForm, ProductTable, BlogProductList, Products, PaymentModal } from '../pages/index';
+
+
 import Layout from '../layout/Layout';
 
 const Routers = () => {
@@ -24,8 +24,20 @@ const Routers = () => {
           element: <Shop />,
         },
         {
+          path: "bedframeform",
+          element: <Products />,
+        },
+        {
           path: "shop/:id",
           element: <ProductDetails />
+        },
+        {
+          path: "blogForm",
+          element: <BlogProductList />
+        },
+        {
+          path: "producttable",
+          element: <ProductTable />
         },
         {
           path: "blog/:id",
@@ -51,6 +63,10 @@ const Routers = () => {
           path: "wishlist",
           element: <Wishlist />
         },
+        // {
+        //   path: "cart/checkout/paymentmodal",
+        //   element: <PaymentModal />
+        // },
         {
           path: "productNotFound",
           element: <ProductNotFound />

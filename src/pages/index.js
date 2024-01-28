@@ -9,9 +9,13 @@ import Wishlist from "./Wishlist";
 import About from "./About";
 import Login from './UserAuth/Login';
 import Signup from './UserAuth/Signup';
+import ProductTable from "../admin/productTable";
+import BlogProductList from "../admin/blogProductList";
+import Products from "../admin/bedProductList";
 import ProductNotFound from "../components/ProductNotFound";
 import BlogDetails from "../BlogPage/BlogDetails";
 import CheckoutForm from "./CheckoutForm";
+import PaymentModal from "../payment/PaymentModal";
 
 export {
     LandingPage,
@@ -25,7 +29,11 @@ export {
     About,
     Login,
     Signup,
+    ProductTable,
+    BlogProductList,
+    Products,
     ProductNotFound,
     BlogDetails,
     CheckoutForm,
+    PaymentModal,
 }
