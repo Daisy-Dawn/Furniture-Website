@@ -1,6 +1,6 @@
 import { userAuth, facebook } from "../../assets";
 import { IoIosArrowBack } from "react-icons/io";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../../cssLoader/loader.css";
@@ -9,6 +9,13 @@ import axios from "axios";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { notification } from "antd";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
+
+
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -21,6 +28,51 @@ const Signup = () => {
     password: "",
     isChecked: false,
   });
+  // this for google login/reg authentication
+  const responseSuccess = async (response) => {
+    const decode = jwtDecode(response?.credential)
+    const googletok = decode.email_verified;
+
+    // Store the token in local storage
+    localStorage.setItem('googleToken', JSON.stringify(googletok))
+
+    // getting the email and name from the google auth
+    const googleFormData = { name: decode.name, email: decode.email, picture: decode.picture }
+
+    // getting api from the backend
+    const url = ('http://localhost/reactApiPhp/api/googleAuth.php');
+
+    // sending the google details to the server-side
+    await axios.post(url, googleFormData);
+
+    if (googletok === true) {
+      navigate('/shop');
+    } else {
+      console.error('Something went wrong.')
+    }
+    console.log(decode)
+  };
+  const responseError = (err) => {
+    console.log(err);
+  }
+
+  // facebook authentication
+  // const responseFacebook = () => {
+
+  // }
+
+
+  const handleChanges = (e, type) => {
+    switch (type) {
+      case "username":
+        setError("");
+        setMsg("");
+        setUsername(e.target.value);
+        if (e.target.value === "") {
+          setError("This field is left blank!");
+          return;
+        }
+        break;
 
   const [errors, setErrors] = useState({
     username: "",
@@ -272,14 +324,35 @@ const Signup = () => {
 
           <div className="flex gap-[3rem] justify-center items-center">
             <span>
-              <FcGoogle className="cursor-pointer" size={27} />
+              {/* <FcGoogle  className="cursor-pointer" size={27} /> */}
             </span>
+            <GoogleLogin
+              onSuccess={responseSuccess}
+              onError={responseError}
+
+            />
+
+
             <span>
-              <img
+              {/* <img
                 className="w-[27px] h-[27px] cursor-pointer object-cover"
                 src={facebook}
                 alt=""
-              />
+              /> */}
+              <LoginSocialFacebook
+                appId="1627797028031102"
+                onResolve={(res) => {
+                  console.log(res);
+                }}
+                onReject={(error) => {
+                  console.log(error);
+                }}>
+                <FacebookLoginButton
+                  className="cursor-pointer object-cover"
+                  style={{ width: "250px", height: "40px" }}
+                />
+              </LoginSocialFacebook>
+
             </span>
           </div>
 
@@ -299,6 +372,7 @@ const Signup = () => {
         </div>
       </div>
     </div>
+
   );
 };
 

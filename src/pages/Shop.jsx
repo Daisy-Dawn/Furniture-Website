@@ -129,7 +129,7 @@ const Shop = () => {
             Shops
           </h2>
           <p className="lg:text-[20px] sm:text-[16px] text-[13px] font-semibold text-bGrey text-center  lg:w-[50%]">
-            We display products based on the latest products we have, if you
+            We displays products based on the latest products we have, if you
             want to see our old products please enter the name of the item.
           </p>
         </div>

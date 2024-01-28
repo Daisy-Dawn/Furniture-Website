@@ -1,6 +1,8 @@
 import { userAuth, facebook } from "../../assets";
+// import React from "react";
+import { userAuth, } from "../../assets";
 import { IoIosArrowBack } from "react-icons/io";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -8,6 +10,12 @@ import axios from "axios";
 import { notification } from "antd";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { jwtDecode } from "jwt-decode";
+import { GoogleLogin } from "@react-oauth/google";
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
+
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,6 +33,34 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+  // this for google login/reg authentication
+  const responseSuccess = async (response) => {
+    const decode = jwtDecode(response?.credential)
+    const googletok = decode.email_verified;
+
+    // Store the token in local storage
+    localStorage.setItem('googleToken', JSON.stringify(googletok))
+
+    // getting the email and name from the google auth
+    const googleFormData = { name: decode.name, email: decode.email, picture: decode.picture }
+
+    // getting api from the backend
+    const url = ('http://localhost/reactApiPhp/api/googleAuth.php');
+
+    // sending the google details to the server-side
+    await axios.post(url, googleFormData);
+
+    if (googletok === true) {
+      navigate('/shop');
+    } else {
+      console.error('Something went wrong.')
+    }
+    console.log(decode)
+  };
+  const responseError = (err) => {
+    console.log(err);
+  }
+
 
     setLoginFormData({
       ...loginFormData,
@@ -192,21 +228,38 @@ const Login = () => {
 
           <div className="flex gap-[3rem] justify-center items-center">
             <span>
-              <FcGoogle className="cursor-pointer" size={27} />
+              {/* <FcGoogle className="cursor-pointer" size={27} /> */}
+              <GoogleLogin
+                onSuccess={responseSuccess}
+                onError={responseError}
+              />
             </span>
             <span>
-              <img
+              {/* <img
                 className="w-[27px] h-[27px] cursor-pointer object-cover"
                 src={facebook}
                 alt=""
-              />
+              /> */}
+              <LoginSocialFacebook
+                appId="1627797028031102"
+                onResolve={(res) => {
+                  console.log(res);
+                }}
+                onReject={(error) => {
+                  console.log(error);
+                }}>
+                <FacebookLoginButton
+                  className="cursor-pointer object-cover"
+                  style={{ width: "250px", height: "40px" }}
+                />
+              </LoginSocialFacebook>
             </span>
           </div>
 
           <p className="lg:mt-4 mt-2 text-center lg:text-[18px] text-[16px] font-semibold">
             Don&#39;t Have an account?{" "}
             <span className="md:text-lightBrown text-white font-bold relative">
-              <a href="/signup">Sign Up</a>
+              <Link href="/signup">Sign Up</Link>
             </span>{" "}
           </p>
         </form>

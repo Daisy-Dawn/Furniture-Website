@@ -4,6 +4,7 @@ import { cart, heart, logo, userIcon } from "../assets/index";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { useSelector } from "react-redux";
+import { googleLogout } from "@react-oauth/google";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -15,7 +16,9 @@ const Header = () => {
   // Check if the user is authenticated
   useEffect(() => {
     const storeUser = JSON.parse(localStorage.getItem('user'));
+    const googleStoreUser = JSON.parse(localStorage.getItem('googleToken'));
     setUser(storeUser);
+    setSuccess(googleStoreUser);
 
   }, []);
 
@@ -23,7 +26,9 @@ const Header = () => {
     //  clear the token and user data from localStorage
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-
+    localStorage.removeItem('googleToken');
+    // log out function to log the user out of google and set the profile array to null
+    googleLogout();
     // redirect to login page 
     navigate('/login');
   }
@@ -32,6 +37,7 @@ const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [user, setUser] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const handleToggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
@@ -96,7 +102,7 @@ const Header = () => {
           <img src={userIcon} alt="" />
           {isDropdownVisible && (
             <div className="absolute left-[-3rem] flex-col w-[8rem] text-center hidden bg-slate-100 divide-y divide-black userIconDisplay">
-              {user ? (
+              {user || success ? (
                 // If user is authenticated, display logout
                 <button
                   onClick={handleLogout}

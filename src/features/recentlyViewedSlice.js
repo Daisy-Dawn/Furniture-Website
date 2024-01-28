@@ -40,6 +40,6 @@ const recentlyViewedSlice = createSlice({
     }
 });
 
-export const {addViewedProducts} = recentlyViewedSlice.actions;
+export const { addViewedProducts } = recentlyViewedSlice.actions;
 export const selectViewedProducts = (state) => state.recentlyViewed.viewedProducts;
-export default recentlyViewedSlice.reducer;
+export default recentlyViewedSlice.reducer; 
