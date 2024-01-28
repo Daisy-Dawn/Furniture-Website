@@ -1,22 +1,22 @@
 const CategoriesList = [
   {
     name: 'Chair',
-    quantity: 10,
+    quantity: 00,
     category: 'chair',
   },
   {
     name: 'Cupboard',
-    quantity: 13,
+    quantity: 03,
     category: 'cupboard',
   },
   {
     name: 'Table',
-    quantity: 15,
+    quantity: 05,
     category: 'table',
   },
   {
     name: 'Bed Frames',
-    quantity: 15,
+    quantity: 05,
     category: 'bedFrames',
   },
   {
@@ -41,7 +41,7 @@ const CategoriesList = [
   },
   {
     name: 'Lights',
-    quantity: 17,
+    quantity: 07,
     category: 'lights',
   },
   {

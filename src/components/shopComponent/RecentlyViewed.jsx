@@ -1,9 +1,9 @@
-// import React from 'react'
+
 import { useSelector } from 'react-redux'
 import { selectViewedProducts } from '../../features/recentlyViewedSlice'
 
 const RecentlyViewed = () => {
-  const viewedProducts = useSelector(selectViewedProducts)
+  const viewedProducts = useSelector(selectViewedProducts);
 
   return (
     <>
@@ -21,14 +21,9 @@ const RecentlyViewed = () => {
             <h2 className='text-lead text-[13px] text-center xl:text-left lg:text-[15px] font-semibold'> {product.name} </h2>
             <p className='font-bold text-brown text-center xl:text-left text-[13px] lg:text-[15px]'> {product.price} </p>
           </div>
-
         </div>
       ))}
-
     </>
-
-
-
   )
 }
 
