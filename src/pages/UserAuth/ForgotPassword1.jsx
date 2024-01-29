@@ -39,7 +39,7 @@ const ForgotPassword1 = () => {
             setError("")
            }} name="email" id="email" />
 
-          {error && <p className='text-red-500 text-[1.2rem]'>{error}</p>}
+          {error && <p className='text-red-500 text-[1rem] lg:text-[1.2rem]'>{error}</p>}
           </div>
           
            

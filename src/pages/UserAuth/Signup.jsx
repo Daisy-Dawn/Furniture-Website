@@ -28,6 +28,14 @@ const Signup = () => {
     password: "",
     isChecked: false,
   });
+
+  const [errors, setErrors] = useState({
+    username: "",
+    email: "",
+    password: "",
+    isChecked: false,
+  });
+
   // this for google login/reg authentication
   const responseSuccess = async (response) => {
     const decode = jwtDecode(response?.credential)
