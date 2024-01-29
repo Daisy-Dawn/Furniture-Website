@@ -1,6 +1,7 @@
 import { Modal, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 
+
 const PlsWait = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 

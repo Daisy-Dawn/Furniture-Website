@@ -10,7 +10,6 @@ const MasterCardDetails = () => {
 
   const handleCancel = () => {
     setIsMasterCardModalOpen(false);
-    window.location.reload();
   };
 
   const subTotal = `$80.00`;

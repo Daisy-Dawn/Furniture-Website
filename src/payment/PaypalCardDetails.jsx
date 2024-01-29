@@ -6,7 +6,6 @@ const PaypalCardDetails = () => {
 
   const handleCancel = () => {
     setIsPayPalModalOpen(false);
-    window.location.reload();
   };
 
   return (
