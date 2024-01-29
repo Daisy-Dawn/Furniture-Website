@@ -1,6 +1,6 @@
-import { userAuth, facebook } from "../../assets";
+import { userAuth } from "../../assets";
 // import React from "react";
-import { userAuth, } from "../../assets";
+
 import { IoIosArrowBack } from "react-icons/io";
 // import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
@@ -31,8 +31,6 @@ const Login = () => {
     password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
   // this for google login/reg authentication
   const responseSuccess = async (response) => {
     const decode = jwtDecode(response?.credential)
@@ -60,6 +58,10 @@ const Login = () => {
   const responseError = (err) => {
     console.log(err);
   }
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
 
     setLoginFormData({
@@ -160,55 +162,55 @@ const Login = () => {
           </h2>
           {/* EMAIL */}
           <div className="flex flex-col gap-3">
-          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
-            Email
-          </p>
-          <input
-            className="md:bg-slate-200 w-full bg-white lg:p-[0.7rem] p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
-            type="email"
-            value={loginFormData.email}
-            name="email"
-            onChange={handleChange}
-          />
-          {errors.email && (
-            <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
-              {" "}
-              {errors.email}{" "}
+            <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
+              Email
             </p>
-          )}
-          </div>
-
-            {/* PASSWORD */}
-          <div className="flex flex-col gap-3">
-          <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
-            Password
-          </p>
-          <div className="relative">
             <input
-              className="md:bg-slate-200 bg-white lg:p-[0.7rem] w-full p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
-              type={showPassword ? "text" : "password"}
-              value={loginFormData.password}
-              name="password"
+              className="md:bg-slate-200 w-full bg-white lg:p-[0.7rem] p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
+              type="email"
+              value={loginFormData.email}
+              name="email"
               onChange={handleChange}
             />
-            <span
-              className="cursor-pointer top-4 right-5 absolute"
-              onClick={togglePassword}
-            >
-              {" "}
-              {showPassword ? (
-                <FaEye size={18} />
-              ) : (
-                <FaEyeSlash size={18} />
-              )}{" "}
-            </span>
+            {errors.email && (
+              <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                {" "}
+                {errors.email}{" "}
+              </p>
+            )}
           </div>
-          {errors.password && (
-            <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
-              {" "}
-              {errors.password}{" "}
+
+          {/* PASSWORD */}
+          <div className="flex flex-col gap-3">
+            <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
+              Password
             </p>
-          )}
+            <div className="relative">
+              <input
+                className="md:bg-slate-200 bg-white lg:p-[0.7rem] w-full p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
+                type={showPassword ? "text" : "password"}
+                value={loginFormData.password}
+                name="password"
+                onChange={handleChange}
+              />
+              <span
+                className="cursor-pointer top-4 right-5 absolute"
+                onClick={togglePassword}
+              >
+                {" "}
+                {showPassword ? (
+                  <FaEye size={18} />
+                ) : (
+                  <FaEyeSlash size={18} />
+                )}{" "}
+              </span>
+            </div>
+            {errors.password && (
+              <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                {" "}
+                {errors.password}{" "}
+              </p>
+            )}
           </div>
 
           <Link onClick={() => navigate('/login/forgotpassword')} className="flex w-full justify-end text-blue-500 text-[1rem] font-semibold">

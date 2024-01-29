@@ -1,4 +1,4 @@
-import { userAuth, facebook } from "../../assets";
+import { userAuth } from "../../assets";
 import { IoIosArrowBack } from "react-icons/io";
 // import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
