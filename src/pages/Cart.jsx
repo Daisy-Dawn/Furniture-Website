@@ -13,7 +13,7 @@ const Cart = () => {
         <CartDetails />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Cart;

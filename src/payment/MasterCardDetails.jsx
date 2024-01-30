@@ -2,8 +2,12 @@ import { Modal } from "antd";
 import React, { useState, useEffect } from "react";
 import PlsWait from "./PlsWait";
 import PaymentSuccess from "./PaymentSuccess";
+import { useSelector } from "react-redux";
 
 const MasterCardDetails = () => {
+  const totalCheckoutPayment = useSelector(
+    (state) => state.checkoutForm.totalPayment
+  );
   const [isMasterCardModalOpen, setIsMasterCardModalOpen] = useState(true);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [paymentSuccessful, setPaymentSuccessful] = useState(false);
@@ -12,10 +16,14 @@ const MasterCardDetails = () => {
     setIsMasterCardModalOpen(false);
   };
 
-  const subTotal = `$80.00`;
-  const totalAmount = `$95.00`;
-  const platformFee = `$15.00`;
-  
+  const subTotal = totalCheckoutPayment;
+  const platformFee = 15;
+  const totalAmount = totalCheckoutPayment + platformFee;
+
+  const subTotalView = `$${subTotal}`;
+  const platformFeeView = `$${platformFee}`;
+  const totalAmountView = `$${totalAmount}`;
+
   const [formData, setFormData] = useState({
     cardHolderName: "",
     expiryDate: "",
@@ -95,8 +103,8 @@ const MasterCardDetails = () => {
       // Ensure only numbers are entered
       const numericValue = value.replace(/\D/g, "");
 
-      // Ensure the length does not exceed 4 characters
-      const formattedValue = numericValue.slice(0, 4);
+      // Ensure the length does not exceed 3 characters
+      const formattedValue = numericValue.slice(0, 3);
 
       setFormData({
         ...formData,
@@ -243,7 +251,7 @@ const MasterCardDetails = () => {
                   <input
                     className="bg-slate-200 cursor-not-allowed lg:p-[0.7rem] text-[1.1rem] lg:text-[1.25rem] p-[0.4rem] w-full capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                     type="text"
-                    value={subTotal}
+                    value={subTotalView}
                     disabled
                     name="subTotal"
                     id="subTotal"
@@ -259,7 +267,7 @@ const MasterCardDetails = () => {
                   <input
                     className="bg-slate-200 cursor-not-allowed lg:p-[0.7rem] text-[1.1rem] lg:text-[1.25rem] p-[0.4rem] w-full capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                     type="text"
-                    value={totalAmount}
+                    value={totalAmountView}
                     disabled
                     name="totalAmount"
                     id="totalAmount"
@@ -305,7 +313,10 @@ const MasterCardDetails = () => {
                     id="cvv"
                   />
                   {errors.cvv && (
-                    <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.cvv} </p>
+                    <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                      {" "}
+                      {errors.cvv}{" "}
+                    </p>
                   )}
                 </div>
 
@@ -318,7 +329,7 @@ const MasterCardDetails = () => {
                   <input
                     className="bg-slate-200 cursor-not-allowed lg:p-[0.7rem] text-[1.1rem] lg:text-[1.25rem] p-[0.4rem] w-full capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                     type="text"
-                    value={platformFee}
+                    value={platformFeeView}
                     disabled
                     name="platformFee"
                     id="platformFee"
