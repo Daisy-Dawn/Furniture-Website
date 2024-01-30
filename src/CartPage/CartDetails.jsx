@@ -10,20 +10,18 @@ const CartDetails = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ]  gap-y-4 md:gap-4 xl:px-[5rem] md:px-[2rem] px-[1rem] md:py-[3rem] py-[1rem]">
-      {
-        cartItemsAvailable ? (
-          <>
-            <CartList />
-            <OrderSummary />
-          </>
-        ) : (
-          <div className="col-span-3 justify-self-center">
-            <EmptyCartList />
-          </div>
-        )
-      }
+      {cartItemsAvailable ? (
+        <>
+          <CartList />
+          <OrderSummary />
+        </>
+      ) : (
+        <div className="col-span-3 justify-self-center">
+          <EmptyCartList />
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default CartDetails
+export default CartDetails;

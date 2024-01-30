@@ -1,11 +1,32 @@
 import { useState } from "react";
-import { flower9 } from "../assets";
-import { useDispatch } from "react-redux";
-import { setCheckoutFormData } from "../features/checkoutFormSlice";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import {
+  setCheckoutFormData,
+  setTotalPayment,
+} from "../features/checkoutFormSlice";
 import PaymentModal from "../payment/PaymentModal";
+import { orderSummarySelector } from "../features/addToCartSlice";
+import { cartListGroupSelector } from "../features/addToCartSlice";
 
 const CheckoutForm = () => {
   const dispatch = useDispatch();
+  // Use shallowEqual to memoize the selector
+  const productsInCheckout = useSelector(cartListGroupSelector);
+  const orderSummary = useSelector(orderSummarySelector, shallowEqual);
+
+  // Access the individual properties for order summary total
+  const { cartTotalAmount, shippingFee, couponDiscount } = orderSummary;
+
+  // Calculate the orderSummaryTotal
+  const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
+
+  // Conditionally set the shipping fee to 0 if there are no items in the cart
+  const displayedShippingFee = productsInCheckout.length > 0 ? shippingFee : 0;
+
+  const totalCheckoutPayment = orderSummaryTotal + displayedShippingFee;
+
+  dispatch(setTotalPayment(totalCheckoutPayment));
+
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -92,7 +113,7 @@ const CheckoutForm = () => {
         {" "}
         Cart <span className="text-brown">Checkout</span>{" "}
       </h2>
-      <form  className="" action="">
+      <form className="" action="">
         <div className="grid grid-cols-1 gap-[3rem] lg:grid-cols-2">
           <div className="flex w-full flex-col gap-[1rem]">
             <h2 className="text-lead font-extrabold text-[1rem] lg:text-[1.6rem] mb-[0.5rem] lg:mb-[1rem] ">
@@ -113,7 +134,10 @@ const CheckoutForm = () => {
                 id="firstName"
               />
               {errors.firstName && (
-                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.firstName} </p>
+                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                  {" "}
+                  {errors.firstName}{" "}
+                </p>
               )}
             </div>
 
@@ -132,7 +156,10 @@ const CheckoutForm = () => {
                 id="lastName"
               />
               {errors.lastName && (
-                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.lastName} </p>
+                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                  {" "}
+                  {errors.lastName}{" "}
+                </p>
               )}
             </div>
 
@@ -170,7 +197,10 @@ const CheckoutForm = () => {
                 id="address"
               />
               {errors.address && (
-                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.address} </p>
+                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                  {" "}
+                  {errors.address}{" "}
+                </p>
               )}
             </div>
 
@@ -189,7 +219,10 @@ const CheckoutForm = () => {
                 id="city"
               />
               {errors.city && (
-                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.city} </p>
+                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                  {" "}
+                  {errors.city}{" "}
+                </p>
               )}
             </div>
 
@@ -208,7 +241,10 @@ const CheckoutForm = () => {
                 id="state"
               />
               {errors.state && (
-                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.state} </p>
+                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                  {" "}
+                  {errors.state}{" "}
+                </p>
               )}
             </div>
 
@@ -227,7 +263,10 @@ const CheckoutForm = () => {
                 id="country"
               />
               {errors.country && (
-                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.country} </p>
+                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                  {" "}
+                  {errors.country}{" "}
+                </p>
               )}
             </div>
 
@@ -287,7 +326,10 @@ const CheckoutForm = () => {
                 id="email"
               />
               {errors.email && (
-                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]"> {errors.email} </p>
+                <p className="text-red-600 text-[0.75rem] lg:text-[1rem]">
+                  {" "}
+                  {errors.email}{" "}
+                </p>
               )}
             </div>
 
@@ -316,47 +358,63 @@ const CheckoutForm = () => {
           <div className="flex flex-col mt-0 lg:mt-[1rem] items-center">
             {/* CART CARD */}
             <div className="border-2 border-bGrey w-full md:py-[2rem] py-[1rem] px-[1rem] lg:px-[2rem]">
-              <div className="flex md:flex-row flex-col items-center lg:items-start gap-[0.5rem] md:gap-[2rem]">
-                <div className="w-[7rem] rounded-[10px] h-[7rem]">
-                  <img
-                    className="w-full  h-full object-cover rounded-[10px]"
-                    src={flower9}
-                    alt={flower9}
-                  />
+              {productsInCheckout.map((product) => (
+                <div
+                  key={product.id}
+                  className="flex md:flex-row flex-col items-center mb-[1rem] lg:items-start gap-[0.5rem] md:gap-[2rem]"
+                >
+                  <div className="w-[7rem] rounded-[10px] h-[6rem]">
+                    <img
+                      className="w-full  h-full object-cover rounded-[10px]"
+                      src={product.image}
+                      alt={product.name}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center gap-[0.5rem] h-[6rem] lg:gap-[0.5rem]">
+                    <h2 className="text-lead text-center min-[500px]:text-[1.15rem] lg:text-left text-[1rem] xl:text-[1.25rem] font-bold ">
+                      {product.name}
+                    </h2>
+                    <p className="font-semibold text-bGrey text-[0.9rem] min-[500px]:text-[1rem] text-center md:text-left xl:text-[1.2rem]">
+                      Color <span className="text-lead"> {product.color} </span>{" "}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-[0.5rem] lg:gap-[0.75rem]">
-                  <h2 className="text-lead text-center min-[500px]:text-[1.15rem] lg:text-left text-[1rem] xl:text-[1.25rem] font-bold ">
-                    Chair Comfort Furniture Commode
-                  </h2>
-                  <p className="font-semibold text-bGrey text-[0.9rem] min-[500px]:text-[1rem] text-center md:text-left xl:text-[1.2rem]">
-                    Color <span className="text-lead">Gunnared biege</span>{" "}
-                  </p>
-                  <p className="text-brown text-right xl:text-left text-[1rem] md:text-[1.15rem] xl:text-[1.2rem] font-bold"> $80.00 </p>
-                </div>
-              </div>
+              ))}
 
               <div className="flex lg:mt-[1.5rem] mt-[1rem] justify-between">
-                <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">Price</p>
-                <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">$80.00</p>
+                <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">
+                  Total Price of Products
+                </p>
+                <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">
+                  $ {orderSummaryTotal}{" "}
+                </p>
               </div>
 
               <div className="flex lg:mt-[1.5rem] mt-[1rem] justify-between">
                 <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">
                   Shipping
                 </p>
-                <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">Free</p>
+                <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">
+                  {" "}
+                  ${displayedShippingFee}{" "}
+                </p>
               </div>
 
               <div className="flex lg:mt-[1.5rem] mt-[1rem] justify-between">
-                <p className="text-lead text-[1.2rem] md:text-[1.3rem] xl:text-[1.5rem] font-bold">TOTAL</p>
-                <p className="text-brown text-[1.1rem] md:text-[1.2rem] xl:text-[1.35rem] font-bold">$80.00</p>
+                <p className="text-lead text-[1.2rem] md:text-[1.3rem] xl:text-[1.5rem] font-bold">
+                  TOTAL
+                </p>
+                <p className="text-brown text-[1.1rem] md:text-[1.2rem] xl:text-[1.35rem] font-bold">
+                  $ {totalCheckoutPayment}{" "}
+                </p>
               </div>
 
               <div className="flex mt-[1.5rem] justify-center">
                 <button
                   type="button"
+                  disabled={totalCheckoutPayment === 0}
                   onClick={handleCheckout}
-                  className="py-[12px] px-[20px]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
+                  className="py-[12px] px-[20px] disabled:bg-stone-600 disabled:cursor-not-allowed rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
                 >
                   {" "}
                   Place Order{" "}
@@ -367,8 +425,8 @@ const CheckoutForm = () => {
         </div>
       </form>
 
-       {/* Render PaymentModal conditionally */}
-       {showPaymentModal && <PaymentModal />}
+      {/* Render PaymentModal conditionally */}
+      {showPaymentModal && <PaymentModal />}
     </div>
   );
 };

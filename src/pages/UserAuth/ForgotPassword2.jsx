@@ -53,9 +53,9 @@ const ForgotPassword2 = () => {
 
 
   return (
-    <div className='h-screen lg:h-full grid mx-[1rem] lg:mx-[8rem] md:grid-cols-2 grid-cols-1 gap-[3rem]  mb-0 font-nunito bg-white'>
+    <div className='h-screen lg:h-full grid mx-[1rem] xl:mx-[8rem] lg:mx-[2rem] md:grid-cols-2 grid-cols-1 gap-[3rem]  mb-0 font-nunito bg-white'>
         <div className='h-screen w-full hidden md:block'>
-          <img className='h-full w-full object-cover' src={resetPassword} alt="" />
+          <img className='h-full w-full object-contain' src={resetPassword} alt="" />
         </div>
 
         <form className='flex justify-center gap-[2rem] flex-col' onSubmit={onFormSubmission} action="">
@@ -100,7 +100,7 @@ const ForgotPassword2 = () => {
         {error && <p className='text-red-500 text-[1.2rem]'>{error}</p>}
         
           <div className='justify-end flex w-full'>
-          <button type='submit' className='bg-violet-900 text-white text-[1.2rem] font-semibold rounded-xl px-[3rem] flex justify-center items-center py-[1rem]'>
+          <button type='submit' className='bg-violet-900 text-white text-[1.2rem] font-semibold rounded-xl px-[2rem] lg:px-[3rem] flex justify-center items-center py-[1rem]'>
             Reset Password
           </button>
           </div>

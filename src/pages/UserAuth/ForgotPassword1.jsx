@@ -23,9 +23,9 @@ const ForgotPassword1 = () => {
   }
 
   return (
-    <div className='h-screen lg:h-full grid mx-[1rem] lg:mx-[8rem] md:grid-cols-2 grid-cols-1  mb-0 font-nunito bg-white'>
+    <div className='h-screen lg:h-full grid mx-[1rem] xl:mx-[8rem] lg:mx-[2rem] md:grid-cols-2 grid-cols-1  mb-0 font-nunito bg-white'>
         <div className='h-screen w-full hidden md:block'>
-          <img className='h-full w-full object-cover' src={forgotPassword} alt="" />
+          <img className='h-full w-full object-contain' src={forgotPassword} alt="" />
         </div>
 
         <form className='flex justify-center gap-[3rem] flex-col' onSubmit={onFormSubmission} action="">

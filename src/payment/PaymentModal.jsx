@@ -14,8 +14,6 @@ const PaymentModal = () => {
 
   const handleCancel = () => {
     setIsModalOpen(false);
-    // Reload the page
-    // window.location.reload();
   };
 
   const handlePaymentOptionClick = (index) => {
@@ -26,7 +24,7 @@ const PaymentModal = () => {
     if (activePaymentOption !== null) {
       setIsModalOpen(false); // Close payment method modal when "NEXT STEP" is clicked
     } else {
-      setIsModalOpen(true)
+      setIsModalOpen(true);
     }
   };
 
@@ -144,7 +142,9 @@ const PaymentModal = () => {
           onClick={handleNextStepClick}
           className="lg:py-[2rem] py-[1rem] cursor-pointer items-center justify-center gap-4 bg-blue-600 flex"
         >
-          <p className="text-white font-semibold text-[1rem] lg:text-[1.3rem]">NEXT STEP</p>
+          <p className="text-white font-semibold text-[1rem] lg:text-[1.3rem]">
+            NEXT STEP
+          </p>
           <FaLongArrowAltRight size={24} className="text-white font-semibold" />
         </div>
       </Modal>
