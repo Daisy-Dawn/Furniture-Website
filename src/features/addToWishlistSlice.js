@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  numberOfWishlistItems: 0,
-  wishlistGroup: [],
+  numberOfWishlistItems: localStorage.getItem("numberOfWishListItems") ? JSON.parse(localStorage.getItem("numberOfWishListItems")) : 0,
+  wishlistGroup: localStorage.getItem('wishListItems') ? JSON.parse(localStorage.getItem('wishListItems')) : [],
 };
 
 const addToWishlistSlice = createSlice({
@@ -12,6 +12,8 @@ const addToWishlistSlice = createSlice({
     addToWishlist: (state, actions) => {
       state.numberOfWishlistItems += 1;
       state.wishlistGroup.unshift(actions.payload);
+      localStorage.setItem("numberOfWishListItems", JSON.stringify(state.numberOfWishlistItems));
+      localStorage.setItem("wishListItems", JSON.stringify(state.wishlistGroup));
     },
     removeFromWishlist: (state, actions) => {
       state.numberOfWishlistItems -= 1;
@@ -25,6 +27,8 @@ const addToWishlistSlice = createSlice({
           (product) => product.id !== actions.payload.id
         ); //if true, filter and return all id's that are not equal to it
       }
+      localStorage.setItem("numberOfWishListItems", JSON.stringify(state.numberOfWishlistItems));
+      localStorage.setItem("wishListItems", JSON.stringify(state.wishlistGroup))
     },
   },
 });

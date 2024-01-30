@@ -68,7 +68,7 @@ const OrderSummary = () => {
           <span className="text-base font-normal">${cartTotalAmount}</span>
         </h3>
         {/* <h3 className="text-lead text-base md:text-lg font-semi-bold flex justify-between my-3">Shipping <span className="text-base font-normal">${shippingFee}</span></h3> */}
-        <h3 className="text-lead text-base md:text-lg font-semi-bold flex justify-between">
+        <h3 className="text-lead text-base md:text-lg font-semi-bold flex justify-between mt-3">
           Discount{" "}
           <span
             className={`text-base ${

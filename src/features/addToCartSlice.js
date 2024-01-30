@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { calculateShippingFee } from "../CartPage/orderSummaryHelpers";
 
 const initialState = {
-  numberOfCartItems: 0,
-  cartListGroup: [],
+  numberOfCartItems: localStorage.getItem("numberOfCartItems") ? JSON.parse(localStorage.getItem("numberOfCartItems")) : 0,
+  cartListGroup: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
   cartTotalAmount: 0,
   cartTotalQuantity: 0,
   cartSubTotal: 0,
@@ -31,6 +31,8 @@ const addToCartSlice = createSlice({
         const tempProduct = { ...action.payload, quantity: 1 };
         state.cartListGroup.unshift(tempProduct);
       }
+      localStorage.setItem("numberOfCartItems", JSON.stringify(state.numberOfCartItems));
+      localStorage.setItem("cartItems", JSON.stringify(state.cartListGroup));
     },
     removeFromCart: (state, action) => {
       state.numberOfCartItems -= action.payload.quantity;
@@ -44,6 +46,8 @@ const addToCartSlice = createSlice({
           (product) => product.id !== action.payload.id
         );
       }
+      localStorage.setItem("numberOfCartItems", JSON.stringify(state.numberOfCartItems));
+      localStorage.setItem("cartItems", JSON.stringify(state.cartListGroup));
     },
     incrementQuantity: (state, action) => {
       const productIndex = state.cartListGroup.findIndex(
@@ -51,6 +55,8 @@ const addToCartSlice = createSlice({
       );
       state.cartListGroup[productIndex].quantity += 1;
       state.numberOfCartItems += 1;
+      localStorage.setItem("numberOfCartItems", JSON.stringify(state.numberOfCartItems));
+      localStorage.setItem("cartItems", JSON.stringify(state.cartListGroup));
     },
     decrementQuantity: (state, action) => {
       const productIndex = state.cartListGroup.findIndex(
@@ -60,6 +66,8 @@ const addToCartSlice = createSlice({
         state.cartListGroup[productIndex].quantity -= 1;
         state.numberOfCartItems -= 1;
       }
+      localStorage.setItem("numberOfCartItems", JSON.stringify(state.numberOfCartItems));
+      localStorage.setItem("cartItems", JSON.stringify(state.cartListGroup))
     },
     getTotals: (state) => {
       let { total, quantity } = state.cartListGroup.reduce(
@@ -90,6 +98,8 @@ const addToCartSlice = createSlice({
       state.cartTotalAmount = 0;
       state.cartTotalQuantity = 0;
       state.cartSubTotal = 0;
+      localStorage.setItem("numberOfCartItems", JSON.stringify(state.numberOfCartItems));
+      localStorage.setItem("cartItems", JSON.stringify(state.cartListGroup))
     },
   },
 });
