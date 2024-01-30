@@ -3,8 +3,8 @@ import { Modal } from "antd";
 import { paystack1, visa_icon, mastercard, paypal_icon } from "../assets";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
-// import Flutterwave from "./Flutterwave";
-import MasterCardDetails from "./MasterCardDetails";
+
+// import MasterCardDetails from "./MasterCardDetails";
 import PayStackCardDetails from "./PayStackCardDetails";
 import PaypalCardDetails from "./PaypalCardDetails";
 import { useNavigate } from "react-router-dom";
@@ -153,7 +153,7 @@ const PaymentModal = () => {
         activePaymentOption === 0 && navigate('/cart/checkout/continuepayment')}
       {isModalOpen == false &&
         activePaymentOption !== null &&
-        activePaymentOption === 1 && <MasterCardDetails />}
+        activePaymentOption === 1 && navigate('/cart/checkout/continuepayment')}
       {isModalOpen == false &&
         activePaymentOption !== null &&
         activePaymentOption === 2 && <PaypalCardDetails />}

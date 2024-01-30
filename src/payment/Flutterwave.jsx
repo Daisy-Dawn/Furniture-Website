@@ -8,7 +8,20 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Flutterwave() {
     const navigate = useNavigate();
-    const { firstName, lastName, email, contactNumber, companyName, address, city, state, country, postalCode, otherNotes } = useSelector((state) => state.form.checkoutFormData);
+
+    // total amount of the cart from redux store
+    const totalCheckoutPayment = useSelector(
+        (state) => state.checkoutForm.totalPayment
+    );
+    // total of everything on the checkout form
+    const subTotal = totalCheckoutPayment;
+
+    // all billing details called from redux store
+    const { firstName, lastName, email, contactNumber, companyName,
+        address, city, state, country, postalCode, otherNotes,
+    } = useSelector((state) => state.form.checkoutFormData);
+
+    // all the input from billing details called to be sent to the database
     const billingData = {
         firstName: firstName,
         lastName: lastName,
@@ -22,12 +35,15 @@ export default function Flutterwave() {
         postalCode: postalCode,
         otherNotes: otherNotes,
     }
+
+    // the api that sents the billing details
     const url = "http://localhost/reactApiPhp/api/billingDetails.php";
 
+    // flutterwave config for the payment modal
     const config = {
         public_key: "FLWPUBK_TEST-741d0a677821b7119d95573b1c444080-X",
         tx_ref: Date.now(),
-        amount: 500,
+        amount: subTotal,
         currency: 'NGN',
         payment_options: 'card,mobilemoney,ussd',
         customer: {
@@ -46,7 +62,7 @@ export default function Flutterwave() {
 
     return (
         <div className="flex mt-[1.5rem] justify-center">
-
+            {/* the buttons that makes the neccessary payment option for flutterwave */}
             <button
                 className="py-[0.8rem] px-[2rem]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
                 onClick={() => {
@@ -75,6 +91,7 @@ export default function Flutterwave() {
                     });
                 }}
             >
+                {/* both visa and master card uses this flutterwave config for payment */}
                 Continue With Your transaction.
             </button>
         </div>
