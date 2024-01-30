@@ -1,5 +1,5 @@
 import { Modal } from "antd";
-import React, { useState, useEffect } from "react";
+import { useState, } from "react";
 import PlsWait from "./PlsWait";
 import PaymentSuccess from "./PaymentSuccess";
 
@@ -7,7 +7,7 @@ const VisaCardDetails = () => {
   const [isVisaModalOpen, setIsVisaModalOpen] = useState(true);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [paymentSuccessful, setPaymentSuccessful] = useState(false)
- 
+
   const subTotal = `$80.00`;
   const totalAmount = `$95.00`;
   const platformFee = `$15.00`;
@@ -28,6 +28,7 @@ const VisaCardDetails = () => {
 
   const handleCancel = () => {
     setIsVisaModalOpen(false);
+    window.location.reload();
   };
 
   const cleanFormattedValue = (name, value) => {
@@ -37,15 +38,15 @@ const VisaCardDetails = () => {
     }
     return value;
   };
-  
-  
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     if (name === "expiryDate") {
       // Ensure only numbers are entered
       const numericValue = value.replace(/\D/g, "");
-  
+
       // Format the value with a slash after the first 2 digits
       let formattedValue = "";
       for (let i = 0; i < numericValue.length; i++) {
@@ -54,15 +55,15 @@ const VisaCardDetails = () => {
         }
         formattedValue += numericValue[i];
       }
-  
+
       // Ensure the length does not exceed 5 characters (2 digits + 1 slash + 2 digits)
       formattedValue = formattedValue.slice(0, 5);
-  
+
       setFormData({
         ...formData,
         [name]: formattedValue,
       });
-  
+
       setErrors({
         ...errors,
         [name]: "",
@@ -70,7 +71,7 @@ const VisaCardDetails = () => {
     } else if (name === "debitCardNumber") {
       // Ensure only numbers are entered
       const numericValue = value.replace(/\D/g, "");
-  
+
       // Format the value with spaces every 4 digits
       let formattedValue = "";
       for (let i = 0; i < numericValue.length; i++) {
@@ -79,15 +80,15 @@ const VisaCardDetails = () => {
         }
         formattedValue += numericValue[i];
       }
-  
+
       // Ensure the length does not exceed 16 characters
       formattedValue = formattedValue.slice(0, 19);
-  
+
       setFormData({
         ...formData,
         [name]: formattedValue,
       });
-  
+
       setErrors({
         ...errors,
         [name]: "",
@@ -95,15 +96,15 @@ const VisaCardDetails = () => {
     } else if (name === "cvv") {
       // Ensure only numbers are entered
       const numericValue = value.replace(/\D/g, "");
-  
-      // Ensure the length does not exceed 3 characters
-      const formattedValue = numericValue.slice(0, 3);
-  
+
+      // Ensure the length does not exceed 4 characters
+      const formattedValue = numericValue.slice(0, 4);
+
       setFormData({
         ...formData,
         [name]: formattedValue,
       });
-  
+
       setErrors({
         ...errors,
         [name]: "",
@@ -113,14 +114,14 @@ const VisaCardDetails = () => {
         ...formData,
         [name]: value,
       });
-  
+
       setErrors({
         ...errors,
         [name]: "",
       });
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -166,7 +167,7 @@ const VisaCardDetails = () => {
       setPaymentSuccessful(true);
     }
   };
- 
+
 
   return (
     <div>

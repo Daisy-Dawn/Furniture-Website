@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { Modal } from "antd";
 import { paystack1, visa_icon, mastercard, paypal_icon } from "../assets";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
-import VisaCardDetails from "./VisaCardDetails";
+// import Flutterwave from "./Flutterwave";
 import MasterCardDetails from "./MasterCardDetails";
 import PayStackCardDetails from "./PayStackCardDetails";
 import PaypalCardDetails from "./PaypalCardDetails";
+import { useNavigate } from "react-router-dom";
+
+
 
 const PaymentModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(true); // Keep it open initially
   const [activePaymentOption, setActivePaymentOption] = useState(null);
+  const navigate = useNavigate();
+
+
 
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -51,18 +57,16 @@ const PaymentModal = () => {
           <section className="flex lg:mt-[1.5rem] flex-col">
             {/* VISA CARD */}
             <div
-              className={`flex border-y-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${
-                activePaymentOption === 0 ? "active-payment-option" : ""
-              }`}
+              className={`flex border-y-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 0 ? "active-payment-option" : ""
+                }`}
               onClick={() => handlePaymentOptionClick(0)}
             >
               <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
                 <img className="w-full h-full " src={visa_icon} alt="" />
               </div>
               <p
-                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${
-                  activePaymentOption === 0 ? "text-black" : "text-bGrey"
-                }`}
+                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 0 ? "text-black" : "text-bGrey"
+                  }`}
               >
                 Visa Card
               </p>
@@ -73,18 +77,16 @@ const PaymentModal = () => {
 
             {/* MASTER CARD */}
             <div
-              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${
-                activePaymentOption === 1 ? "active-payment-option" : ""
-              }`}
+              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 1 ? "active-payment-option" : ""
+                }`}
               onClick={() => handlePaymentOptionClick(1)}
             >
               <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
                 <img className="w-full h-full " src={mastercard} alt="" />
               </div>
               <p
-                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${
-                  activePaymentOption === 1 ? "text-black" : "text-bGrey"
-                }`}
+                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 1 ? "text-black" : "text-bGrey"
+                  }`}
               >
                 MASTERCARD
               </p>
@@ -95,18 +97,16 @@ const PaymentModal = () => {
 
             {/* PAYPAL CARD */}
             <div
-              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${
-                activePaymentOption === 1 ? "active-payment-option" : ""
-              }`}
+              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 1 ? "active-payment-option" : ""
+                }`}
               onClick={() => handlePaymentOptionClick(2)}
             >
               <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
                 <img className="w-full h-full " src={paypal_icon} alt="" />
               </div>
               <p
-                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${
-                  activePaymentOption === 2 ? "text-black" : "text-bGrey"
-                }`}
+                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 2 ? "text-black" : "text-bGrey"
+                  }`}
               >
                 PAYPAL
               </p>
@@ -117,18 +117,16 @@ const PaymentModal = () => {
 
             {/* PAYSTACK CARD */}
             <div
-              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${
-                activePaymentOption === 1 ? "active-payment-option" : ""
-              }`}
+              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 1 ? "active-payment-option" : ""
+                }`}
               onClick={() => handlePaymentOptionClick(3)}
             >
               <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
                 <img className="w-full h-full " src={paystack1} alt="" />
               </div>
               <p
-                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${
-                  activePaymentOption === 3 ? "text-black" : "text-bGrey"
-                }`}
+                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 3 ? "text-black" : "text-bGrey"
+                  }`}
               >
                 PAYSTACK
               </p>
@@ -152,7 +150,7 @@ const PaymentModal = () => {
       {/* Render the appropriate card details component */}
       {isModalOpen == false &&
         activePaymentOption !== null &&
-        activePaymentOption === 0 && <VisaCardDetails />}
+        activePaymentOption === 0 && navigate('/cart/checkout/continuepayment')}
       {isModalOpen == false &&
         activePaymentOption !== null &&
         activePaymentOption === 1 && <MasterCardDetails />}

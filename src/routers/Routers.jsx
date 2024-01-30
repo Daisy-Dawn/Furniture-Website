@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage, ProductNotFound, BlogDetails, 
-  CheckoutForm, ProductTable, BlogProductList, Products, ForgotPassword1, ForgotPassword2 } from '../pages/index';
+import {
+  LandingPage, About, Shop, Contact, Blog, Cart, Wishlist, ProductDetails, Signup, Login, NoPage, ProductNotFound, BlogDetails,
+  CheckoutForm, ProductTable, BlogProductList, Products, ForgotPassword1, ForgotPassword2, ContinueFlutterwavePayment
+} from '../pages/index';
 
 
 import Layout from '../layout/Layout';
@@ -59,6 +61,10 @@ const Routers = () => {
         {
           path: "cart/checkout",
           element: <CheckoutForm />
+        },
+        {
+          path: "/cart/checkout/continuepayment",
+          element: <ContinueFlutterwavePayment />
         },
         {
           path: "wishlist",

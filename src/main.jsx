@@ -7,6 +7,7 @@ import { store } from './store/Store.js'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
 import { GoogleOAuthProvider } from '@react-oauth/google';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <Provider store={store}>

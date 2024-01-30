@@ -1,5 +1,5 @@
 import { Modal, Spin } from "antd";
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 const PlsWait = () => {
@@ -18,7 +18,7 @@ const PlsWait = () => {
         onCancel={handleCancel}
       >
         <div className="flex flex-col justify-center items-center  h-[20rem]">
-        <div className="flex justify-center mb-[1rem] gap-4">
+          <div className="flex justify-center mb-[1rem] gap-4">
             <span className="lg:w-[1.2rem] w-[0.75rem] h-[0.75rem] lg:h-[1.2rem] rounded-full bg-bGrey"></span>
             <span className="lg:w-[1.2rem] w-[0.75rem] h-[0.75rem] lg:h-[1.2rem] rounded-full bg-bGrey"></span>
             <span className="lg:w-[1.2rem] w-[0.75rem] h-[0.75rem] lg:h-[1.2rem] rounded-full bg-bGrey"></span>

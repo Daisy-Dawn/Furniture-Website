@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { Modal, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -7,7 +7,7 @@ const PaymentSuccess = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const checkoutFormData = useSelector((state) => state.form.checkoutFormData);
 
-  console.log(checkoutFormData)
+  console.log("payment successful", checkoutFormData)
   const navigate = useNavigate();
 
   const handleCancel = () => {

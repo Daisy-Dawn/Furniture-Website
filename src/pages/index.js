@@ -18,6 +18,7 @@ import CheckoutForm from "./CheckoutForm";
 import PaymentModal from "../payment/PaymentModal";
 import ForgotPassword1 from "./UserAuth/ForgotPassword1";
 import ForgotPassword2 from "./UserAuth/ForgotPassword2";
+import ContinueFlutterwavePayment from "../payment/ContinueFlutterwavePayment";
 
 export {
     LandingPage,
@@ -40,4 +41,5 @@ export {
     PaymentModal,
     ForgotPassword1,
     ForgotPassword2,
+    ContinueFlutterwavePayment,
 }

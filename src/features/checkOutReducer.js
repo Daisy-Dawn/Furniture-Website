@@ -20,10 +20,10 @@ const formReducer = (state = initialState, action) => {
         case "SET_FORM_DATA":
             return {
                 ...state,
-                checkoutFormData: action.payload,
+                checkoutFormData: action.payload, 
             };
         default:
-        	return state;
+            return state;
     }
 }
 

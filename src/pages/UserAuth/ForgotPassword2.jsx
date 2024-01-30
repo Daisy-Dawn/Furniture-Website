@@ -53,14 +53,14 @@ const ForgotPassword2 = () => {
 
 
   return (
-    <div className=' grid mx-[8rem] md:grid-cols-2 grid-cols-1  mb-0 font-nunito bg-white'>
-        <div className='h-screen w-full'>
+    <div className='h-screen lg:h-full grid mx-[1rem] lg:mx-[8rem] md:grid-cols-2 grid-cols-1 gap-[3rem]  mb-0 font-nunito bg-white'>
+        <div className='h-screen w-full hidden md:block'>
           <img className='h-full w-full object-cover' src={resetPassword} alt="" />
         </div>
 
         <form className='flex justify-center gap-[2rem] flex-col' onSubmit={onFormSubmission} action="">
-          <h2 className='text-[3rem] font-extrabold text-violet-900'>Create New Password </h2>
-          <p className='text-violet-900 text-[1.6rem] font-semibold'> This password should be different from the previous password </p>
+          <h2 className='lg:text-[3rem] text-[2.4rem] font-extrabold text-violet-900'>Create New Password </h2>
+          <p className='text-violet-900 lg:text-[1.6rem] text-[1.15rem] font-semibold'> This password should be different from the previous password </p>
 
           <div className='relative'>
           <input

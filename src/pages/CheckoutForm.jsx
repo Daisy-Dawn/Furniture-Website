@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { flower9 } from "../assets";
-import { useDispatch } from "react-redux";
+import { useDispatch, } from "react-redux";
 import { setCheckoutFormData } from "../features/checkoutFormSlice";
 import PaymentModal from "../payment/PaymentModal";
 
 const CheckoutForm = () => {
+
   const dispatch = useDispatch();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [formData, setFormData] = useState({
@@ -20,6 +21,8 @@ const CheckoutForm = () => {
     email: "",
     otherNotes: "",
   });
+
+
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -30,6 +33,7 @@ const CheckoutForm = () => {
     contactNumber: "",
     email: "",
   });
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -83,6 +87,9 @@ const CheckoutForm = () => {
       // console.log("Form submitted", formData);
       setShowPaymentModal(!showPaymentModal);
       dispatch(setCheckoutFormData(formData));
+
+
+
     }
   };
 
@@ -92,7 +99,7 @@ const CheckoutForm = () => {
         {" "}
         Cart <span className="text-brown">Checkout</span>{" "}
       </h2>
-      <form  className="" action="">
+      <form className="" action="">
         <div className="grid grid-cols-1 gap-[3rem] lg:grid-cols-2">
           <div className="flex w-full flex-col gap-[1rem]">
             <h2 className="text-lead font-extrabold text-[1rem] lg:text-[1.6rem] mb-[0.5rem] lg:mb-[1rem] ">
@@ -362,13 +369,13 @@ const CheckoutForm = () => {
                   Place Order{" "}
                 </button>
               </div>
+
             </div>
           </div>
         </div>
       </form>
-
-       {/* Render PaymentModal conditionally */}
-       {showPaymentModal && <PaymentModal />}
+      {/* Render PaymentModal conditionally */}
+      {showPaymentModal && <PaymentModal />}
     </div>
   );
 };
