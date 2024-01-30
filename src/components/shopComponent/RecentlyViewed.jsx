@@ -13,7 +13,7 @@ const RecentlyViewed = () => {
 
       {viewedProducts.map(product => (
         <div key={product.id} className='flex xl:grid grid-cols-2 xl:gap-2 cursor-pointer flex-col md:flex-row lg:flex-col items-center mb-[1.5rem] gap-[1rem]'>
-          <div className='w-[130px] h-[100px] flex justify-center items-center   '>
+          <div className='max-w-[130px] h-[100px] flex justify-center items-center'>
             <img className='w-full h-full object-cover rounded-[10px]' src={product.image} alt="" />
           </div>
 

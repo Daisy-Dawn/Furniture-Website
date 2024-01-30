@@ -12,7 +12,7 @@ const Main = ({ currentProducts }) => {
             </p>
           </div>
           ) : (
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"> 
+            <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"> 
                 {currentProducts.map((product) => (
                   <ProductsCard
                     key={product.id}

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Modal, Result } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { resetCart } from "../features/addToCartSlice";
 
 const PaymentSuccess = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const checkoutFormData = useSelector((state) => state.form.checkoutFormData);
 
-  console.log("payment successful", checkoutFormData)
+  console.log(checkoutFormData);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleCancel = () => {
     // Navigate before closing the modal
@@ -16,6 +18,9 @@ const PaymentSuccess = () => {
 
     // Close the modal
     setIsModalOpen(false);
+
+    //reset cart items
+    dispatch(resetCart());
   };
 
   return (
