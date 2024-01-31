@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { wishlistGroupSelector } from "../features/addToWishlistSlice";
 import WishlistCard from "../components/WishlistCard";
 import EmptyWishlist from "../components/EmptyWishlist";
@@ -10,9 +10,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 const Wishlist = () => {
   const wishListGroup = useSelector(wishlistGroupSelector);
   const [currentPage, setCurrentPage] = useState(1);
-
-  //fetch product data equal to the wishlist product id
-  // const wishListProducts = wishListGroup ? wishListGroup.map((itemId)=> ProductList.find(product => product.id === itemId)) : [];
+  
 
   // Pagination
   const containsWishList = wishListGroup.length > 0;
@@ -21,6 +19,12 @@ const Wishlist = () => {
     (currentPage - 1) * 4,
     currentPage * 4
   );
+  
+  useEffect(() => {
+    if (productsForCurrentWishList.length === 0 && currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  }, [wishListGroup, currentPage, productsForCurrentWishList]);
 
   return (
     <section className="grid py-4">

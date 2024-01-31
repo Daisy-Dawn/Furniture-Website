@@ -16,15 +16,17 @@ const CheckoutForm = () => {
   const orderSummary = useSelector(orderSummarySelector, shallowEqual);
 
   // Access the individual properties for order summary total
-  const { cartTotalAmount, shippingFee, couponDiscount } = orderSummary;
+  const { cartTotalAmount, shippingFee} = orderSummary;
+  
 
   // Calculate the orderSummaryTotal
-  const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
+  // const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
+  // console.log('orderSummaryTotal:', orderSummaryTotal);
 
   // Conditionally set the shipping fee to 0 if there are no items in the cart
   const displayedShippingFee = productsInCheckout.length > 0 ? shippingFee : 0;
 
-  const totalCheckoutPayment = orderSummaryTotal + displayedShippingFee;
+  const totalCheckoutPayment = cartTotalAmount + displayedShippingFee;
 
   dispatch(setTotalPayment(totalCheckoutPayment));
 
@@ -47,7 +49,6 @@ const CheckoutForm = () => {
     otherNotes: "",
   });
 
-
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -58,7 +59,6 @@ const CheckoutForm = () => {
     contactNumber: "",
     email: "",
   });
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -399,7 +399,7 @@ const CheckoutForm = () => {
                   Total Price of Products
                 </p>
                 <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">
-                  $ {orderSummaryTotal}{" "}
+                  $ {cartTotalAmount}{" "}
                 </p>
               </div>
 
