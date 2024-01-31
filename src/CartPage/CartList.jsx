@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector} from "react-redux";
 import { cartListGroupSelector } from "../features/addToCartSlice";
 import CartCard from "./CartCard";
@@ -16,9 +16,11 @@ const CartList = () => {
     (currentPage - 1) * 3,
     currentPage * 3
   );
-  if(productsForCurrentCartList.length === 0){
-    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : 1));
-  }
+  useEffect(() => {
+    if (productsForCurrentCartList.length === 0 && currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  }, [cartListGroup, currentPage, productsForCurrentCartList]);
 
   return (
     <section className="col-span-2 justify-self-center flex flex-col gap-4 w-full h-fit max-w-[44rem] rounded-[0.625rem] py-8 px-4 border border-solid border-steam">
