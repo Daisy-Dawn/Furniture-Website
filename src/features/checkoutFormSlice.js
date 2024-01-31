@@ -8,7 +8,7 @@ export const setCheckoutFormData = (checkoutFormData) => {
 };
 
 const initialState = {
-  totalPayment: 0, // Add totalPayment to the initial state
+  totalPayment: sessionStorage.getItem("totalPayment") ? JSON.parse(sessionStorage.getItem("totalPayment")) : 0, // Add totalPayment to the initial state
 };
 
 const checkoutFormSlice = createSlice({
@@ -17,6 +17,7 @@ const checkoutFormSlice = createSlice({
   reducers: {
     setTotalPayment: (state, action) => {
       state.totalPayment = action.payload;
+      sessionStorage.setItem("totalPayment", JSON.stringify(state.totalPayment));
     },
   },
 });
