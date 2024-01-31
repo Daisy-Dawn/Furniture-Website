@@ -4,7 +4,7 @@ import { calculateShippingFee } from "../CartPage/orderSummaryHelpers";
 const initialState = {
   numberOfCartItems: localStorage.getItem("numberOfCartItems") ? JSON.parse(localStorage.getItem("numberOfCartItems")) : 0,
   cartListGroup: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
-  cartTotalAmount: 0,
+  cartTotalAmount: sessionStorage.getItem("cartTotalAmount") ? JSON.parse(sessionStorage.getItem("cartTotalAmount")) : 0,
   cartTotalQuantity: 0,
   cartSubTotal: 0,
 };
@@ -88,6 +88,7 @@ const addToCartSlice = createSlice({
 
       state.cartTotalAmount = total;
       state.cartTotalQuantity = quantity;
+      sessionStorage.setItem("cartTotalAmount", JSON.stringify(state.cartTotalAmount));
     },
     getSubTotal: (state, action) => {
       state.cartSubTotal = action.payload;
@@ -134,7 +135,7 @@ export const orderSummarySelector = (state) => {
   return {
     cartTotalAmount: state.addToCart.cartTotalAmount,
     shippingFee: calculateShippingFee(8, 2), // Assuming a fixed weight and rate pf $2 per pound
-    couponDiscount:
-      state.addToCart.cartTotalAmount - state.addToCart.cartSubTotal,
+    // couponDiscount:
+    //   state.addToCart.cartTotalAmount - state.addToCart.cartSubTotal,
   };
 };

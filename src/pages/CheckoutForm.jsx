@@ -16,19 +16,25 @@ const CheckoutForm = () => {
   const orderSummary = useSelector(orderSummarySelector, shallowEqual);
 
   // Access the individual properties for order summary total
-  const { cartTotalAmount, shippingFee, couponDiscount } = orderSummary;
+  const { cartTotalAmount, shippingFee} = orderSummary;
+  
 
   // Calculate the orderSummaryTotal
-  const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
+  // const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
+  // console.log('orderSummaryTotal:', orderSummaryTotal);
 
   // Conditionally set the shipping fee to 0 if there are no items in the cart
   const displayedShippingFee = productsInCheckout.length > 0 ? shippingFee : 0;
 
-  const totalCheckoutPayment = orderSummaryTotal + displayedShippingFee;
+  const totalCheckoutPayment = cartTotalAmount + displayedShippingFee;
 
   dispatch(setTotalPayment(totalCheckoutPayment));
 
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [isFormValid, setFormValid] = useState(false)
+  const togglePaymentModal = () => {
+    setShowPaymentModal(!showPaymentModal)
+  }
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -43,7 +49,6 @@ const CheckoutForm = () => {
     otherNotes: "",
   });
 
-
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -54,7 +59,6 @@ const CheckoutForm = () => {
     contactNumber: "",
     email: "",
   });
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -104,13 +108,15 @@ const CheckoutForm = () => {
     if (Object.values(newErrors).some((error) => error !== "")) {
       setErrors(newErrors);
     } else {
+      setFormValid(true)
       //form submission successful
       // console.log("Form submitted", formData);
       setShowPaymentModal(!showPaymentModal);
       dispatch(setCheckoutFormData(formData));
-
-
-
+      
+    }
+    if (isFormValid) {
+      togglePaymentModal()
     }
   };
 
@@ -393,7 +399,7 @@ const CheckoutForm = () => {
                   Total Price of Products
                 </p>
                 <p className="text-lead text-[1rem] md:text-[1.15rem] xl:text-[1.25rem] font-semibold">
-                  $ {orderSummaryTotal}{" "}
+                  $ {cartTotalAmount}{" "}
                 </p>
               </div>
 
@@ -418,7 +424,7 @@ const CheckoutForm = () => {
 
               <div className="flex mt-[1.5rem] justify-center">
                 <button
-                  type="button"
+                  type="submit"
                   disabled={totalCheckoutPayment === 0}
                   onClick={handleCheckout}
                   className="py-[12px] px-[20px] disabled:bg-stone-600 disabled:cursor-not-allowed rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
@@ -433,7 +439,7 @@ const CheckoutForm = () => {
         </div>
       </form>
       {/* Render PaymentModal conditionally */}
-      {showPaymentModal && <PaymentModal />}
+      {showPaymentModal && <PaymentModal onClose={togglePaymentModal} />}
     </div>
   );
 };

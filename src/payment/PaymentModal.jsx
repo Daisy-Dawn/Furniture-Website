@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const PaymentModal = () => {
+const PaymentModal = ({onClose}) => {
   const [isModalOpen, setIsModalOpen] = useState(true); // Keep it open initially
   const [activePaymentOption, setActivePaymentOption] = useState(null);
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ const PaymentModal = () => {
 
 
   const handleCancel = () => {
+    onClose()// Call the callback function to update showPaymentModal in CheckoutForm
     setIsModalOpen(false);
   };
 

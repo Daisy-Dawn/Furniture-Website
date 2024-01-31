@@ -1,6 +1,8 @@
 const initialState = {
-    checkoutFormData: {
-        // Initial state for form data
+    checkoutFormData: sessionStorage.getItem("checkoutFormData") 
+    ? JSON.parse(sessionStorage.getItem("checkoutFormData")) 
+    : {
+        // Default form data structure
         firstName: "",
         lastName: "",
         companyName: "",
@@ -17,11 +19,15 @@ const initialState = {
 
 const formReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "SET_FORM_DATA":
-            return {
-                ...state,
-                checkoutFormData: action.payload, 
+        case "SET_FORM_DATA":{
+
+            const newState = {
+                ...state, 
+                checkoutFormData: action.payload
             };
+            sessionStorage.setItem("checkoutFormData", JSON.stringify(newState.checkoutFormData));
+            return newState;
+        }
         default:
             return state;
     }

@@ -8,7 +8,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { calculateShippingFee, checkCoupon } from "./orderSummaryHelpers";
+import { checkCoupon } from "./orderSummaryHelpers";
 import { coupons } from "./couponCodeGenerator";
 import { RiCoupon3Line } from "react-icons/ri";
 
@@ -27,8 +27,8 @@ const OrderSummary = () => {
   }, [cartListGroup, dispatch]);
 
   //shipping fee logic
-  const baseRatePerPound = 2; //$2 per pound
-  const shippingFee = calculateShippingFee(8, baseRatePerPound);
+  // const baseRatePerPound = 2; //$2 per pound
+  // const shippingFee = calculateShippingFee(8, baseRatePerPound);
 
   //coupons Logic
   const handleCheckCoupon = (userCoupon) => {
@@ -45,7 +45,6 @@ const OrderSummary = () => {
     }
   };
 
-  console.log("coupons:", coupons);
 
   //OrderTotal
   const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
