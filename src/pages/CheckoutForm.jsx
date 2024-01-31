@@ -29,6 +29,10 @@ const CheckoutForm = () => {
   dispatch(setTotalPayment(totalCheckoutPayment));
 
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [isFormValid, setFormValid] = useState(false)
+  const togglePaymentModal = () => {
+    setShowPaymentModal(!showPaymentModal)
+  }
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -104,13 +108,15 @@ const CheckoutForm = () => {
     if (Object.values(newErrors).some((error) => error !== "")) {
       setErrors(newErrors);
     } else {
+      setFormValid(true)
       //form submission successful
       // console.log("Form submitted", formData);
       setShowPaymentModal(!showPaymentModal);
       dispatch(setCheckoutFormData(formData));
-
-
-
+      
+    }
+    if (isFormValid) {
+      togglePaymentModal()
     }
   };
 
@@ -418,7 +424,7 @@ const CheckoutForm = () => {
 
               <div className="flex mt-[1.5rem] justify-center">
                 <button
-                  type="button"
+                  type="submit"
                   disabled={totalCheckoutPayment === 0}
                   onClick={handleCheckout}
                   className="py-[12px] px-[20px] disabled:bg-stone-600 disabled:cursor-not-allowed rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
@@ -433,7 +439,7 @@ const CheckoutForm = () => {
         </div>
       </form>
       {/* Render PaymentModal conditionally */}
-      {showPaymentModal && <PaymentModal />}
+      {showPaymentModal && <PaymentModal onClose={togglePaymentModal} />}
     </div>
   );
 };
