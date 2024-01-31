@@ -1,14 +1,12 @@
 import { useState } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector} from "react-redux";
 import { cartListGroupSelector } from "../features/addToCartSlice";
 import CartCard from "./CartCard";
-import { productsInCartSelector } from "../features/addToCartSlice";
 
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const CartList = () => {
-  // const productsInCart = useSelector(productsInCartSelector, shallowEqual);
   const cartListGroup = useSelector(cartListGroupSelector);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -18,6 +16,9 @@ const CartList = () => {
     (currentPage - 1) * 3,
     currentPage * 3
   );
+  if(productsForCurrentCartList.length === 0){
+    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : 1));
+  }
 
   return (
     <section className="col-span-2 justify-self-center flex flex-col gap-4 w-full h-fit max-w-[44rem] rounded-[0.625rem] py-8 px-4 border border-solid border-steam">

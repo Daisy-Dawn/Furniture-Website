@@ -10,9 +10,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 const Wishlist = () => {
   const wishListGroup = useSelector(wishlistGroupSelector);
   const [currentPage, setCurrentPage] = useState(1);
-
-  //fetch product data equal to the wishlist product id
-  // const wishListProducts = wishListGroup ? wishListGroup.map((itemId)=> ProductList.find(product => product.id === itemId)) : [];
+  
 
   // Pagination
   const containsWishList = wishListGroup.length > 0;
@@ -21,6 +19,9 @@ const Wishlist = () => {
     (currentPage - 1) * 4,
     currentPage * 4
   );
+  if(productsForCurrentWishList.length === 0){
+    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : 1));
+  }
 
   return (
     <section className="grid py-4">
