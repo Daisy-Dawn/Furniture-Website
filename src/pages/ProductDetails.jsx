@@ -73,34 +73,34 @@ const ProductDetails = () => {
 
   console.log('productQuantityAfterIncrement:', product.quantity);
   return (
-    <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem] my-[3rem] xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
-      <div className="grid grid-cols-2 items-center gap-[1rem]">
+    <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem]  md:my-12 xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-4">
         {/* PRODUCT DETAIL COMPONENT */}
-        <section className="flex gap-[2.5rem] flex-col">
+        <section className="flex gap-10 flex-col">
           {/* PRODUCT NAME/HEADER */}
-          <h2 className="text-[18px] capitalize font-semibold text-bGrey">
+          <h2 className="text-base md:text-lg capitalize font-semibold text-bGrey">
             {" "}
             {product.productName}{" "}
             <span className="text-lead">/ {product.name}</span>{" "}
           </h2>
-          <h2 className="text-lead capitalize font-extrabold text-[35px]">
+          <h2 className="text-lead capitalize font-extrabold text-3xl md:text-4xl">
             {" "}
             {product.name}{" "}
           </h2>
 
           {/* PRODUCT PRICE AND RATING */}
-          <div className="flex justify-between items-center ">
-            <div className="flex gap-4 items-center text-brown font-bold text-[20px]">
-              <h2 className=""> {product.price} </h2>
-              <h2 className="text-bGrey line-through">
+          <div className="flex justify-between items-center gap-1 flex-wrap">
+            <div className="flex gap-4 items-center text-brown font-bold">
+              <h2 className="text-lg md:text-xl">$ {product.price} </h2>
+              <h2 className="text-bGrey text-base line-through">
                 {" "}
                 {product.formerPrice}{" "}
               </h2>
             </div>
             <div className="flex gap-3 items-center">
               <div className="flex gap-1"> {stars} </div>
-              <h2 className="text-[18px] text-lead"> {product.starRating} </h2>
-              <p className="text-[18px] text-bGrey">
+              <h2 className="text-base md:text-lg text-lead"> {product.starRating} </h2>
+              <p className="text-base md:text-lg text-bGrey">
                 {" "}
                 ({product.peopleRating}){" "}
               </p>
@@ -108,14 +108,14 @@ const ProductDetails = () => {
           </div>
 
           {/* PRODUCT DETAILS */}
-          <p className="text-[20px] text-lead font-semibold">
+          <p className="text-lg md:text-xl text-lead font-semibold">
             {" "}
             {product.productDetails}{" "}
           </p>
 
           {/* CART SECTION */}
-          <section className="flex gap-4">
-            <div className="flex border-2 rounded-[10px] border-brown p-2 gap-6 items-center">
+          <section className="flex flex-wrap gap-4">
+            <div className="flex border-2 rounded-[0.625rem] border-brown p-2 gap-6 items-center">
               <button
                 onClick={handleQuantityDecrement}
                 disabled={quantityCount === 0 ? true : false}
@@ -124,7 +124,7 @@ const ProductDetails = () => {
                 {" "}
                 <LuMinus className=" font-bold" size={20} />{" "}
               </button>
-              <p className="text-lead font-bold text-[20px]">{quantityCount}</p>
+              <p className="text-lead font-bold text-base md:text-xl">{quantityCount}</p>
               <button
                 onClick={handleQuantityIncrement}
                 className="cursor-pointer"
@@ -135,7 +135,7 @@ const ProductDetails = () => {
             </div>
             <button 
               onClick={()=> handleAddToCart(product)} 
-              className={`${quantityCount === 0 ? "disabled:bg-steam cursor-not-allowed" : "bg-lead"} py-[8px] px-[20px]  rounded-[10px] font-nunito  hover:bg-stone-600 text-white text-[14px] lg:text-[16px] font-bold text-center flex items-center justify-center transition-all duration-300 `}
+              className={`${quantityCount === 0 ? "disabled:bg-steam cursor-not-allowed" : "bg-lead"} py-[8px] px-[20px]  rounded-[10px] font-nunito  hover:bg-stone-600 text-white text-base lg:text-xl font-bold text-center flex items-center justify-center transition-all duration-300 `}
               disabled={quantityCount === 0 ? true : false}
             >
               Add To Cart
@@ -143,16 +143,16 @@ const ProductDetails = () => {
             
           </section>
 
-          <p className="text-[20px] text-bGrey capitalize font-semibold">
+          <p className="text-lg md:text-xl text-bGrey capitalize font-semibold">
             {" "}
             Category: {product.productName}{" "}
           </p>
-          <p className="text-[20px] text-bGrey capitalize font-semibold">
+          <p className="text-lg md:text-xl text-bGrey capitalize font-semibold">
             {" "}
             Tag: {product.tag}{" "}
           </p>
 
-          <p className="text-lead text-[20px] capitalize font-semibold">
+          <p className="text-lead text-lg md:text-xl capitalize font-semibold">
             free 3-5 day shipping | tool-free assembly | 30-day trial{" "}
           </p>
 
@@ -161,58 +161,57 @@ const ProductDetails = () => {
               {" "}
               <IoHeart size={22} className={`${fillHeart ? "fill-red-700 heartBeatAnimation" : "text-brown"} hover:fill-red-700 transition-all duration-300`} />{" "}
             </button>
-            <p className="text-brown text-[20px] font-semibold">
-              {" "}
-              Add to wishlist{" "}
+            <p className="text-brown text-lg md:text-xl font-semibold">
+              {fillHeart ? "Remove from wishlist" : "Add to wishlist"}
             </p>
           </section>
         </section>
 
         {/* PRODUCT IMAGE SECTION */}
-        <section className="flex flex-col items-center gap-[3rem]">
+        <section className="flex flex-col items-center gap-12">
           {/* LARGER IMAGE SECTION */}
-          <div className="w-[550px] flex justify-center h-[650px]">
+          <div className="w-full max-w-[34.375rem] h-[40.625rem] rounded-[0.625rem]">
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-[0.625rem]"
               src={product.image}
               alt=""
             />
           </div>
           {/* SMALLER IMAGE SECTION */}
-          <div className="grid gap-[1rem] grid-cols-5">
-            <div className="w-[115px] h-[115px]">
+          <div className="grid gap-2 grid-cols-5">
+            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover rounded-[0.625rem]"
                 src={product.image}
-                alt=""
+                alt="an image"
               />
             </div>
-            <div className="w-[115px] h-[115px]">
+            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover rounded-[0.625rem]"
                 src={product.image}
-                alt=""
+                alt="an image"
               />
             </div>
-            <div className="w-[115px] h-[115px]">
+            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover rounded-[0.625rem]"
                 src={product.image}
-                alt=""
+                alt="an image"
               />
             </div>
-            <div className="w-[115px] h-[115px]">
+            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover rounded-[0.625rem]"
                 src={product.image}
-                alt=""
+                alt="an image"
               />
             </div>
-            <div className="w-[115px] h-[115px]">
+            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover rounded-[0.625rem]"
                 src={product.image}
-                alt=""
+                alt="an image"
               />
             </div>
           </div>

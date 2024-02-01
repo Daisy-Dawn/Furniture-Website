@@ -1,13 +1,16 @@
 import axios from 'axios';
-import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
-import { useSelector } from 'react-redux';
+import { closePaymentModal, useFlutterwave, } from 'flutterwave-react-v3';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { resetCart } from '../features/addToCartSlice';
 
 
 
 
 export default function Flutterwave() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
 
     // total amount of the cart from redux store
     const totalCheckoutPayment = useSelector(
@@ -52,8 +55,9 @@ export default function Flutterwave() {
             name: firstName + "" + lastName,
         },
         customizations: {
-            title: 'Funitura',
-            description: 'Payment for items in cart',
+            title: companyName,
+            description: 'Payment for the product bought by you.',
+            // we can use the company's logo here
             logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
         },
     };
@@ -68,18 +72,27 @@ export default function Flutterwave() {
                 onClick={() => {
 
                     handleFlutterPayment({
-                        callback: (response) => {
+
+                        callback: async (response) => {
                             // upon payment success post the payment details to the database if it does not exists yet!
-                            if (response.status === "completed") {
-                                // send to the server-side
-                                axios.post(url, billingData)
+                            if (response.status === "successful") {
+                                try {
+                                    // send to the server-side
+                                    await axios.post(url, billingData)
+
+                                } catch (error) {
+                                    console.log(error)
+                                }
                                 // then navigate to the shop page
                                 navigate('/shop')
-                            } else {
-                                //  you can handle errors here upon failed transaction
-                                console.log("payment failed, try again", response.status)
+                                // reset the cart automatcally
+                                dispatch(resetCart());
+
+
                             }
-                            closePaymentModal() // this will close the modal programmatically
+                            setTimeout(() => {
+                                closePaymentModal() // this will close the modal programmatically
+                            }, 4000)
                         },
                         onClose: () => {
                             // upon closing the modal navigate to the checkout page
