@@ -9,7 +9,7 @@ import { resetCart } from '../features/addToCartSlice';
 
 export default function Flutterwave() {
     const navigate = useNavigate();
-    const disptach = useDispatch();
+    const dispatch = useDispatch();
 
 
     // total amount of the cart from redux store
@@ -86,7 +86,7 @@ export default function Flutterwave() {
                                 // then navigate to the shop page
                                 navigate('/shop')
                                 // reset the cart automatcally
-                                disptach(resetCart());
+                                dispatch(resetCart());
 
 
                             }
