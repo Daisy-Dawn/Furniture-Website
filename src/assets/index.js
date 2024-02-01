@@ -322,6 +322,8 @@ import visa_icon from './payment/visa_icon.jpeg'
 import paystack_icon from './payment/paystack_icon.png'
 import paystack1 from './payment/paystack1.png'
 import debitCard from './payment/debitCard.jpg'
+import paypalImg from './payment/paypalImg.jpg'
+import paystackImg from './payment/paystackImg.jpg'
 
 import forgotPassword from './forgotPassword.jpg' 
 import resetPassword from './resetPassword.jpg' 
@@ -379,7 +381,7 @@ export {
     //product Not found
     NoShopping, NoShopping2, NoShoppin3, NoShoppin4,
     //payment
-    mastercard, paypal_icon, visa_icon, paystack_icon, paystack1, debitCard,
+    mastercard, paypal_icon, visa_icon, paystack_icon, paystack1, debitCard, paypalImg, paystackImg,
 
     forgotPassword, resetPassword,
 

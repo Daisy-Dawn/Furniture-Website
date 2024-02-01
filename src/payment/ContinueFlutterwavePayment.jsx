@@ -11,8 +11,6 @@ function ContinueFlutterwavePayment() {
                 <div className="md:w-[65%] w-[75%] lg:w-[75%] flex justify-center">
                     <img src={debitCard} alt="" />
                 </div>
-                {/* daisy design a responsive UI for the continue to payment */}
-                {/* pls do not use modal for this just a nice UI and a the button bellow */}
                 <div>
                     <Flutterwave />
                 </div>
