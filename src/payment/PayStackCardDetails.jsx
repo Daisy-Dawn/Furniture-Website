@@ -39,10 +39,18 @@ const PayStackCardDetails = () => {
   }
   const publicKey = "pk_test_2d7205534e94ff5347ca44cc86690e8f5665258e";
 
+  // the api to the backend
   const ApiUrl = "http://localhost/reactApiPhp/api/billingDetails.php";
-  const sendToDB = async () => {
-    const res = await axios.post(ApiUrl, billingData)
-    console.log(res)
+  // this is sending the data to the database using axios
+  const sendToDB = () => {
+    axios.post(ApiUrl, billingData)
+      .then((response) => {
+        console.log("the database data", response.data)
+      })
+      .catch((error) => {
+        console.log("something went wrong", error);
+      });
+
   }
 
   // the logic for paystack

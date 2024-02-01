@@ -73,12 +73,12 @@ export default function Flutterwave() {
 
                     handleFlutterPayment({
 
-                        callback: async (response) => {
+                        callback: (response) => {
                             // upon payment success post the payment details to the database if it does not exists yet!
-                            if (response.status === "successful") {
+                            if (response.status) {
                                 try {
                                     // send to the server-side
-                                    await axios.post(url, billingData)
+                                    axios.post(url, billingData)
 
                                 } catch (error) {
                                     console.log(error)
