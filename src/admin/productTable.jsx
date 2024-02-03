@@ -7,10 +7,17 @@ const ProductTable = () => {
 
     useEffect(() => {
         const getProduct = () => {
-            fetch("http://localhost/reactApiPhp/api/chairlist.php")
-                .then(res => { return res.json() })
-                .then(data => { setProducts(data) })
-                .catch(error => { console.error(error) });
+            fetch("https://freefurnitura.000webhostapp.com/reactApiPhp/api/stoolList.php")
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    setProducts(data);
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error(error)
+                });
         }
 
         getProduct();
@@ -28,9 +35,12 @@ const ProductTable = () => {
                     <div className="">{index + 1}</div>
                     <div className="">{items.name}</div>
 
-                    <div className="">{items.ratings}</div>
+                    <div className="">{items.price}</div>
                     <div className="">{items.category}</div>
-                    <div className=""><img src={`http://localhost/reactApiPhp/images/${items.image}`} height={30} width={40} /></div>
+                    <div className="">
+                        <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${items.image}`} height={30} width={40} alt={items.name} />
+                        {/* <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/${items.image}`} height={30} width={40} /> */}
+                    </div>
                 </div>
             ))}
         </div>

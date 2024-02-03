@@ -66,7 +66,6 @@ const PayStackCardDetails = () => {
     text: "Continue with your payment",
     onSuccess: (response) => {
       // upon success payment this below should happen
-
       if (response) {
         console.log(response)
         console.log(billingData)
