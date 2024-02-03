@@ -6,6 +6,8 @@ import {
 
 
 import Layout from '../layout/Layout';
+import AdminLayout from '../AdminDashboard/AdminLayout';
+import Dashboard from '../AdminDashboard/Dashboard';
 
 const Routers = () => {
 
@@ -86,6 +88,17 @@ const Routers = () => {
           path: "*",
           element: <NoPage />
         },
+      ]
+    },
+    //admin
+    {
+      path: "admin",
+      element: <AdminLayout />,
+      children: [
+        {
+          path: "",
+          element: <Dashboard />
+        }
       ]
     },
     {
