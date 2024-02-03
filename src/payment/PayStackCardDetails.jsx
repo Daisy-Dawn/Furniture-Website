@@ -40,7 +40,19 @@ const PayStackCardDetails = () => {
   }
   const publicKey = "pk_test_2d7205534e94ff5347ca44cc86690e8f5665258e";
 
+  // the api to the backend
   const ApiUrl = "http://localhost/reactApiPhp/api/billingDetails.php";
+  // this is sending the data to the database using axios
+  const sendToDB = () => {
+    axios.post(ApiUrl, billingData)
+      .then((response) => {
+        console.log("the database data", response.data)
+      })
+      .catch((error) => {
+        console.log("something went wrong", error);
+      });
+
+  }
 
   // the logic for paystack
   const componentProps = {
@@ -55,11 +67,11 @@ const PayStackCardDetails = () => {
     text: "Continue with your payment",
     onSuccess: (response) => {
       // upon success payment this below should happen
-
       if (response) {
         console.log(response)
         console.log(billingData)
-        axios.post(ApiUrl, billingData)
+        sendToDB();
+        // axios.post(ApiUrl, billingData)
         navigate("/shop")
         dispatch(resetCart());
         alert("Your payment was successful!")
