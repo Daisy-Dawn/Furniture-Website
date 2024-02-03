@@ -5,6 +5,7 @@ import { PaystackButton } from "react-paystack";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetCart } from "../features/addToCartSlice";
+import {paystackImg} from '../assets'
 
 const PayStackCardDetails = () => {
   const navigate = useNavigate();
@@ -91,21 +92,12 @@ const PayStackCardDetails = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <div className="flex flex-col justify-center items-center  h-[20rem]">
-          {/* <div className="flex justify-center mb-[1rem] gap-4">
-            <span className="w-[1.2rem] h-[1.2rem] rounded-full bg-bGrey"></span>
-            <span className="w-[1.2rem] h-[1.2rem] rounded-full bg-steam"></span>
-            <span className="w-[1.2rem] h-[1.2rem] rounded-full bg-steam"></span>
-          </div> */}
-          {/* <h2 className="text-[1.5rem] font-semibold mb-[3rem] text-lead capitalize">
-            {" "}
-            
-          </h2> */}
-          {/* <div>
-            <Spin size="large" />
-          </div> */}
+        <div className="flex flex-col my-[1rem] gap-[2rem] justify-center items-center  h-full">
+        <div className="w-[35%] flex justify-center">
+                    <img src={paystackImg} alt="" />
+                </div>
           <button type="submit"
-            className="py-[0.8rem] px-[2rem]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
+            className="py-[1rem] px-[2rem]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
           > <PaystackButton {...componentProps} /></button>
         </div>
       </Modal>

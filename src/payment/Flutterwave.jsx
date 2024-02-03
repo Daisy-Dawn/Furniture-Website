@@ -68,7 +68,7 @@ export default function Flutterwave() {
         <div className="flex mt-[1.5rem] justify-center">
             {/* the buttons that makes the neccessary payment option for flutterwave */}
             <button
-                className="py-[0.8rem] px-[2rem]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
+                className="py-[1rem] px-[2rem] rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
                 onClick={() => {
 
                     handleFlutterPayment({
