@@ -7,7 +7,7 @@ const ProductTable = () => {
 
     useEffect(() => {
         const getProduct = () => {
-            fetch("https://freefurnitura.000webhostapp.com/reactApiPhp/api/stoolList.php")
+            fetch("https://freefurnitura.000webhostapp.com/reactApiPhp/api/blogList.php")
                 .then(response => {
                     return response.json();
                 })
@@ -34,12 +34,12 @@ const ProductTable = () => {
                 <div key={index}>
                     <div className="">{index + 1}</div>
                     <div className="">{items.name}</div>
-
+                    <div className="">{items.description}</div>
                     <div className="">{items.price}</div>
                     <div className="">{items.category}</div>
                     <div className="">
-                        <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${items.image}`} height={30} width={40} alt={items.name} />
-                        {/* <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/${items.image}`} height={30} width={40} /> */}
+                        {/* <img src={`http://localhost/reactApiPhp/images/${items.image}`} height={30} width={40} alt={items.name} /> */}
+                        <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${items.image}`} height={100} width={100} />
                     </div>
                 </div>
             ))}
