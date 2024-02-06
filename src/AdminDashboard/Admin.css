@@ -1,0 +1,34 @@
+
+.admin-layout {
+    display: grid;
+    background-color: #FFF6F4;
+    /* color: #FFFFFF; */
+    grid-template-areas: 
+    'admin-header admin-header admin-header admin-header admin-header admin-header admin-header'
+    'admin-sidebar admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet'
+    'admin-sidebar admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet'
+    ;
+}
+.admin-sidebar {
+    grid-area: admin-sidebar;
+    position: fixed;
+    top: 10vh;
+    height: 90vh;
+    width: 230px;
+    background-color: #1E2753;
+    /* border-right: 1px solid #FFFFFF66; */
+}
+.admin-header {
+    grid-area: admin-header;
+    position: sticky;
+    height: 10vh;
+    width: 100vw;
+    background-color: #070B1D;
+    /* border-bottom: 1px solid #FFFFFF66; */
+}
+.admin-outlet {
+    grid-area: admin-outlet;
+    min-height: 90%;
+    width: calc(100vw - 230px);
+    /* color: #070B1D; */
+}
