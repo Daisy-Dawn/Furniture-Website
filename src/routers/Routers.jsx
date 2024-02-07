@@ -7,7 +7,8 @@ import {
 
 import Layout from '../layout/Layout';
 import AdminLayout from '../AdminDashboard/AdminLayout';
-import Dashboard from '../AdminDashboard/Dashboard';
+import {Dashboard, Orders, ProductsDashboard, Categories, Customers, Reports, Coupons, Inbox, KnowledgeBase,
+ProductUpdate, PersonalSettings, GlobalSettings} from '../AdminDashboard'
 
 const Routers = () => {
 
@@ -98,7 +99,51 @@ const Routers = () => {
         {
           path: "",
           element: <Dashboard />
-        }
+        },
+        {
+          path: "orders",
+          element: <Orders />
+        },
+        {
+          path: "productsdashboard",
+          element: <ProductsDashboard />
+        },
+        {
+          path: "categories",
+          element: <Categories />
+        },
+        {
+          path: "customers",
+          element: <Customers />
+        },
+        {
+          path: "reports",
+          element: <Reports />
+        },
+        {
+          path: "coupons",
+          element: <Coupons />
+        },
+        {
+          path: "inbox",
+          element: <Inbox />
+        },
+        {
+          path: "knowledgebase",
+          element: <KnowledgeBase />
+        },
+        {
+          path: "productupdate",
+          element: <ProductUpdate />
+        },
+        {
+          path: "personalsettings",
+          element: <PersonalSettings />
+        },
+        {
+          path: "globalsettings",
+          element: <GlobalSettings />
+        },
       ]
     },
     {

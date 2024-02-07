@@ -4,31 +4,87 @@
     background-color: #FFF6F4;
     /* color: #FFFFFF; */
     grid-template-areas: 
-    'admin-header admin-header admin-header admin-header admin-header admin-header admin-header'
-    'admin-sidebar admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet'
-    'admin-sidebar admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet'
+    'admin-header admin-header admin-header admin-header admin-header admin-header admin-header admin-header '
+    'admin-sidebar admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet'
+    'admin-sidebar admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet admin-outlet'
     ;
+    grid-template-columns: 250px 1fr ; /* Fixed sidebar width and dynamic outlet width */
+    /* width: 100vw; */
 }
 .admin-sidebar {
     grid-area: admin-sidebar;
-    position: fixed;
-    top: 10vh;
-    height: 90vh;
-    width: 230px;
     background-color: #1E2753;
-    /* border-right: 1px solid #FFFFFF66; */
+    min-height: 90vh;
 }
 .admin-header {
     grid-area: admin-header;
     position: sticky;
+    top: 0;
     height: 10vh;
-    width: 100vw;
     background-color: #070B1D;
-    /* border-bottom: 1px solid #FFFFFF66; */
+    z-index: 1; /* Ensure the header stays on top */
 }
 .admin-outlet {
     grid-area: admin-outlet;
-    min-height: 90%;
-    width: calc(100vw - 230px);
-    /* color: #070B1D; */
+    min-height: 100%;
+    /* overflow: auto; */
+}
+
+.swing-in-top-fwd {
+	-webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+	        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+ @-webkit-keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+              transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 1;
+    }
+  }
+  @keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+              transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 1;
+    }
+  }
+  
+
+@media (min-width: 800px) and (max-width: 1023px) {
+    .admin-layout {
+        grid-template-columns: 130px 1fr ; /* Fixed sidebar width and dynamic outlet width */
+        /* width: 100vw; */
+    }
+}
+
+@media (min-width: 700px) and (max-width: 800px) {
+    .admin-layout {
+        grid-template-columns: 120px 1fr ; /* Fixed sidebar width and dynamic outlet width */
+        /* width: 100vw; */
+    }
+}
+@media screen and (max-width: 700px) {
+    .admin-layout {
+        grid-template-columns: 100px 1fr ; /* Fixed sidebar width and dynamic outlet width */
+        /* width: 100vw; */
+    }
 }
