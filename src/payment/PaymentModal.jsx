@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "antd";
-import { paystack1, visa_icon, mastercard, paypal_icon, debitCard } from "../assets";
+import { paystack1, paypal_icon, debitCard } from "../assets";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
 
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const PaymentModal = ({onClose}) => {
+const PaymentModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(true); // Keep it open initially
   const [activePaymentOption, setActivePaymentOption] = useState(null);
   const navigate = useNavigate();

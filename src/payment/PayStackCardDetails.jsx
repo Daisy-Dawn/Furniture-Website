@@ -5,7 +5,7 @@ import { PaystackButton } from "react-paystack";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetCart } from "../features/addToCartSlice";
-import {paystackImg} from '../assets'
+import { paystackImg } from '../assets'
 
 const PayStackCardDetails = () => {
   const navigate = useNavigate();
@@ -71,7 +71,6 @@ const PayStackCardDetails = () => {
         console.log(response)
         console.log(billingData)
         sendToDB();
-        // axios.post(ApiUrl, billingData)
         navigate("/shop")
         dispatch(resetCart());
         alert("Your payment was successful!")
@@ -93,9 +92,9 @@ const PayStackCardDetails = () => {
         onCancel={handleCancel}
       >
         <div className="flex flex-col my-[1rem] gap-[2rem] justify-center items-center  h-full">
-        <div className="w-[35%] flex justify-center">
-                    <img src={paystackImg} alt="" />
-                </div>
+          <div className="w-[35%] flex justify-center">
+            <img src={paystackImg} alt="" />
+          </div>
           <button type="submit"
             className="py-[1rem] px-[2rem]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
           > <PaystackButton {...componentProps} /></button>
