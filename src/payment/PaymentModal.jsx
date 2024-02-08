@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "antd";
-import { paystack1, visa_icon, mastercard, paypal_icon } from "../assets";
+import { paystack1, paypal_icon, debitCard } from "../assets";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
 
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const PaymentModal = ({onClose}) => {
+const PaymentModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(true); // Keep it open initially
   const [activePaymentOption, setActivePaymentOption] = useState(null);
   const navigate = useNavigate();
@@ -54,42 +54,22 @@ const PaymentModal = ({onClose}) => {
           </h2>
 
           <section className="flex lg:mt-[1.5rem] flex-col">
-            {/* VISA CARD */}
+            {/* DEBIT CARD */}
             <div
               className={`flex border-y-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 0 ? "active-payment-option" : ""
                 }`}
               onClick={() => handlePaymentOptionClick(0)}
             >
               <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
-                <img className="w-full h-full " src={visa_icon} alt="" />
+                <img className="w-full h-full " src={debitCard} alt="" />
               </div>
               <p
                 className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 0 ? "text-black" : "text-bGrey"
                   }`}
               >
-                Visa Card
+                Debit Card
               </p>
               {activePaymentOption === 0 && (
-                <FaCheck size={22} className="lg:ml-20 ml-5 text-green-600" />
-              )}
-            </div>
-
-            {/* MASTER CARD */}
-            <div
-              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 1 ? "active-payment-option" : ""
-                }`}
-              onClick={() => handlePaymentOptionClick(1)}
-            >
-              <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
-                <img className="w-full h-full " src={mastercard} alt="" />
-              </div>
-              <p
-                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 1 ? "text-black" : "text-bGrey"
-                  }`}
-              >
-                MASTERCARD
-              </p>
-              {activePaymentOption === 1 && (
                 <FaCheck size={22} className="lg:ml-20 ml-5 text-green-600" />
               )}
             </div>
@@ -98,38 +78,38 @@ const PaymentModal = ({onClose}) => {
             <div
               className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 1 ? "active-payment-option" : ""
                 }`}
-              onClick={() => handlePaymentOptionClick(2)}
+              onClick={() => handlePaymentOptionClick(1)}
             >
               <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
                 <img className="w-full h-full " src={paypal_icon} alt="" />
               </div>
               <p
-                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 2 ? "text-black" : "text-bGrey"
+                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 1 ? "text-black" : "text-bGrey"
                   }`}
               >
                 PAYPAL
               </p>
-              {activePaymentOption === 2 && (
+              {activePaymentOption === 1 && (
                 <FaCheck size={22} className="lg:ml-20 ml-5 text-green-600" />
               )}
             </div>
 
             {/* PAYSTACK CARD */}
             <div
-              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 1 ? "active-payment-option" : ""
+              className={`flex border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 2 ? "active-payment-option" : ""
                 }`}
-              onClick={() => handlePaymentOptionClick(3)}
+              onClick={() => handlePaymentOptionClick(2)}
             >
               <div className="lg:w-[2.5rem] w-[2rem] h-[1.5rem] lg:h-[2rem]">
                 <img className="w-full h-full " src={paystack1} alt="" />
               </div>
               <p
-                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 3 ? "text-black" : "text-bGrey"
+                className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 2 ? "text-black" : "text-bGrey"
                   }`}
               >
                 PAYSTACK
               </p>
-              {activePaymentOption === 3 && (
+              {activePaymentOption === 2 && (
                 <FaCheck size={22} className="lg:ml-20 ml-5 text-green-600" />
               )}
             </div>
@@ -154,13 +134,10 @@ const PaymentModal = ({onClose}) => {
         activePaymentOption === 0 && navigate('/cart/checkout/continuepayment')}
       {isModalOpen == false &&
         activePaymentOption !== null &&
-        activePaymentOption === 1 && navigate('/cart/checkout/continuepayment')}
+        activePaymentOption === 1 && <PaypalCardDetails />}
       {isModalOpen == false &&
         activePaymentOption !== null &&
-        activePaymentOption === 2 && <PaypalCardDetails />}
-      {isModalOpen == false &&
-        activePaymentOption !== null &&
-        activePaymentOption === 3 && <PayStackCardDetails />}
+        activePaymentOption === 2 && <PayStackCardDetails />}
     </div>
   );
 };

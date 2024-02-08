@@ -75,7 +75,7 @@ const Products = () => {
 
 
 
-        const url = "http://localhost/reactApiPhp/api/sofaList.php";
+        const url = "http://localhost/reactApiPhp/api/allProductList.php";
         const responses = await axios.post(url, formData, {
             headers: { 'Content-Type': "multipart/form-data" },
         });

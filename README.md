@@ -4,41 +4,59 @@ A Furniture Company full fledged ecommerce website consisting of routings, where
 
 # React + Vite
 
-# This are the API's that handles all the product request
+# This are the API's that handles all the product request and authentications
 
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/bedFrameList.php
--this the api for bedframe list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/blogList.php
--api for blog list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/carbinetList.php
--api for carbinet list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/chairlist.php
--api for chair list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/flowerVaseList.php
--api for flower vase list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/funitureList.php
--api for furniture list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/kitchenList.php
--api for kitchen list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/lightList.php
--api for light list
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/loginServer.php
+# For all product api and their unique id's
+
+- https://freefurnitura.000webhostapp.com/reactApiPhp/api/allProductList.php
+  api for all productlist
+  https://freefurnitura.000webhostapp.com/reactApiPhp/api/blogList.php
+  -api for bloglist with unique id's
+  <!-- ---------------------------------------------------------------------- -->
+
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/cupboardList.php
+-this for cupboardlist -->
+
+https://freefurnitura.000webhostapp.com/reactApiPhp/api/googleAuth.php
+-this for google Authentication
+https://freefurnitura.000webhostapp.com/reactApiPhp/api/billingDetails.php
+-this for billing details
+
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/bedFrameList.php
+-this the api for bedframe list -->
+
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/contactServer.php
+-this for contact form -->
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/carbinetList.php
+-api for carbinet list -->
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/chairlist.php
+-api for chair list -->
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/flowerVaseList.php
+-api for flower vase list -->
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/funitureList.php
+-api for furniture list -->
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/kitchenList.php
+-api for kitchen list -->
+<!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/lightList.php
+-api for light list -->
+
+https://freefurnitura.000webhostapp.com/reactApiPhp/api/loginServer.php
 -api for login session
-http://furnitura.infinityfreeapp.com/reactApiPhp/api/server.php
+https://freefurnitura.000webhostapp.com/reactApiPhp/api/server.php
 
 - for registration session
-  http://furnitura.infinityfreeapp.com/reactApiPhp/api/sofaList.php
-  -api for sofa list
-  http://furnitura.infinityfreeapp.com/reactApiPhp/api/stoolList.php
-  -api for stool list
-  http://furnitura.infinityfreeapp.com/reactApiPhp/api/tableList.php
-  -api for table list
-  http://furnitura.infinityfreeapp.com/reactApiPhp/api/subcribe.php
+  <!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/sofaList.php
+  -api for sofa list -->
+  <!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/stoolList.php
+  -api for stool list -->
+  <!-- https://freefurnitura.000webhostapp.com/reactApiPhp/api/tableList.php
+  -api for table list -->
+  https://freefurnitura.000webhostapp.com/reactApiPhp/api/subcribe.php
   api for email subscription letter
 
 # you can use this to call the images if you are having issues in getting it (Alternative)
 
-<!-- <img src={`http://furnitura.infinityfreeapp.com/reactApiPhp/images/${items.image}`} height={30} width={40} /> -->
+<!-- <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${items.image}`} height={30} width={40} alt={items.name} /> -->
 
 <!-- ------------------------------------------------------------------------------------------------------ -->
 
