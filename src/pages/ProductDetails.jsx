@@ -26,9 +26,7 @@ const ProductDetails = () => {
     if (product) {
       dispatch(addViewedProducts(product));
     }
-    if (!product) {
-      return <ProductNotFound />
-    }
+    
   }, [dispatch, id])
 
   const product = ProductList.find((product) => product.id === id);
@@ -71,9 +69,8 @@ const ProductDetails = () => {
     }
   }
 
-  console.log('productQuantityAfterIncrement:', product.quantity);
   return (
-    <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem]  md:my-12 xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
+    <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem] md:my-12 xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-4">
         {/* PRODUCT DETAIL COMPONENT */}
         <section className="flex gap-10 flex-col">
@@ -168,7 +165,7 @@ const ProductDetails = () => {
         </section>
 
         {/* PRODUCT IMAGE SECTION */}
-        <section className="flex flex-col items-center gap-12">
+        <section className="flex flex-col gap-12">
           {/* LARGER IMAGE SECTION */}
           <div className="w-full max-w-[34.375rem] h-[40.625rem] rounded-[0.625rem]">
             <img
@@ -179,37 +176,37 @@ const ProductDetails = () => {
           </div>
           {/* SMALLER IMAGE SECTION */}
           <div className="grid gap-2 grid-cols-5">
-            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className="w-full h-auto object-cover rounded-[0.625rem]"
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={product.image}
                 alt="an image"
               />
             </div>
-            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className="w-full h-auto object-cover rounded-[0.625rem]"
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={product.image}
                 alt="an image"
               />
             </div>
-            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className="w-full h-auto object-cover rounded-[0.625rem]"
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={product.image}
                 alt="an image"
               />
             </div>
-            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className="w-full h-auto object-cover rounded-[0.625rem]"
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={product.image}
                 alt="an image"
               />
             </div>
-            <div className="w-full max-w-[8.1875rem] rounded-[0.625rem]">
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className="w-full h-auto object-cover rounded-[0.625rem]"
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={product.image}
                 alt="an image"
               />

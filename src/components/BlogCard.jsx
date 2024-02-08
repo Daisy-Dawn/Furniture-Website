@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BsSuitHeart } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa6";
+import Surface from "./animationComponents/Surface";
 
 const BlogCard = ({banner, date, bannerDescription, author, title, description}) => {
     const [like, setLike] = useState(false); //state to manage like button
@@ -28,8 +28,12 @@ const BlogCard = ({banner, date, bannerDescription, author, title, description})
                 </div>
             </div>
             <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-lead my-6">{title}</h2>
-                <p className="text-base md:text-lg text-bGrey font-normal w-full max-w-[74.125rem]">{description}</p>
+                <Surface>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-lead my-6">{title}</h2>
+                </Surface>
+                <Surface>
+                    <p className="text-base md:text-lg text-bGrey font-normal w-full max-w-[74.125rem]">{description}</p>
+                </Surface>
             </div>
         </article>
     )

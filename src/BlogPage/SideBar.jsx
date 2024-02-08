@@ -6,7 +6,7 @@ import { CiSearch } from "react-icons/ci";
 const SideBar = () => {
     const { setCategory, setSearchTerm, blogCardData } = useContext(CategoryContext);
     const searchInputRef = useRef(); //get reference of the input value
-    const filteredRecentPosts = blogCardData.slice(-3); //filter and get the last three blog titles
+    const filteredRecentPosts = blogCardData.slice(0,3); //filter and get the last three blog titles
     const barStoolCategory = blogCardData.filter((blog) => blog.category === "bar stool");
     const cabinetCategory = blogCardData.filter((blog) => blog.category === "cabinet");
     const coffeeTableCategory = blogCardData.filter((blog) => blog.category === "coffee table");

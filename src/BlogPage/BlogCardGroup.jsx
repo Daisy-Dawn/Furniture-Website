@@ -4,6 +4,7 @@ import BlogCard from "../components/BlogCard";
 import blogCardData from '../data/BlogList';
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import ScrollSurface from "../components/animationComponents/ScrollSurface";
 
 const BlogCardGroup = ({id}) => {
     const { category, searchTerm, currentPage: contextCurrentPage, setCurrentPage} = useContext(CategoryContext); //global data from the context api
@@ -40,21 +41,23 @@ const BlogCardGroup = ({id}) => {
       {containsBlogs ? (
             // Render the list of blogs if there are any
             blogsForCurrentPage.map((blog, index) => (
-              <BlogCard
-                key={index}
-                banner={blog.banner}
-                date={blog.date}
-                bannerDescription={blog.bannerDescription}
-                author={blog.author}
-                title={blog.title}
-                description={blog.description}
-              />
+              <ScrollSurface key={index} index={index}>
+                <BlogCard
+                  key={index}
+                  banner={blog.banner}
+                  date={blog.date}
+                  bannerDescription={blog.bannerDescription}
+                  author={blog.author}
+                  title={blog.title}
+                  description={blog.description}
+                />
+              </ScrollSurface>
             ))
           ) : (
             // Render a message if no blogs are found
             <div className="text-center">
               <p className="text-lg text-bGrey font-bold">
-                No blogs found containing the search term "{searchTerm}".
+                No blogs found containing the search term &#34;{searchTerm}&#34;.
               </p>
             </div>
           )}

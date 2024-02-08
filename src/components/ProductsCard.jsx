@@ -8,7 +8,6 @@ import { addToCart, removeFromCart } from "../features/addToCartSlice";
 import { addToWishlist, removeFromWishlist} from "../features/addToWishlistSlice";
 
 const ProductsCard = ({product, image, price, description, link, id }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [fillHeart, setFillHeart] = useState(false);
   const [fillCart, setFillCart] = useState(false);
   
@@ -41,29 +40,21 @@ const ProductsCard = ({product, image, price, description, link, id }) => {
   return (
     <div
       key={id}
-      className="w-full max-w-[18.75rem] lg:mb-[3rem] md:mb-[3rem] mb-[2rem] relative flex flex-col items-center lg:items-start rounded-[10px] justify-self-center"
+      className="w-[18.75rem] lg:w-full lg:max-w-[18.75rem] lg:mb-[3rem] md:mb-[3rem] mb-[2rem] relative flex flex-col items-center lg:items-start rounded-[10px]"
     >
       <Link className="w-full" to={link}>
-        <div
-          className={`relative w-full h-[18.75rem] rounded-[10px] flex items-center justify-center  ${isHovered ? "hovered" : ""}`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="group transition-all duration-300 relative w-full h-[18.75rem] rounded-[10px] flex items-center justify-center overflow-hidden">
           {/* <div> */}
-
           <img
-            className="w-full  h-full object-cover rounded-[10px]"
+            className="w-full scale-[1.02] group-hover:scale-100 h-full object-cover rounded-[10px] transition-all duration-300"
             src={image}
             alt={description}
           />
-
-          {isHovered && (
-            <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[10px] flex items-center justify-center">
-              <div className="bg-white px-7 py-2 rounded-[0.425rem]">
-                View Item
-              </div>
+          <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[10px] opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300">
+            <div className="bg-white px-7 py-2 rounded-[0.425rem]">
+              View Item
             </div>
-          )}
+          </div>
         </div>
       </Link>
       <div className="flex flex-col mt-3 w-full ">

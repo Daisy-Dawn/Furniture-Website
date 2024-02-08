@@ -1,17 +1,32 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { cart, heart, logo, userIcon } from "../assets/index";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { cart, heart, logo, userIcon, commentPic1 } from "../assets/index";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { useSelector } from "react-redux";
 import { googleLogout } from "@react-oauth/google";
+import { AnimatePresence, motion } from "framer-motion";
+import { Tooltip } from "antd";
 
 const Header = () => {
   const navigate = useNavigate();
   const numberOfCartItems = useSelector(state => state.addToCart.numberOfCartItems)
   const numberOfWishlistItems = useSelector(state => state.addToWishlist.numberOfWishlistItems)
+  
 
+  // framer motion helper
+  const variants = {
+    hidden:{
+      opacity:0,
+      y:10
+    },
+    visible:{
+      opacity:1,
+      y:0
+    }
+  }
 
+ 
 
   // Check if the user is authenticated
   useEffect(() => {
@@ -33,7 +48,7 @@ const Header = () => {
     navigate('/login');
   }
 
-  const [active, setActive] = useState("Home");
+  // const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [user, setUser] = useState(null);
@@ -51,7 +66,12 @@ const Header = () => {
     setDropdownVisible(false);
   };
 
-  const navLinks = [
+  const handleHideNavbarWhenClicked = ()=>{
+    setToggle(false);
+  }
+
+   //navLinks data
+   const navLinks = [
     { id: "", text: "Home" },
     { id: "about", text: "About" },
     { id: "shop", text: "Shop" },
@@ -70,7 +90,7 @@ const Header = () => {
   // ];
 
   return (
-    <div className="flex sticky top-0 w-full z-20 justify-between items-center px-[2rem] md:px-[3rem] lg:px-[5rem] h-[70px] font-nunito  bg-white">
+    <div className="flex sticky top-0 w-full z-20 justify-between items-center px-[2rem] md:px-[3rem] lg:px-[5rem] h-[70px] font-nunito bg-white shadow-sm">
       <div>
         <img
           className="lg:w-[150px] w-[100px] sm:w-[120px]"
@@ -78,62 +98,83 @@ const Header = () => {
           alt=""
         />
       </div>
-
       <ul className="list-none md:flex hidden justify-between items-center gap-3 lg:gap-5 md:gap-5 text-[16px] ">
         {navLinks.map((link) => (
           <li
             key={link.id}
-            className={`text-black hover:text-brown font-medium ${active === link.text ? "text-brown" : "text-black"
-              }`}
-            onClick={() => setActive(link.text)}
+            className={`text-black font-medium`}
           >
-            <Link to={`/${link.id}`}>{link.text}</Link>
+            <NavLink 
+              to={`/${link.id}`}
+              className={({isActive})=> isActive ? "nav-link active" : ""}
+            >{link.text}
+            </NavLink>
           </li>
         ))}
       </ul>
+      
 
       <ul className="list-none flex  justify-between items-center gap-3 lg:gap-5 md:gap-5 text-[16px] ">
         <li
           onClick={handleToggleDropdown}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className={`relative text-black hover:text-brown cursor-pointer font-medium userIconContainer`}
+          className={`relative text-black hover:text-brown cursor-pointer font-medium `}
         >
-          <img src={userIcon} alt="" />
-          {isDropdownVisible && (
-            <div className="absolute left-[-3rem] flex-col w-[8rem] text-center hidden bg-slate-100 divide-y divide-black userIconDisplay">
-              {user || success ? (
-                // If user is authenticated, display logout
-                <button
-                  onClick={handleLogout}
-                  className="py-[6px] hover:bg-slate-200"
-                >
-                  Logout
-                </button>
-              ) : (
-                // If user is not authenticated, display signup and login links
-                <>
-                  <Link to="signup" className="py-[6px] hover:bg-slate-200">
-                    Sign Up
-                  </Link>
-                  <Link to="login" className="py-[6px] hover:bg-slate-200">
-                    Login
-                  </Link>
-                </>
-              )}
+          {user || success ? (
+            <div className="relative border-2 border-solid border-steam hover:border-lead hover:border-opacity-80 transition-all duration-200 rounded-full">
+              <img src={commentPic1} className="rounded-full w-5 h-5 object-cover" alt="user avatar" />
             </div>
+          ) : (
+              <img src={userIcon} alt="user icon image" />
           )}
+          
+          <AnimatePresence>
+            {isDropdownVisible && (
+              <motion.div 
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={variants}
+                transition={{duration:"0.3", ease:"easeOut"}}
+                style={{x: "-50%"}}
+                className="absolute left-1/2 top-12  py-4 flex flex-col w-40 text-center bg-slate-100 ">
+                {user || success ? (
+                  // If user is authenticated, display logout
+                  <button
+                    onClick={handleLogout}
+                    className="py-[6px] hover:bg-slate-200"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  // If user is not authenticated, display signup and login links
+                  <>
+                    <Link to="signup" className="py-[6px] hover:underline transition-all duration-300">
+                      Sign Up
+                    </Link>
+                    <Link to="login" className="py-[6px] hover:underline transition-all duration-300">
+                      Login
+                    </Link>
+                  </>
+                )}
+                <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent border-none"></div>
+                <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-slate-100"></div>
+              </motion.div>
+              
+            )}
+          </AnimatePresence>
         </li>
         {navLinks2.map((link) => (
           <li
             key={link.id}
-            className={`text-black hover:text-brown relative font-medium ${active === link.text ? "text-brown" : "text-black"
+            className={`text-black hover:text-brown relative font-medium "
               }`}
-            onClick={() => setActive(link.text)}
+            
           >
-            <Link to={`/${link.id}`}>
-              <img src={link.text} alt="" />
-            </Link>
+            <NavLink 
+              to={`/${link.id}`}
+            ><img src={link.text} alt="" /></NavLink>
             {link.number > 0 && (
               <p className="absolute top-[-5px] left-2 text-white rounded-full bg-red-600 px-1 text-[11px]">
                 {link.number}
@@ -162,11 +203,14 @@ const Header = () => {
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className={`text-white hover:text-yellow-300 ${active === link.text ? "text-yellow-300" : "text-white"
-                  }`}
-                onClick={() => setActive(link.text)}
+                className={`text-white hover:text-yellow-300`}
+                
               >
-                <Link to={`/${link.id}`}>{link.text}</Link>
+                <NavLink 
+                  to={`/${link.id}`}
+                  onClick={handleHideNavbarWhenClicked}
+                  className={({isActive}) => isActive ? "nav-link actife" : "nav-link"}
+                >{link.text}</NavLink>
               </li>
             ))}
           </ul>

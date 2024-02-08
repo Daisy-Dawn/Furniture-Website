@@ -1,4 +1,3 @@
-// import React from "react";
 import { flower5, footerLogo, phoneIcon, mailIcon } from "../assets";
 import { Link } from "react-router-dom";
 import { FaGithub, FaTwitter } from "react-icons/fa";
@@ -8,6 +7,8 @@ import { SiUpwork } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { useState } from "react";
 import axios from "axios";
+import {motion} from "framer-motion";
+import Surface from "./animationComponents/Surface";
 
 const Footer = () => {
   const backgroundImageUrl = flower5;
@@ -44,26 +45,32 @@ const Footer = () => {
     {
       icon: <FaGithub />,
       href: "#",
+      style: "hover:text-[#bd2c00]"
     },
     {
       icon: <GrInstagram />,
       href: "#",
+      style: "hover:text-[#C13584]"
     },
     {
       icon: <FaTwitter />,
       href: "#",
+      style: "hover:text-[#55acee]"
     },
     {
       icon: <FaLinkedinIn />,
       href: "#",
+      style: "hover:text-[#0077B5]"
     },
     {
       icon: <SiUpwork />,
       href: "#",
+      style: "hover:text-[#0085CA]"
     },
     {
       icon: <IoLogoWhatsapp />,
       href: "#",
+      style: "hover:text-[#25D366]"
     },
   ];
 
@@ -81,10 +88,7 @@ const Footer = () => {
         setError("");
         setMsg("");
         setEmail(e.target.value);
-        if (e.target.value === "") {
-          setError("This field is left blank");
-          return;
-        }
+        
         break;
       default:
         break;
@@ -94,7 +98,10 @@ const Footer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-
+      // if (email === "") {
+      //   setError("This field is left blank");
+      //   return;
+      // }
       if (!email) {
         setError("Insert a valid email address to recieve our best offers");
         return;
@@ -123,23 +130,24 @@ const Footer = () => {
   }
 
   return (
-    <div className="flex flex-col font-nunito ">
-      <div
-        className="relative min-h-[300px] bg-cover bg-center text-white items-center  flex flex-col justify-center xl:p-20 md:p-10 p-3"
-        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
-      >
+    <div className="flex flex-col font-nunito">
+      <div className="relative min-h-[300px] bg-cover bg-center text-white items-center  flex flex-col justify-center xl:p-20 md:p-10 p-3"style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
         {/* Dark overlay with transparency */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-
+        <div className="absolute inset-0 bg-black bg-opacity-40">
+        </div>
         <div className="relative  flex flex-col justify-center items-center md:gap-[2rem] gap-[1rem] w-full">
           {/* Your content goes here */}
-          <h1 className="text-center xl:text-[48px] lg:text-[40px] md:text-[45px] text-[25px] font-bold">
-            Subscribe Now To Get Services Best Of Us
-          </h1>
-          <p className="text-lg xl:w-[40%] lg:w-[80%] w-[90%] text-center ">
-            We recommended you to subscribe to our newspaper, enter your email
-            below to get our daily update about us.
-          </p>
+          <Surface>
+            <h1 className="text-center mx-auto xl:text-[48px] lg:text-[40px] md:text-[45px] text-[25px] font-bold">
+              Subscribe Now To Get Services Best Of Us
+            </h1>
+          </Surface>
+          <Surface>
+            <p className="text-lg mx-auto xl:w-[40%] lg:w-[80%] w-[90%] text-center ">
+              We recommended you to subscribe to our newspaper, enter your email
+              below to get our daily update about us.
+            </p>
+          </Surface>
           <h6 style={{ textAlign: "center" }}>
             {
               error !== "" ? (
@@ -149,10 +157,14 @@ const Footer = () => {
               )
             }
           </h6>
-          <div className="md:relative xl:w-[50%] w-[90%] ">
+          <motion.div 
+            initial={{opacity:0, y:40}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:0.7}}
+            className="md:relative xl:w-[50%] w-[90%] ">
             <form onSubmit={handleSubmit}>
               <input
-                className="w-full md:py-[1.3rem] py-[1rem] md:px-[1.3rem] px-[1rem] rounded-[10px] md:text-[18px] text-[16px] text-lead border-none outline-none placeholder:text-lead placeholder:font-semibold md:placeholder:text-[18px] placeholder:text-[15px] "
+                className="w-full md:py-[1.3rem] py-[1rem] md:px-[1.3rem] px-[1rem] rounded-[10px] md:text-[18px] text-[16px] text-lead border-none outline-none placeholder:text-bGrey placeholder:font-semibold md:placeholder:text-[18px] placeholder:text-[15px] "
                 placeholder="Enter your email address"
                 type="email"
                 value={email}
@@ -160,8 +172,9 @@ const Footer = () => {
                 onChange={(e) => handleChanges(e, "email")}
               />
               <div className="flex justify-center md:justify-start">
-                <button className="mt-[10px] md:mt-[0px] md:absolute md:top-[10px] md:right-[1rem] text-center font-bold text-[18px] py-[10px] px-[20px] text-white flex justify-center items-center bg-lead rounded-[10px]"
+                <button className="disabled:opacity-80 disabled:cursor-not-allowed mt-[10px] md:mt-[0px] md:absolute md:top-[10px] md:right-[1rem] text-center font-bold text-[18px] py-[10px] px-[20px] text-white flex justify-center items-center bg-lead rounded-[10px] transition-all duration-300"
                   type="submit"
+                  disabled={email === "" ? true : false}
 
                 >
                   Subscribe
@@ -169,11 +182,11 @@ const Footer = () => {
 
               </div>
             </form>
-          </div>
+          </motion.div>
+         
 
         </div>
       </div>
-
       <div className="bg-lead md:px-[5rem] lg:px-[2rem] xl:px-[5rem] px-[1.3rem] xl:pt-[5rem] lg:pt-[3rem] pt-[2rem] pb-[2rem] flex flex-col text-steam">
         <div className="grid lg:grid-cols-3 grid-cols-1">
           <div className="flex lg:gap-[2rem] gap-[1rem] mb-0 md:mb-[2rem] lg:mb-0 flex-col">
@@ -289,7 +302,7 @@ const Footer = () => {
                 >
                   <a href={icon.href} target="_blank" rel="noopener noreferrer">
                     {" "}
-                    <span className="size-[18] text-lead">
+                    <span className={`${icon.style} transition-all duration-300 size-[18px] text-lead`}>
                       {icon.icon}
                     </span>{" "}
                   </a>
@@ -301,6 +314,6 @@ const Footer = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Footer;

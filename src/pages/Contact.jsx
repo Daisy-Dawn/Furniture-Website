@@ -62,26 +62,31 @@ const Contact = () => {
     {
       icon: <FaGithub />,
       href: "#",
+      style: "#bd2c00"
     },
     {
       icon: <GrInstagram />,
       href: "#",
+      style: "#C13584"
     },
     {
       icon: <FaTwitter />,
       href: "#",
+      style: "#55acee"
     },
     {
       icon: <FaLinkedinIn />,
       href: "#",
+      style: "#0077B5"
     },
     {
       icon: <SiUpwork />,
       href: "#",
+      style: "#0085CA"
     },
   ];
   return (
-    <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] mb-[5rem]  font-nunito">
+    <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] my-[5rem]  font-nunito">
       <div className="flex flex-col items-center">
         <h2 className="text-lead text-center font-bold text-[30px] lg:text-[45px]">
           Contact
@@ -113,7 +118,7 @@ const Contact = () => {
                   name: e.target.value,
                 }))
               }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
+              className="w-full bg-lynx p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
             />
 
             {/* SUBJECT SECTION */}
@@ -129,7 +134,7 @@ const Contact = () => {
                   subject: e.target.value,
                 }))
               }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
+              className="w-full bg-lynx p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
               type="text"
             />
 
@@ -146,7 +151,7 @@ const Contact = () => {
                   message: e.target.value,
                 }))
               }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+              className="w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
               cols="30"
               rows="7"
             ></textarea>
@@ -167,7 +172,7 @@ const Contact = () => {
                   email: e.target.value,
                 }))
               }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+              className="w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
               type="email"
             />
             <p className="text-red-600"> {emailPattern} </p>
@@ -185,7 +190,7 @@ const Contact = () => {
                   phone: e.target.value,
                 }))
               }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
+              className="w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
               type="tel"
             />
           </div>
@@ -208,7 +213,7 @@ const Contact = () => {
                   key={index}
                 >
                   <a href={icon.href} target="_blank" rel="noopener noreferrer">
-                    <span className="size-[18] text-lynx">{icon.icon}</span>
+                    <span className={`hover:text-[${icon.style}] size-[18px] text-lynx transition-all duration-300`}>{icon.icon}</span>
                   </a>
                 </div>
               ))}
@@ -216,7 +221,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="flex justify-center items-center bg-lead rounded-[10px] md:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] lg:hidden xl:block"
+            className="flex justify-center items-center bg-lead rounded-[10px] md:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] lg:hidden xl:block transform hover:scale-[1.02] transition-all duration-300"
           >
             {" "}
             Send Now

@@ -68,7 +68,7 @@ const Carosel = () => {
           <h2 className="text-lead lg:text-[50px] md:text-[40px] min-[270px]:text-[25px] min-[350px]:text-[30px] font-bold lg:mb-8 md:mb-5 mb-3 leading-[35px] md:leading-[45px] lg:leading-[60px]">
             Creative Home Simplify Your Furniture
           </h2>
-          <button className="py-[8px] px-[20px]  rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[16px] font-bold text-center flex items-center justify-center ">
+          <button className="py-[8px] px-[20px] rounded-[10px] font-nunito bg-lead hover:bg-stone-600  text-white text-[16px] font-bold text-center flex items-center justify-center">
             <Link to={`/shop`}> Shop Now </Link>
           </button>
         </div>

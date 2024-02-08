@@ -4,6 +4,7 @@ import BlogHero from '../BlogPage/BlogHero'
 const Blog = () => {
   return (
     <div>
+      
       <BlogHero />
       <div>
         <BlogDetails />
