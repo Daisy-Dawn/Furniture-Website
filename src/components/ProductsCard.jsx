@@ -6,6 +6,7 @@ import { IoHeart } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../features/addToCartSlice";
 import { addToWishlist, removeFromWishlist} from "../features/addToWishlistSlice";
+import { Tooltip } from "antd";
 
 const ProductsCard = ({product, image, price, description, link, id }) => {
   const [fillHeart, setFillHeart] = useState(false);
@@ -66,17 +67,20 @@ const ProductsCard = ({product, image, price, description, link, id }) => {
             ${price}
           </p>
           <div className="flex gap-4">
-            <IoHeart
-              onClick={toggleHeartIconFill}
-              size={22}
-              className={`text-bGrey hover:text-red-600 transition-all duration-300  ${fillHeart ? "fill-red-600 heartBeatAnimation" : ""} cursor-pointer`}
-            />
-            <div onClick={toggleCartIconFill}>
-              <MdShoppingCart
-                size={22} 
-                className={`text-bGrey hover:text-red-600 font-bold ${fillCart ? "fill-red-600 heartBeatAnimation" : ""} cursor-pointer`}
+            <Tooltip title={fillHeart ? "Remove from wishlist" : "Add to wishlist"}>
+              <IoHeart
+                onClick={toggleHeartIconFill}
+                size={22}
+                className={`text-bGrey hover:text-red-600 transition-all duration-300  ${fillHeart ? "fill-red-600 heartBeatAnimation" : ""} cursor-pointer`}
               />
-            </div>
+            </Tooltip>
+            <Tooltip title={fillCart ? "Remove from cartlist" : "Add to cartlist"}>
+              <MdShoppingCart
+                onClick={toggleCartIconFill}
+                size={22} 
+                className={`text-bGrey hover:text-red-600 transition-all duration-300 font-bold ${fillCart ? "fill-red-600 heartBeatAnimation" : ""} cursor-pointer`}
+              />
+            </Tooltip>
           </div>
         </div>
       </div>

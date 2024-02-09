@@ -172,9 +172,13 @@ const Header = () => {
               }`}
             
           >
-            <NavLink 
-              to={`/${link.id}`}
-            ><img src={link.text} alt="" /></NavLink>
+            <Tooltip title={link.id === "wishlist" ? "wishlist" : "cartlist"}>
+              <NavLink 
+                to={`/${link.id}`}
+              >
+                <img src={link.text} alt="" />
+              </NavLink>
+            </Tooltip>
             {link.number > 0 && (
               <p className="absolute top-[-5px] left-2 text-white rounded-full bg-red-600 px-1 text-[11px]">
                 {link.number}

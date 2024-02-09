@@ -9,6 +9,7 @@ import { useState } from "react";
 import axios from "axios";
 import {motion} from "framer-motion";
 import Surface from "./animationComponents/Surface";
+import { Tooltip } from "antd";
 
 const Footer = () => {
   const backgroundImageUrl = flower5;
@@ -45,32 +46,38 @@ const Footer = () => {
     {
       icon: <FaGithub />,
       href: "#",
-      style: "hover:text-[#bd2c00]"
+      style: "hover:text-[#bd2c00]",
+      title:"github"
     },
     {
       icon: <GrInstagram />,
       href: "#",
-      style: "hover:text-[#C13584]"
+      style: "hover:text-[#C13584]",
+      title:"instagram"
     },
     {
       icon: <FaTwitter />,
       href: "#",
-      style: "hover:text-[#55acee]"
+      style: "hover:text-[#55acee]",
+      title:"twitter"
     },
     {
       icon: <FaLinkedinIn />,
       href: "#",
-      style: "hover:text-[#0077B5]"
+      style: "hover:text-[#0077B5]",
+      title:"linkedIn"
     },
     {
       icon: <SiUpwork />,
       href: "#",
-      style: "hover:text-[#0085CA]"
+      style: "hover:text-[#0085CA]",
+      title:"upwork"
     },
     {
       icon: <IoLogoWhatsapp />,
       href: "#",
-      style: "hover:text-[#25D366]"
+      style: "hover:text-[#25D366]",
+      title:"whatsapp"
     },
   ];
 
@@ -300,12 +307,21 @@ const Footer = () => {
                   className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center "
                   key={index}
                 >
-                  <a href={icon.href} target="_blank" rel="noopener noreferrer">
-                    {" "}
-                    <span className={`${icon.style} transition-all duration-300 size-[18px] text-lead`}>
-                      {icon.icon}
-                    </span>{" "}
-                  </a>
+                  <Tooltip 
+                    title={icon.title === "github" ? "github" :
+                     icon.title === "instagram" ? "instagram" : 
+                     icon.title === "twitter" ? "twitter" : 
+                     icon.title === "linkedIn" ? "linkedIn" : 
+                     icon.title === "upwork" ? "upwork" : "whatsapp"
+                    }
+                  >
+                    <a href={icon.href} target="_blank" rel="noopener noreferrer">
+                      {" "}
+                      <span className={`${icon.style} transition-all duration-300 size-[18px] text-lead`}>
+                        {icon.icon}
+                      </span>{" "}
+                    </a>
+                  </Tooltip>
                 </div>
               ))}
             </div>
