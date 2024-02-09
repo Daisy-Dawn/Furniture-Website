@@ -12,6 +12,7 @@ import { addToCart } from "../features/addToCartSlice";
 import { addToWishlist, removeFromWishlist } from "../features/addToWishlistSlice";
 import { addViewedProducts, selectViewedProducts } from "../features/recentlyViewedSlice";
 import ProductNotFound from '../components/ProductNotFound';
+import { Tooltip } from "antd";
 
 const ProductDetails = () => {
   const [quantityCount, setQuantityCount] = useState(0);
@@ -154,10 +155,12 @@ const ProductDetails = () => {
           </p>
 
           <section className="flex gap-4 items-center">
-            <button onClick={()=> toggleHeartIconFill(product)} className="text-brown font-semibold">
-              {" "}
-              <IoHeart size={22} className={`${fillHeart ? "fill-red-700 heartBeatAnimation" : "text-brown"} hover:fill-red-700 transition-all duration-300`} />{" "}
-            </button>
+            <Tooltip title={fillHeart ? "Remove from wishlist" : "Add to wishlist"}>
+              <button onClick={()=> toggleHeartIconFill(product)} className="text-brown font-semibold">
+                {" "}
+                <IoHeart size={22} className={`${fillHeart ? "fill-red-700 heartBeatAnimation" : "text-brown"} hover:fill-red-700 transition-all duration-300`} />{" "}
+              </button>
+            </Tooltip>
             <p className="text-brown text-lg md:text-xl font-semibold">
               {fillHeart ? "Remove from wishlist" : "Add to wishlist"}
             </p>

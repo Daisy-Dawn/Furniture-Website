@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa6";
 import Surface from "./animationComponents/Surface";
+import { Tooltip } from "antd";
 
 const BlogCard = ({banner, date, bannerDescription, author, title, description}) => {
     const [like, setLike] = useState(false); //state to manage like button
@@ -15,14 +16,16 @@ const BlogCard = ({banner, date, bannerDescription, author, title, description})
                     <p>{bannerDescription}</p>
                     <p>By {author}</p>
                     <div className="flex items-center gap-2">
-                        <FaHeart 
-                        color={like ? "red" : ""}
-                        className="transition-all duration-100 cursor-pointer text-base md:text-lg lg:text-2xl" 
-                        onClick={()=> {
-                            setLike(!like);
-                            setNoOfLikes(prevNo => like ? prevNo - 1 : prevNo + 1);
-                        }} 
-                        />
+                        <Tooltip title={like ? "unlike" : "like"}>
+                            <FaHeart 
+                            color={like ? "red" : ""}
+                            className="transition-all duration-100 cursor-pointer text-base md:text-lg lg:text-2xl" 
+                            onClick={()=> {
+                                setLike(!like);
+                                setNoOfLikes(prevNo => like ? prevNo - 1 : prevNo + 1);
+                            }} 
+                            />
+                        </Tooltip>
                         <span>{noOfLikes }</span>
                     </div>
                 </div>
