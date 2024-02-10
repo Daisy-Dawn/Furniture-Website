@@ -11,18 +11,19 @@ import RecentBlogs from '../LandingPage/RecentBlogs'
 
 
 const LandingPage = () => {
+ 
   return (
     <div className='font-nunito bg-white'>
-      <Carousel />
-      <Highlight />
-      <Categories />
-      <NewProducts />
-      <Highlight2 />
-      <ProductsOfWeek />
-      <MatchStyles />
-      <LimitedOffers />
-      <Brands />
-      <RecentBlogs />
+        <Carousel />
+        <Highlight />
+        <Categories />
+        <ProductsOfWeek />
+        <NewProducts />
+        <Highlight2 />
+        <MatchStyles />
+        <LimitedOffers />
+        <Brands />
+        <RecentBlogs />
     </div>
   )
 }

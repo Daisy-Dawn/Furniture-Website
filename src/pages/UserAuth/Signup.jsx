@@ -180,23 +180,23 @@ const Signup = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 grid-cols-1  mb-0 mx-0 font-nunito bg-white  ">
-      <div className="hidden md:block ">
+    <div className="grid md:grid-cols-2 grid-cols-1  mb-0 mx-0 font-nunito bg-white">
+      <div className="hidden md:block">
         <img className="w-full h-full object-cover" src={userAuth} alt="" />
       </div>
 
-      <div className="flex relative items-center h-full bg-image">
+      <div className="flex relative justify-center items-center h-full bg-image py-4">
         {/* FORM COMPONENT */}
         <form
           onSubmit={handleSubmit}
-          className="xl:px-[6rem] lg:px-[2rem] px-[1rem] flex flex-col lg:gap-[1rem] gap-[0.5rem]    "
+          className="w-[80%] flex flex-col lg:gap-[1rem] gap-[0.5rem]"
           action=""
         >
           <div style={{ alignItems: "center" }}>
             {isLoading && <span className="loader"></span>}
           </div>
 
-          <h2 className="md:text-lead text-black lg:text-[35px] text-[25px] mt-[2rem] xl:mt-0 text-center lg:text-left font-bold mb-2 lg:mb-4">
+          <h2 className="md:text-lead text-black lg:text-4xl text-2xl mt-[2rem] xl:mt-0 text-center  font-bold mb-2 lg:mb-4">
             Sign Up
           </h2>
           <p className="lg:font-semibold font-bold lg:text-[18px] text-[16px] text-black md:text-lead">
@@ -239,16 +239,16 @@ const Signup = () => {
             {" "}
             <span className="text-red-600">*</span> Password
           </p>
-          <div className="relative">
+          <div className="flex items-center gap-3 md:bg-slate-200 bg-white lg:mb-2 mb-0 lg:p-[0.7rem] w-full p-[0.4rem] rounded-[10px]">
             <input
-              className="md:bg-slate-200 bg-white lg:p-[0.7rem] w-full p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none  "
+              className="w-full border-none outline-none bg-transparent"
               type={showPassword ? "text" : "password"}
               value={signupFormData.password}
               name="password"
               onChange={handleChange}
             />
             <span
-              className="cursor-pointer top-4 right-5 absolute"
+              className="cursor-pointer"
               onClick={togglePassword}
             >
               {" "}
@@ -268,7 +268,7 @@ const Signup = () => {
 
           <div className="flex gap-[1rem]">
             <input
-              className="w-10"
+              className="w-10 cursor-pointer"
               type="checkbox"
               checked={signupFormData.isChecked}
               onChange={(e) =>
@@ -301,7 +301,7 @@ const Signup = () => {
 
           <div className="flex items-center mt-2 ">
             <button
-              className="bg-brown w-full text-white lg:text-[18px] text-[16px] font-bold rounded-[10px] lg:py-3 py-2"
+              className="bg-brown hover:bg-opacity-95 w-full text-white lg:text-lg text-base font-bold rounded-[0.625rem] lg:py-3 py-2 transition-all duration-300"
               type="submit"
             >
               Sign Up
@@ -310,17 +310,16 @@ const Signup = () => {
 
           <p className="text-center md:text-bGrey text-white text-[16px]">Or</p>
 
-          <div className="flex gap-[3rem] justify-center items-center">
+          <div className="flex justify-center flex-wrap sm:flex-nowrap sm:justify-evenly items-center">
             <span>
               {/* <FcGoogle  className="cursor-pointer" size={27} /> */}
             </span>
             <GoogleLogin
               onSuccess={responseSuccess}
               onError={responseError}
+              className="transition-all duration-300 p-0"
 
             />
-
-
             <span>
               {/* <img
                 className="w-[27px] h-[27px] cursor-pointer object-cover"
@@ -336,8 +335,8 @@ const Signup = () => {
                   console.log(error);
                 }}>
                 <FacebookLoginButton
-                  className="cursor-pointer object-cover"
-                  style={{ width: "250px", height: "40px" }}
+                  className="cursor-pointer object-cover transition-all duration-300"
+                  style={{ width: "fit-content", fontSize: "1rem", height: "40px" }}
                 />
               </LoginSocialFacebook>
 
@@ -353,7 +352,7 @@ const Signup = () => {
         </form>
         {/* END OF FORM COMPONENT */}
 
-        <div className="absolute cursor-pointer lg:text-lead text-black left-[1rem] top-[1rem] lg:top-[0rem]">
+        <div className="absolute cursor-pointer lg:text-lead text-black left-[1rem] top-[1rem] hover:-translate-x-1 transition-all duration-300">
           <Link to="/">
             <IoIosArrowBack className="xl:size-[28px] size-[26px]" />
           </Link>

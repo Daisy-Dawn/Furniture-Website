@@ -5,21 +5,17 @@ import { IoHeart } from 'react-icons/io5'
 import { LuPlus } from 'react-icons/lu'
 import { LuMinus } from 'react-icons/lu'
 import { toast } from 'react-toastify'
-import ProductsCard from '../components/ProductsCard'
 import { addToCart } from '../features/addToCartSlice'
-import {
-  addToWishlist,
-  removeFromWishlist
-} from '../features/addToWishlistSlice'
-import {
-  addViewedProducts,
-  selectViewedProducts
-} from '../features/recentlyViewedSlice'
 import ProductNotFound from '../components/ProductNotFound'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Spin } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchProducts } from '../features/productSlice'
+import { toast } from 'react-toastify';
+import ProductsCard from "../components/ProductsCard";
+import { addToWishlist, removeFromWishlist } from "../features/addToWishlistSlice";
+import { addViewedProducts, selectViewedProducts } from "../features/recentlyViewedSlice";
+import { Tooltip } from "antd";
 
 const ProductDetails = () => {
   const dispatch = useDispatch()
@@ -101,11 +97,9 @@ const ProductDetails = () => {
     }
   }
 
-  console.log('productQuantityAfterIncrement:', product.quantity)
-
   return (
-    <div className='flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem]  md:my-12 xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center'>
-      <div className='grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-4'>
+    <div className="flex flex-col font-nunito xl:mx-[5rem] md:mx-[2rem] mx-[1rem] md:my-12 xl:py-[2.5rem] py-[3rem] lg:gap-[5rem] gap-[2rem] justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-4">
         {/* PRODUCT DETAIL COMPONENT */}
         <section className='flex gap-10 flex-col'>
           {/* PRODUCT NAME/HEADER */}
@@ -199,27 +193,21 @@ const ProductDetails = () => {
             free 3-5 day shipping | tool-free assembly | 30-day trial{' '}
           </p>
 
-          <section className='flex gap-4 items-center'>
-            <button
-              onClick={() => toggleHeartIconFill(product)}
-              className='text-brown font-semibold'
-            >
-              {' '}
-              <IoHeart
-                size={22}
-                className={`${
-                  fillHeart ? 'fill-red-700 heartBeatAnimation' : 'text-brown'
-                } hover:fill-red-700 transition-all duration-300`}
-              />{' '}
-            </button>
-            <p className='text-brown text-lg md:text-xl font-semibold'>
-              {fillHeart ? 'Remove from wishlist' : 'Add to wishlist'}
+          <section className="flex gap-4 items-center">
+            <Tooltip title={fillHeart ? "Remove from wishlist" : "Add to wishlist"}>
+              <button onClick={()=> toggleHeartIconFill(product)} className="text-brown font-semibold">
+                {" "}
+                <IoHeart size={22} className={`${fillHeart ? "fill-red-700 heartBeatAnimation" : "text-brown"} hover:fill-red-700 transition-all duration-300`} />{" "}
+              </button>
+            </Tooltip>
+            <p className="text-brown text-lg md:text-xl font-semibold">
+              {fillHeart ? "Remove from wishlist" : "Add to wishlist"}
             </p>
           </section>
         </section>
 
         {/* PRODUCT IMAGE SECTION */}
-        <section className='flex flex-col items-center gap-12'>
+        <section className="flex flex-col gap-12">
           {/* LARGER IMAGE SECTION */}
           <div className='w-full max-w-[34.375rem] h-[40.625rem] rounded-[0.625rem]'>
             <img
@@ -229,40 +217,40 @@ const ProductDetails = () => {
             />
           </div>
           {/* SMALLER IMAGE SECTION */}
-          <div className='grid gap-2 grid-cols-5'>
-            <div className='w-full max-w-[8.1875rem] rounded-[0.625rem]'>
+          <div className="grid gap-2 grid-cols-5">
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className='w-full h-auto object-cover rounded-[0.625rem]'
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
                 alt='an image'
               />
             </div>
-            <div className='w-full max-w-[8.1875rem] rounded-[0.625rem]'>
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className='w-full h-auto object-cover rounded-[0.625rem]'
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
                 alt='an image'
               />
             </div>
-            <div className='w-full max-w-[8.1875rem] rounded-[0.625rem]'>
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className='w-full h-auto object-cover rounded-[0.625rem]'
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
                 alt='an image'
               />
             </div>
-            <div className='w-full max-w-[8.1875rem] rounded-[0.625rem]'>
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className='w-full h-auto object-cover rounded-[0.625rem]'
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
-                alt='an image'
+                alt="an image"
               />
             </div>
-            <div className='w-full max-w-[8.1875rem] rounded-[0.625rem]'>
+            <div className="w-full max-w-[8.1875rem] h-full max-h-[6.5rem] rounded-[0.625rem]">
               <img
-                className='w-full h-auto object-cover rounded-[0.625rem]'
+                className="w-full h-full object-cover rounded-[0.625rem]"
                 src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
-                alt='an image'
+                alt="an image"
               />
             </div>
           </div>

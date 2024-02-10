@@ -1,6 +1,7 @@
 import Heading from "../components/Heading";
 import TestimonialCard from "../components/TestimonialCard";
 import { commentPic1, commentPic2 } from '../assets';
+import ScrollSurface from "../components/animationComponents/ScrollSurface";
 
 
 const testimonials = [
@@ -21,12 +22,14 @@ const testimonials = [
 ]
 const Testimonial = () => {
   return (
-    <section className="mx-[2rem] md:mx-[3rem] lg:mx-[5rem] my-12 flex flex-col gap-20">
-        <Heading title="Our Customers Are Saying" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {testimonials.map((testimonial, index) => <TestimonialCard key={index} name={testimonial.name} title={testimonial.title} opinion={testimonial.comment} job={testimonial.job} pic={testimonial.pic} />)}
-        </div>
-    </section>
+    <ScrollSurface>
+        <section className="mx-[2rem] md:mx-[3rem] lg:mx-[5rem] my-12 flex flex-col gap-20">
+            <Heading title="Our Customers Are Saying" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {testimonials.map((testimonial, index) => <TestimonialCard key={index} name={testimonial.name} title={testimonial.title} opinion={testimonial.comment} job={testimonial.job} pic={testimonial.pic} />)}
+            </div>
+        </section>
+    </ScrollSurface>
   )
 }
 

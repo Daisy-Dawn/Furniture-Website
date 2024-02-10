@@ -1,4 +1,5 @@
 import { comment } from '../assets';
+import Surface from './animationComponents/Surface';
 
 const TestimonialCard = ({name, title, opinion, job, pic}) => {
   return (
@@ -6,8 +7,12 @@ const TestimonialCard = ({name, title, opinion, job, pic}) => {
         <div>
             <img src={comment} alt="comment icon" />
         </div>
-        <h2 className='text-[1.5625rem] font-extrabold text-lead w-full max-w-[31.875rem] my-6'>{title}</h2>
-        <p className='text-lg font-normal w-full max-w-[37.625rem]'>{opinion}</p>
+        <Surface>
+            <h2 className='text-[1.5625rem] font-extrabold text-lead w-full max-w-[31.875rem] my-6'>{title}</h2>
+        </Surface>
+        <Surface>
+            <p className='text-lg font-normal w-full max-w-[37.625rem]'>{opinion}</p>
+        </Surface>
         <div className='mt-6 flex items-center gap-3'>
             <div className='rounded-[50%] w-[3.125rem] h-[3.125rem] overflow-hidden'>
                 <img src={pic}  alt="user profile image" />

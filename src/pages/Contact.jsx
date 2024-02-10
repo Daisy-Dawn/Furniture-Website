@@ -1,13 +1,14 @@
-import { LuMail } from 'react-icons/lu'
-import { GiWorld } from 'react-icons/gi'
-import { FaGithub, FaTwitter, FaPhoneAlt } from 'react-icons/fa'
-import { GrInstagram } from 'react-icons/gr'
-import { FaLinkedinIn } from 'react-icons/fa6'
-import { SiUpwork } from 'react-icons/si'
-import { useNavigate } from 'react-router-dom'
-import { notification } from 'antd'
-import { useState } from 'react'
-import emailjs from '@emailjs/browser'
+import { LuMail } from 'react-icons/lu';
+import { GiWorld } from 'react-icons/gi';
+import { FaGithub, FaTwitter, FaPhoneAlt } from 'react-icons/fa';
+import { GrInstagram } from 'react-icons/gr';
+import { FaLinkedinIn } from 'react-icons/fa6';
+import { SiUpwork } from 'react-icons/si';
+import { useNavigate } from 'react-router-dom';
+import { notification } from 'antd';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import {Tooltip} from 'antd';
 
 const Contact = () => {
   const navigate = useNavigate()
@@ -125,30 +126,39 @@ const Contact = () => {
   const socialIconList = [
     {
       icon: <FaGithub />,
-      href: '#'
+      href: "#",
+      style: "#bd2c00",
+      title:"github"
     },
     {
       icon: <GrInstagram />,
-      href: '#'
+      href: "#",
+      style: "#C13584",
+      title:"instagram"
     },
     {
       icon: <FaTwitter />,
-      href: '#'
+      href: "#",
+      style: "#55acee",
+      title:"twitter"
     },
     {
       icon: <FaLinkedinIn />,
-      href: '#'
+      href: "#",
+      style: "#0077B5",
+      title:"linkedIn"
     },
     {
       icon: <SiUpwork />,
-      href: '#'
-    }
-  ]
-
+      href: "#",
+      style: "#0085CA",
+      title:"upwork"
+    },
+  ];
   return (
-    <div className='flex flex-col justify-center min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] mb-[5rem] font-nunito'>
-      <div className='flex flex-col items-center'>
-        <h2 className='text-lead text-center font-bold text-[30px] lg:text-[45px]'>
+    <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] my-[5rem]  font-nunito">
+      <div className="flex flex-col items-center">
+        <h2 className="text-lead text-center font-bold text-[30px] lg:text-[45px]">
           Contact
         </h2>
         <p className='text-center mt-[1rem] lg:mb-[3rem] mb-[1rem] text-bGrey lg:w-[50%] w-[90%] font-semibold text-[16px] lg:text-[20px]'>
@@ -174,7 +184,7 @@ const Contact = () => {
               id='name'
               value={inputFields.name}
               onChange={handleChange}
-              className='w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none'
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none'
             />
             {errors.name && (
               <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'>
@@ -191,7 +201,7 @@ const Contact = () => {
               id='subject'
               value={inputFields.subject}
               onChange={handleChange}
-              className='w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none'
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none'
               type='text'
             />
             {errors.subject && (
@@ -209,7 +219,7 @@ const Contact = () => {
               id='message'
               value={inputFields.message}
               onChange={handleChange}
-              className='w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
               cols='30'
               rows='7'
             ></textarea>
@@ -231,7 +241,7 @@ const Contact = () => {
               id='email'
               value={inputFields.email}
               onChange={handleChange}
-              className='w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
               type='email'
             />
             {errors.email && (
@@ -249,7 +259,7 @@ const Contact = () => {
               id='phone'
               value={inputFields.phone}
               onChange={handleChange}
-              className='w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
               type='tel'
             />
             {errors.phone && (
@@ -276,16 +286,25 @@ const Contact = () => {
                   className='w-[28px] h-[28px]  rounded-full bg-lead flex justify-center items-center '
                   key={index}
                 >
-                  <a href={icon.href} target='_blank' rel='noopener noreferrer'>
-                    <span className='size-[18] text-lynx'>{icon.icon}</span>
-                  </a>
+                   <Tooltip 
+                    title={icon.title === "github" ? "github" :
+                     icon.title === "instagram" ? "instagram" : 
+                     icon.title === "twitter" ? "twitter" : 
+                     icon.title === "linkedIn" ? "linkedIn" : 
+                     icon.title === "upwork" ? "upwork" : "whatsapp"
+                    }
+                  >
+                    <a href={icon.href} target="_blank" rel="noopener noreferrer">
+                      <span className={`hover:text-[${icon.style}] size-[18px] text-lynx transition-all duration-300`}>{icon.icon}</span>
+                    </a>
+                  </Tooltip>
                 </div>
               ))}
             </div>
           </div>
           <button
-            type='submit'
-            className='flex justify-center items-center bg-lead rounded-[10px] md:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] lg:hidden xl:block'
+            type="submit"
+            className="flex justify-center items-center bg-lead rounded-[10px] md:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] lg:hidden xl:block transform hover:scale-[1.02] transition-all duration-300"
           >
             Send Now
           </button>
@@ -301,4 +320,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Contact;

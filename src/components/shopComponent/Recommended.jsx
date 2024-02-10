@@ -1,4 +1,4 @@
-import React from 'react'
+
 import RecommendedBtn from './RecommendedBtn'
 
 const Recommended = ({handleClick}) => {

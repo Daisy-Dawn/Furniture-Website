@@ -4,14 +4,14 @@ import { blogSmall1 } from "../assets";
 import { CiSearch } from "react-icons/ci";
 
 const SideBar = () => {
-    const { setCategory, setSearchTerm, blogCardData } = useContext(CategoryContext);
+    const { setCategory, setSearchTerm, blogData } = useContext(CategoryContext);
     const searchInputRef = useRef(); //get reference of the input value
-    const filteredRecentPosts = blogCardData.slice(-3); //filter and get the last three blog titles
-    const barStoolCategory = blogCardData.filter((blog) => blog.category === "bar stool");
-    const cabinetCategory = blogCardData.filter((blog) => blog.category === "cabinet");
-    const coffeeTableCategory = blogCardData.filter((blog) => blog.category === "coffee table");
-    const kitchenCategory = blogCardData.filter((blog) => blog.category === "kitchen furniture");
-    const officeChairCategory = blogCardData.filter((blog) => blog.category === "office chair");
+    const filteredRecentPosts = blogData.slice(0,3); //filter and get the last three blog titles
+    const barStoolCategory = blogData.filter((blog) => blog.category === "bar stool");
+    const cabinetCategory = blogData.filter((blog) => blog.category === "cabinet");
+    const coffeeTableCategory = blogData.filter((blog) => blog.category === "coffee table");
+    const kitchenCategory = blogData.filter((blog) => blog.category === "kitchen furniture");
+    const officeChairCategory = blogData.filter((blog) => blog.category === "office chair");
 
   return (
     <aside className="justify-self-center flex flex-col md:justify-self-auto md:col-span-full md:grid md:grid-cols-2 gap-10 lg:col-span-1 lg:flex lg:flex-col">
@@ -35,7 +35,7 @@ const SideBar = () => {
             <div className="my-4">
                 <img src={blogSmall1} className="rounded-[0.625rem] object-cover h-[12.5rem]" alt="blog image" />
             </div>
-            <p className="text-lg text-bGrey font-normal w-full max-w-[23.375rem]">Is your living room decor in desperate need of a refresh? Whether you haven't redecorated in a 
+            <p className="text-lg text-bGrey font-normal w-full max-w-[23.375rem]">Is your living room decor in desperate need of a refresh? Whether you haven&#39;t redecorated in a 
                 decade or just want an easy trick to perk up an outdated sofa. 
             </p>
         </div>

@@ -139,7 +139,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> First Name
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.firstName}
                 onChange={handleChange}
@@ -161,7 +161,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> Last Name
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.lastName}
                 onChange={handleChange}
@@ -186,7 +186,7 @@ const CheckoutForm = () => {
                 Company Name
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.companyName}
                 onChange={handleChange}
@@ -202,7 +202,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> Address
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.address}
                 onChange={handleChange}
@@ -224,7 +224,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> City
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.city}
                 onChange={handleChange}
@@ -246,7 +246,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> State
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.state}
                 onChange={handleChange}
@@ -268,7 +268,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> Country
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] capitalize rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.country}
                 onChange={handleChange}
@@ -293,7 +293,7 @@ const CheckoutForm = () => {
                 Postal Code
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.postalCode}
                 onChange={handleChange}
@@ -309,7 +309,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> Contact Number
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem] rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="tel"
                 value={formData.contactNumber}
                 onChange={handleChange}
@@ -331,7 +331,7 @@ const CheckoutForm = () => {
                 <span className="text-red-600">*</span> Email
               </p>
               <input
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem]  rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem]  rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -357,7 +357,7 @@ const CheckoutForm = () => {
               </p>
               <textarea
                 rows={5}
-                className="bg-slate-200 lg:p-[0.7rem] p-[0.4rem]  rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
+                className="bg-lynx lg:p-[0.7rem] p-[0.4rem]  rounded-[10px] lg:mb-2 mb-0 border-none outline-none"
                 type="text"
                 value={formData.otherNotes}
                 onChange={handleChange}
@@ -368,15 +368,15 @@ const CheckoutForm = () => {
           </div>
 
           {/* CART COMPONENT */}
-          <div className="flex flex-col mt-0 lg:mt-[1rem] items-center">
+          <div className="flex flex-col mt-0 lg:mt-[1rem] items-center ">
             {/* CART CARD */}
-            <div className="border-2 border-bGrey w-full md:py-[2rem] py-[1rem] px-[1rem] lg:px-[2rem]">
+            <div className="border border-steam w-full md:py-[2rem] py-[1rem] px-[1rem] lg:px-[2rem] rounded-[0.625rem]">
               {productsInCheckout.map((product) => (
                 <div
                   key={product.id}
                   className="flex md:flex-row flex-col items-center mb-[1rem] lg:items-start gap-[0.5rem] md:gap-[2rem]"
                 >
-                  <div className="w-[7rem] rounded-[10px] h-[6rem]">
+                  <div className="max-w-[7rem] rounded-[10px] h-[6rem]">
                     <img
                       className="w-full  h-full object-cover rounded-[10px]"
                       src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
@@ -427,7 +427,7 @@ const CheckoutForm = () => {
                   type="submit"
                   disabled={totalCheckoutPayment === 0}
                   onClick={handleCheckout}
-                  className="py-[12px] px-[20px] disabled:bg-stone-600 disabled:cursor-not-allowed rounded-[10px] font-nunito bg-lead hover:bg-stone-600 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
+                  className="py-[12px] px-[20px] disabled:bg-stone-600 disabled:cursor-not-allowed rounded-[10px] font-nunito bg-lead hover:bg-stone-600 transition-all duration-300 text-white text-[14px] lg:text-[18px] font-bold text-center flex items-center justify-center"
                 >
                   {" "}
                   Place Order{" "}

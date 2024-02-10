@@ -4,6 +4,7 @@ import { LoadingOutlined } from '@ant-design/icons'
 import { Spin } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchProducts } from '../features/productSlice'
+import ScrollSurface from "../components/animationComponents/ScrollSurface";
 
 const LimitedOffers = () => {
   const dispatch = useDispatch()
@@ -40,14 +41,19 @@ const LimitedOffers = () => {
           key={product.id}
           className='grid items-center font-nunito lg:grid-cols-2 grid-cols-1 xl:px-[5rem] md:px-[2rem] px-[1rem] md:my-[4rem] lg:py-[2rem] xl:py-[4rem] py-[1rem]  gap-[3rem]  md:gap-[4rem] bg-lead'
         >
-          <Clock id={product.id} />
-          <div key={product.id} className=''>
-            <img
-              className='w-full h-full object-cover rounded-[10px]'
-              src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
-              alt={product.name}
-            />
-          </div>
+          
+          <ScrollSurface>
+            <Clock id={product.id} />
+          </ScrollSurface>
+          <ScrollSurface>
+              <div key={product.id} className="">
+                <img
+                  className="w-full h-full object-cover rounded-[10px]"
+                  src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
+                  alt={product.name}
+                />
+              </div>
+          </ScrollSurface>
         </div>
       ))}
     </>
@@ -55,3 +61,4 @@ const LimitedOffers = () => {
 }
 
 export default LimitedOffers
+

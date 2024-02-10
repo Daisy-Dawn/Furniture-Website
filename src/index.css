@@ -10,9 +10,15 @@
     box-sizing: border-box;
  }
 
- .userIconContainer:hover .userIconDisplay {
-    display: flex;
+ /* NavBar active states */
+ .nav-link.active{
+  color: #644321 !important;
  }
+ 
+ .nav-link.actife{
+  color: rgb(253 224 71 / var(--tw-text-opacity)) !important;
+ }
+ 
  
  /* Cart section display */
  .cart + .cart{
@@ -30,6 +36,27 @@
   left: 0;
  }
 
+ /* Brand component edits */
+ .mask{
+  -webkit-mask: linear-gradient(
+    90deg, transparent,white 20%, white 80%, transparent
+  );
+  mask: linear-gradient(
+    90deg, transparent,white 20%, white 80%, transparent
+  );
+ }
+ .maskAnimation{
+  animation: marquee 30s linear infinite forwards;
+ }
+
+ @keyframes marquee{
+  to{
+    transform: translateX(-100%);
+  }
+ }
+
+
+ /* HeartBeat animation for wishlist and cartlist icons on products */
 .heartBeatAnimation{
   -webkit-animation: scale-up-heart 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1;
             animation: scale-up-heart 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1;

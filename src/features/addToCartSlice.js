@@ -117,8 +117,7 @@ export const {
   resetCart,
 } = addToCartSlice.actions;
 export const cartListGroupSelector = (state) => state.addToCart.cartListGroup;
-export const cartTotalAmountSelector = (state) =>
-  state.addToCart.cartTotalAmount;
+export const cartTotalAmountSelector = (state) => state.addToCart.cartTotalAmount;
 
 export const productsInCartSelector = (state) => {
   return state.addToCart.cartListGroup.map((product) => ({

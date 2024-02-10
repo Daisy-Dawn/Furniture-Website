@@ -1,13 +1,15 @@
+import { CategoryProvider } from '../BlogPage/CategoryContext'
 import BlogDetails from '../BlogPage/BlogDetails'
-import BlogHero from '../BlogPage/BlogHero'
 
 const Blog = () => {
   return (
     <div>
-      <BlogHero />
-      <div>
-        <BlogDetails />
-      </div>
+      
+      <CategoryProvider>
+        <div>
+          <BlogDetails />
+        </div>
+      </CategoryProvider>
     </div>
   )
 }

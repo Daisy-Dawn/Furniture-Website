@@ -25,18 +25,6 @@ const Shop = () => {
   const [productNotFound, setProductNotFound] = useState(false)
   const productPerPage = 15
 
-  //shuffle product list
-  // const shuffleArray = (array) => {
-  //   for (let i = array.length - 1; i > 0; i--) {
-  //     const j = Math.floor(Math.random() * (i + 1));
-  //     [array[i], array[j]] = [array[j], array[i]];
-  //   }
-  //   return array;
-  // };
-
-  // const shuffledProducts = shuffleArray(ProductsList)
-
-  //input filter
   const [query, setQuery] = useState('')
 
   const filteredItems = products.filter(
@@ -150,16 +138,16 @@ const Shop = () => {
 
           {/* SEARCH */}
 
-          <div className='relative col-span-6 lg:order-3  lg:col-span-3'>
+          <div className="flex items-center gap-2 rounded-[0.625rem] sm:p-3 p-1 bg-lynx col-span-6 lg:order-3  lg:col-span-3">
             <input
-              className='rounded-[8px] text-[12px] sm:text-[14px] lg:text-[16px] sm:p-3 p-1 w-full bg-lynx border-0 outline-none placeholder:font-semibold lg:placeholder:text-[15px] sm:placeholder:text-[15px] placeholder:text-[10px] placeholder:text-bGrey  '
-              placeholder='Search by product name....'
-              type='text'
+              className="text-xs sm:text-sm lg:text-base w-full bg-transparent outline-none placeholder:font-semibold lg:placeholder:text-[0.9375rem] sm:placeholder:text-[0.9375rem] placeholder:text-[0.625rem] placeholder:text-bGrey"
+              placeholder="Search by product name...."
+              type="text"
               onChange={handleInputChange}
               value={query}
             />
-            <span className='absolute top-2 lg:top-4 right-[10%] lg:right-[17%]'>
-              <BiSearchAlt className='lg:size-5 size-4 text-lead' />{' '}
+            <span>
+              <BiSearchAlt className="lg:size-5 size-4 text-lead" />{" "}
             </span>
           </div>
         </div>
