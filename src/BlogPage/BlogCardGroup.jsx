@@ -1,25 +1,31 @@
 import { useEffect, useContext } from 'react';
 import { CategoryContext } from "./CategoryContext";
 import BlogCard from "../components/BlogCard";
-import blogCardData from '../data/BlogList';
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import ScrollSurface from "../components/animationComponents/ScrollSurface";
 
 const BlogCardGroup = ({id}) => {
-    const { category, searchTerm, currentPage: contextCurrentPage, setCurrentPage} = useContext(CategoryContext); //global data from the context api
+    const {
+      blogData, 
+      category, 
+      searchTerm, 
+      currentPage: contextCurrentPage, 
+      setCurrentPage} = useContext(CategoryContext); //global data from the context api
 
+    //useEffect managing resetting of page number if there is no blog in a page
     useEffect(() =>{
       if(id){
-        const blogIndex = blogCardData.findIndex(blog => blog.id.toString() === blog.id);
+        const blogIndex = blogData.findIndex(blog => blog.id.toString() === blog.id);
         if(blogIndex >= 0){
           const pageNumber = Math.ceil((blogIndex + 1) / 3);
           setCurrentPage(pageNumber);
         }
       }
-    }, [id, setCurrentPage]);
+    }, [id, setCurrentPage, blogData]);
 
-    const filteredBlogs = blogCardData.filter(blog =>{
+    
+    const filteredBlogs = blogData.filter(blog =>{
       let displayBlog = true;
       // Check if a specific category is selected
       if (category) {
@@ -34,17 +40,15 @@ const BlogCardGroup = ({id}) => {
     const containsBlogs = filteredBlogs.length > 0;
     const totalPages = Math.ceil(filteredBlogs.length / 3); //get the total of pages after dividing by 3
     const blogsForCurrentPage = filteredBlogs.slice((contextCurrentPage - 1) * 3, contextCurrentPage * 3); //get the 3 blogs that will be displayed per page using slice method
-   
+
     return (
       <div className="col-span-2 flex flex-col gap-16">
-
       {containsBlogs ? (
             // Render the list of blogs if there are any
             blogsForCurrentPage.map((blog, index) => (
-              <ScrollSurface key={index} index={index}>
+              <ScrollSurface key={blog.id} index={index}>
                 <BlogCard
-                  key={index}
-                  banner={blog.banner}
+                  image={blog.image}
                   date={blog.date}
                   bannerDescription={blog.bannerDescription}
                   author={blog.author}

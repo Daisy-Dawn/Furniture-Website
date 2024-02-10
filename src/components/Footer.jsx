@@ -7,8 +7,6 @@ import { SiUpwork } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { useState } from "react";
 import axios from "axios";
-import {motion} from "framer-motion";
-import Surface from "./animationComponents/Surface";
 import { Tooltip } from "antd";
 
 const Footer = () => {
@@ -144,17 +142,13 @@ const Footer = () => {
         </div>
         <div className="relative  flex flex-col justify-center items-center md:gap-[2rem] gap-[1rem] w-full">
           {/* Your content goes here */}
-          <Surface>
-            <h1 className="text-center mx-auto xl:text-[48px] lg:text-[40px] md:text-[45px] text-[25px] font-bold">
-              Subscribe Now To Get Services Best Of Us
-            </h1>
-          </Surface>
-          <Surface>
-            <p className="text-lg mx-auto xl:w-[40%] lg:w-[80%] w-[90%] text-center ">
-              We recommended you to subscribe to our newspaper, enter your email
-              below to get our daily update about us.
-            </p>
-          </Surface>
+          <h1 className="text-center mx-auto xl:text-[48px] lg:text-[40px] md:text-[45px] text-[25px] font-bold">
+            Subscribe Now To Get Services Best Of Us
+          </h1>
+          <p className="text-lg mx-auto xl:w-[40%] lg:w-[80%] w-[90%] text-center ">
+            We recommended you to subscribe to our newspaper, enter your email
+            below to get our daily update about us.
+          </p>
           <h6 style={{ textAlign: "center" }}>
             {
               error !== "" ? (
@@ -164,11 +158,7 @@ const Footer = () => {
               )
             }
           </h6>
-          <motion.div 
-            initial={{opacity:0, y:40}}
-            whileInView={{opacity:1, y:0}}
-            transition={{duration:0.7}}
-            className="md:relative xl:w-[50%] w-[90%] ">
+          <div className="md:relative xl:w-[50%] w-[90%] ">
             <form onSubmit={handleSubmit}>
               <input
                 className="w-full md:py-[1.3rem] py-[1rem] md:px-[1.3rem] px-[1rem] rounded-[10px] md:text-[18px] text-[16px] text-lead border-none outline-none placeholder:text-bGrey placeholder:font-semibold md:placeholder:text-[18px] placeholder:text-[15px] "
@@ -182,14 +172,12 @@ const Footer = () => {
                 <button className="disabled:opacity-80 disabled:cursor-not-allowed mt-[10px] md:mt-[0px] md:absolute md:top-[10px] md:right-[1rem] text-center font-bold text-[18px] py-[10px] px-[20px] text-white flex justify-center items-center bg-lead rounded-[10px] transition-all duration-300"
                   type="submit"
                   disabled={email === "" ? true : false}
-
                 >
                   Subscribe
                 </button>
-
               </div>
             </form>
-          </motion.div>
+          </div>
          
 
         </div>

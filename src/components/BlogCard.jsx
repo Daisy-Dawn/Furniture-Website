@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa6";
-import Surface from "./animationComponents/Surface";
 import { Tooltip } from "antd";
 
-const BlogCard = ({banner, date, bannerDescription, author, title, description}) => {
+const BlogCard = ({image, date, bannerDescription, author, title, description}) => {
     const [like, setLike] = useState(false); //state to manage like button
     const [noOfLikes, setNoOfLikes] = useState(0); // state to update no. of likes
 
     return (
         <article>
             <div>
-                <img src={banner} className="rounded-[0.625rem] object-cover w-full h-[22.25rem] max-w-[74.125rem]" alt="An image showing a furniture" />
+                <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${image}`} className="rounded-[0.625rem] object-cover w-full h-[22.25rem] max-w-[74.125rem]" alt="An image showing a furniture" />
                 <div className="text-sm sm:text-base md:text-lg text-bGrey font-normal flex flex-wrap justify-between sm:justify-start items-center gap-3 md:gap-5 mt-4">
                     <p>{date}</p>
                     <p>{bannerDescription}</p>
@@ -31,12 +30,8 @@ const BlogCard = ({banner, date, bannerDescription, author, title, description})
                 </div>
             </div>
             <div>
-                <Surface>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-lead my-6">{title}</h2>
-                </Surface>
-                <Surface>
-                    <p className="text-base md:text-lg text-bGrey font-normal w-full max-w-[74.125rem]">{description}</p>
-                </Surface>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-lead my-6">{title}</h2>
+                <p className="text-base md:text-lg text-bGrey font-normal w-full max-w-[74.125rem]">{description}</p>
             </div>
         </article>
     )
