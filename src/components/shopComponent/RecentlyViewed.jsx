@@ -14,7 +14,7 @@ const RecentlyViewed = () => {
       {viewedProducts.map(product => (
         <div key={product.id} className='flex xl:grid grid-cols-2 xl:gap-2 cursor-pointer flex-col md:flex-row lg:flex-col items-center mb-[1.5rem] gap-[1rem]'>
           <div className='max-w-[130px] h-[100px] flex justify-center items-center'>
-            <img className='w-full h-full object-cover rounded-[10px]' src={product.image} alt="" />
+            <img className='w-full h-full object-cover rounded-[10px]' src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}alt="" />
           </div>
 
           <div className='flex flex-wrap  flex-col'>

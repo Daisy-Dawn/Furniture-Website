@@ -379,7 +379,7 @@ const CheckoutForm = () => {
                   <div className="w-[7rem] rounded-[10px] h-[6rem]">
                     <img
                       className="w-full  h-full object-cover rounded-[10px]"
-                      src={product.image}
+                      src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
                       alt={product.name}
                     />
                   </div>
@@ -387,8 +387,8 @@ const CheckoutForm = () => {
                     <h2 className="text-lead text-center min-[500px]:text-[1.15rem] lg:text-left text-[1rem] xl:text-[1.25rem] font-bold ">
                       {product.name}
                     </h2>
-                    <p className="font-semibold text-bGrey text-[0.9rem] min-[500px]:text-[1rem] text-center md:text-left xl:text-[1.2rem]">
-                      Color <span className="text-lead"> {product.color} </span>{" "}
+                    <p className="font-semibold text-bGrey capitalize text-[0.9rem] min-[500px]:text-[1rem] text-center md:text-left xl:text-[1.2rem]">
+                      Color: <span style={{color: `${product.color}`}}> {product.color} </span>{" "}
                     </p>
                   </div>
                 </div>
