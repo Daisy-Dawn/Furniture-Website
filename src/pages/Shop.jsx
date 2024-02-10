@@ -138,16 +138,16 @@ const Shop = () => {
 
           {/* SEARCH */}
 
-          <div className="flex items-center gap-2 rounded-[0.625rem] sm:p-3 p-1 bg-lynx col-span-6 lg:order-3  lg:col-span-3">
+          <div className='flex items-center gap-2 rounded-[0.625rem] sm:p-3 p-1 bg-lynx col-span-6 lg:order-3  lg:col-span-3'>
             <input
-              className="text-xs sm:text-sm lg:text-base w-full bg-transparent outline-none placeholder:font-semibold lg:placeholder:text-[0.9375rem] sm:placeholder:text-[0.9375rem] placeholder:text-[0.625rem] placeholder:text-bGrey"
-              placeholder="Search by product name...."
-              type="text"
+              className='text-xs sm:text-sm lg:text-base w-full bg-transparent outline-none placeholder:font-semibold lg:placeholder:text-[0.9375rem] sm:placeholder:text-[0.9375rem] placeholder:text-[0.625rem] placeholder:text-bGrey'
+              placeholder='Search by product name....'
+              type='text'
               onChange={handleInputChange}
               value={query}
             />
             <span>
-              <BiSearchAlt className="lg:size-5 size-4 text-lead" />{" "}
+              <BiSearchAlt className='lg:size-5 size-4 text-lead' />{' '}
             </span>
           </div>
         </div>
