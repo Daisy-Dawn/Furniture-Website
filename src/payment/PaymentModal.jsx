@@ -9,7 +9,6 @@ import { motion } from 'framer-motion'
 // import MasterCardDetails from "./MasterCardDetails";
 import PayStackCardDetails from './PayStackCardDetails'
 import PaypalCardDetails from './PaypalCardDetails'
-import { useNavigate } from 'react-router-dom'
 
 const PaymentModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(true) // Keep it open initially

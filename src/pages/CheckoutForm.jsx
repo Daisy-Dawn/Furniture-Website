@@ -386,7 +386,7 @@ const CheckoutForm = () => {
                     </h2>
                     <p className='font-semibold text-bGrey capitalize text-[0.9rem] min-[500px]:text-[1rem] text-center md:text-left xl:text-[1.2rem]'>
                       Color:{' '}
-                      <span style={{ color: `${product.color}` }}>
+                      <span style={{color: product.color === 'transparent' ? 'rosybrown' : product.color}}>
                         {' '}
                         {product.color}{' '}
                       </span>{' '}

@@ -43,7 +43,7 @@ const Highlight2 = () => {
             key={product.id}
             className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center md:justify-start xl:mx-[5rem] md:mx-[2rem] mx-[1rem] lg:py-[4rem] py-[0rem] xl:gap-[4rem] md:gap-[2rem] gap-[0.5rem]'
           >
-            <div key={product.id} className='lg:col-span-2  h-[500px]  '>
+            <div key={product.id} className='lg:col-span-2 h-[350px] min-[500px]:h-[500px]  '>
               <img
                 className='rounded-[10px] w-full h-full object-cover'
                 src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
@@ -64,7 +64,7 @@ const Highlight2 = () => {
                 </p>
               </Surface>
               <Surface>
-                <div className='w-1/2 md:w-full mt-2 md:mt-0'>
+                <div className='w-full mt-2 md:mt-0'>
                   <Button id={product.id} text='Shop Now' />
                 </div>
               </Surface>

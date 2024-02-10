@@ -11,7 +11,6 @@ import { LoadingOutlined } from '@ant-design/icons'
 import { Spin } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchProducts } from '../features/productSlice'
-import { toast } from 'react-toastify'
 import ProductsCard from '../components/ProductsCard'
 import {
   addToWishlist,
@@ -55,7 +54,7 @@ const ProductDetails = () => {
 
   if (loading) {
     return (
-      <div className='flex justify-center items-center w-full'>
+      <div className='flex justify-center h-screen items-center w-full'>
         <Spin indicator={<LoadingOutlined style={{ fontSize: 30 }} spin />} />
       </div>
     )
