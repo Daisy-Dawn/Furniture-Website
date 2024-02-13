@@ -6,12 +6,13 @@ import { FaLinkedinIn } from 'react-icons/fa6';
 import { SiUpwork } from 'react-icons/si';
 import { useNavigate } from 'react-router-dom';
 import { notification } from 'antd';
-import { useState } from 'react';
+import { useState} from 'react';
 import emailjs from '@emailjs/browser';
 import {Tooltip} from 'antd';
 
 const Contact = () => {
   const navigate = useNavigate()
+  
   const [inputFields, setInputFields] = useState({
     name: '',
     subject: '',
@@ -155,6 +156,7 @@ const Contact = () => {
       title:"upwork"
     },
   ];
+  
   return (
     <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] my-[5rem]  font-nunito">
       <div className="flex flex-col items-center">

@@ -1,6 +1,5 @@
 import ProductList from '../data/ProductsList'
 import ProductsCard from '../components/ProductsCard';
-import DelayedSurface from '../components/animationComponents/DelayedSurface';
 import ScrollSurface from '../components/animationComponents/ScrollSurface';
 
 const ProductsOfWeek = () => {
@@ -13,13 +12,10 @@ const ProductsOfWeek = () => {
             <h2 className="md:text-[25px] text-[20px] font-bold text-lead"> Products of the week</h2>
             <div className="md:w-[50px] w-[40px] md:h-[3px] h-[2px] bg-lead"></div>
           </div>
-
         <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-4'>
-          {ProductsOfWeek.map((product, index) => (
+          {ProductsOfWeek.map((product) => (
             <div key={product.id} className='justify-self-center'>
-              <DelayedSurface key={product.id} index={index}>
-                <ProductsCard link={`/shop/${product.id}`} product={product} id={product.id} image={product.image} price={product.price} description={product.name} />
-              </DelayedSurface>
+                <ProductsCard key={product.id} link={`/shop/${product.id}`} product={product} id={product.id} image={product.image} price={product.price} description={product.name} />
             </div>
         ))}
         </div>

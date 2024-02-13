@@ -24,20 +24,20 @@ const CartList = () => {
 
   return (
     <section className="col-span-2 justify-self-center flex flex-col gap-4 w-full h-fit max-w-[44rem] rounded-[0.625rem] py-8 px-4 border border-solid border-steam">
-      {productsForCurrentCartList.map((product) => (
-        <>
-          <CartCard
-            key={product.id}
-            product={product}
-            id={product.id}
-            image={product.image}
-            title={product.name}
-            color={product.color}
-            quantity={product.quantity}
-            price={product.price}
-          />
-        </>
-      ))}
+        {productsForCurrentCartList.map((product) => (
+          <>
+            <CartCard
+              key={product.id}
+              product={product}
+              id={product.id}
+              image={product.image}
+              title={product.name}
+              color={product.color}
+              quantity={product.quantity}
+              price={product.price}
+            />
+          </>
+        ))}
       <div
         className={`${
           cartListGroup.length > 3 ? "flex" : "hidden"

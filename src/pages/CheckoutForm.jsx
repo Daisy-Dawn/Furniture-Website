@@ -7,9 +7,10 @@ import {
 import PaymentModal from "../payment/PaymentModal";
 import { orderSummarySelector } from "../features/addToCartSlice";
 import { cartListGroupSelector } from "../features/addToCartSlice";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   // Use shallowEqual to memoize the selector
   const productsInCheckout = useSelector(cartListGroupSelector);
@@ -74,8 +75,22 @@ const CheckoutForm = () => {
     });
   };
 
+  // function to check if the user is logged in
+  const checkUserAuthentication = () => {
+    const storeUser = JSON.parse(localStorage.getItem('user'));
+    const googleStoreUser = JSON.parse(localStorage.getItem('googleToken'));
+    return storeUser || googleStoreUser;
+  };
+
   const handleCheckout = (e) => {
     e.preventDefault();
+
+    // Check if the user is logged in
+    if (!checkUserAuthentication()) {
+      // Navigate to the login page if the user is not logged in
+      navigate('/login');
+      return;
+    }
 
     //validate inputs
     const newErrors = {};
