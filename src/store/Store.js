@@ -4,6 +4,7 @@ import addToCartReducer from "../features/addToCartSlice";
 import addToWishlistReducer from "../features/addToWishlistSlice";
 import formReducer from "../features/checkOutReducer";
 import checkoutFormReducer from "../features/checkoutFormSlice";
+import productReducer from "../features/productSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     addToWishlist: addToWishlistReducer,
     form: formReducer,
     checkoutForm: checkoutFormReducer,
+    products: productReducer,
   },
 });

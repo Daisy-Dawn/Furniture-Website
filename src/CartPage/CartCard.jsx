@@ -33,7 +33,7 @@ const CartCard = ({ product, image, title, color, quantity, price }) => {
             {title}
           </h2>
           <p className="text-base text-bGrey mt-1">
-            Color <span className="text-lead ml-1">{color}</span>
+            Color <span style={{color: color === 'transparent' ? 'rosybrown' : color}}  className={`capitalize ml-1`}>{color}</span>
           </p>
           <div className="flex border border-solid border-brown rounded-[0.625rem] w-max py-[0.4rem] px-3 mt-2">
             <button
