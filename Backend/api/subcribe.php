@@ -1,22 +1,7 @@
 <?php
 // Subscription to our newsletter from the server-side
+include("db.php");
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: *");
-
-$serverhost = "localhost";
-$servername = "root";
-$password = "";
-$database = "reactphp";
-
-$db_connect = mysqli_connect($serverhost, $servername, $password, $database);
-if ($db_connect === false) {
-    # code...
-    die("ERROR:Could not connect to server" . mysqli_connect_error());
-};
 $userData = json_decode(file_get_contents('php://input'));
 $email = $userData->email;
 

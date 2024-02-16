@@ -1,20 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: *");
-
-$serverhost = "localhost";
-$servername = "root";
-$password = "";
-$database = "reactphp";
-
-$db_connect = mysqli_connect($serverhost, $servername, $password, $database);
-if ($db_connect === false) {
-    # code...
-    die("ERROR:Could not connect to server" . mysqli_connect_error());
-};
+include("db.php");
 
 $method = $_SERVER['REQUEST_METHOD'];
 // echo "test....." . $method;
@@ -23,7 +8,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
     case 'GET':
         # code...
-        $alluser = mysqli_query($db_connect, "SELECT * from registration");
+        $alluser = mysqli_query($db_connect, "SELECT * from registration ");
         if (mysqli_num_rows($alluser) > 0) {
             # code...
             while ($row = mysqli_fetch_array($alluser)) {
