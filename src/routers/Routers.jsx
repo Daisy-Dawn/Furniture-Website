@@ -23,6 +23,7 @@ import {
   PersonalSettings,
   GlobalSettings
 } from '../AdminDashboard'
+import { LandingPage } from '../pages'
 
 const LazyLandingPage = lazy(() => import('../pages/LandingPage'))
 const LazyAbout = lazy(() => import('../pages/About'))
@@ -59,19 +60,19 @@ const Routers = () => {
       children: [
         {
           path: '',
-          element: (
-            <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
-            >
-              <LazyLandingPage />
-            </Suspense>
-          )
+          element:<LandingPage />
         },
         {
           path: 'about',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyAbout />
             </Suspense>
@@ -81,7 +82,13 @@ const Routers = () => {
           path: 'shop',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyShop />
             </Suspense>
@@ -91,7 +98,13 @@ const Routers = () => {
           path: 'bedframeform',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyProducts />
             </Suspense>
@@ -101,7 +114,13 @@ const Routers = () => {
           path: 'shop/:id',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyProductDetails />
             </Suspense>
@@ -111,7 +130,13 @@ const Routers = () => {
           path: 'blogForm',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyBlogProductList />
             </Suspense>
@@ -121,7 +146,13 @@ const Routers = () => {
           path: 'producttable',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyProductTable />
             </Suspense>
@@ -131,7 +162,13 @@ const Routers = () => {
           path: 'blog/:id',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyBlogDetails />
             </Suspense>
@@ -141,7 +178,13 @@ const Routers = () => {
           path: 'contact',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyContact />
             </Suspense>
@@ -151,7 +194,13 @@ const Routers = () => {
           path: 'blog',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyBlog />
             </Suspense>
@@ -161,7 +210,13 @@ const Routers = () => {
           path: 'cart',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyCart />
             </Suspense>
@@ -171,7 +226,13 @@ const Routers = () => {
           path: 'cart/checkout',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyCheckoutForm />
             </Suspense>
@@ -181,7 +242,13 @@ const Routers = () => {
           path: '/cart/checkout/continuepayment',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyContinueFlutterwavePayment />
             </Suspense>
@@ -191,7 +258,13 @@ const Routers = () => {
           path: 'wishlist',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyWishlist />
             </Suspense>
@@ -201,7 +274,13 @@ const Routers = () => {
           path: 'login/forgotpassword',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyForgotPassword1 />
             </Suspense>
@@ -211,7 +290,13 @@ const Routers = () => {
           path: 'login/resetPassword',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyForgotPassword2 />
             </Suspense>
@@ -221,7 +306,13 @@ const Routers = () => {
           path: 'productNotFound',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyProductNotFound />
             </Suspense>
@@ -231,7 +322,13 @@ const Routers = () => {
           path: '*',
           element: (
             <Suspense
-              fallback={<Skeleton className='h-screen w-screen' active />}
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
             >
               <LazyNoPage />
             </Suspense>
@@ -297,7 +394,15 @@ const Routers = () => {
     {
       path: '/signup',
       element: (
-        <Suspense fallback={<Skeleton className='h-screen w-screen' active />}>
+        <Suspense
+          fallback={
+            <Skeleton
+              paragraph={{ rows: 20 }}
+              className='h-screen w-screen'
+              active
+            />
+          }
+        >
           <LazySignup />
         </Suspense>
       )
@@ -305,7 +410,15 @@ const Routers = () => {
     {
       path: '/login',
       element: (
-        <Suspense fallback={<Skeleton className='h-screen w-screen' active />}>
+        <Suspense
+          fallback={
+            <Skeleton
+              paragraph={{ rows: 20 }}
+              className='h-screen w-screen'
+              active
+            />
+          }
+        >
           <LazyLogin />
         </Suspense>
       )

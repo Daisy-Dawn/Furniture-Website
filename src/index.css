@@ -132,6 +132,33 @@
   width: 43rem !important;
 }
 
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  /* opacity: .7; */
+}
+
+.skeleton-text {
+  width: 80%;
+  animation: skeleton-loading 1s linear infinite alternate;
+  /* height: .5rem;
+  margin-bottom: .25rem;
+  border-radius: .125rem; */
+}
+/* .skeleton-text:last-child {
+  width: 80%;
+  margin-bottom: 0;
+} */
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
 
 @media screen and (max-width: 767px) {
   .bg-image {
