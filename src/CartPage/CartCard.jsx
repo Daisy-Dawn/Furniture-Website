@@ -11,8 +11,8 @@ import { LuMinus } from "react-icons/lu";
 
 const CartCard = ({ product, image, title, color, quantity, price }) => {
   const dispatch = useDispatch();
-
-  const handleRemoveFromCart = (product) => {
+  
+  const handleRemoveFromCart = () => {
     dispatch(removeFromCart(product));
     toast.error("Item has been removed from cart");
   };
@@ -61,7 +61,7 @@ const CartCard = ({ product, image, title, color, quantity, price }) => {
           <div className="mt-2 bg-lynx rounded-[0.625rem] p-[0.4rem] w-max cursor-pointer">
             <HiOutlineTrash
               size={22}
-              onClick={() => handleRemoveFromCart(product)}
+              onClick={handleRemoveFromCart}
             />
           </div>
         </div>

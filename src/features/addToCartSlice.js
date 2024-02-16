@@ -35,7 +35,11 @@ const addToCartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartListGroup));
     },
     removeFromCart: (state, action) => {
-      state.numberOfCartItems -= action.payload.quantity;
+      if(action.payload.quantity > 1){
+        state.numberOfCartItems -= action.payload.quantity;
+      }else{
+        state.numberOfCartItems -= 1;
+      }
       // Ensure numberOfCartItems does not go below 0
       state.numberOfCartItems = Math.max(0, state.numberOfCartItems);
       const productExists = state.cartListGroup.some(

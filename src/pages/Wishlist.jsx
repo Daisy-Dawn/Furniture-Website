@@ -38,7 +38,7 @@ const Wishlist = () => {
               <WishlistCard
                 key={product.id}
                 product={product}
-                image={product.image}
+                image={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
                 title={product.name}
                 price={product.price}
               />

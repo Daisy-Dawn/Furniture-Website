@@ -44,10 +44,10 @@ const ProductsCard = ({product, image, price, description, link, id }) => {
       className="w-[18.75rem] lg:w-full lg:max-w-[18.75rem] lg:mb-[3rem] md:mb-[3rem] mb-[2rem] relative flex flex-col items-center lg:items-start rounded-[10px]"
     >
       <Link className="w-full" to={link}>
-        <div className="group transition-all duration-300 relative w-full xl:w-[18.75rem] h-[18.75rem] rounded-[10px] flex items-center justify-center overflow-hidden">
+        <div className="group transition-all duration-300 relative w-full h-[18.75rem] md:min-w-[16.75rem] md:max-w-[18.75rem]  rounded-[10px] flex items-center justify-center overflow-hidden">
           {/* <div> */}
           <img
-            className="w-full scale-[1.02] group-hover:scale-100 h-full object-cover rounded-[10px] transition-all duration-300"
+            className="w-full h-full object-cover scale-[1.02] group-hover:scale-100  rounded-[10px] transition-all duration-300"
             src={image}
             alt={description}
           />
