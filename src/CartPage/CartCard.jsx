@@ -18,7 +18,8 @@ const CartCard = ({ product, image, title, color, quantity, price }) => {
   };
 
   return (
-    <div className="cart relative flex items-center gap-2 sm:gap-6 md:gap-8  w-full max-w-[39rem] mx-auto">
+    <div 
+      className="cart relative flex items-center gap-2 sm:gap-6 md:gap-8  w-full max-w-[39rem] mx-auto">
       <div className="bg-lynx p-3 sm:p-4 md:p-5 w-full max-w-[9rem] h-[9rem] rounded-[1.25rem]">
         <img
           src={image}

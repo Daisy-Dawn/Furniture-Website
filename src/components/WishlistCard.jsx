@@ -4,6 +4,7 @@ import { addToCart } from '../features/addToCartSlice'
 import { FaHeartCircleXmark } from 'react-icons/fa6'
 import { toast } from 'react-toastify'
 import { Tooltip } from 'antd'
+import {motion} from "framer-motion";
 
 const WishlistCard = ({ product, image, title, price }) => {
   const dispatch = useDispatch()
@@ -19,8 +20,11 @@ const WishlistCard = ({ product, image, title, price }) => {
     toast.error('item removed from wishlist!')
   }
   return (
-    <div className='relative justify-self-center lg:justify-self-start shadow px-4 sm:px-6 md:px-8 py-5 flex items-center gap-4 w-full max-w-[48.4375rem] rounded-[0.625rem]'>
-      <div className='bg-lynx p-5 w-full max-w-[9rem] h-full  max-h-[9rem]  rounded-[1.25rem]'>
+    <motion.div 
+      animate={{opacity:1}}
+      exit={{opacity:0}}
+      className="relative justify-self-center lg:justify-self-start shadow px-4 sm:px-6 md:px-8 py-5 flex items-center gap-4 w-full max-w-[48.4375rem] rounded-[0.625rem]">
+      <div className="bg-lynx p-5 w-full max-w-[9rem] h-full  max-h-[9rem]  rounded-[1.25rem]">
         <img
           src={image}
           className=' w-full h-full object-cover rounded-[0.625rem]'
@@ -48,8 +52,8 @@ const WishlistCard = ({ product, image, title, price }) => {
           />
         </Tooltip>
       </div>
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
 export default WishlistCard

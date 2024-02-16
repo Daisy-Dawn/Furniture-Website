@@ -1,11 +1,12 @@
-import { useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
-import { wishlistGroupSelector } from '../features/addToWishlistSlice'
-import WishlistCard from '../components/WishlistCard'
-import EmptyWishlist from '../components/EmptyWishlist'
-import CartHero from '../CartPage/CartHero'
-import { FaLongArrowAltLeft } from 'react-icons/fa'
-import { FaLongArrowAltRight } from 'react-icons/fa'
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { wishlistGroupSelector } from "../features/addToWishlistSlice";
+import WishlistCard from "../components/WishlistCard";
+import EmptyWishlist from "../components/EmptyWishlist";
+import CartHero from "../CartPage/CartHero";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { AnimatePresence } from "framer-motion";
 
 const Wishlist = () => {
   const wishListGroup = useSelector(wishlistGroupSelector)
@@ -32,15 +33,17 @@ const Wishlist = () => {
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 xl:px-[5rem] md:px-[2rem] px-[1rem]  md:py-[3rem] py-[2rem]'>
         {containsWishList ? (
-          productsForCurrentWishList.map(product => (
-            <WishlistCard
-              key={product.id}
-              product={product}
-              image={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
-              title={product.name}
-              price={product.price}
-            />
-          ))
+          <AnimatePresence>
+            {productsForCurrentWishList.map((product) => (
+              <WishlistCard
+                key={product.id}
+                product={product}
+                image={product.image}
+                title={product.name}
+                price={product.price}
+              />
+            ))}
+          </AnimatePresence>
         ) : (
           <div className='col-span-2 justify-self-center'>
             <EmptyWishlist />

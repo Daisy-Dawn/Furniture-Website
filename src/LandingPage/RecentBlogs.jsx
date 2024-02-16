@@ -1,11 +1,14 @@
-// import React from "react";
+import { useContext } from "react";
+import { CategoryContext } from "../BlogPage/CategoryContext";
 import ScrollSurface from "../components/animationComponents/ScrollSurface";
 import Surface from "../components/animationComponents/Surface";
-import BlogList from "../data/BlogList";
 import { Link } from "react-router-dom";
 
+
 const RecentBlogs = () => {
-  const recentBlogs = BlogList.slice(0, 3);
+  const { blogData } = useContext(CategoryContext); //global data from the context api
+  const recentBlogs = blogData.slice(0, 3);
+  console.log("Blogs:", blogData);
 
   return (
     <ScrollSurface>
@@ -23,8 +26,8 @@ const RecentBlogs = () => {
                 <div className="relative overflow-hidden">
                   <img
                     className="rounded-[0.625rem] w-full h-[18.875rem] object-cover"
-                    src={blog.banner}
-                    alt=""
+                    src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${blog.image}`}
+                    alt="An image of a blog"
                   />
                   <div className="dark-transparency rounded-[0.625rem] hover:bg-black hover:bg-opacity-40 absolute inset-0  transition-all duration-300">
                     {/* Add any additional content or styling here */}

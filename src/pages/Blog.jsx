@@ -1,4 +1,4 @@
-import { CategoryProvider } from '../BlogPage/CategoryContext'
+import { CategoryProvider } from '../BlogPage/CategoryContext';
 import BlogDetails from '../BlogPage/BlogDetails'
 
 const Blog = () => {

@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import ProductsCard from '../components/ProductsCard'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Spin } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchProducts } from '../features/productSlice'
-import DelayedSurface from '../components/animationComponents/DelayedSurface'
 import ScrollSurface from '../components/animationComponents/ScrollSurface'
 
 const ProductsOfWeek = () => {
@@ -47,10 +46,10 @@ const ProductsOfWeek = () => {
         </div>
 
         <div className='grid xl:grid-cols-4 lg:grid-cols-3 min-[690px]:grid-cols-2 grid-cols-1  gap-4'>
-          {productsOfWeek.map((product, index) => (
+          {productsOfWeek.map((product) => (
             <div key={product.id} className='justify-self-center'>
-              <DelayedSurface key={product.id} index={index}>
                 <ProductsCard
+                  key={product.id}
                   link={`/shop/${product.id}`}
                   product={product}
                   id={product.id}
@@ -58,7 +57,7 @@ const ProductsOfWeek = () => {
                   price={product.price}
                   description={product.name}
                 />
-              </DelayedSurface>
+              
             </div>
           ))}
         </div>
