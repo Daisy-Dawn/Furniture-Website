@@ -1,436 +1,325 @@
-// import React from "react";
-import { LuMail } from "react-icons/lu";
-import { GiWorld } from "react-icons/gi";
-import { FaGithub, FaTwitter, FaPhoneAlt } from "react-icons/fa";
-import { GrInstagram } from "react-icons/gr";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { SiUpwork } from "react-icons/si";
-import { useNavigate } from "react-router-dom";
-import { notification } from "antd";
-import { useState } from "react";
+import { LuMail } from 'react-icons/lu';
+import { GiWorld } from 'react-icons/gi';
+import { FaGithub, FaTwitter, FaPhoneAlt } from 'react-icons/fa';
+import { GrInstagram } from 'react-icons/gr';
+import { FaLinkedinIn } from 'react-icons/fa6';
+import { SiUpwork } from 'react-icons/si';
+import { useNavigate } from 'react-router-dom';
+import { notification } from 'antd';
+import { useState} from 'react';
+import emailjs from '@emailjs/browser';
+import {Tooltip} from 'antd';
 
 const Contact = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  
   const [inputFields, setInputFields] = useState({
-    name: "",
-    subject: "",
-    message: "",
-    email: "",
-    phone: "",
-  });
-  const [emailPattern, setEmailPattern] = useState("");
+    name: '',
+    subject: '',
+    message: '',
+    email: '',
+    phone: ''
+  })
+  const [errors, setErrors] = useState({
+    name: '',
+    subject: '',
+    message: '',
+    email: '',
+    phone: ''
+  })
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    // Reset all error messages
-    setEmailPattern("");
+  const handleChange = e => {
+    const { name, value } = e.target
 
-    // Validate email
-    if (!emailPattern.test(inputFields.email)) {
-      setEmailPattern("This is not a valid email address!");
-      return;
+    setInputFields({
+      ...inputFields,
+      [name]: value
+    })
+
+    setErrors({
+      ...errors,
+      [name]: ''
+    })
+  }
+
+  const onSubmit = e => {
+    e.preventDefault()
+
+    // validate inputs
+    const newErrors = {}
+    if (inputFields.name.trim() === '') {
+      newErrors.name = 'Name is required!'
     }
-    notification.success({
-      message: "Message Sent Successfully!",
-      description:
-        "Your Message was successfully sent and we will get back to you shortly.",
-    });
-    navigate("/");
-    console.log("Success:", inputFields);
-  };
+    if (inputFields.subject.trim() === '') {
+      newErrors.subject = 'Subject is required!'
+    }
+    if (inputFields.message.trim() === '') {
+      newErrors.message = 'Message is required!'
+    }
+    if (inputFields.email.trim() === '') {
+      newErrors.email = 'Email is required!'
+    }
+    if (inputFields.phone.trim() === '') {
+      newErrors.phone = 'Phone is required!'
+    }
+
+    // check for errors
+    if (Object.values(newErrors).some(error => error !== '')) {
+      setErrors(newErrors)
+    } else {
+      console.log('successfull!!!!!!!!')
+      // send the email to the client
+      const serviceId = 'service_k8h5j7r'
+      const templateId = 'template_l54457h'
+      const publicKey = 'I7vBHtDJ2VoaVM5hB'
+
+      // create new object that contains dynamic template params
+      const templateParams = {
+        from_name: inputFields.name,
+        to_name: 'Daisy Dawn',
+        from_subject: inputFields.subject,
+        message: inputFields.message,
+        from_phone: inputFields.phone,
+        from_email: inputFields.email
+      }
+
+      // send email using emailjs
+      emailjs
+        .send(serviceId, templateId, templateParams, publicKey)
+        .then(response => {
+          console.log('Email sent successfully', response)
+          notification.success({
+            message: 'Message Sent Successfully!',
+            description:
+              'Your Message was successfully sent and we will get back to you shortly.'
+          })
+          navigate('/')
+        })
+        .catch(error => {
+          console.log('Error sending mail', error)
+          notification.error({
+            message: 'Error sending mail',
+            description:
+              'There has been an error sending your message, while rectifying the error, please refresh and try again after a few seconds.'
+          })
+        })
+    }
+  }
 
   const contactList = [
     {
       icon: <FaPhoneAlt />,
-      href: "#",
-      text: "123-456-789",
+      href: '#',
+      text: '123-456-789'
     },
     {
       icon: <LuMail />,
-      href: "#",
-      text: "info@furniture.com",
+      href: '#',
+      text: 'info@furniture.com'
     },
     {
       icon: <GiWorld />,
-      href: "#",
-      text: "www.furnitures.com",
-    },
-  ];
+      href: '#',
+      text: 'www.furnitures.com'
+    }
+  ]
 
   const socialIconList = [
     {
       icon: <FaGithub />,
       href: "#",
+      style: "#bd2c00",
+      title:"github"
     },
     {
       icon: <GrInstagram />,
       href: "#",
+      style: "#C13584",
+      title:"instagram"
     },
     {
       icon: <FaTwitter />,
       href: "#",
+      style: "#55acee",
+      title:"twitter"
     },
     {
       icon: <FaLinkedinIn />,
       href: "#",
+      style: "#0077B5",
+      title:"linkedIn"
     },
     {
       icon: <SiUpwork />,
       href: "#",
+      style: "#0085CA",
+      title:"upwork"
     },
   ];
+  
   return (
-    <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] mb-[5rem]  font-nunito">
+    <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] my-[5rem]  font-nunito">
       <div className="flex flex-col items-center">
         <h2 className="text-lead text-center font-bold text-[30px] lg:text-[45px]">
           Contact
         </h2>
-        <p className="text-center mt-[1rem] lg:mb-[3rem] mb-[1rem] text-bGrey lg:w-[50%] w-[90%] font-semibold text-[16px] lg:text-[20px]">
+        <p className='text-center mt-[1rem] lg:mb-[3rem] mb-[1rem] text-bGrey lg:w-[50%] w-[90%] font-semibold text-[16px] lg:text-[20px]'>
           We display products based on the latest products we have, if you want
           to see our old products please enter the name of the item.
         </p>
       </div>
 
       {/* FORM COMPONENT */}
-      <h2 className="text-lead font-bold lg:text-[30px] text-[25px] text-left mb-[0.7rem] lg:mb-[1.5rem]">
+      <h2 className='text-lead font-bold lg:text-[30px] text-[25px] text-left mb-[0.7rem] lg:mb-[1.5rem]'>
         Get a quote
       </h2>
-      <form className="" onSubmit={onSubmit}>
-        <div className="grid w-full gap-[1.3rem] grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+      <form className='' onSubmit={onSubmit}>
+        <div className='grid w-full gap-[1.3rem] grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
           {/* First Column */}
-          <div className="">
+          <div className=''>
             {/* NAME SECTION */}
-            <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">
+            <p className='text-lead lg:text-[20px] text-[16px] font-semibold mb-2'>
               Name
             </p>
             <input
-              required
+              name='name'
+              id='name'
               value={inputFields.name}
-              onChange={(e) =>
-                setInputFields((prevFiled) => ({
-                  ...prevFiled,
-                  name: e.target.value,
-                }))
-              }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
+              onChange={handleChange}
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none'
             />
+            {errors.name && (
+              <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'>
+                {errors.name}
+              </p>
+            )}
 
             {/* SUBJECT SECTION */}
-            <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">
+            <p className='text-lead lg:text-[20px] text-[16px] font-semibold mb-2'>
               Subject
             </p>
             <input
-              required
+              name='subject'
+              id='subject'
               value={inputFields.subject}
-              onChange={(e) =>
-                setInputFields((prevFiled) => ({
-                  ...prevFiled,
-                  subject: e.target.value,
-                }))
-              }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none"
-              type="text"
+              onChange={handleChange}
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none'
+              type='text'
             />
+            {errors.subject && (
+              <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'>
+                {errors.subject}
+              </p>
+            )}
 
             {/* MESSAGE SECTION */}
-            <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">
+            <p className='text-lead lg:text-[20px] text-[16px] font-semibold mb-2'>
               Message
             </p>
             <textarea
-              required
+              name='message'
+              id='message'
               value={inputFields.message}
-              onChange={(e) =>
-                setInputFields((prevFiled) => ({
-                  ...prevFiled,
-                  message: e.target.value,
-                }))
-              }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-              cols="30"
-              rows="7"
+              onChange={handleChange}
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
+              cols='30'
+              rows='7'
             ></textarea>
+            {errors.message && (
+              <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'>
+                {errors.message}
+              </p>
+            )}
           </div>
 
           <div>
             {/* SECOND SECTION */}
             {/* EMAIL SECTION */}
-            <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">
+            <p className='text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2'>
               Email
             </p>
             <input
-              required
+              name='email'
+              id='email'
               value={inputFields.email}
-              onChange={(e) =>
-                setInputFields((prevFiled) => ({
-                  ...prevFiled,
-                  email: e.target.value,
-                }))
-              }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-              type="email"
+              onChange={handleChange}
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
+              type='email'
             />
-            <p className="text-red-600"> {emailPattern} </p>
+            {errors.email && (
+              <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'>
+                {errors.email}
+              </p>
+            )}
 
             {/* Phone SECTION */}
-            <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">
+            <p className='text-lead lg:text-[20px] text-[16px] font-semibold mb-2'>
               Phone
             </p>
             <input
-              required
+              name='phone'
+              id='phone'
               value={inputFields.phone}
-              onChange={(e) =>
-                setInputFields((prevFiled) => ({
-                  ...prevFiled,
-                  phone: e.target.value,
-                }))
-              }
-              className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none"
-              type="tel"
+              onChange={handleChange}
+              className='w-full bg-lynx p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none'
+              type='tel'
             />
+            {errors.phone && (
+              <p className='text-red-600 text-[0.75rem] lg:text-[1rem]'>
+                {errors.phone}
+              </p>
+            )}
           </div>
 
           {/* THIRD SECTION */}
 
-          <div className="bg-lynx flex flex-col xl:py-[6rem] py-[2rem] xl:px-[4rem] px-[1rem] gap-[3rem] rounded-[10px]">
+          <div className='bg-lynx flex flex-col xl:py-[6rem] py-[2rem] xl:px-[4rem] px-[1rem] gap-[3rem] rounded-[10px]'>
             {contactList.map((contact, index) => (
-              <div key={index} className="flex gap-[1.2rem]">
-                <span className="size-[20px] text-lead w-[30px] h-[30px] rounded-full bg-steam flex items-center justify-center">
+              <div key={index} className='flex gap-[1.2rem]'>
+                <span className='size-[20px] text-lead w-[30px] h-[30px] rounded-full bg-steam flex items-center justify-center'>
                   {contact.icon}
                 </span>
                 <a href={contact.href}> {contact.text} </a>
               </div>
             ))}
-            <div className="flex items-center  w-full md:w-fit md:justify-center gap-[2rem]">
+            <div className='flex items-center  w-full md:w-fit md:justify-center gap-[2rem]'>
               {socialIconList.map((icon, index) => (
                 <div
-                  className="w-[28px] h-[28px]  rounded-full bg-lead flex justify-center items-center "
+                  className='w-[28px] h-[28px]  rounded-full bg-lead flex justify-center items-center '
                   key={index}
                 >
-                  <a href={icon.href} target="_blank" rel="noopener noreferrer">
-                    <span className="size-[18] text-lynx">{icon.icon}</span>
-                  </a>
+                   <Tooltip 
+                    title={icon.title === "github" ? "github" :
+                     icon.title === "instagram" ? "instagram" : 
+                     icon.title === "twitter" ? "twitter" : 
+                     icon.title === "linkedIn" ? "linkedIn" : 
+                     icon.title === "upwork" ? "upwork" : "whatsapp"
+                    }
+                  >
+                    <a href={icon.href} target="_blank" rel="noopener noreferrer">
+                      <span className={`hover:text-[${icon.style}] size-[18px] text-lynx transition-all duration-300`}>{icon.icon}</span>
+                    </a>
+                  </Tooltip>
                 </div>
               ))}
             </div>
           </div>
           <button
             type="submit"
-            className="flex justify-center items-center bg-lead rounded-[10px] md:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] lg:hidden xl:block"
+            className="flex justify-center items-center bg-lead rounded-[10px] md:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] lg:hidden xl:block transform hover:scale-[1.02] transition-all duration-300"
           >
-            {" "}
             Send Now
           </button>
         </div>
         <button
-          type="submit"
-          className=" justify-center items-center bg-lead rounded-[10px] md:w-1/2 lg:w-1/3 xl:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] hidden lg:flex xl:hidden"
+          type='submit'
+          className='justify-center items-center bg-lead rounded-[10px] md:w-1/2 lg:w-1/3 xl:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] hidden lg:flex xl:hidden'
         >
-          {" "}
           Send Now
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
 export default Contact;
-
-// import React, { useState } from "react";
-// import { LuMail } from "react-icons/lu";
-// import { GiWorld } from "react-icons/gi";
-// import { FaGithub, FaTwitter, FaPhoneAlt } from "react-icons/fa";
-// import { GrInstagram } from "react-icons/gr";
-// import { FaLinkedinIn } from "react-icons/fa6";
-// import { SiUpwork } from "react-icons/si";
-// import { useNavigate } from "react-router-dom";
-// import {Form} from 'antd'
-
-// const Contact = () => {
-//   const [name, setName] = useState("")
-//   const [subject, setSubject] = useState("")
-//   const [message, setMessage] = useState("")
-//   const [email, seteEmail] = useState("")
-//   const [phone, setPhone] = useState("")
-
-//   const navigate = useNavigate()
-
-//   const onFinish = (data) => {
-//     navigate('/')
-//     console.log('Success:', data);
-//   }
-
-//   const onFinishFailed = (errorInfo) => {
-//     console.log('Failed:', errorInfo);
-//   };
-
-//   const validateMessages = {
-//     required: '${name} is required!',
-//     types: {
-//       email: "${name} is not a valid Email!",
-//       tel: "${name} is not a valid Telephone Number!",
-//     }
-//   }
-
-//   const contactList = [
-//     {
-//       icon: <FaPhoneAlt />,
-//       href: "#",
-//       text: "123-456-789",
-//     },
-//     {
-//       icon: <LuMail />,
-//       href: "#",
-//       text: "info@furniture.com",
-//     },
-//     {
-//       icon: <GiWorld />,
-//       href: "#",
-//       text: "www.furnitures.com",
-//     },
-//   ];
-
-//   const socialIconList = [
-//     {
-//       icon: <FaGithub />,
-//       href: "#",
-//     },
-//     {
-//       icon: <GrInstagram />,
-//       href: "#",
-//     },
-//     {
-//       icon: <FaTwitter />,
-//       href: "#",
-//     },
-//     {
-//       icon: <FaLinkedinIn />,
-//       href: "#",
-//     },
-//     {
-//       icon: <SiUpwork />,
-//       href: "#",
-//     },
-//   ];
-//   return (
-//     <div className="flex flex-col justify-center  min-h-screen xl:mx-[4rem] 2xl:mx-[8rem] lg:mx-[2rem] mx-[1rem] mb-[5rem]  font-nunito">
-//       <div className="flex flex-col items-center">
-//         <h2 className="text-lead text-center font-bold text-[30px] lg:text-[45px]">Contact</h2>
-//         <p className="text-center mt-[1rem] lg:mb-[3rem] mb-[1rem] text-bGrey lg:w-[50%] w-[90%] font-semibold text-[16px] lg:text-[20px]">
-//           We display products based on the latest products we have, if you want to
-//           see our old products please enter the name of the item.
-//         </p>
-//       </div>
-
-//       {/* FORM COMPONENT */}
-//       <h2 className="text-lead font-bold lg:text-[30px] text-[25px] text-left mb-[0.7rem] lg:mb-[1.5rem]">Get a quote</h2>
-//       <Form className="" onFinish={onFinish} onFinishFailed={onFinishFailed} validateMessages={validateMessages} autoComplete="on">
-//         <div className="grid w-full gap-[1.3rem] grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-//         {/* First Column */}
-//           <div className="">
-//           {/* NAME SECTION */}
-//             <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Name</p>
-//             <Form.Item
-
-//             name="Name"
-//             rules={[
-//               {
-//                 required: true,
-//               }
-//             ]}
-//             >
-//             <input value={name} onChange={(e) => setName(e.target.value)} className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none" />
-//             </Form.Item>
-
-//               {/* SUBJECT SECTION */}
-//             <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Subject</p>
-//             <Form.Item
-//              name="Subject"
-//               rules={[
-//                 {
-//                   required: true,
-//                 }
-//               ]}
-//             >
-//               <input value={subject} onChange={(e) => setSubject(e.target.value)} className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] capitalize rounded-[10px] mb-5 border-none outline-none" type="text" />
-//             </Form.Item>
-
-//               {/* MESSAGE SECTION */}
-//             <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Message</p>
-//             <Form.Item
-//               name="Message"
-//               rules={[
-//                 {
-//                   required: true,
-//                 }
-//               ]}
-//             >
-//              <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none" cols="30" rows="7"></textarea>
-//             </Form.Item>
-//           </div>
-
-//           <div>
-//           {/* SECOND SECTION */}
-//           {/* EMAIL SECTION */}
-//             <p className="text-lead lg:text-[20px] text-[16px] mt-[-20px] lg:mt-0 font-semibold mb-2">Email</p>
-//             <Form.Item
-//               name="Email"
-//               rules={[
-//                 {
-//                   required: true,
-//                   type: "email"
-//                 }
-//               ]}
-//             >
-//               <input value={email} onChange={(e) => seteEmail(e.target.value)} className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none" type="email"/>
-
-//             </Form.Item>
-
-//             {/* Phone SECTION */}
-//             <p className="text-lead lg:text-[20px] text-[16px] font-semibold mb-2">Phone</p>
-//             <Form.Item
-//               name="Phone"
-//               rules={[
-//                 {
-//                   required: true,
-//                   type: 'tel',
-//                 }
-//               ]}
-//             >
-//               <input value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full bg-slate-200 p-[0.4rem] md:p-[0.6rem] rounded-[10px] mb-5 border-none outline-none" type="tel" />
-//             </Form.Item>
-//           </div>
-
-//           {/* THIRD SECTION */}
-
-//           <div className="bg-lynx flex flex-col xl:py-[6rem] py-[2rem] xl:px-[4rem] px-[1rem] gap-[3rem] rounded-[10px]">
-//             {contactList.map((contact, index) => (
-//               <div key={index} className="flex gap-[1.2rem]">
-//                 <span className="size-[20px] text-lead w-[30px] h-[30px] rounded-full bg-steam flex items-center justify-center">{contact.icon}</span>
-//                 <a href={contact.href}> {contact.text} </a>
-//               </div>
-//             ))}
-//             <div className="flex items-center  w-full md:w-fit md:justify-center gap-[2rem]">
-//               {socialIconList.map((icon, index) => (
-//                 <div
-//                   className="w-[28px] h-[28px]  rounded-full bg-lead flex justify-center items-center "
-//                   key={index}
-//                 >
-//                   <a href={icon.href} target="_blank" rel="noopener noreferrer">
-//                     <span className="size-[18] text-lynx">
-//                       {icon.icon}
-//                     </span>
-//                   </a>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//           <button type="submit" className="flex justify-center items-center bg-lead rounded-[10px] md:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] lg:hidden xl:block"> Send Now</button>
-//         </div>
-//         <button type="submit" className=" justify-center items-center bg-lead rounded-[10px] md:w-1/2 lg:w-1/3 xl:w-1/2 w-full py-[12px] text-white text-center font-bold text-[18x] hidden lg:flex xl:hidden"> Send Now</button>
-//       </Form>
-//     </div>
-//   );
-// };
-
-// export default Contact;

@@ -11,14 +11,15 @@ import { LuMinus } from "react-icons/lu";
 
 const CartCard = ({ product, image, title, color, quantity, price }) => {
   const dispatch = useDispatch();
-
-  const handleRemoveFromCart = (product) => {
+  
+  const handleRemoveFromCart = () => {
     dispatch(removeFromCart(product));
     toast.error("Item has been removed from cart");
   };
 
   return (
-    <div className="cart relative flex items-center gap-2 sm:gap-6 md:gap-8  w-full max-w-[39rem] mx-auto">
+    <div 
+      className="cart relative flex items-center gap-2 sm:gap-6 md:gap-8  w-full max-w-[39rem] mx-auto">
       <div className="bg-lynx p-3 sm:p-4 md:p-5 w-full max-w-[9rem] h-[9rem] rounded-[1.25rem]">
         <img
           src={image}
@@ -32,7 +33,7 @@ const CartCard = ({ product, image, title, color, quantity, price }) => {
             {title}
           </h2>
           <p className="text-base text-bGrey mt-1">
-            Color <span className="text-lead ml-1">{color}</span>
+            Color <span style={{color: color === 'transparent' ? 'rosybrown' : color}}  className={`capitalize ml-1`}>{color}</span>
           </p>
           <div className="flex border border-solid border-brown rounded-[0.625rem] w-max py-[0.4rem] px-3 mt-2">
             <button
@@ -60,7 +61,7 @@ const CartCard = ({ product, image, title, color, quantity, price }) => {
           <div className="mt-2 bg-lynx rounded-[0.625rem] p-[0.4rem] w-max cursor-pointer">
             <HiOutlineTrash
               size={22}
-              onClick={() => handleRemoveFromCart(product)}
+              onClick={handleRemoveFromCart}
             />
           </div>
         </div>

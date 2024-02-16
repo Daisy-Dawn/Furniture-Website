@@ -1,15 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: [
-//     "./index.html",
-//     "./src/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -36,7 +24,7 @@ export default {
         black40: '#FFFFFF66',
         darkBlue: '#070B1D',
         semiDarkBlue: '#1E2753',
-        blue: '#1645BC',
+        // blue: '#1645BC',
         lighterBlue: '#1E5EFF',
         skyBlue: '#4F81FF',
       },

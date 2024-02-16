@@ -7,7 +7,7 @@ const TeamCard = ({name, position, pic}) => {
   return (
     <div className='w-max h-[31.25rem] justify-self-center'>
         <div className='group relative w-[15.8125rem] rounded-[0.625rem] overflow-clip'>
-            <img src={pic} className=' object-cover  transition-transform duration-300 transform scale-105 group-hover:scale-100' alt="team profile image" />
+            <img src={pic} className=' object-cover skeleton transition-transform duration-300 transform scale-105 group-hover:scale-100' alt="team profile image" />
             <div className="rounded-tl-[0.625rem] rounded-bl-[0.625rem]  absolute  top-[50%] right-[-100%] transform translate-y-[-50%] group-hover:right-0  transition-all duration-300 delay-75 bg-steam backdrop-blur p-2 flex flex-col items-center gap-[1rem]">
                 <div className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center  ">
                   <Link to="https://github.com/Daisy-Dawn/" target="_blank" rel="noopener noreferrer"> <FaGithub size={18} className="text-lead hover:fill-[#bd2c00] transition-colors duration-300" /> </Link>
