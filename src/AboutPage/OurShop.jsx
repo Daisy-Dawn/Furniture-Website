@@ -6,7 +6,7 @@ const OurShop = () => {
     <section className="mx-[2rem] md:mx-[3rem] lg:mx-[5rem] my-12 gap-12 sm:gap-14 md:gap-16 grid grid-cols-1 md:grid-cols-2 justify-between items-center">
         <Surface>
           <div className=" relative w-full sm:max-w-[40rem] md:max-w-[49.0625rem] p-3 before:absolute before:w-[25%] before:h-[35%] before:border-l-[0.1875rem] before:border-l-solid before:border-l-[#644321] before:border-b-[0.1875rem] before-b-solid before:border-b-[#644321] before:bottom-0 before:left-0 transform  after:absolute after:w-[25%] after:h-[35%] after:border-r-[0.1875rem] after:border-r-solid after:border-r-[#644321] after:border-t-[0.1875rem] after:border-t-solid after:border-t-[#644321] after:top-0 after:right-0  ">
-              <img src={ourShop} className="rounded-[0.625rem] object-cover" alt="shop image" />
+              <img src={ourShop} className="rounded-[0.625rem] skeleton object-cover" alt="shop image" />
           </div>
         </Surface>
         <div className="w-full max-w-[41.5625rem]">
