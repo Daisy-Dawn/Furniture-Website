@@ -25,7 +25,7 @@ const RecentBlogs = () => {
               <Link to={`/blog/${blog.id}`}>
                 <div className="relative overflow-hidden">
                   <img
-                    className="rounded-[0.625rem] w-full h-[18.875rem] object-cover"
+                    className="rounded-[0.625rem] skeleton w-full h-[18.875rem] object-cover"
                     src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${blog.image}`}
                     alt="An image of a blog"
                   />

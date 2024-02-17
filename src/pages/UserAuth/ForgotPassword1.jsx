@@ -34,7 +34,7 @@ const ForgotPassword1 = () => {
       // handle an error message here using the notification.antd
       notification.success({
         message: "something went wrong",
-        description: "Could not sent data to server",
+        description: "Could not send data to server",
       });
     }
   }
