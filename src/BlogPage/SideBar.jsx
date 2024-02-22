@@ -33,7 +33,7 @@ const SideBar = () => {
                 Easy and Unexpected Living Room Decorating 
             </h2>
             <div className="my-4">
-                <img src={blogSmall1} className="rounded-[0.625rem] object-cover h-[12.5rem]" alt="blog image" />
+                <img src={blogSmall1} className="rounded-[0.625rem] skeleton object-cover h-[12.5rem]" alt="blog image" />
             </div>
             <p className="text-lg text-bGrey font-normal w-full max-w-[23.375rem]">Is your living room decor in desperate need of a refresh? Whether you haven&#39;t redecorated in a 
                 decade or just want an easy trick to perk up an outdated sofa. 
