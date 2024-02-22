@@ -8,6 +8,7 @@ import PaymentModal from "../payment/PaymentModal";
 import { orderSummarySelector } from "../features/addToCartSlice";
 import { cartListGroupSelector } from "../features/addToCartSlice";
 import { useNavigate } from "react-router-dom";
+// import axios from 'axios';
 
 const CheckoutForm = () => {
   const navigate = useNavigate();
@@ -18,6 +19,77 @@ const CheckoutForm = () => {
 
   // Access the individual properties for order summary total
   const { cartTotalAmount, shippingFee } = orderSummary
+
+
+  // ///////////////////////////////////////////////////////////////////////////
+  // const [totalAmount, setTotalAmount] = useState();
+  // const [cartItems, setCartItems] = useState();
+
+
+  // total amount of the cart from redux store
+  // const totalCheckoutPayment = useSelector(
+  //     (state) => state.checkoutForm.totalPayment
+  // );
+  // total of everything on the checkout form
+  // const subTotal = totalCheckoutPayment;
+
+  // all billing details called from redux store
+
+  // const totalProductToBeBought = useSelector(
+  //     (state) => state.addTocart.cartListGroup
+  // );
+  // console.log(totalProductToBeBought)
+  // all the input from billing details called to be sent to the database
+  // const {
+  //   firstName, lastName,
+  //   email,
+  //   contactNumber, companyName,
+  //   address, city, state, country, postalCode, otherNotes,
+  // } = useSelector((state) => state.form.checkoutFormData);
+  // const billingData = {
+  //   firstName: firstName,
+  //   lastName: lastName,
+  //   email: email,
+  //   contactNumber: contactNumber,
+  //   companyName: companyName,
+  //   address: address,
+  //   city: city,
+  //   state: state,
+  //   country: country,
+  //   postalCode: postalCode,
+  //   otherNotes: otherNotes,
+  // }
+
+  // // the api that sents the billing details
+  // const url = "http://localhost/reactApiPhp/api/billingDetails.php";
+
+
+
+  // // for email to the admin
+  // useEffect(() => {
+  //   const getTotalAmount = sessionStorage.getItem('totalPayment')
+  //   const getCartItems = JSON.parse(localStorage.getItem('cartItems'))
+  //   setTotalAmount(getTotalAmount)
+  //   setCartItems(getCartItems)
+  // }, [])
+  // // api to the backend 
+  // const phpMailer = "http://localhost/reactApiPhp/api/invoiceToAdmin.php";
+  // // the required destails to be sent to the backend
+  // const paymentPoroductDetails = {
+  //   cartItems: cartItems,
+  //   total: totalAmount,
+  //   email: email,
+  // }
+
+  // const sendPHPMail = async () => {
+  //   const promise = await axios.post(phpMailer, paymentPoroductDetails)
+  //   // send to the server-side
+  //   const response = await axios.post(url, billingData)
+  //   if (promise && response === true) {
+  //     console.log("success:");
+  //   }
+  // }
+  // ////////////////////////////////////////////////////////////////////////////////////////////////
 
   // Calculate the orderSummaryTotal
   // const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
@@ -83,6 +155,8 @@ const CheckoutForm = () => {
 
   const handleCheckout = (e) => {
     e.preventDefault();
+
+    // sendPHPMail();
 
     // Check if the user is logged in
     if (!checkUserAuthentication()) {
@@ -402,7 +476,7 @@ const CheckoutForm = () => {
                     </h2>
                     <p className='font-semibold text-bGrey capitalize text-[0.9rem] min-[500px]:text-[1rem] text-center md:text-left xl:text-[1.2rem]'>
                       Color:{' '}
-                      <span style={{color: product.color === 'transparent' ? 'rosybrown' : product.color}}>
+                      <span style={{ color: product.color === 'transparent' ? 'rosybrown' : product.color }}>
                         {' '}
                         {product.color}{' '}
                       </span>{' '}

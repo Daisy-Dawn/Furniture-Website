@@ -1,11 +1,11 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: http://localhost:5173");
 // Allow methods GET, POST, PUT, DELETE, OPTIONS
-header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Methods: GET, POST,  OPTIONS");
 // Allow headers Content-Type, Authorization, Accept
-header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, Accept");
 
 $serverhost = "localhost";
 $servername = "root";

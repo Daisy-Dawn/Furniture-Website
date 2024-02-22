@@ -43,7 +43,7 @@ switch ($method) {
 
 
 
-        $checkEmailQuery = "SELECT COUNT(*) as emailCount FROM billingDetails WHERE email = '$email' ";
+        $checkEmailQuery = "SELECT COUNT(*) as emailCount FROM billingdetails WHERE email = '$email' ";
         $checkResult = $db_connect->query($checkEmailQuery);
 
         if ($checkResult && $checkResult->num_rows > 0) {
@@ -54,7 +54,7 @@ switch ($method) {
                 # code...
                 echo json_encode(["error" => "billing details already exists"]);
             } else {
-                $result = mysqli_query($db_connect, "INSERT INTO billingDetails (firstName, lastName, email, contactNumber, companyName, address, city, state, country, postalCode, otherNotes) 
+                $result = mysqli_query($db_connect, "INSERT INTO billingdetails (firstName, lastName, email, contactNumber, companyName, address, city, state, country, postalCode, otherNotes) 
                 VALUES('$firstName', '$lastName', '$email', '$contactNumber', '$companyName', '$address', '$city', '$state', '$country', '$postalCode', '$otherNotes') ");
             }
         } else {

@@ -42,20 +42,33 @@ const Login = () => {
     const googleFormData = { name: decode.name, email: decode.email, picture: decode.picture }
 
     // getting api from the backend
-    const url = ('http://localhost/reactApiPhp/api/googleAuth.php');
+    const url = ('https://freefurnitura.000webhostapp.com/reactApiPhp/api/googleAuth.php');
 
     // sending the google details to the server-side
     await axios.post(url, googleFormData);
 
     if (googletok === true) {
-      navigate('/shop');
+      notification.success({
+        message: "Registration Successful",
+        description: "Your data is authenticated successfully!",
+      });
+      setTimeout(() => {
+        navigate('/shop');
+      }, 3000);
     } else {
-      console.error('Something went wrong.')
+      notification.error({
+        message: "Something went wrong",
+        description: "Could not signup using googleAuth, consider using the signup form!",
+      });
     }
-    console.log(decode)
+
   };
   const responseError = (err) => {
-    console.log(err);
+    // console.log(err);
+    notification.error({
+      message: "Error occured from Google",
+      description: "Can't use GoogleAuth right now!", err
+    });
   }
 
 
@@ -90,47 +103,47 @@ const Login = () => {
         setErrors(newErrors);
       } else {
         //form submission successful
-        console.log("Form submitted", loginFormData);
+        const formData = {
+          email: loginFormData.email,
+          password: loginFormData.password,
+        };
+        const response = await axios.post(
+          "http://localhost/reactApiPhp/api/loginServer.php",
+          formData
+        );
+        // const encryptData = response.config.data;
+        // const encodeData = btoa(encryptData);
+
+        if (response.data.message === "Login successful") {
+          const { token, user } = response.data;
+          const encodeData = btoa(user);
+
+          // Store token and user data in localStorage
+          localStorage.setItem("token", token);
+          localStorage.setItem("user", JSON.stringify(encodeData));
+
+          notification.success({
+            message: "Login Successful",
+            description: "Your have been logged in successfully!",
+          });
+
+          setLoginFormData({
+            email: "",
+            password: "",
+          });
+          setTimeout(() => {
+            navigate("/shop");
+          }, 2000);
+        } else {
+          notification.error({
+            message: "Wrong Email or Password, Try Again",
+            description:
+              "You entered an incorrect email or password. Kindly Try again!",
+          });
+          return;
+        }
       }
-      const formData = {
-        email: loginFormData.email,
-        password: loginFormData.password,
-      };
-      const response = await axios.post(
-        "http://localhost/reactApiPhp/api/loginServer.php",
-        formData
-      );
-      // const encryptData = response.config.data;
-      // const encodeData = btoa(encryptData);
 
-      if (response.data.message === "Login successful") {
-        const { token, user } = response.data;
-        const encodeData = btoa(user);
-
-        // Store token and user data in localStorage
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(encodeData));
-
-        notification.success({
-          message: "Login Successful",
-          description: "Your have been logged in successfully!",
-        });
-
-        setLoginFormData({
-          email: "",
-          password: "",
-        });
-        setTimeout(() => {
-          navigate("/shop");
-        }, 2000);
-      } else {
-        notification.error({
-          message: "Wrong Email or Password, Try Again",
-          description:
-            "You entered an incorrect email or password. Kindly Try again!",
-        });
-        return;
-      }
     } catch (error) {
       notification.error({
         message: "An error occurred, Try Again",

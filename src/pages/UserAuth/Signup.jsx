@@ -48,20 +48,35 @@ const Signup = () => {
     const googleFormData = { name: decode.name, email: decode.email, picture: decode.picture }
 
     // getting api from the backend
-    const url = ('http://localhost/reactApiPhp/api/googleAuth.php');
+    const url = ('https://freefurnitura.000webhostapp.com/reactApiPhp/api/googleAuth.php');
 
     // sending the google details to the server-side
     await axios.post(url, googleFormData);
 
     if (googletok === true) {
-      navigate('/shop');
+      notification.success({
+        message: "Registration Successful",
+        description: "Your data is authenticated successfully!",
+      });
+      setTimeout(() => {
+        navigate('/shop');
+      }, 3000);
     } else {
-      console.error('Something went wrong.')
+      // console.error('Something went wrong.')
+      // handle error notification 
+      notification.error({
+        message: "Something went wrong",
+        description: "Could not signup using googleAuth, consider using the signup form!",
+      });
     }
-    console.log(decode)
   };
   const responseError = (err) => {
-    console.log(err);
+    // console.log(err);
+    // handle error notification
+    notification.error({
+      message: "Error occured from Google",
+      description: `Can't use GoogleAuth right now! ${err}`
+    });
   }
 
   // facebook authentication
@@ -91,18 +106,23 @@ const Signup = () => {
       const newErrors = {};
       if (signupFormData.username.trim() === "") {
         newErrors.username = "Please enter a username!";
+
       }
       if (signupFormData.password.trim() === "") {
         newErrors.password = "Password is required!";
+
       } else if (signupFormData.password.length < 8) {
         newErrors.password = "Password must be at least 8 characters";
+
       }
       if (signupFormData.email.trim() === "") {
         newErrors.email = "Please enter your valid email address!";
+
       }
       if (signupFormData.isChecked === false) {
         newErrors.isChecked =
           "Please check the box before you continue with your registration";
+
       }
 
       //check for errors
@@ -110,60 +130,64 @@ const Signup = () => {
         setErrors(newErrors);
       } else {
         //form submission successful
-        console.log("Form submitted", signupFormData);
+        // console.log("Form submitted", signupFormData);
+        const formData = {
+          username: signupFormData.username,
+          email: signupFormData.email,
+          password: signupFormData.password,
+        };
+        const results = await axios.post(
+          "https://freefurnitura.000webhostapp.com/reactApiPhp/api/server.php",
+          formData
+        );
+        // const encryptData = results.config.data;
+        // const encodeData = btoa(encryptData);
+
+        if (results.data.success) {
+          const { token, user } = results.data;
+          notification.success({
+            message: "Registration Successful",
+            description: "Your have been registered successfully!",
+          });
+
+
+          setSignupFormData({
+            username: "",
+            email: "",
+            password: "",
+            isChecked: false,
+          });
+
+          // Store token and user data in localStorage
+          const encodeData = btoa(user);
+          localStorage.setItem("token", token);
+          localStorage.setItem("user", JSON.stringify(encodeData));
+          setTimeout(() => {
+            navigate("/shop");
+          }, 3000);
+        } else if (results.data.error) {
+          notification.error({
+            message: "Registration Failed",
+            description: "Opss, Email Address Already Exists Try Again with a new email address!",
+          });
+          setSignupFormData({
+            username: "",
+            email: "",
+            password: "",
+            isChecked: false,
+          });
+        } else {
+          notification.error({
+            message: "Registration Failed",
+            description:
+              "There was an error submitting the form. Please try again Later.",
+          });
+        }
+
       }
 
-      const formData = {
-        username: signupFormData.username,
-        email: signupFormData.email,
-        password: signupFormData.password,
-      };
-      const results = await axios.post(
-        "http://localhost/reactApiPhp/api/server.php",
-        formData
-      );
-      // const encryptData = results.config.data;
-      // const encodeData = btoa(encryptData);
 
-      if (results.data.success) {
-        const { token, user } = results.data;
-        notification.success({
-          message: "Registration Successful",
-          description: "Your have been registered successfully!",
-        });
 
-        setSignupFormData({
-          username: "",
-          email: "",
-          password: "",
-          isChecked: false,
-        });
-
-        // Store token and user data in localStorage
-        const encodeData = btoa(user);
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(encodeData));
-        setTimeout(() => {
-          navigate("/shop");
-        }, 3000);
-      } else if (results.data.error) {
-        notification.error({
-          message: "Registration Failed",
-          description: "Opss, Email Address Already Exists Try Again!",
-        });
-        setSignupFormData({
-          username: "",
-          email: "",
-          password: "",
-          isChecked: false,
-        });
-      } else {
-        notification.error({
-          message: "Registration Failed",
-          description:
-            "There was an error submitting the form. Please try again Later.",
-        });
-      }
     } catch (error) {
       notification.error({
         message: "Registration Failed",
@@ -192,9 +216,11 @@ const Signup = () => {
           className="w-[80%] flex flex-col lg:gap-[1rem] gap-[0.5rem]"
           action=""
         >
-          <div style={{ alignItems: "center" }}>
-            {isLoading && <span className="loader"></span>}
-          </div>
+          <center>
+            <div style={{ alignItems: "center" }}>
+              {isLoading && <span className="loader"></span>}
+            </div>
+          </center>
 
           <h2 className="md:text-lead text-black lg:text-4xl text-2xl mt-[2rem] xl:mt-0 text-center  font-bold mb-2 lg:mb-4">
             Sign Up

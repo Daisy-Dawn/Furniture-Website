@@ -21,7 +21,7 @@ const ForgotPassword1 = () => {
     const response = await axios.post('http://localhost/reactApiPhp/api/sendResetPassword.php', {
       userEmail: email,
     });
-    console.log(response);
+
     if (response.data) {
       notification.success({
         message: "Confirmation Message Sent",
@@ -32,7 +32,7 @@ const ForgotPassword1 = () => {
       }, 5000);
     } else {
       // handle an error message here using the notification.antd
-      notification.success({
+      notification.error({
         message: "something went wrong",
         description: "Could not sent data to server",
       });

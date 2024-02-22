@@ -19,7 +19,7 @@ const ForgotPassword2 = () => {
   const fetchUrl = window.location.href;
   const urlPath = fetchUrl.split('?')
   const token = urlPath[1];
-  console.log("token store", token);
+  // console.log("token store", token);
 
 
 
@@ -46,9 +46,9 @@ const ForgotPassword2 = () => {
     }
 
     // If all checks pass, proceed with form submission
-    console.log('Form submitted successfully!, ', password);
+    // console.log('Form submitted successfully!, ', password);
 
-    const response = await axios.post('http://localhost/reactApiPhp/api/completeResetPassword.php', {
+    const response = await axios.post('https://freefurnitura.000webhostapp.com/reactApiPhp/api/completeResetPassword.php', {
       password: password, token: token,
     });
 
@@ -76,13 +76,13 @@ const ForgotPassword2 = () => {
     } else if (response.data.error) { // do not touch this response
       // handle error notification for the password update
 
-      notification.success({
+      notification.error({
         message: "Something went wrong",
         description: "Parse Error: could be ur token is invalid or expires. Please try again!",
       });
     } else if (response.data.failed) { // do not touch this response
       // handle error notification for the password update
-      notification.success({
+      notification.error({
         message: "Your token has expired",
         description: "password reset failed please try again!",
       });
@@ -92,7 +92,7 @@ const ForgotPassword2 = () => {
 
     } else {
       // handle error notification for the password update
-      notification.success({
+      notification.error({
         message: "invalid data",
         description: "password reset failed please try again!",
       });

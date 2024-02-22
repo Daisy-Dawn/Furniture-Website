@@ -1,13 +1,23 @@
 
 import { useEffect, useState } from "react";
+// import { useSelector } from "react-redux";
+// import { productsInCartSelector } from "../features/addToCartSlice";
 
 
 const ProductTable = () => {
     const [products, setProducts] = useState([]);
+    // const [error, setError] = useState("");
+    // const totalProductToBeBought = useSelector(
+    //     productsInCartSelector
+    // );
+    // setProducts(totalProductToBeBought)
+
 
     useEffect(() => {
+        // const totalProductToBeBought = JSON.stringify(localStorage.getItem('cartItems')) || [];
+        // setProducts(totalProductToBeBought)
         const getProduct = () => {
-            fetch("https://freefurnitura.000webhostapp.com/reactApiPhp/api/allProductList.php")
+            fetch("http://localhost/reactApiPhp/api/allProductList.php")
                 .then(response => {
                     return response.json();
                 })
@@ -28,8 +38,18 @@ const ProductTable = () => {
         // <>
         //     {/* for the table for admin */}
         // </>
+        // <div>
+        //     <h1>Items from localStorage</h1>
+        //     <ul>
+        //         {/* Render each item */}
+        //         {products.map((item, index) => (
+        //             <li key={index}>Value at index {index}: {item}</li>
+        //         ))}
+        //     </ul>
+        // </div>
 
         <div className="">
+
             {products.map((items, index) => (
                 <div key={index}>
                     <div className="">{index + 1}</div>
