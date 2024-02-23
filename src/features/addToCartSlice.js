@@ -35,9 +35,9 @@ const addToCartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartListGroup));
     },
     removeFromCart: (state, action) => {
-      if(action.payload.quantity > 1){
+      if (action.payload.quantity > 1) {
         state.numberOfCartItems -= action.payload.quantity;
-      }else{
+      } else {
         state.numberOfCartItems -= 1;
       }
       // Ensure numberOfCartItems does not go below 0
@@ -137,7 +137,7 @@ export const productsInCartSelector = (state) => {
 export const orderSummarySelector = (state) => {
   return {
     cartTotalAmount: state.addToCart.cartTotalAmount,
-    shippingFee: calculateShippingFee(8, 2), // Assuming a fixed weight and rate pf $2 per pound
+    shippingFee: calculateShippingFee(8, 2), // Assuming a fixed weight and rate of $2 per pound
     // couponDiscount:
     //   state.addToCart.cartTotalAmount - state.addToCart.cartSubTotal,
   };

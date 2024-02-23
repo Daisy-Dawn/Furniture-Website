@@ -7,7 +7,7 @@ import { SiUpwork } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { useState } from "react";
 import axios from "axios";
-import { Tooltip } from "antd";
+import { Tooltip, notification } from "antd";
 
 const Footer = () => {
   const backgroundImageUrl = flower5;
@@ -45,37 +45,37 @@ const Footer = () => {
       icon: <FaGithub />,
       href: "#",
       style: "hover:text-[#bd2c00]",
-      title:"github"
+      title: "github"
     },
     {
       icon: <GrInstagram />,
       href: "#",
       style: "hover:text-[#C13584]",
-      title:"instagram"
+      title: "instagram"
     },
     {
       icon: <FaTwitter />,
       href: "#",
       style: "hover:text-[#55acee]",
-      title:"twitter"
+      title: "twitter"
     },
     {
       icon: <FaLinkedinIn />,
       href: "#",
       style: "hover:text-[#0077B5]",
-      title:"linkedIn"
+      title: "linkedIn"
     },
     {
       icon: <SiUpwork />,
       href: "#",
       style: "hover:text-[#0085CA]",
-      title:"upwork"
+      title: "upwork"
     },
     {
       icon: <IoLogoWhatsapp />,
       href: "#",
       style: "hover:text-[#25D366]",
-      title:"whatsapp"
+      title: "whatsapp"
     },
   ];
 
@@ -93,7 +93,7 @@ const Footer = () => {
         setError("");
         setMsg("");
         setEmail(e.target.value);
-        
+
         break;
       default:
         break;
@@ -113,30 +113,42 @@ const Footer = () => {
 
       }
       const formData = { email: email };
-      const response = await axios.post('http://localhost/reactApiPhp/api/subcribe.php', formData);
+      const response = await axios.post('https://freefurnitura.000webhostapp.com/reactApiPhp/api/subcribe.php', formData);
 
 
       if (response.data.success) {
-        setMsg("You've successfully subscribed to our newsletter!")
-
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        notification.success({
+          message: "Newsletter Subscription successful",
+          description: "You have successfully subscribe to our mailing Newsletter!",
+        });
       } else if (response.data.error) {
-        setError('Email address already exists');
+
+        notification.error({
+          message: "Email address already exists!",
+          description: "These email address already exists on the server, kindly use another email.",
+        });
 
       } else {
         setError('Error subscribing to newsletter');
+        notification.error({
+          message: "Error subscribing to newsletter",
+          description: "Something went wrong subscribing!",
+        });
       }
 
     } catch (error) {
+
+      notification.error({
+        message: "Something went wrong",
+        description: `An error occurred, ${error}`,
+      });
       console.log(error);
     }
   }
 
   return (
     <div className="flex flex-col font-nunito">
-      <div className="relative min-h-[300px] bg-cover bg-center text-white items-center  flex flex-col justify-center xl:p-20 md:p-10 p-3"style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
+      <div className="relative min-h-[300px] bg-cover bg-center text-white items-center  flex flex-col justify-center xl:p-20 md:p-10 p-3" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
         {/* Dark overlay with transparency */}
         <div className="absolute inset-0 bg-black bg-opacity-40">
         </div>
@@ -178,7 +190,7 @@ const Footer = () => {
               </div>
             </form>
           </div>
-         
+
 
         </div>
       </div>
@@ -295,12 +307,12 @@ const Footer = () => {
                   className="w-[28px] h-[28px]  rounded-full bg-steam flex justify-center items-center "
                   key={index}
                 >
-                  <Tooltip 
+                  <Tooltip
                     title={icon.title === "github" ? "github" :
-                     icon.title === "instagram" ? "instagram" : 
-                     icon.title === "twitter" ? "twitter" : 
-                     icon.title === "linkedIn" ? "linkedIn" : 
-                     icon.title === "upwork" ? "upwork" : "whatsapp"
+                      icon.title === "instagram" ? "instagram" :
+                        icon.title === "twitter" ? "twitter" :
+                          icon.title === "linkedIn" ? "linkedIn" :
+                            icon.title === "upwork" ? "upwork" : "whatsapp"
                     }
                   >
                     <a href={icon.href} target="_blank" rel="noopener noreferrer">

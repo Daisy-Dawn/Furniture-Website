@@ -9,7 +9,7 @@ const BlogCard = ({image, date, bannerDescription, author, title, description}) 
     return (
         <article>
             <div>
-                <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${image}`} className="rounded-[0.625rem] object-cover w-full h-[22.25rem] max-w-[74.125rem]" alt="An image showing a furniture" />
+                <img src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${image}`} className="rounded-[0.625rem] skeleton object-cover w-full h-[22.25rem] max-w-[74.125rem]" alt="An image showing a furniture" />
                 <div className="text-sm sm:text-base md:text-lg text-bGrey font-normal flex flex-wrap justify-between sm:justify-start items-center gap-3 md:gap-5 mt-4">
                     <p>{date}</p>
                     <p>{bannerDescription}</p>

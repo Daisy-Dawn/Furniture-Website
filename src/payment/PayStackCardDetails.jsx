@@ -42,7 +42,7 @@ const PayStackCardDetails = () => {
   const publicKey = "pk_test_2d7205534e94ff5347ca44cc86690e8f5665258e";
 
   // the api to the backend
-  const ApiUrl = "http://localhost/reactApiPhp/api/billingDetails.php";
+  const ApiUrl = "https://freefurnitura.000webhostapp.com/reactApiPhp/api/billingDetails.php";
   // this is sending the data to the database using axios
   const sendToDB = () => {
     axios.post(ApiUrl, billingData)
