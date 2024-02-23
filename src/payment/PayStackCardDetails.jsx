@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetCart } from "../features/addToCartSlice";
 import { paystackImg } from '../assets'
+import { resetTotalPayment } from "../features/checkoutFormSlice";
 
 const PayStackCardDetails = () => {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ const PayStackCardDetails = () => {
         sendToDB();
         navigate("/shop")
         dispatch(resetCart());
+        dispatch(resetTotalPayment());
         alert("Your payment was successful!")
       }
       // upon successful payment the modal closes programatically

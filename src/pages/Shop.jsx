@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Main from '../components/shopComponent/Main'
 import Aside from '../components/shopComponent/Aside'
 import { BiSearchAlt } from 'react-icons/bi'
@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchProducts } from '../features/productSlice'
 
 const Shop = () => {
+  const targetRef = useRef(null);
   const dispatch = useDispatch()
   const { loading, products, error } = useSelector(state => state.products)
 
@@ -27,12 +28,7 @@ const Shop = () => {
 
   const [query, setQuery] = useState('')
 
-  const filteredItems = products.filter(
-    product =>
-      product.productName
-        .toLocaleLowerCase()
-        .indexOf(query.toLocaleLowerCase()) !== -1
-  )
+  const filteredItems = products.filter(product => product.productName.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1);
 
   const handleInputChange = event => {
     setQuery(event.target.value)
@@ -110,7 +106,10 @@ const Shop = () => {
   const currentProducts = result.slice(indexOfFirstProduct, lastIndexOfProduct)
 
   //pagination
-  const handlePageChange = page => setCurrentPage(page)
+  const handlePageChange = page => {
+    setCurrentPage(page)
+    targetRef.current.scrollIntoView({behavior:"smooth", block:"start"}); //scrolls the window to the top of the targetRef
+  }
 
   return (
     <div className='lg:py-[3rem] py-[1rem] xl:px-[4rem] lg:px-[3rem] px-[1rem] items-start gap-[2rem] grid grid-cols-6 lg:grid-cols-12 font-nunito bg-white  '>
@@ -153,7 +152,7 @@ const Shop = () => {
         </div>
       </header>
 
-      <section className='col-span-6 lg:col-span-12'>
+      <section ref={targetRef} className='col-span-6 lg:col-span-12'>
         <Recommended handleClick={handleClick} />
       </section>
 

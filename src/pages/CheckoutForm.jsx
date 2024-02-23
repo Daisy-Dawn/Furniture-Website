@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import {
   setCheckoutFormData,
@@ -7,28 +7,75 @@ import {
 import PaymentModal from "../payment/PaymentModal";
 import { orderSummarySelector } from "../features/addToCartSlice";
 import { cartListGroupSelector } from "../features/addToCartSlice";
-import { useNavigate } from "react-router-dom";
+import {usa,nigeria} from "../assets/index";
+import { FaCaretDown } from "react-icons/fa6";
+import {motion, AnimatePresence} from "framer-motion";
 
 const CheckoutForm = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [totalCheckoutPayment, setTotalCheckoutPayment] = useState(0); //initial totalCheckoutPayment state before conversion
+  const [convertedTotalCheckoutPayment, setConvertedTotalCheckoutPayment] = useState(0); //successfully converted checkoutPayment based on preferred currency
+   // currency related data and states
+   const currencyData = useMemo(() => [
+    {
+      title: "USD",
+      flag: usa,
+      label: "United States Dollars"
+    },
+    {
+      title: "NGN",
+      flag: nigeria,
+      label: "Nigerian Naira"
+    }
+  ], []);
+  const [isSelected, setIsSelected] = useState(currencyData[0]); //selected preferred currency
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); //controls currency dropdown options being visible or not
+  const apiKey = "https://v6.exchangerate-api.com/v6/cab78d75b3305cc04f75a8e0/latest/USD"; //api key
+
+  // fetch currency api
+  useEffect(()=>{
+    fetch(apiKey)
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Failed to fetch data!");
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Perform conversion based on the selected currency
+        const conversionRate = isSelected.title === "USD" ?  1 : data.conversion_rates.NGN;
+        const convertedAmount = totalCheckoutPayment * conversionRate;
+
+        // add commas to converted amount
+        const formattedAmount = convertedAmount.toLocaleString('en-US', { minimumFractionDigits:  2, maximumFractionDigits:  2 });
+        // Update the state with the converted amount
+        setConvertedTotalCheckoutPayment(formattedAmount);
+    })
+  },[isSelected, totalCheckoutPayment]);
+
+  
   // Use shallowEqual to memoize the selector
   const productsInCheckout = useSelector(cartListGroupSelector)
   const orderSummary = useSelector(orderSummarySelector, shallowEqual)
 
   // Access the individual properties for order summary total
   const { cartTotalAmount, shippingFee } = orderSummary
-
   // Calculate the orderSummaryTotal
   // const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
   // console.log('orderSummaryTotal:', orderSummaryTotal);
 
-  // Conditionally set the shipping fee to 0 if there are no items in the cart
-  const displayedShippingFee = productsInCheckout.length > 0 ? shippingFee : 0
+  const displayedShippingFee = productsInCheckout.length >  0 ? shippingFee :  0; // Conditionally set the shipping fee to 0 if there are no items in the cart
+  
+  // calculate shipment fee and update totalCheckoutPayment state
+  useEffect(() => {
+    const shipAndAmount = cartTotalAmount + displayedShippingFee;
+    setTotalCheckoutPayment(shipAndAmount);
+  }, [cartTotalAmount, displayedShippingFee]);
+ 
+  
 
-  const totalCheckoutPayment = cartTotalAmount + displayedShippingFee
+  
 
-  dispatch(setTotalPayment(totalCheckoutPayment))
 
   const [showPaymentModal, setShowPaymentModal] = useState(false)
   const [isFormValid, setFormValid] = useState(false)
@@ -48,7 +95,7 @@ const CheckoutForm = () => {
     email: '',
     otherNotes: ''
   })
-
+  
   const [errors, setErrors] = useState({
     firstName: '',
     lastName: '',
@@ -59,38 +106,29 @@ const CheckoutForm = () => {
     contactNumber: '',
     email: ''
   })
+  
+  const handleCurrencySelection =  currency => {
+    setIsSelected(currency);
+    setIsDropdownOpen(!isDropdownOpen);
+  }
 
   const handleChange = e => {
     const { name, value } = e.target
-
+    
     setFormData({
       ...formData,
       [name]: value
     })
-
+    
     setErrors({
       ...errors,
       [name]: ''
     })
   }
-
-  // function to check if the user is logged in
-  const checkUserAuthentication = () => {
-    const storeUser = JSON.parse(localStorage.getItem('user'));
-    const googleStoreUser = JSON.parse(localStorage.getItem('googleToken'));
-    return storeUser || googleStoreUser;
-  };
-
+  
   const handleCheckout = (e) => {
     e.preventDefault();
-
-    // Check if the user is logged in
-    if (!checkUserAuthentication()) {
-      // Navigate to the login page if the user is not logged in
-      navigate('/login');
-      return;
-    }
-
+    
     //validate inputs
     const newErrors = {}
     if (formData.firstName.trim() === '') {
@@ -125,13 +163,21 @@ const CheckoutForm = () => {
       setFormValid(true)
       //form submission successful
       // console.log("Form submitted", formData);
-      setShowPaymentModal(!showPaymentModal)
-      dispatch(setCheckoutFormData(formData))
+      setShowPaymentModal(!showPaymentModal);
+      dispatch(setCheckoutFormData(formData));
+
+      //remove the commas and dispatch converted amount
+      const removedCommasFromConvertedTotalCheckoutPayment = parseFloat(convertedTotalCheckoutPayment.replace(/,/g, ''))
+      dispatch(setTotalPayment(removedCommasFromConvertedTotalCheckoutPayment)); //dispatch converted amount
     }
     if (isFormValid) {
+      // We can use the "isSelected.title" state to determine what modal to display here
+      // eg: if(isSelected.title === "USD"){ toggleStripePaymentModal}else{toggleFlutterWavePaymentModal};
       togglePaymentModal()
     }
   }
+
+  
 
   return (
     <div className='xl:px-[5rem] md:px-[2rem] px-[1rem] font-nunito md:py-[3rem] py-[1rem]'>
@@ -389,9 +435,9 @@ const CheckoutForm = () => {
                   key={product.id}
                   className='flex md:flex-row flex-col items-center mb-[1rem] lg:items-start gap-[0.5rem] md:gap-[2rem]'
                 >
-                  <div className='max-w-[7rem] rounded-[10px] h-[6rem]'>
+                  <div className='w-full md:min-w-[6rem] max-w-[7rem] rounded-[10px] h-[6rem]'>
                     <img
-                      className='w-full  h-full object-cover rounded-[10px]'
+                      className='w-full h-full object-cover rounded-[10px]'
                       src={`https://freefurnitura.000webhostapp.com/reactApiPhp/images/${product.image}`}
                       alt={product.name}
                     />
@@ -435,8 +481,63 @@ const CheckoutForm = () => {
                   TOTAL
                 </p>
                 <p className='text-brown text-[1.1rem] md:text-[1.2rem] xl:text-[1.35rem] font-bold'>
-                  $ {totalCheckoutPayment}{' '}
+                  {isSelected.title === "USD" ? "$" : "₦"} {convertedTotalCheckoutPayment}{' '}
                 </p>
+              </div>
+
+              {/* currency container */}
+              <div className='my-4'>
+                <p className='text-bGrey text-[1rem] md:text-[1.2rem] xl:text-[1.3rem] font-normal mb-2'>Your payout currency</p>
+                <div>
+                    <div>
+                      <button 
+                        onClick={()=> setIsDropdownOpen(!isDropdownOpen)}
+                        className='group flex justify-between items-center w-full'
+                        type='button'
+                      >
+                        <div className='flex items-center gap-3'>
+                          <img className='w-6 h-6 rounded-full' src={isSelected.flag} alt={`${isSelected.label} flag`} />
+                          <h3 className='font-bold text-lead text-lg'>{isSelected.title}</h3>
+                        </div>
+                        <div className={`${isDropdownOpen ? "rotateArrow" : ""} transition-all duration-300`}>
+                          <FaCaretDown size="20"/>
+                        </div>
+                      </button>
+
+                      {/* dropdown menu */}
+                      <AnimatePresence>
+                        {isDropdownOpen && (
+                          <motion.div 
+                            initial={{opacity:0, height:0}}
+                            animate={{opacity:1, height:"auto"}}
+                            transition={{duration:0.3, ease:"easeInOut"}}
+                            exit={{opacity:0, height:0}}
+                            className="mt-4"
+                          >
+                          <ul className='flex flex-col items-end gap-2'>
+                            {
+                              currencyData.map(currency => (
+                                <motion.li
+                                  initial={{scale:1}}
+                                  whileTap={{scale:0.95}}
+                                  key={currency.title} 
+                                  onClick={()=> handleCurrencySelection(currency)}
+                                  className='group flex items-center gap-3 cursor-pointer'
+                                >
+                                  <div>
+                                    <p className='font-bold text-lead text-base text-right' >{currency.title}</p>
+                                    <p className='font-bold text-bGrey text-sm -mt-1'>{currency.label}</p>
+                                  </div>
+                                  <img className='group-hover:scale-110 transition-all duration-300 w-6 h-6 rounded-full' src={currency.flag} alt={`${currency.label} flag`}/>
+                                </motion.li>
+                              ))
+                            }
+                          </ul>
+                        </motion.div>
+                        ) }
+                      </AnimatePresence>
+                    </div>
+                </div>
               </div>
 
               <div className='flex mt-[1.5rem] justify-center'>

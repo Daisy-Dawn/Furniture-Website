@@ -120,8 +120,17 @@ const Login = () => {
           email: "",
           password: "",
         });
+
+        //get last route
+        const lastRoute = sessionStorage.getItem("lastRoute");
         setTimeout(() => {
-          navigate("/shop");
+          if(lastRoute){
+            //navigate to the last route
+            navigate(lastRoute); 
+          }else{
+            //navigate to shop
+            navigate("/shop");
+          }
         }, 2000);
       } else {
         notification.error({

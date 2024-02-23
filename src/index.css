@@ -55,6 +55,10 @@
   }
  }
 
+ /* currency dropdown arrow effect */
+ .rotateArrow{
+    rotate: -180deg ;
+ }
 
  /* HeartBeat animation for wishlist and cartlist icons on products */
 .heartBeatAnimation{

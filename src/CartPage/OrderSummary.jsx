@@ -6,7 +6,7 @@ import {
   getSubTotal,
 } from "../features/addToCartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { checkCoupon } from "./orderSummaryHelpers";
 import { coupons } from "./couponCodeGenerator";
@@ -17,6 +17,7 @@ const OrderSummary = () => {
   const cartListGroup = useSelector(cartListGroupSelector);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [couponCode, setCouponCode] = useState("");
   const [couponDiscount, setCouponDiscount] = useState(0);
@@ -50,10 +51,22 @@ const OrderSummary = () => {
   const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
   // const orderSummaryTotal = Math.ceil((cartTotalAmount + shippingFee) - couponDiscount);
 
+  //ths logic was before the protected route integration was implemented
+  // function to check if the user is logged in
+  // const checkUserAuthentication = () => {
+  //   const storeUser = JSON.parse(localStorage.getItem('user'));
+  //   const googleStoreUser = JSON.parse(localStorage.getItem('googleToken'));
+  //   return storeUser || googleStoreUser;
+  // };
+
   //update subTotal and navigate to checkout
   const handleCheckout = (subTotal) => {
-    dispatch(getSubTotal(subTotal));
-    navigate("/cart/checkout");
+      //set the lastRoute so that user can be navigated back to this spot if they happen to not be logged in while trying to access the checkout page
+      sessionStorage.setItem("lastRoute", location.pathname)
+      
+      dispatch(getSubTotal(subTotal));
+      navigate("/cart/checkout");
+    
   };
 
   return (

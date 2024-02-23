@@ -24,6 +24,7 @@ import {
   GlobalSettings
 } from '../AdminDashboard'
 import { LandingPage } from '../pages'
+import PrivateRoutes from './PrivateRoutes'
 
 const LazyLandingPage = lazy(() => import('../pages/LandingPage'))
 const LazyAbout = lazy(() => import('../pages/About'))
@@ -223,20 +224,25 @@ const Routers = () => {
           )
         },
         {
-          path: 'cart/checkout',
-          element: (
-            <Suspense
-              fallback={
-                <Skeleton
-                  paragraph={{ rows: 20 }}
-                  className='h-screen w-screen'
-                  active
-                />
-              }
-            >
-              <LazyCheckoutForm />
-            </Suspense>
-          )
+          element: <PrivateRoutes />,
+          children:[
+            {
+              path: 'cart/checkout',
+              element: (
+                <Suspense
+                  fallback={
+                    <Skeleton
+                      paragraph={{ rows: 20 }}
+                      className='h-screen w-screen'
+                      active
+                    />
+                  }
+                >
+                  <LazyCheckoutForm />
+                </Suspense>
+              )
+            },
+          ]
         },
         {
           path: '/cart/checkout/continuepayment',

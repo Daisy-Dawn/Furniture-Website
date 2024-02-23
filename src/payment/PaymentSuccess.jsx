@@ -3,6 +3,7 @@ import { Modal, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { resetCart } from "../features/addToCartSlice";
+import { resetTotalPayment } from "../features/checkoutFormSlice";
 
 const PaymentSuccess = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -21,6 +22,8 @@ const PaymentSuccess = () => {
 
     //reset cart items
     dispatch(resetCart());
+    //reset totalPayment
+    dispatch(resetTotalPayment());
   };
 
   return (

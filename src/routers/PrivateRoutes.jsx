@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 
 
 
@@ -8,12 +8,12 @@ const PrivateRoutes = () => {
     const token = localStorage.getItem('token');
     const googleVerified = localStorage.getItem('googleToken')
 
-    // Redirect to the login page if the token for form or google auth is not present
     if (!token || !googleVerified) {
+        // Redirect to the login page if the token for form or google auth is not present
         return <Navigate to='/login' />
     } else {
-        // Render the shop components if the user is authenticated
-        return <Navigate to='/shop' />
+        // Make this components accessible
+        return <Outlet />
     }
 
 }

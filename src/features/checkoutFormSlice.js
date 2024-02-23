@@ -19,8 +19,12 @@ const checkoutFormSlice = createSlice({
       state.totalPayment = action.payload;
       sessionStorage.setItem("totalPayment", JSON.stringify(state.totalPayment));
     },
+    resetTotalPayment: state => {
+      state.totalPayment = 0;
+      sessionStorage.setItem("totalPayment", JSON.stringify(state.totalPayment));
+    }
   },
 });
 
-export const { setTotalPayment } = checkoutFormSlice.actions;
+export const { setTotalPayment, resetTotalPayment } = checkoutFormSlice.actions;
 export default checkoutFormSlice.reducer;

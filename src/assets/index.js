@@ -328,6 +328,9 @@ import paystackImg from './payment/paystackImg.jpg'
 import forgotPassword from './forgotPassword.jpg' 
 import resetPassword from './resetPassword.jpg' 
 
+import usa from "./usa.png";
+import nigeria from "./nigeria.png";
+
 export {
     //about
     commentPic1, commentPic2, ourShop, offerBanner, teamCard1, teamCard2, teamCard3, teamCard4,
@@ -383,6 +386,6 @@ export {
     //payment
     mastercard, paypal_icon, visa_icon, paystack_icon, paystack1, debitCard, paypalImg, paystackImg,
 
-    forgotPassword, resetPassword,
+    forgotPassword, resetPassword, usa, nigeria
 
 }

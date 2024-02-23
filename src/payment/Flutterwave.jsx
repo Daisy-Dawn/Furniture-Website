@@ -3,6 +3,7 @@ import { closePaymentModal, useFlutterwave, } from 'flutterwave-react-v3';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { resetCart } from '../features/addToCartSlice';
+import { resetTotalPayment } from '../features/checkoutFormSlice';
 
 
 
@@ -87,6 +88,8 @@ export default function Flutterwave() {
                                 navigate('/shop')
                                 // reset the cart automatcally
                                 dispatch(resetCart());
+                                // reset totalPayment automatically
+                                dispatch(resetTotalPayment());
 
 
                             }
