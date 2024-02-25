@@ -50,8 +50,8 @@ export default function Flutterwave() {
     }
 
     // the api that sents the billing details
-    const url = "http://localhost/reactApiPhp/api/billingDetails.php";
-    const phpMailerAdmin = "http://localhost/reactApiPhp/api/invoiceToAdmin.php";
+    const url = "https://freefurnitura.000webhostapp.com/reactApiPhp/api/billingDetails.php";
+    const phpMailerAdmin = "https://freefurnitura.000webhostapp.com/reactApiPhp/api/invoiceToAdmin.php";
 
 
 
@@ -74,8 +74,6 @@ export default function Flutterwave() {
 
 
     const sendPHPMail = async () => {
-
-
         const promise = await axios.post(phpMailerAdmin, paymentPoroductDetails)
         // send to the server-side
         const response = await axios.post(url, billingData)

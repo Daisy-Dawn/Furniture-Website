@@ -7,16 +7,16 @@ import {
 import PaymentModal from "../payment/PaymentModal";
 import { orderSummarySelector } from "../features/addToCartSlice";
 import { cartListGroupSelector } from "../features/addToCartSlice";
-import {usa,nigeria} from "../assets/index";
+import { usa, nigeria } from "../assets/index";
 import { FaCaretDown } from "react-icons/fa6";
-import {motion, AnimatePresence} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CheckoutForm = () => {
   const dispatch = useDispatch();
   const [totalCheckoutPayment, setTotalCheckoutPayment] = useState(0); //initial totalCheckoutPayment state before conversion
   const [convertedTotalCheckoutPayment, setConvertedTotalCheckoutPayment] = useState(0); //successfully converted checkoutPayment based on preferred currency
-   // currency related data and states
-   const currencyData = useMemo(() => [
+  // currency related data and states
+  const currencyData = useMemo(() => [
     {
       title: "USD",
       flag: usa,
@@ -33,27 +33,27 @@ const CheckoutForm = () => {
   const apiKey = "https://v6.exchangerate-api.com/v6/cab78d75b3305cc04f75a8e0/latest/USD"; //api key
 
   // fetch currency api
-  useEffect(()=>{
+  useEffect(() => {
     fetch(apiKey)
-    .then(response => {
-        if(!response.ok){
-            throw new Error("Failed to fetch data!");
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch data!");
         }
         return response.json();
-    })
-    .then(data => {
+      })
+      .then(data => {
         // Perform conversion based on the selected currency
-        const conversionRate = isSelected.title === "USD" ?  1 : data.conversion_rates.NGN;
+        const conversionRate = isSelected.title === "USD" ? 1 : data.conversion_rates.NGN;
         const convertedAmount = totalCheckoutPayment * conversionRate;
 
         // add commas to converted amount
-        const formattedAmount = convertedAmount.toLocaleString('en-US', { minimumFractionDigits:  2, maximumFractionDigits:  2 });
+        const formattedAmount = convertedAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         // Update the state with the converted amount
         setConvertedTotalCheckoutPayment(formattedAmount);
-    })
-  },[isSelected, totalCheckoutPayment]);
+      })
+  }, [isSelected, totalCheckoutPayment]);
 
-  
+
   // Use shallowEqual to memoize the selector
   const productsInCheckout = useSelector(cartListGroupSelector)
   const orderSummary = useSelector(orderSummarySelector, shallowEqual)
@@ -62,91 +62,23 @@ const CheckoutForm = () => {
   const { cartTotalAmount, shippingFee } = orderSummary
 
 
-  // ///////////////////////////////////////////////////////////////////////////
-  // const [totalAmount, setTotalAmount] = useState();
-  // const [cartItems, setCartItems] = useState();
 
-
-  // total amount of the cart from redux store
-  // const totalCheckoutPayment = useSelector(
-  //     (state) => state.checkoutForm.totalPayment
-  // );
-  // total of everything on the checkout form
-  // const subTotal = totalCheckoutPayment;
-
-  // all billing details called from redux store
-
-  // const totalProductToBeBought = useSelector(
-  //     (state) => state.addTocart.cartListGroup
-  // );
-  // console.log(totalProductToBeBought)
-  // all the input from billing details called to be sent to the database
-  // const {
-  //   firstName, lastName,
-  //   email,
-  //   contactNumber, companyName,
-  //   address, city, state, country, postalCode, otherNotes,
-  // } = useSelector((state) => state.form.checkoutFormData);
-  // const billingData = {
-  //   firstName: firstName,
-  //   lastName: lastName,
-  //   email: email,
-  //   contactNumber: contactNumber,
-  //   companyName: companyName,
-  //   address: address,
-  //   city: city,
-  //   state: state,
-  //   country: country,
-  //   postalCode: postalCode,
-  //   otherNotes: otherNotes,
-  // }
-
-  // // the api that sents the billing details
-  // const url = "http://localhost/reactApiPhp/api/billingDetails.php";
-
-
-
-  // // for email to the admin
-  // useEffect(() => {
-  //   const getTotalAmount = sessionStorage.getItem('totalPayment')
-  //   const getCartItems = JSON.parse(localStorage.getItem('cartItems'))
-  //   setTotalAmount(getTotalAmount)
-  //   setCartItems(getCartItems)
-  // }, [])
-  // // api to the backend 
-  // const phpMailer = "http://localhost/reactApiPhp/api/invoiceToAdmin.php";
-  // // the required destails to be sent to the backend
-  // const paymentPoroductDetails = {
-  //   cartItems: cartItems,
-  //   total: totalAmount,
-  //   email: email,
-  // }
-
-  // const sendPHPMail = async () => {
-  //   const promise = await axios.post(phpMailer, paymentPoroductDetails)
-  //   // send to the server-side
-  //   const response = await axios.post(url, billingData)
-  //   if (promise && response === true) {
-  //     console.log("success:");
-  //   }
-  // }
-  // ////////////////////////////////////////////////////////////////////////////////////////////////
 
   // Calculate the orderSummaryTotal
   // const orderSummaryTotal = Math.ceil(cartTotalAmount - couponDiscount);
   // console.log('orderSummaryTotal:', orderSummaryTotal);
 
-  const displayedShippingFee = productsInCheckout.length >  0 ? shippingFee :  0; // Conditionally set the shipping fee to 0 if there are no items in the cart
-  
+  const displayedShippingFee = productsInCheckout.length > 0 ? shippingFee : 0; // Conditionally set the shipping fee to 0 if there are no items in the cart
+
   // calculate shipment fee and update totalCheckoutPayment state
   useEffect(() => {
     const shipAndAmount = cartTotalAmount + displayedShippingFee;
     setTotalCheckoutPayment(shipAndAmount);
   }, [cartTotalAmount, displayedShippingFee]);
- 
-  
 
-  
+
+
+
 
 
   const [showPaymentModal, setShowPaymentModal] = useState(false)
@@ -167,7 +99,7 @@ const CheckoutForm = () => {
     email: '',
     otherNotes: ''
   })
-  
+
   const [errors, setErrors] = useState({
     firstName: '',
     lastName: '',
@@ -178,29 +110,29 @@ const CheckoutForm = () => {
     contactNumber: '',
     email: ''
   })
-  
-  const handleCurrencySelection =  currency => {
+
+  const handleCurrencySelection = currency => {
     setIsSelected(currency);
     setIsDropdownOpen(!isDropdownOpen);
   }
 
   const handleChange = e => {
     const { name, value } = e.target
-    
+
     setFormData({
       ...formData,
       [name]: value
     })
-    
+
     setErrors({
       ...errors,
       [name]: ''
     })
   }
-  
+
   const handleCheckout = (e) => {
     e.preventDefault();
-    
+
     //validate inputs
     const newErrors = {}
     if (formData.firstName.trim() === '') {
@@ -249,7 +181,7 @@ const CheckoutForm = () => {
     }
   }
 
-  
+
 
   return (
     <div className='xl:px-[5rem] md:px-[2rem] px-[1rem] font-nunito md:py-[3rem] py-[1rem]'>
@@ -561,54 +493,54 @@ const CheckoutForm = () => {
               <div className='my-4'>
                 <p className='text-bGrey text-[1rem] md:text-[1.2rem] xl:text-[1.3rem] font-normal mb-2'>Your payout currency</p>
                 <div>
-                    <div>
-                      <button 
-                        onClick={()=> setIsDropdownOpen(!isDropdownOpen)}
-                        className='group flex justify-between items-center w-full'
-                        type='button'
-                      >
-                        <div className='flex items-center gap-3'>
-                          <img className='w-6 h-6 rounded-full' src={isSelected.flag} alt={`${isSelected.label} flag`} />
-                          <h3 className='font-bold text-lead text-lg'>{isSelected.title}</h3>
-                        </div>
-                        <div className={`${isDropdownOpen ? "rotateArrow" : ""} transition-all duration-300`}>
-                          <FaCaretDown size="20"/>
-                        </div>
-                      </button>
+                  <div>
+                    <button
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className='group flex justify-between items-center w-full'
+                      type='button'
+                    >
+                      <div className='flex items-center gap-3'>
+                        <img className='w-6 h-6 rounded-full' src={isSelected.flag} alt={`${isSelected.label} flag`} />
+                        <h3 className='font-bold text-lead text-lg'>{isSelected.title}</h3>
+                      </div>
+                      <div className={`${isDropdownOpen ? "rotateArrow" : ""} transition-all duration-300`}>
+                        <FaCaretDown size="20" />
+                      </div>
+                    </button>
 
-                      {/* dropdown menu */}
-                      <AnimatePresence>
-                        {isDropdownOpen && (
-                          <motion.div 
-                            initial={{opacity:0, height:0}}
-                            animate={{opacity:1, height:"auto"}}
-                            transition={{duration:0.3, ease:"easeInOut"}}
-                            exit={{opacity:0, height:0}}
-                            className="mt-4"
-                          >
+                    {/* dropdown menu */}
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="mt-4"
+                        >
                           <ul className='flex flex-col items-end gap-2'>
                             {
                               currencyData.map(currency => (
                                 <motion.li
-                                  initial={{scale:1}}
-                                  whileTap={{scale:0.95}}
-                                  key={currency.title} 
-                                  onClick={()=> handleCurrencySelection(currency)}
+                                  initial={{ scale: 1 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  key={currency.title}
+                                  onClick={() => handleCurrencySelection(currency)}
                                   className='group flex items-center gap-3 cursor-pointer'
                                 >
                                   <div>
                                     <p className='font-bold text-lead text-base text-right' >{currency.title}</p>
                                     <p className='font-bold text-bGrey text-sm -mt-1'>{currency.label}</p>
                                   </div>
-                                  <img className='group-hover:scale-110 transition-all duration-300 w-6 h-6 rounded-full' src={currency.flag} alt={`${currency.label} flag`}/>
+                                  <img className='group-hover:scale-110 transition-all duration-300 w-6 h-6 rounded-full' src={currency.flag} alt={`${currency.label} flag`} />
                                 </motion.li>
                               ))
                             }
                           </ul>
                         </motion.div>
-                        ) }
-                      </AnimatePresence>
-                    </div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </div>
               </div>
 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { notification } from "antd";
-import axios from 'axios'; 
+import axios from 'axios';
 // import { useParams } from 'react-router-dom';
 
 const ForgotPassword2 = () => {

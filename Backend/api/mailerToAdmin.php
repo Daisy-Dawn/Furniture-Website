@@ -171,7 +171,7 @@ $mail->Port = 465; //TCP port to connect to; use 587 if you have set `SMTPSecure
 
 //Recipients
 $mail->setFrom('test.hackdevelopers@gmail.com', 'Admin@furnitura.com');
-$mail->addAddress('emmanuelbigboss26@gmail.com', 'admin'); //Add a recipient
+$mail->addAddress('nexinfinitehub@gmail.com', 'admin'); //Add a recipient
 
 //Content
 $mail->isHTML(true);

@@ -48,22 +48,17 @@ const Login = () => {
     await axios.post(url, googleFormData);
 
     if (googletok === true) {
-      notification.success({
-        message: "Registration Successful",
-        description: "Your data is authenticated successfully!",
-      });
-      
-       //get last route
-       const lastRoute = sessionStorage.getItem("lastRoute");
-       setTimeout(() => {
-         if(lastRoute){
-           //navigate to the last route
-           navigate(lastRoute); 
-         }else{
-           //navigate to shop
-           navigate("/shop");
-         }
-       }, 3000);
+      //get last route
+      const lastRoute = sessionStorage.getItem("lastRoute");
+      setTimeout(() => {
+        if (lastRoute) {
+          //navigate to the last route
+          navigate(lastRoute);
+        } else {
+          //navigate to shop
+          navigate("/shop");
+        }
+      }, 3000);
     } else {
       notification.error({
         message: "Something went wrong",
@@ -117,7 +112,7 @@ const Login = () => {
           password: loginFormData.password,
         };
         const response = await axios.post(
-          "http://localhost/reactApiPhp/api/loginServer.php",
+          "https://freefurnitura.000webhostapp.com/reactApiPhp/api/loginServer.php",
           formData
         );
         // const encryptData = response.config.data;
@@ -140,18 +135,18 @@ const Login = () => {
             email: "",
             password: "",
           });
-          
+
           //get last route
-        const lastRoute = sessionStorage.getItem("lastRoute");
-        setTimeout(() => {
-          if(lastRoute){
-            //navigate to the last route
-            navigate(lastRoute); 
-          }else{
-            //navigate to shop
-            navigate("/shop");
-          }
-        }, 2000);
+          const lastRoute = sessionStorage.getItem("lastRoute");
+          setTimeout(() => {
+            if (lastRoute) {
+              //navigate to the last route
+              navigate(lastRoute);
+            } else {
+              //navigate to shop
+              navigate("/shop");
+            }
+          }, 2000);
         } else {
           notification.error({
             message: "Wrong Email or Password, Try Again",

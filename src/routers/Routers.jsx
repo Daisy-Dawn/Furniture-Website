@@ -26,7 +26,7 @@ import {
 import { LandingPage } from '../pages'
 import PrivateRoutes from './PrivateRoutes'
 
-const LazyLandingPage = lazy(() => import('../pages/LandingPage'))
+// const LazyLandingPage = lazy(() => import('../pages/LandingPage'))
 const LazyAbout = lazy(() => import('../pages/About'))
 const LazyShop = lazy(() => import('../pages/Shop'))
 const LazyBlog = lazy(() => import('../pages/Blog'))
@@ -61,7 +61,7 @@ const Routers = () => {
       children: [
         {
           path: '',
-          element:<LandingPage />
+          element: <LandingPage />
         },
         {
           path: 'about',
@@ -225,7 +225,7 @@ const Routers = () => {
         },
         {
           element: <PrivateRoutes />,
-          children:[
+          children: [
             {
               path: 'cart/checkout',
               element: (
@@ -242,24 +242,25 @@ const Routers = () => {
                 </Suspense>
               )
             },
+            {
+              path: '/cart/checkout/continuepayment',
+              element: (
+                <Suspense
+                  fallback={
+                    <Skeleton
+                      paragraph={{ rows: 20 }}
+                      className='h-screen w-screen'
+                      active
+                    />
+                  }
+                >
+                  <LazyContinueFlutterwavePayment />
+                </Suspense>
+              )
+            },
           ]
         },
-        {
-          path: '/cart/checkout/continuepayment',
-          element: (
-            <Suspense
-              fallback={
-                <Skeleton
-                  paragraph={{ rows: 20 }}
-                  className='h-screen w-screen'
-                  active
-                />
-              }
-            >
-              <LazyContinueFlutterwavePayment />
-            </Suspense>
-          )
-        },
+
         {
           path: 'wishlist',
           element: (
