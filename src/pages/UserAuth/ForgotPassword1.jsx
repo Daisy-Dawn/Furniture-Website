@@ -18,7 +18,7 @@ const ForgotPassword1 = () => {
       setError("Input Field cannot be empty!")
       return;
     }
-    const response = await axios.post('http://localhost/reactApiPhp/api/sendResetPassword.php', {
+    const response = await axios.post('https://freefurnitura.000webhostapp.com/reactApiPhp/api/sendResetPassword.php', {
       userEmail: email,
     });
 

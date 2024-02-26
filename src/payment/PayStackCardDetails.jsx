@@ -1,6 +1,6 @@
 import { Modal } from "antd";
 import axios from "axios";
-import { useState, } from "react";
+import { useEffect, useState, } from "react";
 import { PaystackButton } from "react-paystack";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,8 @@ const PayStackCardDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isPayStackModalOpen, setIsPayStackModalOpen] = useState(true);
+  const [totalAmount, setTotalAmount] = useState();
+  const [cartItems, setCartItems] = useState();
   // total amount of the cart from redux store
   const totalCheckout = useSelector(
     (state) => state.checkoutForm.totalPayment
@@ -55,6 +57,38 @@ const PayStackCardDetails = () => {
 
   }
 
+  const phpMailerAdmin = "https://freefurnitura.000webhostapp.com/reactApiPhp/api/invoiceToAdmin.php";
+
+
+
+  // for email to the admin
+  useEffect(() => {
+    const getTotalAmount = sessionStorage.getItem('totalPayment')
+    const getCartItems = JSON.parse(localStorage.getItem('cartItems'))
+    setTotalAmount(getTotalAmount)
+    setCartItems(getCartItems)
+  }, [])
+  // api to the backend 
+  // the required destails to be sent to the backend
+  const paymentPoroductDetails = {
+    cartItems: cartItems,
+    total: totalAmount,
+    email: email,
+  }
+
+
+
+
+  const sendPHPMail = async () => {
+    const promise = await axios.post(phpMailerAdmin, paymentPoroductDetails)
+    // send to the server-side
+
+    if (promise === true) {
+      console.log("success:");
+    }
+  }
+
+
   // the logic for paystack
   const componentProps = {
     reference: (new Date()).getTime().toString(),
@@ -69,9 +103,8 @@ const PayStackCardDetails = () => {
     onSuccess: (response) => {
       // upon success payment this below should happen
       if (response) {
-        console.log(response)
-        console.log(billingData)
         sendToDB();
+        sendPHPMail();
         navigate("/shop")
         dispatch(resetCart());
         dispatch(resetTotalPayment());

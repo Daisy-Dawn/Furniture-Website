@@ -61,12 +61,11 @@ const OrderSummary = () => {
 
   //update subTotal and navigate to checkout
   const handleCheckout = (subTotal) => {
-      //set the lastRoute so that user can be navigated back to this spot if they happen to not be logged in while trying to access the checkout page
-      sessionStorage.setItem("lastRoute", location.pathname)
-      
-      dispatch(getSubTotal(subTotal));
-      navigate("/cart/checkout");
-    
+    //set the lastRoute so that user can be navigated back to this spot if they happen to not be logged in while trying to access the checkout page
+    sessionStorage.setItem("lastRoute", location.pathname)
+    dispatch(getSubTotal(subTotal));
+    navigate("/cart/checkout");
+
   };
 
   return (
@@ -83,9 +82,8 @@ const OrderSummary = () => {
         <h3 className="text-lead text-base md:text-lg font-semi-bold flex justify-between mt-3">
           Discount{" "}
           <span
-            className={`text-base ${
-              couponDiscount ? "text-red-700" : "text-lead"
-            }  font-normal`}
+            className={`text-base ${couponDiscount ? "text-red-700" : "text-lead"
+              }  font-normal`}
           >
             ${couponDiscount}
           </span>

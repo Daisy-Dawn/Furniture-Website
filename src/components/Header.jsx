@@ -12,21 +12,21 @@ const Header = () => {
   const navigate = useNavigate();
   const numberOfCartItems = useSelector(state => state.addToCart.numberOfCartItems)
   const numberOfWishlistItems = useSelector(state => state.addToWishlist.numberOfWishlistItems)
-  
+
 
   // framer motion helper
   const variants = {
-    hidden:{
-      opacity:0,
-      y:10
+    hidden: {
+      opacity: 0,
+      y: 10
     },
-    visible:{
-      opacity:1,
-      y:0
+    visible: {
+      opacity: 1,
+      y: 0
     }
   }
 
- 
+
 
   // Check if the user is authenticated
   useEffect(() => {
@@ -66,12 +66,12 @@ const Header = () => {
     setDropdownVisible(false);
   };
 
-  const handleHideNavbarWhenClicked = ()=>{
+  const handleHideNavbarWhenClicked = () => {
     setToggle(false);
   }
 
-   //navLinks data
-   const navLinks = [
+  //navLinks data
+  const navLinks = [
     { id: "", text: "Home" },
     { id: "about", text: "About" },
     { id: "shop", text: "Shop" },
@@ -104,15 +104,15 @@ const Header = () => {
             key={link.id}
             className={`text-black font-medium`}
           >
-            <NavLink 
+            <NavLink
               to={`/${link.id}`}
-              className={({isActive})=> isActive ? "nav-link active" : ""}
+              className={({ isActive }) => isActive ? "nav-link active" : ""}
             >{link.text}
             </NavLink>
           </li>
         ))}
       </ul>
-      
+
 
       <ul className="list-none flex  justify-between items-center gap-3 lg:gap-5 md:gap-5 text-[16px] ">
         <li
@@ -126,18 +126,18 @@ const Header = () => {
               <img src={commentPic1} className="rounded-full w-5 h-5 object-cover" alt="user avatar" />
             </div>
           ) : (
-              <img src={userIcon} alt="user icon image" />
+            <img src={userIcon} alt="user icon image" />
           )}
-          
+
           <AnimatePresence>
             {isDropdownVisible && (
-              <motion.div 
+              <motion.div
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
                 variants={variants}
-                transition={{duration:"0.3", ease:"easeOut"}}
-                style={{x: "-50%"}}
+                transition={{ duration: "0.3", ease: "easeOut" }}
+                style={{ x: "-50%" }}
                 className="absolute left-1/2 top-12  py-4 flex flex-col w-40 text-center bg-slate-100 ">
                 {user || success ? (
                   // If user is authenticated, display logout
@@ -161,7 +161,7 @@ const Header = () => {
                 <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent border-none"></div>
                 <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-slate-100"></div>
               </motion.div>
-              
+
             )}
           </AnimatePresence>
         </li>
@@ -170,10 +170,10 @@ const Header = () => {
             key={link.id}
             className={`text-black hover:text-brown relative font-medium "
               }`}
-            
+
           >
             <Tooltip title={link.id === "wishlist" ? "wishlist" : "cartlist"}>
-              <NavLink 
+              <NavLink
                 to={`/${link.id}`}
               >
                 <img src={link.text} alt="" />
@@ -208,12 +208,12 @@ const Header = () => {
               <li
                 key={link.id}
                 className={`text-white hover:text-yellow-300`}
-                
+
               >
-                <NavLink 
+                <NavLink
                   to={`/${link.id}`}
                   onClick={handleHideNavbarWhenClicked}
-                  className={({isActive}) => isActive ? "nav-link actife" : "nav-link"}
+                  className={({ isActive }) => isActive ? "nav-link actife" : "nav-link"}
                 >{link.text}</NavLink>
               </li>
             ))}

@@ -48,19 +48,15 @@ const Signup = () => {
     const googleFormData = { name: decode.name, email: decode.email, picture: decode.picture }
 
     // getting api from the backend
-    const url = ('https://freefurnitura.000webhostapp.com/reactApiPhp/api/googleAuth.php');
+    const url = ('http://localhost/reactApiPhp/api/googleAuth.php');
 
     // sending the google details to the server-side
     await axios.post(url, googleFormData);
 
     if (googletok === true) {
-      notification.success({
-        message: "Registration Successful",
-        description: "Your data is authenticated successfully!",
-      });
-      setTimeout(() => {
-        navigate('/shop');
-      }, 3000);
+      // setTimeout(() => {
+      navigate('/shop');
+      // }, 3000);
     } else {
       // console.error('Something went wrong.')
       // handle error notification 

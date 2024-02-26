@@ -8,12 +8,14 @@ const PrivateRoutes = () => {
     const token = localStorage.getItem('token');
     const googleVerified = localStorage.getItem('googleToken')
 
-    if (!token || !googleVerified) {
+    if (token || googleVerified) {
         // Redirect to the login page if the token for form or google auth is not present
+        return <Outlet />
+    } else if (!token || !googleVerified) {
+        // Make this components accessible
         return <Navigate to='/login' />
     } else {
-        // Make this components accessible
-        return <Outlet />
+        return <Navigate to='/' />
     }
 
 }

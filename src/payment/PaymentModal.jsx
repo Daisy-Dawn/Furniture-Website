@@ -53,9 +53,8 @@ const PaymentModal = ({ onClose }) => {
           <section className='flex lg:mt-[1.5rem] flex-col'>
             {/* DEBIT CARD */}
             <div
-              className={`flex justify-between border-y-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${
-                activePaymentOption === 0 ? 'active-payment-option' : ''
-              }`}
+              className={`flex justify-between border-y-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 0 ? 'active-payment-option' : ''
+                }`}
               onClick={() => handlePaymentOptionClick(0)}
             >
               <div className='flex items-center gap-4'>
@@ -63,9 +62,8 @@ const PaymentModal = ({ onClose }) => {
                   <img className='w-full h-full ' src={debitCard} alt='' />
                 </div>
                 <p
-                  className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${
-                    activePaymentOption === 0 ? 'text-black' : 'text-bGrey'
-                  }`}
+                  className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 0 ? 'text-black' : 'text-bGrey'
+                    }`}
                 >
                   Debit Card
                 </p>
@@ -83,9 +81,8 @@ const PaymentModal = ({ onClose }) => {
 
             {/* PAYPAL CARD */}
             <div
-              className={`flex justify-between border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${
-                activePaymentOption === 1 ? 'active-payment-option' : ''
-              }`}
+              className={`flex justify-between border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 1 ? 'active-payment-option' : ''
+                }`}
               onClick={() => handlePaymentOptionClick(1)}
             >
               <div className='flex gap-4 items-center'>
@@ -93,9 +90,8 @@ const PaymentModal = ({ onClose }) => {
                   <img className='w-full h-full ' src={paypal_icon} alt='' />
                 </div>
                 <p
-                  className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${
-                    activePaymentOption === 1 ? 'text-black' : 'text-bGrey'
-                  }`}
+                  className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 1 ? 'text-black' : 'text-bGrey'
+                    }`}
                 >
                   PAYPAL
                 </p>
@@ -113,9 +109,8 @@ const PaymentModal = ({ onClose }) => {
 
             {/* PAYSTACK CARD */}
             <div
-              className={`flex justify-between border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${
-                activePaymentOption === 2 ? 'active-payment-option' : ''
-              }`}
+              className={`flex justify-between border-b-2 lg:py-[1.5rem] py-[1rem] cursor-pointer border-bGrey items-center gap-10 ${activePaymentOption === 2 ? 'active-payment-option' : ''
+                }`}
               onClick={() => handlePaymentOptionClick(2)}
             >
               <div className='flex items-center gap-4'>
@@ -123,9 +118,8 @@ const PaymentModal = ({ onClose }) => {
                   <img className='w-full h-full ' src={paystack1} alt='' />
                 </div>
                 <p
-                  className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${
-                    activePaymentOption === 2 ? 'text-black' : 'text-bGrey'
-                  }`}
+                  className={` text-[1rem] lg:text-[1.3rem] uppercase font-semibold ${activePaymentOption === 2 ? 'text-black' : 'text-bGrey'
+                    }`}
                 >
                   PAYSTACK
                 </p>
@@ -147,7 +141,7 @@ const PaymentModal = ({ onClose }) => {
         <motion.div
           whileTap={{ scale: '.97' }}
           onClick={handleNextStepClick}
-          className='group bg-lighterBlue hover:bg-blue transition-all duration-300 lg:py-[1.4rem]  py-[1rem] max-w-[90%] mx-auto cursor-pointer items-center justify-center gap-4 flex rounded-[0.625rem]'
+          className='group bg-lighterBlue hover:bg-blue transition-all duration-300 lg:py-[1.4rem]  py-[1rem] max-w-[90%] mx-auto mt-4 cursor-pointer items-center justify-center gap-4 flex rounded-[0.625rem]'
         >
           <p className='text-white font-semibold text-[1rem] lg:text-[1.3rem]'>
             NEXT STEP
