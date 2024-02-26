@@ -182,7 +182,7 @@ import flowerVaseIcon from './FlowerVase/flowerVaseIcon.jpg';
 
 //FURNITURE STYLES
 import furnitureStylesIcon from './FurnitureStyles/furnitureStylesIcon.png';
-import furnitureStyles2 from './FurnitureStyles/furnitureStyles2.jpg'
+import furnitureStyles2 from './FurnitureStyles/furniturestyles2.jpg'
 import furnitureStyles3 from './FurnitureStyles/furnitureStyles3.jpeg'
 import furnitureStyles4 from './FurnitureStyles/furnitureStyles4.jpeg'
 import furnitureStyles5 from './FurnitureStyles/furnitureStyles5.jpeg'
