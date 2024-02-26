@@ -224,26 +224,42 @@ const Routers = () => {
           )
         },
         {
-          element: <PrivateRoutes />,
-          children:[
-            {
-              path: 'cart/checkout',
-              element: (
-                <Suspense
-                  fallback={
-                    <Skeleton
-                      paragraph={{ rows: 20 }}
-                      className='h-screen w-screen'
-                      active
-                    />
-                  }
-                >
-                  <LazyCheckoutForm />
-                </Suspense>
-              )
-            },
-          ]
+          path: 'cart/checkout',
+          element: (
+            <Suspense
+              fallback={
+                <Skeleton
+                  paragraph={{ rows: 20 }}
+                  className='h-screen w-screen'
+                  active
+                />
+              }
+            >
+              <LazyCheckoutForm />
+            </Suspense>
+          )
         },
+        // {
+        //   element: <PrivateRoutes />,
+        //   children:[
+        //     {
+        //       path: 'cart/checkout',
+        //       element: (
+        //         <Suspense
+        //           fallback={
+        //             <Skeleton
+        //               paragraph={{ rows: 20 }}
+        //               className='h-screen w-screen'
+        //               active
+        //             />
+        //           }
+        //         >
+        //           <LazyCheckoutForm />
+        //         </Suspense>
+        //       )
+        //     },
+        //   ]
+        // },
         {
           path: '/cart/checkout/continuepayment',
           element: (
